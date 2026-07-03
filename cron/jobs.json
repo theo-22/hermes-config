@@ -1,0 +1,44 @@
+{
+  "jobs": [
+    {
+      "id": "8ccc1d4cd833",
+      "name": "manifest-routing-health",
+      "prompt": "Daily Manifest routing and OpenRouter spend check.",
+      "skills": [],
+      "skill": null,
+      "model": null,
+      "provider": null,
+      "provider_snapshot": null,
+      "model_snapshot": null,
+      "base_url": null,
+      "script": "manifest_health_check.py",
+      "no_agent": true,
+      "context_from": null,
+      "schedule": {
+        "kind": "cron",
+        "expr": "0 10 * * *",
+        "display": "0 10 * * *"
+      },
+      "schedule_display": "0 10 * * *",
+      "repeat": {
+        "times": null,
+        "completed": 0
+      },
+      "enabled": true,
+      "state": "scheduled",
+      "paused_at": null,
+      "paused_reason": null,
+      "created_at": "2026-07-03T11:47:27.809638-04:00",
+      "next_run_at": "2026-07-04T10:00:00-04:00",
+      "last_run_at": null,
+      "last_status": null,
+      "last_error": null,
+      "last_delivery_error": null,
+      "deliver": "local",
+      "origin": null,
+      "enabled_toolsets": null,
+      "workdir": null
+    }
+  ],
+  "updated_at": "2026-07-03T11:47:27.810225-04:00"
+}

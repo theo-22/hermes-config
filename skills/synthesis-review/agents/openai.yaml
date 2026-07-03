@@ -1,0 +1,4 @@
+interface:
+  display_name: "Synthesis Review"
+  short_description: "Synthesize completed findings across rounds"
+  default_prompt: "Use $synthesis-review to review completed findings and produce a synthesis memo or proposal cards."

@@ -22,22 +22,23 @@
       "schedule_display": "0 10 * * *",
       "repeat": {
         "times": null,
-        "completed": 0
+        "completed": 1
       },
       "enabled": true,
       "state": "scheduled",
       "paused_at": null,
       "paused_reason": null,
       "created_at": "2026-07-03T11:47:27.809638-04:00",
-      "next_run_at": "2026-07-04T10:00:00-04:00",
-      "last_run_at": null,
-      "last_status": null,
-      "last_error": null,
+      "next_run_at": "2026-07-05T10:00:00-04:00",
+      "last_run_at": "2026-07-04T10:00:48.410072-04:00",
+      "last_status": "error",
+      "last_error": "Script exited with code 1\nstdout:\n# Manifest Routing Health \u2014 2026-07-04 14:00 UTC\n\n\u2705 **deepseek/deepseek-v4-flash** \u2014 PASS\n   Router: deepseek/deepseek-v4-flash\n\n\u274c **openai/gpt-5.5-subscription** \u2014 FAIL\n   Error: Rate limited by upstream provider\n\n\u2705 **anthropic/claude-sonnet-4-6-subscription** \u2014 PASS\n   Router: anthropic/claude-sonnet-4-6\n\n\u2139\ufe0f **OpenRouter spend** \u2014 INFO\n   Spend: $3.48 / $100 ($96.52 remaining)",
       "last_delivery_error": null,
       "deliver": "local",
       "origin": null,
       "enabled_toolsets": null,
-      "workdir": null
+      "workdir": null,
+      "fire_claim": null
     },
     {
       "id": "e345b0e20742",
@@ -61,15 +62,15 @@
       "schedule_display": "0 */4 * * *",
       "repeat": {
         "times": null,
-        "completed": 4
+        "completed": 5
       },
       "enabled": true,
       "state": "scheduled",
       "paused_at": null,
       "paused_reason": null,
       "created_at": "2026-07-03T12:47:57.552978-04:00",
-      "next_run_at": "2026-07-04T12:00:00-04:00",
-      "last_run_at": "2026-07-04T04:00:19.800596-04:00",
+      "next_run_at": "2026-07-04T16:00:00-04:00",
+      "last_run_at": "2026-07-04T08:00:23.152741-04:00",
       "last_status": "ok",
       "last_error": null,
       "last_delivery_error": "no delivery target resolved for deliver=all",
@@ -80,5 +81,5 @@
       "fire_claim": null
     }
   ],
-  "updated_at": "2026-07-04T08:00:21.750565-04:00"
+  "updated_at": "2026-07-04T12:00:40.564741-04:00"
 }

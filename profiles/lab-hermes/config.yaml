@@ -18,7 +18,7 @@ fallback_providers: '[{"model": "nvidia/nemotron-3-ultra-550b-a55b:free", "provi
 credential_pool_strategies: {}
 toolsets:
   - hermes-cli
-max_concurrent_sessions: null
+max_concurrent_sessions: 0
 max_live_sessions: 16
 agent:
   max_turns: 80
@@ -135,7 +135,7 @@ checkpoints:
   retention_days: 7
   delete_orphans: true
   min_interval_hours: 24
-context_file_max_chars: null
+context_file_max_chars: 100000
 file_read_max_chars: 100000
 mcp_discovery_timeout: 1.5
 tool_output:

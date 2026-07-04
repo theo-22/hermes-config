@@ -10,8 +10,14 @@ A multi-profile Hermes Agent setup for personal AI infrastructure.
 |---|---|
 | **coordinator-hermes** | Task routing, orchestration, cross-profile coordination |
 | **substrate-hermes** | Operational monitoring, cron reliability, system health |
-| **brain-hermes** | Memory management, knowledge capture, Brain/Supabase |
+| **brain-hermes** | Memory management, knowledge capture, semantic retrieval |
 | **lab-hermes** | Model testing, tool evaluation, experimentation |
+
+## State Intelligence
+
+This config is part of a larger pattern: **state intelligence**. Live files hold authority, semantic memory provides findable durability, temporal continuity surfaces recent context, and git provides proof.
+
+See [`docs/state-intelligence.md`](docs/state-intelligence.md) for the full architecture. The implementation here uses Brain for semantic memory and Pieces for temporal continuity, but the reusable pattern works with any tools.
 
 ## Routing Chain
 

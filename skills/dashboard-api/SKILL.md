@@ -5,6 +5,10 @@ description: >-
   http://127.0.0.1:8787. Use for cron health checks, log anomaly
   scanning, gateway status, session activity, and config verification.
   Designed for Substrate-Hermes but usable by any profile.
+category: meta
+write_mode: file
+one_line_use: monitor Hermes Dashboard for cron health, logs, and gateway status
+fast_pick: "no"
 tags: [hermes, dashboard, monitoring, health-check, substrate-hermes]
 ---
 

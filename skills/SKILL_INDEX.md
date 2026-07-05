@@ -66,6 +66,9 @@ If the `/` menu is crowded, scan this card first, then search for the exact skil
 - `profile-birthday-proof`
   Use when a new AI profile, Hermes profile, role runtime, agent, or major operating surface needs first-wake/birthday proof. Requires live path verification, session-start artifact, proof note, correction handling, honest BORN status, and CHANGES_LOG when durable state changes.
 
+- `dashboard-api`
+  Use when Substrate-Hermes or any profile needs live Hermes Dashboard data — cron health, log anomalies, gateway status, session activity, or config verification. 5 reusable API functions, shared across all profiles.
+
 - `model-switch-surfacing`
   Use when the active model is wrong for the task — Flash on a deep reasoning chain, or Pro on simple edits. Surfaces a quick upgrade/downgrade decision to Ted. Does not switch automatically. Judgment-only, no file writes.
 
@@ -110,6 +113,9 @@ If the `/` menu is crowded, scan this card first, then search for the exact skil
 - `live-surface-verification`
   Use when docs, schemas, env vars, Builder inventory, backend code, or memory disagree about live GPT/Builder/proxy state. Prove the real surface first: ask the GPT for a harmless raw action result, inspect Builder with Chrome, or use backend logs before patching.
 
+- `claude-validator`
+  Use when a Hermes profile wants outside assessment of work quality and blind spots. Sends self-assessment + work samples to Claude Code, Claude returns Quality Assessment, Self-Assessment Review, Blind Spots, Recommendations, and Summary Verdict. 3 clean assessments → spot-check.
+
 ## One-Line Distinctions
 
 - `share-learning` = capture a reusable pattern to _shared/ for all actors
@@ -142,6 +148,8 @@ If the `/` menu is crowded, scan this card first, then search for the exact skil
 
 - `coordinator-hermes-work-loop` = Coordinator shapes handoff, Hermes evaluates and executes
 - `role-workspace-sufficiency` = check and add enough owned workspace for a role-runtime role
+- `dashboard-api` = monitor Hermes Dashboard for cron health, logs, and gateway status
+- `claude-validator` = send work samples to Claude for external validation and blind-spot detection
 
 ## CLiP Role Map
 
@@ -291,3 +299,5 @@ If the main need is deciding whether a role has enough workspace or sandbox to f
 - `workspace-orchestration-coordination`
 - `coordinator-hermes-work-loop`
 - `role-workspace-sufficiency`
+- `dashboard-api`
+- `claude-validator`

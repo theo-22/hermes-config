@@ -5,6 +5,10 @@ description: >-
   external validation. Claude reviews quality, finds blind spots, and
   provides candid feedback that Hermes profiles can't see from the
   inside. Supports approve/deny/suggest-updates workflow.
+category: meta
+write_mode: file
+one_line_use: send work samples to Claude for external validation and blind-spot detection
+fast_pick: "no"
 tags: [hermes, claude, validation, quality, external-review]
 ---
 

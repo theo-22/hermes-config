@@ -7,6 +7,10 @@ description: >
 trigger: >
   Ted says "update System 14", or work has landed in a chapter room and the
   plan needs re-threading.
+category: knowledge-capture
+write_mode: file
+one_line_use: update System 14 plan — chapter-first, then thread upward
+fast_pick: "no"
 ---
 
 # System 14 Update
@@ -19,11 +23,19 @@ Update the System 14 plan with the current work.
 
 Start here:
 
-1. Read `README.md`, `CURRENT_STATE.md`, `NEXT_ACTION.md`, and `Planning_Docs/System_14_Plan.md`.
-2. Identify which chapter room owns the work. If the chapter is still skeletal but live work has begun, open it as a room with `README.md`, `CURRENT_STATE.md`, and `NEXT_ACTION.md`.
-3. Update the chapter first, then thread the change upward into the spine, Home `CURRENT_STATE.md`, `NEXT_ACTION.md`, `README.md`, and `TREE.md` only where needed.
-4. Preserve the distinction between current state, standards/goals, proof, and next action.
-5. Verify there are no stale contradictions, commit/push the repo, and record closeout in Operations if durable state changed.
+1. **Read the work order first** if one exists at `Work_Orders/<actor>/`. It defines scope, success/failure, and evaluation criteria narrower than this generic skill.
+2. Read `README.md`, `CURRENT_STATE.md`, `NEXT_ACTION.md`, and `Planning_Docs/System_14_Plan.md`.
+3. **Bump frontmatter** — update `version` and `last_updated` in `System_14_Plan.md` frontmatter before making content changes. A v-bump (e.g. 0.4→0.5) signals substantive change; same-day refinement passes (narrow cleanup of stale sections) may skip a full v-bump if they follow the same pass.
+4. Identify which chapter room owns the work. If the chapter is still skeletal but live work has begun, open it as a room with `README.md`, `CURRENT_STATE.md`, and `NEXT_ACTION.md`.
+5. Update the chapter first, then thread the change upward into the spine, Home `CURRENT_STATE.md`, `NEXT_ACTION.md`, `README.md`, and `TREE.md` only where needed.
+6. Preserve the distinction between current state, standards/goals, proof, and next action.
+7. **Verify no stale contradictions** — the most commonly missed step. Do not claim "no stale contradictions" until you have checked all of:
+   - **Frontmatter** — does `version` and `last_updated` match the update log? Frontmatter is outside the update log and easy to forget.
+   - **Chapter map (section 0.2)** — does the active/inactive/live framing match the current chapter room states?
+   - **Each spine section** that has a matching chapter — read through sections 6-13 (not just the ones you edited) for stale titles, old model language, or chapter name mismatches.
+   - **Stale language patterns** — search for old section titles, outdated model/actor names, chapter status terms at odds with the new state, references to retired entities.
+   The refinement pass finding from Project Homes Manager (2026-07-04) is the canonical example: first pass claimed "no stale contradictions" but frontmatter said v0.4/07-02 (update log said v0.5/07-04), Section 6 still used old organizing-layer language, and Section 8 still used old Memory/Pieces/Brain title. All three were in sections the first pass did not edit and did not re-read.
+8. Commit/push the repo and record closeout in `/Users/ted/Operations/CHANGES_LOG.md` if durable state changed.
 
 Do not create a parallel plan or chat-only summary. The plan is the System 14 spine; chapter rooms carry the live detail.
 
@@ -67,27 +79,28 @@ System 14 is a **release definition** — a set of documented goals the live Sub
    - **Standards/goals** — what we're building toward (lives in chapter READMEs, spine)
    - **Proof** — evidence that a capability landed (lives in chapter rooms)
    - **Next action** — what to do next (lives in `NEXT_ACTION.md`)
-5. **Verify no stale contradictions** — scan for conflicting dates, statuses, or claims
+5. **Verify no stale contradictions** — scan for conflicting dates, statuses, or claims. Use the detailed checklist in Prompt step 7.
 6. **Commit and push** the repo
 7. **Record closeout** in `/Users/ted/Operations/CHANGES_LOG.md` if durable state changed
 
-### Active Chapters (as of 2026-07-02)
+### Active Chapters (as of 2026-07-04)
 
 | # | Room | Domain | Status |
 |---|------|--------|--------|
 | 01 | Role_Runtime | Role runtime architecture | ACTIVE |
 | 02 | Portability | Runtime portability | Planned |
-| 03 | Coordinator_Access | Coordinator read/write access | In progress |
-| 04 | Project_Homes | Project Home governance | Planned |
+| 03 | Role_Access | Fleet-wide Role access standard — self-service bounded writes, escalate only protected | ACTIVE |
+| 04 | Project_Homes | Project Home governance and state roots | ACTIVE |
 | 05 | Inbox_Routing | Cross-actor inbox routing | Planned |
-| 06 | Memory_Pieces_Brain | Memory layer | Planned |
+| 06 | Memory_Pieces_Brain | Memory layer (Pieces + Brain) | Planned |
 | 07 | Canon_Runtime | Canon governance runtime | Planned |
 | 08 | Audit_Closure | Audit role closure and verification | Planned |
-| 09 | Domain_Migrations | Domain migration patterns | Planned |
+| 09 | Domain_Migrations | Domain migration patterns — now absorbs and supersedes the retired FOUNDATION/SYSTEM_MIGRATION_PLAN/MIGRATION_RUNWAY docs | ACTIVE |
 | 10 | Coordinator-Hermes | CH profile + Coordinator partnership | ACTIVE |
-| 11 | Hermes_Role | Canonical Hermes role definition | ACTIVE |
-| 12 | Dashboard_Standards | Dashboard redesign standards | ACTIVE |
-| 13 | Async_Communication | Shared async communication layer | ACTIVE |
+| 11 | Hermes_Role | Canonical Hermes role definition — what Hermes is | ACTIVE |
+| 12 | Dashboard_Standards | Operator dashboard redesign standards, process, and decisions | ACTIVE |
+| 13 | Async_Communication | Shared async communication layer — Threads, Zulip, and future forum boundary | ACTIVE |
+| 14 | Naming_And_Placement | Cross-cutting naming/placement standards — canonical-root convergence + one-authority discipline | ACTIVE |
 
 ### Closure Rules
 
@@ -103,6 +116,10 @@ Status language is honest. These apply to *bounded asks*, not to homes/rooms:
 
 > **`DONE` closes a capability, never a home or room.** No home or room is ever "done" — the substrate is under continuous development.
 
+### Plan Viewer
+
+The System 14 Plan Viewer (http://127.0.0.1:5577) renders the plan as a browsable web page with sidebar navigation and dark theme. It reads markdown files from disk on every request — new chapters and edits appear on browser refresh. No restart or build step needed. Health-checked every 4h by substrate-hermes cron (silent unless down). Source: `/Users/ted/Substrate/scripts/s14_viewer.py`.
+
 ### Pitfalls
 
 - **Do not create a parallel plan.** The spine is the plan. Chapter rooms carry the live detail. A chat-only summary or separate plan doc is wrong — update in place.
@@ -111,3 +128,6 @@ Status language is honest. These apply to *bounded asks*, not to homes/rooms:
 - **Do not skip the chapter-to-spine thread.** Updating a chapter room without threading into the spine creates drift that looks like contradictory planning.
 - **Do not update home files speculatively.** Only touch `CURRENT_STATE.md`, `NEXT_ACTION.md`, `README.md`, or `TREE.md` at Home root when the change genuinely affects the overall release picture.
 - **The prompt file is in the project home.** The update prompt itself lives at `/Volumes/Extra/Substrate/Projects/Substrate_v14/System 14 Update Prompt.md`. It should remain as-is; this skill is the portable version.
+- **Bump frontmatter BEFORE content changes.** It's easy to update the log entry but forget the frontmatter version/date. Do it first so you don't have to re-read the file after editing.
+- **Table formatting degenerates with repeated patches.** Markdown tables are hard to patch incrementally because pipe alignment shifts with each edit. If a table has already been patched once, prefer rewriting the entire table section rather than patching individual rows — otherwise leading pipes multiply (| → || → |||).
+- **Refinement passes may follow main passes.** A work order may arrive after the first pass asking for narrow cleanup of stale sections in the spine (frontmatter, old headings, stale language). These don't need a full new workflow — they are narrower than the main update and may skip the chapter-room step entirely.

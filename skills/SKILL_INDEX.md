@@ -72,6 +72,9 @@ If the `/` menu is crowded, scan this card first, then search for the exact skil
 - `model-switch-surfacing`
   Use when the active model is wrong for the task — Flash on a deep reasoning chain, or Pro on simple edits. Surfaces a quick upgrade/downgrade decision to Ted. Does not switch automatically. Judgment-only, no file writes.
 
+- `system-14-update`
+  Use when Ted says "update System 14" or work has landed in a chapter room. Update the chapter first, then thread upward into the spine and Home files. No parallel plans, no chat-only summaries.
+
 ### Judgment-Only (no database writes)
 
 - `manager-handoff-contract`
@@ -149,6 +152,7 @@ If the `/` menu is crowded, scan this card first, then search for the exact skil
 - `coordinator-hermes-work-loop` = Coordinator shapes handoff, Hermes evaluates and executes
 - `role-workspace-sufficiency` = check and add enough owned workspace for a role-runtime role
 - `dashboard-api` = monitor Hermes Dashboard for cron health, logs, and gateway status
+- `system-14-update` = update the System 14 plan — chapter-first, then thread upward
 - `claude-validator` = send work samples to Claude for external validation and blind-spot detection
 
 ## CLiP Role Map
@@ -297,7 +301,44 @@ If the main need is deciding whether a role has enough workspace or sandbox to f
 - `pieces-ambient-lead-evaluation`
 - `profile-birthday-proof`
 - `workspace-orchestration-coordination`
-- `coordinator-hermes-work-loop`
-- `role-workspace-sufficiency`
 - `dashboard-api`
 - `claude-validator`
+
+## Exact Skill Names
+
+- `affected-gpt-hearing`
+- `audit-yield-stamp`
+- `builder-batch`
+- `check-system`
+- `claude-validator`
+- `clip-cycle-closer`
+- `codex-usage-audit`
+- `concept-bridge-surfacing`
+- `context-extension-surfacing`
+- `coordinator-hermes-work-loop`
+- `dashboard-api`
+- `digest-topic-refresh`
+- `gpt-environment-build`
+- `gpt-instructions-discipline`
+- `image-factory-16x9-replacement-workflow`
+- `live-surface-verification`
+- `manager-handoff-contract`
+- `model-switch-surfacing`
+- `pieces-ambient-lead-evaluation`
+- `poka-yoke`
+- `profile-birthday-proof`
+- `project-room-review`
+- `proposal-candidate-surfacing`
+- `proposal-packet`
+- `quick-save`
+- `role-workspace-sufficiency`
+- `scope-comparison`
+- `share-learning`
+- `signal-review`
+- `skills-review`
+- `structure-distinction-surfacing`
+- `surface-routing`
+- `synthesis-review`
+- `system-14-update`
+- `workflow-orchestration`
+- `workspace-orchestration-coordination`

@@ -75,6 +75,9 @@ If the `/` menu is crowded, scan this card first, then search for the exact skil
 - `system-14-update`
   Use when Ted says "update System 14" or work has landed in a chapter room. Update the chapter first, then thread upward into the spine and Home files. No parallel plans, no chat-only summaries.
 
+- `icon-relocation-audit`
+  Use when a root has been relocated from ~/ to Extra and icon scripts need dual-path updates. Audit families, update scripts, backup, dry-run, apply, write receipt.
+
 ### Judgment-Only (no database writes)
 
 - `manager-handoff-contract`
@@ -153,6 +156,7 @@ If the `/` menu is crowded, scan this card first, then search for the exact skil
 - `role-workspace-sufficiency` = check and add enough owned workspace for a role-runtime role
 - `dashboard-api` = monitor Hermes Dashboard for cron health, logs, and gateway status
 - `system-14-update` = update the System 14 plan — chapter-first, then thread upward
+- `icon-relocation-audit` = update icon scripts for relocated ~/→Extra roots
 - `claude-validator` = send work samples to Claude for external validation and blind-spot detection
 
 ## CLiP Role Map
@@ -320,6 +324,7 @@ If the main need is deciding whether a role has enough workspace or sandbox to f
 - `digest-topic-refresh`
 - `gpt-environment-build`
 - `gpt-instructions-discipline`
+- `icon-relocation-audit`
 - `image-factory-16x9-replacement-workflow`
 - `live-surface-verification`
 - `manager-handoff-contract`

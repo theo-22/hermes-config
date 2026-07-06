@@ -3,6 +3,7 @@ model:
   default: deepseek/deepseek-v4-flash
   provider: custom
   api_key: [REDACTED]
+  fallback_providers: ''
 providers:
   anthropic:
     api_key: [REDACTED]
@@ -13,8 +14,11 @@ providers:
   ollama:
     base_url: http://127.0.0.1:11434/v1
     api_key: ''
+  longcat:
+    base_url: https://api.longcat.chat/openai
+    api_key: [REDACTED]
 fallback_providers: '[{"model": "nvidia/nemotron-3-ultra-550b-a55b:free", "provider":
-  "openrouter"}]'
+  "openrouter"}, {"model": "LongCat-2.0", "provider": "longcat"}]'
 credential_pool_strategies: {}
 toolsets:
   - hermes-cli

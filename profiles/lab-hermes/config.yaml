@@ -1,9 +1,9 @@
 model:
-  base_url: https://app.manifest.build/v1
-  default: deepseek/deepseek-v4-flash
-  provider: custom
-  api_key: [REDACTED]
-  fallback_providers: ''
+  base_url: ''
+  default: deepseek-v4-flash
+  provider: deepseek
+  api_key: ''
+  fallback_providers: '[{"model": "deepseek/deepseek-v4-flash", "provider": "custom"}]'
 providers:
   anthropic:
     api_key: [REDACTED]

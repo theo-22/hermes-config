@@ -22,17 +22,17 @@
       "schedule_display": "0 10 * * *",
       "repeat": {
         "times": null,
-        "completed": 2
+        "completed": 3
       },
       "enabled": true,
       "state": "scheduled",
       "paused_at": null,
       "paused_reason": null,
       "created_at": "2026-07-03T11:47:27.809638-04:00",
-      "next_run_at": "2026-07-06T10:00:00-04:00",
-      "last_run_at": "2026-07-05T10:00:30.638235-04:00",
+      "next_run_at": "2026-07-07T10:00:00-04:00",
+      "last_run_at": "2026-07-06T10:00:21.060282-04:00",
       "last_status": "error",
-      "last_error": "Script exited with code 1\nstdout:\n# Manifest Routing Health \u2014 2026-07-05 14:00 UTC\n\n\u2705 **deepseek/deepseek-v4-flash** \u2014 PASS\n   Router: deepseek/deepseek-v4-flash\n\n\u274c **openai/gpt-5.5-subscription** \u2014 FAIL\n   Error: Rate limited by upstream provider\n\n\u2705 **anthropic/claude-sonnet-4-6-subscription** \u2014 PASS\n   Router: anthropic/claude-sonnet-4-6\n\n\u2139\ufe0f **OpenRouter spend** \u2014 INFO\n   Spend: $4.07 / $100 ($95.93 remaining)",
+      "last_error": "Script exited with code 1\nstdout:\n# Manifest Routing Health \u2014 2026-07-06 14:00 UTC\n\n\u2705 **deepseek/deepseek-v4-flash** \u2014 PASS\n   Router: deepseek/deepseek-v4-flash\n\n\u274c **openai/gpt-5.5-subscription** \u2014 FAIL\n   Error: Rate limited by upstream provider\n\n\u2705 **anthropic/claude-sonnet-4-6-subscription** \u2014 PASS\n   Router: anthropic/claude-sonnet-4-6\n\n\u2139\ufe0f **OpenRouter spend** \u2014 INFO\n   Spend: $4.07 / $100 ($95.93 remaining)",
       "last_delivery_error": null,
       "deliver": "local",
       "origin": null,
@@ -62,15 +62,15 @@
       "schedule_display": "0 */4 * * *",
       "repeat": {
         "times": null,
-        "completed": 16
+        "completed": 17
       },
       "enabled": true,
       "state": "scheduled",
       "paused_at": null,
       "paused_reason": null,
       "created_at": "2026-07-03T12:47:57.552978-04:00",
-      "next_run_at": "2026-07-06T12:00:00-04:00",
-      "last_run_at": "2026-07-06T04:00:01.813392-04:00",
+      "next_run_at": "2026-07-06T16:00:00-04:00",
+      "last_run_at": "2026-07-06T08:00:57.759110-04:00",
       "last_status": "ok",
       "last_error": null,
       "last_delivery_error": "no delivery target resolved for deliver=all",
@@ -121,5 +121,5 @@
       "fire_claim": null
     }
   ],
-  "updated_at": "2026-07-06T08:00:55.949935-04:00"
+  "updated_at": "2026-07-06T12:00:30.959913-04:00"
 }

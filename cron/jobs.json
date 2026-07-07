@@ -62,15 +62,15 @@
       "schedule_display": "0 */4 * * *",
       "repeat": {
         "times": null,
-        "completed": 21
+        "completed": 22
       },
       "enabled": true,
       "state": "scheduled",
       "paused_at": null,
       "paused_reason": null,
       "created_at": "2026-07-03T12:47:57.552978-04:00",
-      "next_run_at": "2026-07-07T08:00:00-04:00",
-      "last_run_at": "2026-07-07T00:00:35.470879-04:00",
+      "next_run_at": "2026-07-07T12:00:00-04:00",
+      "last_run_at": "2026-07-07T04:00:12.825320-04:00",
       "last_status": "ok",
       "last_error": null,
       "last_delivery_error": "no delivery target resolved for deliver=all",
@@ -102,15 +102,15 @@
       "schedule_display": "0 6 * * *",
       "repeat": {
         "times": null,
-        "completed": 2
+        "completed": 3
       },
       "enabled": true,
       "state": "scheduled",
       "paused_at": null,
       "paused_reason": null,
       "created_at": "2026-07-05T18:19:32.988500-04:00",
-      "next_run_at": "2026-07-07T06:00:00-04:00",
-      "last_run_at": "2026-07-06T06:00:02.015183-04:00",
+      "next_run_at": "2026-07-08T06:00:00-04:00",
+      "last_run_at": "2026-07-07T06:00:23.000626-04:00",
       "last_status": "error",
       "last_error": "RuntimeError: Skipped to prevent unintended spend: global inference config drifted since this job was created (provider 'custom' -> 'deepseek'; model 'deepseek/deepseek-v4-flash' -> 'deepseek-v4-flash'), and this job is unpinned. No inference call was made. To run on the new config, pin it explicitly: `cronjob action=update job_id=243ab74e4c63 provider=<provider> model=<model>` (or pin the original values to keep them). See #44585.",
       "last_delivery_error": null,
@@ -121,5 +121,5 @@
       "fire_claim": null
     }
   ],
-  "updated_at": "2026-07-07T04:00:11.068994-04:00"
+  "updated_at": "2026-07-07T08:00:40.142838-04:00"
 }

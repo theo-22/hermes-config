@@ -29,6 +29,10 @@ Direct DeepSeek bypass available for `--provider deepseek` override.
 - Daily routing health check (no-agent watchdog)
 - Model boundary testing (chained)
 
+## State Intelligence
+
+[`docs/state-intelligence.md`](docs/state-intelligence.md) documents the three-layer state pattern — live files for authoritative state, Brain for semantic recall, Pieces for temporal continuity — and how cold actors start useful work without reconstructing history.
+
 ## Notes
 
 Secrets are auto-redacted on sync. This repo is regenerated from live config — treat as reference, not source of truth.

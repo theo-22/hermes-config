@@ -1,6 +1,6 @@
 model:
-  default: anthropic/claude-sonnet-4-6-subscription
-  provider: custom
+  default: deepseek-v4-flash
+  provider: deepseek
   base_url: https://app.manifest.build/v1
   api_key: [REDACTED]
 providers:
@@ -84,7 +84,8 @@ curator:
   prune_builtins: true
 telegram:
   reactions: false
-  allowed_chats: ''
+  allowed_chats:
+    - '-5183620298'
   extra:
     rich_messages: true
     rich_drafts: false
@@ -92,6 +93,7 @@ approvals:
   mode: auto
   timeout: 60
   cron_mode: auto
+  destructive_slash_confirm: false
 cron:
   wrap_response: true
   mirror_delivery: false
@@ -123,7 +125,8 @@ mcp_servers:
       Content-Type: application/json
     timeout: 60
     transport: http
-    url: https://wgaigjtcwobmanjwerei.supabase.co/functions/v1/open-brain-mcp?key=SeZa4B78mJhf7jej0dQnANby6fX_rPm8a9ePo3A0wyE
+    url: 
+      https://wgaigjtcwobmanjwerei.supabase.co/functions/v1/open-brain-mcp?key=SeZa4B78mJhf7jej0dQnANby6fX_rPm8a9ePo3A0wyE
 platform_toolsets:
   cli:
     - browser

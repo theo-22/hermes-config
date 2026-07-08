@@ -1,9 +1,8 @@
 model:
-  base_url: ''
+  base_url: https://api.deepseek.com
   default: deepseek-v4-flash
   provider: deepseek
-  api_key: ''
-  fallback_providers: '[{"model": "deepseek/deepseek-v4-flash", "provider": "custom"}]'
+  api_key: [REDACTED]
 providers:
   anthropic:
     api_key: [REDACTED]
@@ -11,18 +10,11 @@ providers:
     api_key: [REDACTED]
   deepseek:
     api_key: [REDACTED]
-  ollama:
-    base_url: http://127.0.0.1:11434/v1
-    api_key: ''
-  longcat:
-    base_url: https://api.longcat.chat/openai
-    api_key: [REDACTED]
+    base_url: https://api.deepseek.com
 fallback_providers: '[{"model": "nvidia/nemotron-3-ultra-550b-a55b:free", "provider":
-  "openrouter"}, {"model": "LongCat-2.0", "provider": "longcat"}]'
-credential_pool_strategies: {}
+  "openrouter"}]'
 toolsets:
   - hermes-cli
-max_concurrent_sessions: 0
 max_live_sessions: 16
 agent:
   max_turns: 80
@@ -80,7 +72,7 @@ agent:
     uwu: hewwo! i'm your fwiendwy assistant uwu~ i wiww twy my best to hewp you! *nuzzles
       your code* OwO what's this? wet me take a wook! i pwomise to be vewy hewpful
       >w<
-  reasoning_effort: medium
+  reasoning_effort: high
   verbose: false
 terminal:
   backend: local
@@ -94,7 +86,6 @@ terminal:
   auto_source_bashrc: true
   docker_image: nikolaik/python-nodejs:python3.11-nodejs20
   docker_forward_env: []
-  docker_env: {}
   singularity_image: docker://nikolaik/python-nodejs:python3.11-nodejs20
   modal_image: nikolaik/python-nodejs:python3.11-nodejs20
   daytona_image: nikolaik/python-nodejs:python3.11-nodejs20
@@ -129,7 +120,6 @@ browser:
     adopt_existing_tab: false
     rewrite_loopback_urls: false
     loopback_host_alias: host.docker.internal
-  cloud_provider: browser-use
 checkpoints:
   enabled: true
   max_snapshots: 20
@@ -139,7 +129,6 @@ checkpoints:
   retention_days: 7
   delete_orphans: true
   min_interval_hours: 24
-context_file_max_chars: 100000
 file_read_max_chars: 100000
 mcp_discovery_timeout: 1.5
 tool_output:
@@ -175,7 +164,6 @@ kanban:
   worker_log_backup_count: 1
   orchestrator_profile: ''
   default_assignee: ''
-  max_in_progress_per_profile: null
   auto_decompose: true
   auto_decompose_per_tick: 3
   dispatch_stale_timeout_seconds: 14400
@@ -203,7 +191,6 @@ auxiliary:
     base_url: ''
     api_key: ''
     timeout: 120
-    extra_body: {}
     download_timeout: 30
   web_extract:
     provider: auto
@@ -211,42 +198,36 @@ auxiliary:
     base_url: ''
     api_key: ''
     timeout: 360
-    extra_body: {}
   compression:
     provider: auto
     model: ''
     base_url: ''
     api_key: ''
     timeout: 120
-    extra_body: {}
   skills_hub:
     provider: auto
     model: ''
     base_url: ''
     api_key: ''
     timeout: 30
-    extra_body: {}
   approval:
     provider: auto
     model: ''
     base_url: ''
     api_key: ''
     timeout: 30
-    extra_body: {}
   mcp:
     provider: auto
     model: ''
     base_url: ''
     api_key: ''
     timeout: 30
-    extra_body: {}
   title_generation:
     provider: auto
     model: ''
     base_url: ''
     api_key: ''
     timeout: 30
-    extra_body: {}
     language: ''
   tts_audio_tags:
     provider: auto
@@ -254,63 +235,54 @@ auxiliary:
     base_url: ''
     api_key: ''
     timeout: 30
-    extra_body: {}
   triage_specifier:
     provider: auto
     model: ''
     base_url: ''
     api_key: ''
     timeout: 120
-    extra_body: {}
   kanban_decomposer:
     provider: auto
     model: ''
     base_url: ''
     api_key: ''
     timeout: 180
-    extra_body: {}
   profile_describer:
     provider: auto
     model: ''
     base_url: ''
     api_key: ''
     timeout: 60
-    extra_body: {}
   curator:
     provider: auto
     model: ''
     base_url: ''
     api_key: ''
     timeout: 600
-    extra_body: {}
   monitor:
     provider: auto
     model: ''
     base_url: ''
     api_key: ''
     timeout: 60
-    extra_body: {}
   background_review:
     provider: auto
     model: ''
     base_url: ''
     api_key: ''
     timeout: 120
-    extra_body: {}
   moa_reference:
     provider: auto
     model: ''
     base_url: ''
     api_key: ''
     timeout: 600
-    extra_body: {}
   moa_aggregator:
     provider: auto
     model: ''
     base_url: ''
     api_key: ''
     timeout: 600
-    extra_body: {}
 display:
   compact: false
   personality: helpful
@@ -348,7 +320,6 @@ display:
     last_lines: 2
   interim_assistant_messages: true
   tool_progress_command: false
-  tool_progress_overrides: {}
   tool_preview_length: 0
   tool_progress_grouping: accumulate
   reasoning_style: code
@@ -366,10 +337,10 @@ display:
       - cwd
   copy_shortcut: auto
   pet:
-    enabled: false
-    slug: ''
+    enabled: true
+    slug: gf-sd
     render_mode: auto
-    scale: 0.33
+    scale: 0.4
     unicode_cols: 0
   background_process_notifications: all
   busy_ack_detail: true
@@ -377,7 +348,7 @@ display:
   long_running_notifications: true
   tool_progress: all
 dashboard:
-  theme: default-large
+  theme: ember
   show_token_analytics: false
   oauth:
     client_id: ''
@@ -395,7 +366,7 @@ dashboard:
 privacy:
   redact_pii: false
 tts:
-  provider: openai
+  provider: edge
   edge:
     voice: en-US-AriaNeural
   elevenlabs:
@@ -426,7 +397,7 @@ tts:
     voice: en_US-lessac-medium
 stt:
   enabled: true
-  provider: openai
+  provider: local
   local:
     model: base
     language: ''
@@ -472,7 +443,6 @@ delegation:
   child_timeout_seconds: 600
   reasoning_effort: ''
   max_concurrent_children: 3
-  max_async_children: 3
   max_spawn_depth: 1
   orchestrator_enabled: true
   subagent_auto_approve: false
@@ -485,17 +455,17 @@ moa:
   presets:
     default:
       reference_models:
-        - provider: openai-codex
-          model: gpt-5.5
-        - provider: openrouter
-          model: deepseek/deepseek-v4-pro
+        - model: gpt-5.5
+          provider: openai-codex
+        - model: deepseek/deepseek-v4-pro
+          provider: openrouter
       aggregator:
         provider: openrouter
         model: anthropic/claude-opus-4.8
-      reference_temperature: 0.6
-      aggregator_temperature: 0.4
       max_tokens: 4096
       enabled: true
+      reference_temperature: 0.6
+      aggregator_temperature: 0.4
 skills:
   external_dirs:
     - /Users/ted/Skills
@@ -519,13 +489,11 @@ curator:
   backup:
     enabled: true
     keep: 5
-honcho: {}
 timezone: ''
 slack:
   require_mention: true
   free_response_channels: ''
   allowed_channels: ''
-  channel_prompts: {}
 discord:
   require_mention: true
   free_response_channels: ''
@@ -535,7 +503,6 @@ discord:
   history_backfill: true
   history_backfill_limit: 50
   reactions: true
-  channel_prompts: {}
   dm_role_auth_guild: ''
   server_actions: ''
   allow_any_attachment: false
@@ -554,12 +521,9 @@ discord:
       - Checking on that now.
       - Give me a sec.
       - On it.
-whatsapp: {}
 telegram:
   reactions: false
-  channel_prompts: {}
-  allowed_chats:
-    - '-5183620298'
+  allowed_chats: ''
   extra:
     rich_messages: true
     rich_drafts: false
@@ -567,7 +531,6 @@ mattermost:
   require_mention: true
   free_response_channels: ''
   allowed_channels: ''
-  channel_prompts: {}
 matrix:
   require_mention: true
   free_response_rooms: ''
@@ -580,15 +543,14 @@ approvals:
   destructive_slash_confirm: false
 command_allowlist:
   - overwrite project env/config via redirection
-  - script execution via heredoc
-  - overwrite project env/config file
   - execute_code
-  - hermes update (restarts gateway, kills running agents)
-  - delete in root path
-  - script execution via -e/-c flag
   - overwrite system file via redirection
-quick_commands: {}
-platform_hints: {}
+  - overwrite project env/config file
+  - script execution via -e/-c flag
+  - script execution via heredoc
+  - stop/restart hermes launchd service (kills running agents)
+  - stop/restart hermes gateway (kills running agents)
+  - hermes update (restarts gateway, kills running agents)
 hooks:
   pre_llm_call:
     - command: python3 /Users/ted/Control/claude/hooks/hermes_pre_llm_call_memory_recall.py
@@ -597,7 +559,6 @@ hooks:
         --actor hermes
       timeout: 10
 hooks_auto_accept: true
-personalities: {}
 security:
   allow_private_urls: true
   redact_secrets: true
@@ -620,7 +581,6 @@ cron:
     nas_jwks_url: ''
   wrap_response: true
   mirror_delivery: false
-  max_parallel_jobs: null
   output_retention: 50
 code_execution:
   mode: project
@@ -640,7 +600,6 @@ model_catalog:
   enabled: true
   url: https://hermes-agent.nousresearch.com/docs/api/model-catalog.json
   ttl_hours: 1
-  providers: {}
 network:
   force_ipv4: false
 gateway:
@@ -681,7 +640,6 @@ lsp:
   wait_mode: document
   wait_timeout: 5
   install_strategy: auto
-  servers: {}
 x_search:
   model: grok-4.20-reasoning
   timeout_seconds: 180
@@ -700,10 +658,8 @@ paste_collapse_threshold_fallback: 5
 paste_collapse_char_threshold: 2000
 computer_use:
   cua_telemetry: false
-_config_version: 31
+_config_version: 33
 group_sessions_per_user: true
-image_gen:
-  use_gateway: true
 known_plugin_toolsets:
   cli:
     - spotify
@@ -716,11 +672,20 @@ mcp_servers:
     url: https://theos-mini.tail19cc07.ts.net/sse
   open-brain:
     connect_timeout: 60
-    headers:
-      Content-Type: application/json
     timeout: 60
     transport: http
     url: https://wgaigjtcwobmanjwerei.supabase.co/functions/v1/open-brain-mcp?key=SeZa4B78mJhf7jej0dQnANby6fX_rPm8a9ePo3A0wyE
+  pieces:
+    connect_timeout: 10
+    elicitation:
+      enabled: false
+    headers:
+      Accept: application/json, text/event-stream
+    sampling:
+      enabled: false
+    timeout: 30
+    transport: streamable-http
+    url: http://localhost:39300/model_context_protocol/2025-03-26/mcp
 platform_toolsets:
   cli:
     - browser
@@ -772,6 +737,3 @@ session_reset:
   at_hour: 4
   idle_minutes: 1440
   mode: both
-platforms:
-  api_server:
-    enabled: false

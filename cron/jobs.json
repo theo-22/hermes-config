@@ -22,17 +22,17 @@
       "schedule_display": "0 10 * * *",
       "repeat": {
         "times": null,
-        "completed": 4
+        "completed": 5
       },
       "enabled": true,
       "state": "scheduled",
       "paused_at": null,
       "paused_reason": null,
       "created_at": "2026-07-03T11:47:27.809638-04:00",
-      "next_run_at": "2026-07-08T10:00:00-04:00",
-      "last_run_at": "2026-07-07T10:00:56.693411-04:00",
+      "next_run_at": "2026-07-09T10:00:00-04:00",
+      "last_run_at": "2026-07-08T10:00:19.844235-04:00",
       "last_status": "error",
-      "last_error": "Script exited with code 1\nstdout:\n# Manifest Routing Health \u2014 2026-07-07 14:00 UTC\n\n\u2705 **deepseek/deepseek-v4-flash** \u2014 PASS\n   Router: deepseek/deepseek-v4-flash\n\n\u274c **openai/gpt-5.5-subscription** \u2014 FAIL\n   Error: Rate limited by upstream provider\n\n\u274c **anthropic/claude-sonnet-4-6-subscription** \u2014 FAIL\n   Error: Rate limited by upstream provider\n\n\u2139\ufe0f **OpenRouter spend** \u2014 INFO\n   Spend: $4.07 / $100 ($95.93 remaining)",
+      "last_error": "Script exited with code 1\nstdout:\n# Manifest Routing Health \u2014 2026-07-08 14:00 UTC\n\n\u2705 **deepseek/deepseek-v4-flash** \u2014 PASS\n   Router: deepseek/deepseek-v4-flash\n\n\u274c **openai/gpt-5.5-subscription** \u2014 FAIL\n   Error: Rate limited by upstream provider\n\n\u2705 **anthropic/claude-sonnet-4-6-subscription** \u2014 PASS\n   Router: anthropic/claude-sonnet-4-6\n\n\u2139\ufe0f **OpenRouter spend** \u2014 INFO\n   Spend: $4.19 / $100 ($95.81 remaining)",
       "last_delivery_error": null,
       "deliver": "local",
       "origin": null,
@@ -62,17 +62,17 @@
       "schedule_display": "0 */4 * * *",
       "repeat": {
         "times": null,
-        "completed": 28
+        "completed": 29
       },
       "enabled": true,
       "state": "scheduled",
       "paused_at": null,
       "paused_reason": null,
       "created_at": "2026-07-03T12:47:57.552978-04:00",
-      "next_run_at": "2026-07-08T12:00:00-04:00",
-      "last_run_at": "2026-07-08T04:00:27.810302-04:00",
+      "next_run_at": "2026-07-08T16:00:00-04:00",
+      "last_run_at": "2026-07-08T08:00:57.770029-04:00",
       "last_status": "error",
-      "last_error": "Script exited with code 1\nstderr:\nTo https://github.com/theo-22/hermes-config.git\n ! [rejected]        main -> main (fetch first)\nerror: failed to push some refs to 'https://github.com/theo-22/hermes-config.git'\nhint: Updates were rejected because the remote contains work that you do not\nhint: have locally. This is usually caused by another repository pushing to\nhint: the same ref. If you want to integrate the remote changes, use\nhint: 'git pull' before pushing again.\nhint: See the 'Note about fast-forwards' in 'git push --help' for details.\nTraceback (most recent call last):\n  File \"/Users/ted/.hermes/profiles/lab-hermes/scripts/sync_public_config.py\", line 205, in <module>\n    main()\n  File \"/Users/ted/.hermes/profiles/lab-hermes/scripts/sync_public_config.py\", line 198, in main\n    subprocess.run([\"git\", \"-C\", str(REPO_DIR), \"push\"], check=True)\n  File \"/Users/ted/.local/share/uv/python/cpython-3.11.15-macos-aarch64-none/lib/python3.11/subprocess.py\", line 571, in run\n    raise CalledProcessError(retcode, process.args,\nsubprocess.CalledProcessError: Command '['git', '-C', '/Users/ted/hermes-public-config', 'push']' returned non-zero exit status 1.\nstdout:\n[main 41874d4] auto-sync 61f6f4ef1e21a5f9\n 3 files changed, 40 insertions(+), 6 deletions(-)\n create mode 100644 cron/output/e345b0e20742/2026-07-08_00-00-56.md\n\u2192 Syncing Hermes config to public repo...\n  copying profiles...\n  copying skills...\n  copying cron...\n  writing README...",
+      "last_error": "Script exited with code 1\nstderr:\nTo https://github.com/theo-22/hermes-config.git\n ! [rejected]        main -> main (fetch first)\nerror: failed to push some refs to 'https://github.com/theo-22/hermes-config.git'\nhint: Updates were rejected because the remote contains work that you do not\nhint: have locally. This is usually caused by another repository pushing to\nhint: the same ref. If you want to integrate the remote changes, use\nhint: 'git pull' before pushing again.\nhint: See the 'Note about fast-forwards' in 'git push --help' for details.\nTraceback (most recent call last):\n  File \"/Users/ted/.hermes/profiles/lab-hermes/scripts/sync_public_config.py\", line 205, in <module>\n    main()\n  File \"/Users/ted/.hermes/profiles/lab-hermes/scripts/sync_public_config.py\", line 198, in main\n    subprocess.run([\"git\", \"-C\", str(REPO_DIR), \"push\"], check=True)\n  File \"/Users/ted/.local/share/uv/python/cpython-3.11.15-macos-aarch64-none/lib/python3.11/subprocess.py\", line 571, in run\n    raise CalledProcessError(retcode, process.args,\nsubprocess.CalledProcessError: Command '['git', '-C', '/Users/ted/hermes-public-config', 'push']' returned non-zero exit status 1.\nstdout:\n[main 95760c4] auto-sync 8ff69ad77a7cda92\n 5 files changed, 123 insertions(+), 10 deletions(-)\n create mode 100644 cron/output/243ab74e4c63/2026-07-08_06-00-44.md\n create mode 100644 cron/output/e345b0e20742/2026-07-08_04-00-27.md\n\u2192 Syncing Hermes config to public repo...\n  copying profiles...\n  copying skills...\n  copying cron...\n  writing README...",
       "last_delivery_error": "no delivery target resolved for deliver=all",
       "deliver": "all",
       "origin": null,
@@ -121,5 +121,5 @@
       "fire_claim": null
     }
   ],
-  "updated_at": "2026-07-08T08:00:55.867827-04:00"
+  "updated_at": "2026-07-08T12:00:30.279756-04:00"
 }

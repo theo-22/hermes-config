@@ -1,5 +1,5 @@
 model:
-  default: anthropic/claude-opus-4-8-subscription
+  default: anthropic/claude-sonnet-4-6-subscription
   provider: custom
   base_url: https://app.manifest.build/v1
   api_key: [REDACTED]

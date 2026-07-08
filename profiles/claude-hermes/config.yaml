@@ -1,6 +1,6 @@
 model:
-  default: deepseek-v4-flash
-  provider: deepseek
+  default: anthropic/claude-opus-4-8-subscription
+  provider: custom
   base_url: https://app.manifest.build/v1
   api_key: [REDACTED]
 providers:

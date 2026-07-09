@@ -2,7 +2,7 @@ model:
   base_url: https://api.deepseek.com
   default: deepseek-v4-flash
   provider: deepseek
-  api_key: [REDACTED]
+  api_key: ''
 providers:
   anthropic:
     api_key: [REDACTED]

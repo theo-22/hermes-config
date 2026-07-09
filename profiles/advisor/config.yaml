@@ -1,8 +1,11 @@
 model:
-  base_url: https://app.manifest.build/v1
-  default: deepseek/deepseek-v4-flash
-  provider: custom
-  api_key: [REDACTED]
+  base_url: https://api.deepseek.com
+  default: deepseek-v4-flash
+  provider: deepseek
+  api_key: ''
+#  ── Manifest (app.manifest.build) config saved for experimentation ──
+#  To re-enable: provider: custom, base_url: https://app.manifest.build/v1
+#  api_key: [REDACTED]
 providers:
   anthropic:
     api_key: [REDACTED]

@@ -3,7 +3,8 @@ model:
   default: deepseek-v4-flash
   provider: deepseek
   api_key: ''
-  fallback_providers: '[{"model": "deepseek/deepseek-v4-flash", "provider": "custom"}]'
+#  fallback_providers was pointing at Manifest (custom provider) — removed 2026-07-09
+#  Top-level fallback_providers (openrouter, longcat) still active below.
 providers:
   anthropic:
     api_key: [REDACTED]

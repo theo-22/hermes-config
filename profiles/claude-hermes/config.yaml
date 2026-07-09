@@ -1,13 +1,11 @@
 model:
-  default: deepseek/deepseek-v4-flash
-  provider: custom
-  base_url: https://app.manifest.build/v1
-  api_key: [REDACTED]
+  default: deepseek-v4-flash
+  provider: deepseek
+  base_url: https://api.deepseek.com
+  api_key: ''
 providers:
-  custom:
-    base_url: https://app.manifest.build/v1
-    api_key: [REDACTED]
   deepseek:
+    api_key: [REDACTED]
     base_url: https://api.deepseek.com
 fallback_providers: '[{"model": "deepseek/deepseek-v4-flash", "provider": "deepseek"}]'
 toolsets:

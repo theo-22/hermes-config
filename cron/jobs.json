@@ -62,17 +62,17 @@
       "schedule_display": "0 */4 * * *",
       "repeat": {
         "times": null,
-        "completed": 39
+        "completed": 40
       },
       "enabled": true,
       "state": "scheduled",
       "paused_at": null,
       "paused_reason": null,
       "created_at": "2026-07-03T12:47:57.552978-04:00",
-      "next_run_at": "2026-07-10T08:00:00-04:00",
-      "last_run_at": "2026-07-10T00:00:30.338167-04:00",
+      "next_run_at": "2026-07-10T12:00:00-04:00",
+      "last_run_at": "2026-07-10T04:00:58.502536-04:00",
       "last_status": "error",
-      "last_error": "Script exited with code 1\nstderr:\nTo https://github.com/theo-22/hermes-config.git\n ! [rejected]        main -> main (fetch first)\nerror: failed to push some refs to 'https://github.com/theo-22/hermes-config.git'\nhint: Updates were rejected because the remote contains work that you do not\nhint: have locally. This is usually caused by another repository pushing to\nhint: the same ref. If you want to integrate the remote changes, use\nhint: 'git pull' before pushing again.\nhint: See the 'Note about fast-forwards' in 'git push --help' for details.\nTraceback (most recent call last):\n  File \"/Users/ted/.hermes/profiles/lab-hermes/scripts/sync_public_config.py\", line 205, in <module>\n    main()\n  File \"/Users/ted/.hermes/profiles/lab-hermes/scripts/sync_public_config.py\", line 198, in main\n    subprocess.run([\"git\", \"-C\", str(REPO_DIR), \"push\"], check=True)\n  File \"/Users/ted/.local/share/uv/python/cpython-3.11.15-macos-aarch64-none/lib/python3.11/subprocess.py\", line 571, in run\n    raise CalledProcessError(retcode, process.args,\nsubprocess.CalledProcessError: Command '['git', '-C', '/Users/ted/hermes-public-config', 'push']' returned non-zero exit status 1.\nstdout:\n[main c9265bb] auto-sync 2e3ce2e4ce0aec94\n 3 files changed, 41 insertions(+), 6 deletions(-)\n create mode 100644 cron/output/e345b0e20742/2026-07-09_20-00-24.md\n\u2192 Syncing Hermes config to public repo...\n  copying profiles...\n  copying skills...\n  copying cron...\n  writing README...",
+      "last_error": "Script exited with code 1\nstderr:\nTo https://github.com/theo-22/hermes-config.git\n ! [rejected]        main -> main (fetch first)\nerror: failed to push some refs to 'https://github.com/theo-22/hermes-config.git'\nhint: Updates were rejected because the remote contains work that you do not\nhint: have locally. This is usually caused by another repository pushing to\nhint: the same ref. If you want to integrate the remote changes, use\nhint: 'git pull' before pushing again.\nhint: See the 'Note about fast-forwards' in 'git push --help' for details.\nTraceback (most recent call last):\n  File \"/Users/ted/.hermes/profiles/lab-hermes/scripts/sync_public_config.py\", line 205, in <module>\n    main()\n  File \"/Users/ted/.hermes/profiles/lab-hermes/scripts/sync_public_config.py\", line 198, in main\n    subprocess.run([\"git\", \"-C\", str(REPO_DIR), \"push\"], check=True)\n  File \"/Users/ted/.local/share/uv/python/cpython-3.11.15-macos-aarch64-none/lib/python3.11/subprocess.py\", line 571, in run\n    raise CalledProcessError(retcode, process.args,\nsubprocess.CalledProcessError: Command '['git', '-C', '/Users/ted/hermes-public-config', 'push']' returned non-zero exit status 1.\nstdout:\n[main 54f8663] auto-sync 987f3f5f23de6093\n 6 files changed, 811 insertions(+), 30 deletions(-)\n create mode 100644 cron/output/e345b0e20742/2026-07-10_00-00-30.md\n create mode 100644 profiles/verifier/config.yaml\n\u2192 Syncing Hermes config to public repo...\n  copying profiles...\n  copying skills...\n  copying cron...\n  writing README...",
       "last_delivery_error": "no delivery target resolved for deliver=all",
       "deliver": "all",
       "origin": null,
@@ -102,15 +102,15 @@
       "schedule_display": "0 6 * * *",
       "repeat": {
         "times": null,
-        "completed": 5
+        "completed": 6
       },
       "enabled": true,
       "state": "scheduled",
       "paused_at": null,
       "paused_reason": null,
       "created_at": "2026-07-05T18:19:32.988500-04:00",
-      "next_run_at": "2026-07-10T06:00:00-04:00",
-      "last_run_at": "2026-07-09T06:00:42.229917-04:00",
+      "next_run_at": "2026-07-11T06:00:00-04:00",
+      "last_run_at": "2026-07-10T06:00:16.131768-04:00",
       "last_status": "error",
       "last_error": "RuntimeError: Skipped to prevent unintended spend: global inference config drifted since this job was created (provider 'custom' -> 'deepseek'; model 'deepseek/deepseek-v4-flash' -> 'deepseek-v4-flash'), and this job is unpinned. No inference call was made. To run on the new config, pin it explicitly: `cronjob action=update job_id=243ab74e4c63 provider=<provider> model=<model>` (or pin the original values to keep them). See #44585.",
       "last_delivery_error": null,
@@ -121,5 +121,5 @@
       "fire_claim": null
     }
   ],
-  "updated_at": "2026-07-10T04:00:57.408863-04:00"
+  "updated_at": "2026-07-10T08:00:28.379095-04:00"
 }

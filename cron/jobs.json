@@ -24,9 +24,9 @@
         "times": null,
         "completed": 8
       },
-      "enabled": true,
-      "state": "scheduled",
-      "paused_at": null,
+      "enabled": false,
+      "state": "paused",
+      "paused_at": "2026-07-11T08:52:20.472641-04:00",
       "paused_reason": null,
       "created_at": "2026-07-03T11:47:27.809638-04:00",
       "next_run_at": "2026-07-11T10:00:00-04:00",
@@ -62,7 +62,7 @@
       "schedule_display": "0 */4 * * *",
       "repeat": {
         "times": null,
-        "completed": 47
+        "completed": 48
       },
       "enabled": true,
       "state": "scheduled",
@@ -70,11 +70,11 @@
       "paused_reason": null,
       "created_at": "2026-07-03T12:47:57.552978-04:00",
       "next_run_at": "2026-07-11T12:00:00-04:00",
-      "last_run_at": "2026-07-11T08:00:29.927765-04:00",
+      "last_run_at": "2026-07-11T08:35:32.842214-04:00",
       "last_status": "error",
-      "last_error": "Script exited with code 1\nstderr:\nTo https://github.com/theo-22/hermes-config.git\n ! [rejected]        main -> main (fetch first)\nerror: failed to push some refs to 'https://github.com/theo-22/hermes-config.git'\nhint: Updates were rejected because the remote contains work that you do not\nhint: have locally. This is usually caused by another repository pushing to\nhint: the same ref. If you want to integrate the remote changes, use\nhint: 'git pull' before pushing again.\nhint: See the 'Note about fast-forwards' in 'git push --help' for details.\nTraceback (most recent call last):\n  File \"/Volumes/Extra/Substrate/.hermes/profiles/lab-hermes/scripts/sync_public_config.py\", line 205, in <module>\n    main()\n  File \"/Volumes/Extra/Substrate/.hermes/profiles/lab-hermes/scripts/sync_public_config.py\", line 198, in main\n    subprocess.run([\"git\", \"-C\", str(REPO_DIR), \"push\"], check=True)\n  File \"/Users/ted/.local/share/uv/python/cpython-3.11.15-macos-aarch64-none/lib/python3.11/subprocess.py\", line 571, in run\n    raise CalledProcessError(retcode, process.args,\nsubprocess.CalledProcessError: Command '['git', '-C', '/Users/ted/hermes-public-config', 'push']' returned non-zero exit status 1.\nstdout:\n[main 6a84949] auto-sync af37b4e9a4b632f0\n 4 files changed, 120 insertions(+), 9 deletions(-)\n create mode 100644 cron/output/243ab74e4c63/2026-07-11_06-08-08.md\n create mode 100644 cron/output/e345b0e20742/2026-07-11_04-00-57.md\n\u2192 Syncing Hermes config to public repo...\n  copying profiles...\n  copying skills...\n  copying cron...\n  writing README...",
+      "last_error": "Script exited with code 1\nstderr:\nTo https://github.com/theo-22/hermes-config.git\n ! [rejected]        main -> main (fetch first)\nerror: failed to push some refs to 'https://github.com/theo-22/hermes-config.git'\nhint: Updates were rejected because the remote contains work that you do not\nhint: have locally. This is usually caused by another repository pushing to\nhint: the same ref. If you want to integrate the remote changes, use\nhint: 'git pull' before pushing again.\nhint: See the 'Note about fast-forwards' in 'git push --help' for details.\nTraceback (most recent call last):\n  File \"/Volumes/Extra/Substrate/.hermes/profiles/lab-hermes/scripts/sync_public_config.py\", line 205, in <module>\n    main()\n  File \"/Volumes/Extra/Substrate/.hermes/profiles/lab-hermes/scripts/sync_public_config.py\", line 198, in main\n    subprocess.run([\"git\", \"-C\", str(REPO_DIR), \"push\"], check=True)\n  File \"/Users/ted/.local/share/uv/python/cpython-3.11.15-macos-aarch64-none/lib/python3.11/subprocess.py\", line 571, in run\n    raise CalledProcessError(retcode, process.args,\nsubprocess.CalledProcessError: Command '['git', '-C', '/Users/ted/hermes-public-config', 'push']' returned non-zero exit status 1.\nstdout:\n[main 1ea45e2] auto-sync 3ce221a0979157d1\n 4 files changed, 52 insertions(+), 7 deletions(-)\n create mode 100644 cron/output/8ccc1d4cd833/2026-07-11_08-35-31.md\n create mode 100644 cron/output/e345b0e20742/2026-07-11_08-00-29.md\n\u2192 Syncing Hermes config to public repo...\n  copying profiles...\n  copying skills...\n  copying cron...\n  writing README...",
       "last_delivery_error": "no delivery target resolved for deliver=all",
-      "deliver": "all",
+      "deliver": "local",
       "origin": null,
       "enabled_toolsets": null,
       "workdir": null,
@@ -121,5 +121,5 @@
       "fire_claim": null
     }
   ],
-  "updated_at": "2026-07-11T08:35:31.821976-04:00"
+  "updated_at": "2026-07-11T09:54:37.834444-04:00"
 }

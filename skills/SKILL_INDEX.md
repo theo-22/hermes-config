@@ -60,6 +60,9 @@ If the `/` menu is crowded, scan this card first, then search for the exact skil
 - `coordinator-hermes-work-loop`
   Use when Ted and Coordinator produce something that should become a durable handoff — a file placement, scan, report, or cleanup task. Coordinator shapes intent into a bounded Hermes handoff; Hermes evaluates for flow/friction before executing.
 
+- `create-worker`
+  Use when a SHAPE of bounded, externally-checkable work recurs and no existing worker owns it — mint a new dispatchable Hermes worker on the migrator/verifier mold, correct by construction (config floor + 5 disciplines). CC/Codex run the factory via shell; Coordinator/GPT roles call the `create_worker` MCP tool. Then dispatch and verify. Not for one-offs or work needing live judgment.
+
 - `image-factory-16x9-replacement-workflow`
   Use when Ted asks Image Factory to generate and place a 16:9 replacement candidate — "let's generate a replacement," "do a 16:9 replacement run," "continue the replacement program." Runs generate → stage → inspect → label → move (dry-run then live) → sidecar → record-change as one accountable loop; flags an incomplete run (esp. missing sidecar) instead of reporting false success.
 

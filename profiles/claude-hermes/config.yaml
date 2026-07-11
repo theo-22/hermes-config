@@ -16,15 +16,18 @@ agent:
   gateway_timeout: 1200
   api_max_retries: 3
   tool_use_enforcement: auto
-  task_completion_guidance: true
-  parallel_tool_call_guidance: true
-  environment_probe: true
+  task_completion_guidance: false
+  parallel_tool_call_guidance: false
+  environment_probe: false
   verify_on_stop: false
   gateway_timeout_warning: 600
   clarify_timeout: 300
   gateway_notify_interval: 180
   image_input_mode: auto
-  disabled_toolsets: []
+  disabled_toolsets:
+    - browser
+    - mcp
+    - session_search
   verbose: false
 terminal:
   backend: local
@@ -51,10 +54,10 @@ display:
 privacy:
   redact_pii: false
 context:
-  engine: compressor
+  engine: none
 memory:
-  memory_enabled: true
-  user_profile_enabled: true
+  memory_enabled: false
+  user_profile_enabled: false
   write_approval: false
   memory_char_limit: 15000
   user_char_limit: 4000
@@ -67,19 +70,12 @@ delegation:
   orchestrator_enabled: true
   subagent_auto_approve: false
 skills:
-  external_dirs:
-    - /Users/ted/Skills
+  external_dirs: []
   template_vars: true
   write_approval: false
   creation_nudge_interval: 15
 curator:
-  enabled: true
-  interval_hours: 168
-  min_idle_hours: 2
-  stale_after_days: 30
-  archive_after_days: 90
-  consolidate: false
-  prune_builtins: true
+  enabled: false
 telegram:
   reactions: false
   allowed_chats:
@@ -111,9 +107,7 @@ sessions:
   vacuum_after_prune: true
   min_interval_hours: 24
 onboarding:
-  seen:
-    busy_input_prompt: true
-  profile_build: skip
+  skip_all: true
 _config_version: 30
 group_sessions_per_user: true
 mcp_servers:

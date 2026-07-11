@@ -62,17 +62,17 @@
       "schedule_display": "0 */4 * * *",
       "repeat": {
         "times": null,
-        "completed": 42
+        "completed": 43
       },
       "enabled": true,
       "state": "scheduled",
       "paused_at": null,
       "paused_reason": null,
       "created_at": "2026-07-03T12:47:57.552978-04:00",
-      "next_run_at": "2026-07-10T20:00:00-04:00",
-      "last_run_at": "2026-07-10T12:00:04.006720-04:00",
+      "next_run_at": "2026-07-11T00:00:00-04:00",
+      "last_run_at": "2026-07-10T16:00:53.502441-04:00",
       "last_status": "error",
-      "last_error": "Script exited with code 1\nstderr:\nTo https://github.com/theo-22/hermes-config.git\n ! [rejected]        main -> main (fetch first)\nerror: failed to push some refs to 'https://github.com/theo-22/hermes-config.git'\nhint: Updates were rejected because the remote contains work that you do not\nhint: have locally. This is usually caused by another repository pushing to\nhint: the same ref. If you want to integrate the remote changes, use\nhint: 'git pull' before pushing again.\nhint: See the 'Note about fast-forwards' in 'git push --help' for details.\nTraceback (most recent call last):\n  File \"/Users/ted/.hermes/profiles/lab-hermes/scripts/sync_public_config.py\", line 205, in <module>\n    main()\n  File \"/Users/ted/.hermes/profiles/lab-hermes/scripts/sync_public_config.py\", line 198, in main\n    subprocess.run([\"git\", \"-C\", str(REPO_DIR), \"push\"], check=True)\n  File \"/Users/ted/.local/share/uv/python/cpython-3.11.15-macos-aarch64-none/lib/python3.11/subprocess.py\", line 571, in run\n    raise CalledProcessError(retcode, process.args,\nsubprocess.CalledProcessError: Command '['git', '-C', '/Users/ted/hermes-public-config', 'push']' returned non-zero exit status 1.\nstdout:\n[main 9dd85d2] auto-sync f3fb99289e053d79\n 4 files changed, 56 insertions(+), 11 deletions(-)\n create mode 100644 cron/output/8ccc1d4cd833/2026-07-10_10-00-45.md\n create mode 100644 cron/output/e345b0e20742/2026-07-10_08-00-29.md\n\u2192 Syncing Hermes config to public repo...\n  copying profiles...\n  copying skills...\n  copying cron...\n  writing README...",
+      "last_error": "Script exited with code 1\nstderr:\nTo https://github.com/theo-22/hermes-config.git\n ! [rejected]        main -> main (fetch first)\nerror: failed to push some refs to 'https://github.com/theo-22/hermes-config.git'\nhint: Updates were rejected because the remote contains work that you do not\nhint: have locally. This is usually caused by another repository pushing to\nhint: the same ref. If you want to integrate the remote changes, use\nhint: 'git pull' before pushing again.\nhint: See the 'Note about fast-forwards' in 'git push --help' for details.\nTraceback (most recent call last):\n  File \"/Volumes/Extra/Substrate/.hermes/profiles/lab-hermes/scripts/sync_public_config.py\", line 205, in <module>\n    main()\n  File \"/Volumes/Extra/Substrate/.hermes/profiles/lab-hermes/scripts/sync_public_config.py\", line 198, in main\n    subprocess.run([\"git\", \"-C\", str(REPO_DIR), \"push\"], check=True)\n  File \"/Users/ted/.local/share/uv/python/cpython-3.11.15-macos-aarch64-none/lib/python3.11/subprocess.py\", line 571, in run\n    raise CalledProcessError(retcode, process.args,\nsubprocess.CalledProcessError: Command '['git', '-C', '/Users/ted/hermes-public-config', 'push']' returned non-zero exit status 1.\nstdout:\n[main acb84ed] auto-sync 5117f7908181b8ff\n 4 files changed, 122 insertions(+), 8 deletions(-)\n create mode 100644 cron/output/243ab74e4c63/2026-07-10_16-00-04.md\n create mode 100644 cron/output/e345b0e20742/2026-07-10_12-00-04.md\n\u2192 Syncing Hermes config to public repo...\n  copying profiles...\n  copying skills...\n  copying cron...\n  writing README...",
       "last_delivery_error": "no delivery target resolved for deliver=all",
       "deliver": "all",
       "origin": null,
@@ -86,10 +86,10 @@
       "prompt": "# Brain Test-Probe Sweep \u2014 Daily Cleanup\n\nRun the standing test-probe cleanup on Ted's Brain database. This is a preventive sweep to remove capability-test/probe thoughts that pollute semantic search.\n\n## Procedure\n\n### 1. Search for test/probe artifacts\n\nSearch Brain broadly for probe signatures using `mcp_open_brain_search_thoughts` with queries like:\n- \"capability check test content only\"\n- \"capability probe\"\n- \"Brain write tool test\"\n- \"test thought from dashboard\"\n- \"verifying capture works\"\n- \"Thought captured successfully\"\n\nAlso list recent thoughts (last 7 days) with `mcp_open_brain_list_thoughts(limit=30)` to catch anything not surfaced by search.\n\n### 2. Identify confirmed probes\n\nA thought is a confirmed probe when its content contains **at least two** of the following signals:\n\n**Probe-action signals:**\n- \"capability check\" / \"capability probe\"\n- \"Brain write tool test\"\n- \"test thought\"\n- \"verifying capture works\"\n- \"Thought captured successfully\"\n- \":brain: Thought captured successfully.\" (bare success messages)\n\n**Disclaimer signals:**\n- \"test content only\" / \"test only\"\n- \"no operational finding\"\n- \"harmless\" / \"harmless test\"\n- \"no real finding\"\n- \"probe only\"\n\n**Safe identification guardrails (DO NOT skip):**\n- A real finding can legitimately mention \"test\" or \"testing\" \u2014 that alone is NOT a probe.\n- Require MULTIPLE signals, not one.\n- When a thought is ambiguous (mentions test but reads like a real finding/continuity note/documented behavior), **SKIP it and note it. Never delete.**\n- Better to leave a probe than delete a real finding.\n\n### 3. Delete confirmed probes\n\nFor each confirmed probe:\n1. Note its id, preview, and source\n2. Call `mcp_open_brain_delete_thought(thought_id=...)`\n3. **Verify deletion** \u2014 re-search for the content or check the delete response. The API can return \"deleted\" even for nonexistent IDs (false-success bug). After each delete, confirm the thought is actually gone.\n\n### 4. Log results\n\nWrite a timestamped log entry to `~/.hermes/profiles/lab-hermes/data/brain-sweep-logs/` in a file named `sweep_YYYY-MM-DD.md` with:\n- Date/time of sweep\n- How many thoughts examined\n- How many matched as probes\n- How many deleted (with IDs)\n- How many skipped as ambiguous (with content previews and why)\n- Any errors encountered\n\n### 5. Report\n\nIf anything was deleted this run, also write an alert to `_AI_Inbox/` addressed \"for Ted/CC\" with a summary: how many probes found and removed, their source labels, and if any ambiguous cases were skipped.",
       "skills": [],
       "skill": null,
-      "model": null,
-      "provider": null,
-      "provider_snapshot": "custom",
-      "model_snapshot": "deepseek/deepseek-v4-flash",
+      "model": "deepseek-v4-flash",
+      "provider": "deepseek",
+      "provider_snapshot": null,
+      "model_snapshot": null,
       "base_url": null,
       "script": null,
       "no_agent": false,
@@ -102,7 +102,7 @@
       "schedule_display": "0 6 * * *",
       "repeat": {
         "times": null,
-        "completed": 7
+        "completed": 8
       },
       "enabled": true,
       "state": "scheduled",
@@ -110,9 +110,9 @@
       "paused_reason": null,
       "created_at": "2026-07-05T18:19:32.988500-04:00",
       "next_run_at": "2026-07-11T06:00:00-04:00",
-      "last_run_at": "2026-07-10T16:00:04.821580-04:00",
-      "last_status": "error",
-      "last_error": "RuntimeError: Skipped to prevent unintended spend: global inference config drifted since this job was created (provider 'custom' -> 'deepseek'; model 'deepseek/deepseek-v4-flash' -> 'deepseek-v4-flash'), and this job is unpinned. No inference call was made. To run on the new config, pin it explicitly: `cronjob action=update job_id=243ab74e4c63 provider=<provider> model=<model>` (or pin the original values to keep them). See #44585.",
+      "last_run_at": "2026-07-10T16:08:13.910630-04:00",
+      "last_status": "ok",
+      "last_error": null,
       "last_delivery_error": null,
       "deliver": "local",
       "origin": null,
@@ -121,5 +121,5 @@
       "fire_claim": null
     }
   ],
-  "updated_at": "2026-07-10T16:00:52.398391-04:00"
+  "updated_at": "2026-07-10T20:00:19.530727-04:00"
 }

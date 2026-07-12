@@ -1,4 +1,0 @@
-interface:
-  display_name: "GPT Environment Build"
-  short_description: "Build and refine full Custom GPT environments"
-  default_prompt: "Use $gpt-environment-build to shape or repair the full environment for this Custom GPT."

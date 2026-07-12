@@ -318,17 +318,17 @@
       "schedule_display": "0 10 * * 0",
       "repeat": {
         "times": null,
-        "completed": 3
+        "completed": 4
       },
       "enabled": true,
       "state": "scheduled",
       "paused_at": null,
       "paused_reason": null,
       "created_at": "2026-06-28T16:52:07.377247-04:00",
-      "next_run_at": "2026-07-12T10:00:00-04:00",
-      "last_run_at": "2026-07-11T08:34:02.815780-04:00",
+      "next_run_at": "2026-07-19T10:00:00-04:00",
+      "last_run_at": "2026-07-12T10:00:40.728016-04:00",
       "last_status": "error",
-      "last_error": "Script exited with code 1\nstdout:\n=== Harris Teeter Receipt Fetcher ===\nNavigating to purchase history...\n\u274c Not logged in. Run: python3 grocery_receipt_fetcher.py --login",
+      "last_error": "Script exited with code 1\nstdout:\n=== Harris Teeter Receipt Fetcher ===\nStarting browser for cookie refresh...\nNavigating to purchase history...\n\u274c Not logged in. Run: python3 grocery_receipt_fetcher.py --login",
       "last_delivery_error": null,
       "deliver": "origin",
       "origin": null,
@@ -402,15 +402,15 @@
       "schedule_display": "30 9 * * 0",
       "repeat": {
         "times": null,
-        "completed": 1
+        "completed": 2
       },
       "enabled": true,
       "state": "scheduled",
       "paused_at": null,
       "paused_reason": null,
       "created_at": "2026-06-29T02:37:34.096246+00:00",
-      "next_run_at": "2026-07-12T09:30:00-04:00",
-      "last_run_at": "2026-07-05T09:30:20.075230-04:00",
+      "next_run_at": "2026-07-19T09:30:00-04:00",
+      "last_run_at": "2026-07-12T09:30:21.106078-04:00",
       "last_status": "ok",
       "last_error": null,
       "last_delivery_error": null,
@@ -574,15 +574,15 @@
       "schedule_display": "15 */4 * * *",
       "repeat": {
         "times": null,
-        "completed": 57
+        "completed": 58
       },
       "enabled": true,
       "state": "scheduled",
       "paused_at": null,
       "paused_reason": null,
       "created_at": "2026-07-03T00:57:54.447668-04:00",
-      "next_run_at": "2026-07-12T08:15:00-04:00",
-      "last_run_at": "2026-07-12T04:15:16.945823-04:00",
+      "next_run_at": "2026-07-12T12:15:00-04:00",
+      "last_run_at": "2026-07-12T08:15:12.676004-04:00",
       "last_status": "ok",
       "last_error": null,
       "last_delivery_error": null,
@@ -781,7 +781,7 @@
       "paused_at": null,
       "paused_reason": null,
       "created_at": "2026-07-05T18:09:46.374910-04:00",
-      "next_run_at": "2026-07-12T12:00:00-04:00",
+      "next_run_at": "2026-07-12T16:00:00-04:00",
       "last_run_at": "2026-07-12T08:00:08.136733-04:00",
       "last_status": "error",
       "last_error": "Script exited with code 1\nstdout:\nS14 VIEWER DOWN \u2014 connection failed: [Errno 61] Connection refused",
@@ -990,15 +990,15 @@
       "schedule_display": "0 */2 * * *",
       "repeat": {
         "times": null,
-        "completed": 53
+        "completed": 55
       },
       "enabled": true,
       "state": "scheduled",
       "paused_at": null,
       "paused_reason": null,
       "created_at": "2026-07-07T21:42:44.416472-04:00",
-      "next_run_at": "2026-07-12T10:00:00-04:00",
-      "last_run_at": "2026-07-12T06:00:15.783049-04:00",
+      "next_run_at": "2026-07-12T14:00:00-04:00",
+      "last_run_at": "2026-07-12T10:00:26.649368-04:00",
       "last_status": "ok",
       "last_error": null,
       "last_delivery_error": null,
@@ -1030,15 +1030,15 @@
       "schedule_display": "15 */4 * * *",
       "repeat": {
         "times": null,
-        "completed": 26
+        "completed": 27
       },
       "enabled": true,
       "state": "scheduled",
       "paused_at": null,
       "paused_reason": null,
       "created_at": "2026-07-07T21:42:50.012014-04:00",
-      "next_run_at": "2026-07-12T08:15:00-04:00",
-      "last_run_at": "2026-07-12T04:15:14.520738-04:00",
+      "next_run_at": "2026-07-12T12:15:00-04:00",
+      "last_run_at": "2026-07-12T08:15:10.038602-04:00",
       "last_status": "ok",
       "last_error": null,
       "last_delivery_error": null,
@@ -1070,17 +1070,17 @@
       "schedule_display": "0 9 * * *",
       "repeat": {
         "times": null,
-        "completed": 4
+        "completed": 5
       },
       "enabled": true,
       "state": "scheduled",
       "paused_at": null,
       "paused_reason": null,
       "created_at": "2026-07-07T21:43:18.689990-04:00",
-      "next_run_at": "2026-07-12T09:00:00-04:00",
-      "last_run_at": "2026-07-11T09:00:16.970969-04:00",
-      "last_status": "ok",
-      "last_error": null,
+      "next_run_at": "2026-07-13T09:00:00-04:00",
+      "last_run_at": "2026-07-12T09:00:16.740908-04:00",
+      "last_status": "error",
+      "last_error": "Script exited with code 1\nstdout:\n\u26a0\ufe0f  AI cost dashboard readings need refresh:\n  anthropic/dashboard_manual: 4d stale (last 2026-07-08T01:41:16Z)\nVisit https://platform.deepseek.com/usage and https://platform.claude.com/dashboard",
       "last_delivery_error": null,
       "deliver": "local",
       "origin": null,
@@ -1310,15 +1310,15 @@
       "schedule_display": "30 8 * * *",
       "repeat": {
         "times": null,
-        "completed": 2
+        "completed": 3
       },
       "enabled": true,
       "state": "scheduled",
       "paused_at": null,
       "paused_reason": null,
       "created_at": "2026-07-09T09:53:46.240993-04:00",
-      "next_run_at": "2026-07-12T08:30:00-04:00",
-      "last_run_at": "2026-07-11T08:30:14.777003-04:00",
+      "next_run_at": "2026-07-13T08:30:00-04:00",
+      "last_run_at": "2026-07-12T08:30:11.874421-04:00",
       "last_status": "ok",
       "last_error": null,
       "last_delivery_error": null,
@@ -1350,15 +1350,15 @@
       "schedule_display": "0 */4 * * *",
       "repeat": {
         "times": null,
-        "completed": 18
+        "completed": 19
       },
       "enabled": true,
       "state": "scheduled",
       "paused_at": null,
       "paused_reason": null,
       "created_at": "2026-07-09T09:53:47.258465-04:00",
-      "next_run_at": "2026-07-12T12:00:00-04:00",
-      "last_run_at": "2026-07-12T08:00:08.122996-04:00",
+      "next_run_at": "2026-07-12T16:00:00-04:00",
+      "last_run_at": "2026-07-12T12:00:35.299333-04:00",
       "last_status": "ok",
       "last_error": null,
       "last_delivery_error": null,
@@ -1548,15 +1548,15 @@
       "schedule_display": "0 */4 * * *",
       "repeat": {
         "times": null,
-        "completed": 17
+        "completed": 18
       },
       "enabled": true,
       "state": "scheduled",
       "paused_at": null,
       "paused_reason": null,
       "created_at": "2026-07-09T09:53:58.682054-04:00",
-      "next_run_at": "2026-07-12T12:00:00-04:00",
-      "last_run_at": "2026-07-12T04:00:24.447632-04:00",
+      "next_run_at": "2026-07-12T16:00:00-04:00",
+      "last_run_at": "2026-07-12T08:00:08.194363-04:00",
       "last_status": "ok",
       "last_error": null,
       "last_delivery_error": null,
@@ -1588,15 +1588,15 @@
       "schedule_display": "*/20 * * * *",
       "repeat": {
         "times": null,
-        "completed": 210
+        "completed": 222
       },
       "enabled": true,
       "state": "scheduled",
       "paused_at": null,
       "paused_reason": null,
       "created_at": "2026-07-09T09:53:59.696632-04:00",
-      "next_run_at": "2026-07-12T08:20:00-04:00",
-      "last_run_at": "2026-07-12T07:40:06.683772-04:00",
+      "next_run_at": "2026-07-12T12:20:00-04:00",
+      "last_run_at": "2026-07-12T11:40:33.796713-04:00",
       "last_status": "ok",
       "last_error": null,
       "last_delivery_error": null,
@@ -1707,22 +1707,23 @@
       "schedule_display": "30 10 * * 0",
       "repeat": {
         "times": null,
-        "completed": 0
+        "completed": 1
       },
       "enabled": true,
       "state": "scheduled",
       "paused_at": null,
       "paused_reason": null,
       "created_at": "2026-07-09T10:22:54.236292-04:00",
-      "next_run_at": "2026-07-12T10:30:00-04:00",
-      "last_run_at": null,
-      "last_status": null,
-      "last_error": null,
+      "next_run_at": "2026-07-19T10:30:00-04:00",
+      "last_run_at": "2026-07-12T10:30:53.997511-04:00",
+      "last_status": "error",
+      "last_error": "Script exited with code 1\nstderr:\nTraceback (most recent call last):\n  File \"/Volumes/Extra/Substrate/.hermes/profiles/substrate-hermes/scripts/sams_club_fetcher.py\", line 193, in <module>\n    result = asyncio.run(fetch_receipts())\n             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n  File \"/Users/ted/.local/share/uv/python/cpython-3.11.15-macos-aarch64-none/lib/python3.11/asyncio/runners.py\", line 190, in run\n    return runner.run(main)\n           ^^^^^^^^^^^^^^^^\n  File \"/Users/ted/.local/share/uv/python/cpython-3.11.15-macos-aarch64-none/lib/python3.11/asyncio/runners.py\", line 118, in run\n    return self._loop.run_until_complete(task)\n           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n  File \"/Users/ted/.local/share/uv/python/cpython-3.11.15-macos-aarch64-none/lib/python3.11/asyncio/base_events.py\", line 654, in run_until_complete\n    return future.result()\n           ^^^^^^^^^^^^^^^\n  File \"/Volumes/Extra/Substrate/.hermes/profiles/substrate-hermes/scripts/sams_club_fetcher.py\", line 58, in fetch_receipts\n    await page.wait_for_selector('h2', timeout=20000)\n  File \"/Users/ted/.hermes/hermes-agent/venv/lib/python3.11/site-packages/playwright/async_api/_generated.py\", line 8948, in wait_for_selector\n    await self._impl_obj.wait_for_selector(\n  File \"/Users/ted/.hermes/hermes-agent/venv/lib/python3.11/site-packages/playwright/_impl/_page.py\", line 427, in wait_for_selector\n    return await self._main_frame.wait_for_selector(**locals_to_params(locals()))\n           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n  File \"/Users/ted/.hermes/hermes-agent/venv/lib/python3.11/site-packages/playwright/_impl/_frame.py\", line 394, in wait_for_selector\n    await self._channel.send(\n  File \"/Users/ted/.hermes/hermes-agent/venv/lib/python3.11/site-packages/playwright/_impl/_connection.py\", line 69, in send\n    return await self._connection.wrap_api_call(\n           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n  File \"/Users/ted/.hermes/hermes-agent/venv/lib/python3.11/site-packages/playwright/_impl/_connection.py\", line 563, in wrap_api_call\n    raise rewrite_error(error, f\"{parsed_st['apiName']}: {error}\") from None\nplaywright._impl._errors.TimeoutError: Page.wait_for_selector: Timeout 20000ms exceeded.\nCall log:\n  - waiting for locator(\"h2\") to be visible\n    - waiting for\" https://www.samsclub.com/login?vid=oaoh&tid=0&returnUrl=%2Forders\" navigation to finish...\n    - navigated to \"https://www.samsclub.com/login?vid=oaoh&tid=0&returnUrl=%2Forders\"\nstdout:\n=== Sam's Club Receipt Fetcher ===\nNavigating to purchase history...",
       "last_delivery_error": null,
       "deliver": "local",
       "origin": null,
       "enabled_toolsets": null,
-      "workdir": null
+      "workdir": null,
+      "fire_claim": null
     },
     {
       "id": "2fdd6634ccc8",
@@ -1746,7 +1747,7 @@
       "schedule_display": "0 8 * * *",
       "repeat": {
         "times": null,
-        "completed": 2
+        "completed": 3
       },
       "enabled": true,
       "state": "scheduled",
@@ -1754,7 +1755,7 @@
       "paused_reason": null,
       "created_at": "2026-07-09T10:29:13.186624-04:00",
       "next_run_at": "2026-07-13T08:00:00-04:00",
-      "last_run_at": "2026-07-11T08:00:12.134514-04:00",
+      "last_run_at": "2026-07-12T08:00:08.182911-04:00",
       "last_status": "ok",
       "last_error": null,
       "last_delivery_error": null,
@@ -1866,15 +1867,15 @@
       "schedule_display": "0 */4 * * *",
       "repeat": {
         "times": null,
-        "completed": 5
+        "completed": 6
       },
       "enabled": true,
       "state": "scheduled",
       "paused_at": null,
       "paused_reason": null,
       "created_at": "2026-07-11T16:29:55.461353-04:00",
-      "next_run_at": "2026-07-12T12:00:00-04:00",
-      "last_run_at": "2026-07-12T04:00:16.373342-04:00",
+      "next_run_at": "2026-07-12T16:00:00-04:00",
+      "last_run_at": "2026-07-12T08:00:10.471482-04:00",
       "last_status": "ok",
       "last_error": null,
       "last_delivery_error": null,
@@ -1885,5 +1886,5 @@
       "fire_claim": null
     }
   ],
-  "updated_at": "2026-07-12T08:00:08.137001-04:00"
+  "updated_at": "2026-07-12T12:00:35.299990-04:00"
 }

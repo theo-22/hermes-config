@@ -523,8 +523,7 @@ discord:
       - On it.
 telegram:
   reactions: false
-  allowed_chats:
-    - '-5183620298'
+  allowed_chats: []
   extra:
     rich_messages: true
     rich_drafts: false

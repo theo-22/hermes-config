@@ -1,13 +1,16 @@
 model:
-  default: deepseek-v4-pro
-  provider: deepseek
-  base_url: https://api.deepseek.com
+  default: glm-5.2
+  provider: zai
+  base_url: https://api.z.ai/api/paas/v4
   api_key: ''
 providers:
   deepseek:
     api_key: [REDACTED]
     base_url: https://api.deepseek.com
-fallback_providers: '[{"model": "deepseek/deepseek-v4-flash", "provider": "deepseek"}]'
+  zai:
+    api_key: [REDACTED]
+    base_url: https://api.z.ai
+fallback_providers: '[{"model": "deepseek/deepseek-v4-flash", "provider": "deepseek"}, {"model": "glm-4.7-flash", "provider": "zai"}]'
 toolsets:
   - hermes-cli
 max_live_sessions: 8
@@ -140,5 +143,13 @@ plugins:
   disabled: []
   enabled:
     - openai
+hooks:
+  pre_llm_call:
+    - command: python3 /Users/ted/Control/claude/hooks/hermes_pre_llm_call_memory_recall.py
+      timeout: 10
+    - command: python3 /Users/ted/Operations/scripts/userprompt_behavior_authority_signal.py
+        --actor hermes
+      timeout: 10
+hooks_auto_accept: true
 cwd: /Users/ted/Hermes
 platforms: '{"telegram":{"enabled":true}}'

@@ -1,0 +1,4 @@
+interface:
+  display_name: "Proposal Candidate Surfacing"
+  short_description: "Notice packet-worthy proposal moments"
+  default_prompt: "Use $proposal-candidate-surfacing to judge whether the current discussion has crossed into a real proposal candidate and briefly say so without drafting the packet."

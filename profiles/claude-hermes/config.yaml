@@ -1,0 +1,144 @@
+model:
+  default: deepseek-v4-pro
+  provider: deepseek
+  base_url: https://api.deepseek.com
+  api_key: ''
+providers:
+  deepseek:
+    api_key: [REDACTED]
+    base_url: https://api.deepseek.com
+fallback_providers: '[{"model": "deepseek/deepseek-v4-flash", "provider": "deepseek"}]'
+toolsets:
+  - hermes-cli
+max_live_sessions: 8
+agent:
+  max_turns: 60
+  gateway_timeout: 1200
+  api_max_retries: 3
+  tool_use_enforcement: auto
+  task_completion_guidance: false
+  parallel_tool_call_guidance: false
+  environment_probe: false
+  verify_on_stop: true
+  gateway_timeout_warning: 600
+  clarify_timeout: 300
+  gateway_notify_interval: 180
+  image_input_mode: auto
+  disabled_toolsets: '["browser","mcp"]'
+  verbose: false
+terminal:
+  backend: local
+  cwd: /Users/ted/Hermes
+  timeout: 180
+  daemon_term_grace_seconds: 2
+  home_mode: auto
+  auto_source_bashrc: true
+  persistent_shell: true
+web:
+  backend: ''
+  search_backend: ''
+  extract_backend: ''
+display:
+  compact: false
+  interface: cli
+  streaming: true
+  show_cost: true
+  skin: default
+  language: en
+  platforms:
+    telegram:
+      streaming: true
+privacy:
+  redact_pii: false
+context:
+  engine: none
+memory:
+  memory_enabled: true
+  user_profile_enabled: true
+  write_approval: false
+  memory_char_limit: 18000
+  user_char_limit: 4000
+  provider: holographic
+  flush_min_turns: 3
+  nudge_interval: 5
+delegation:
+  max_concurrent_children: 3
+  max_spawn_depth: 1
+  orchestrator_enabled: true
+  subagent_auto_approve: false
+skills:
+  external_dirs: []
+  template_vars: true
+  write_approval: false
+  creation_nudge_interval: 15
+curator:
+  enabled: false
+telegram:
+  reactions: false
+  allowed_chats: []
+  extra:
+    rich_messages: true
+    rich_drafts: false
+approvals:
+  mode: auto
+  timeout: 60
+  cron_mode: auto
+  destructive_slash_confirm: false
+cron:
+  wrap_response: true
+  mirror_delivery: false
+  output_retention: 50
+logging:
+  level: INFO
+  max_size_mb: 5
+  backup_count: 3
+gateway:
+  scale_to_zero:
+    idle_timeout_minutes: 5
+  max_inbound_media_bytes: 134217728
+  enabled_platforms: '["telegram"]'
+sessions:
+  auto_prune: false
+  retention_days: 180
+  vacuum_after_prune: true
+  min_interval_hours: 24
+onboarding:
+  skip_all: true
+_config_version: 30
+group_sessions_per_user: true
+mcp_servers:
+  open-brain:
+    connect_timeout: 60
+    headers:
+      Content-Type: application/json
+    timeout: 60
+    transport: http
+    url: https://wgaigjtcwobmanjwerei.supabase.co/functions/v1/open-brain-mcp?key=SeZa4B78mJhf7jej0dQnANby6fX_rPm8a9ePo3A0wyE
+platform_toolsets:
+  cli:
+    - browser
+    - clarify
+    - code_execution
+    - computer_use
+    - cronjob
+    - delegation
+    - file
+    - image_gen
+    - kanban
+    - memory
+    - messaging
+    - session_search
+    - skills
+    - terminal
+    - todo
+    - tts
+    - vision
+    - web
+  telegram:
+    - hermes-telegram
+plugins:
+  disabled: []
+  enabled:
+    - openai
+cwd: /Users/ted/Hermes
+platforms: '{"telegram":{"enabled":true}}'

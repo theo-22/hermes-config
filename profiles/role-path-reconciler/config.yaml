@@ -1,6 +1,0 @@
-agent:
-  verify_on_stop: true
-  max_turns: 80
-memory:
-  memory_enabled: true
-  user_profile_enabled: true

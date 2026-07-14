@@ -14,6 +14,10 @@ tags: [grocery, harris-teeter, shopping, scraping]
 
 Site patterns learned from live session (2026-07-12). For any actor that needs to browse, scrape, or shop at Harris Teeter.
 
+## If you're stuck
+
+If a selector, click pattern, or extraction method in this skill stops working and 2-3 reasonable variations don't fix it, stop and report back rather than continuing to retry variations — don't burn an unattended run looping on a broken pattern. Report: what you tried, what actually happened (exact error/output, not a summary), and what page/URL/element you were working against. A site redesign or a genuinely new pattern needs a live human or a fresh live-session-to-skill pass to capture correctly, not more guessing against a stale assumption.
+
 ## Prerequisites
 
 - CDP browser running: `--remote-debugging-port=9222 --user-data-dir=/Users/ted/Substrate/Profiles/hermes-browser`
@@ -82,6 +86,60 @@ Items like "Birds Eye Steamfresh Vegetables — Select Varieties" use a Shop Dea
 - For critical interactions (checkout, payment), let the user click
 - Store selector wall appears on first visit — requires clicking the pickup nav dropdown, selecting "Village at Chestnut Street", and "Start Shopping"
 
+## Sam's Club Order Detail Extraction (printToPDF method — bypasses React collapsible items)
+
+Sam's Club order detail pages use a React collapsible "N items" section that CDP `click()` cannot reliably expand (React synthetic events don't fire). **Solution:** use `Page.printToPDF` via CDP to render the page as PDF (includes ALL items expanded), then extract text with `pdftotext`.
+
+**URL format:** 
+```
+https://www.samsclub.com/en/orders/{orderIdNoDashes}?groupId={groupId}
+```
+- Order ID from the existing data: `8000-0004-7991-553`
+- URL format removes dashes: `800000047991553`
+- `groupId` comes from the URL when you first navigate there (seems persistent per session)
+
+**Working extraction pattern (Python):**
+```python
+async with websockets.connect(ws_url) as ws:
+    # Navigate (also dismisses any open print dialog)
+    await cdp("Page.navigate", {"url": order_url})
+    await asyncio.sleep(8)
+    
+    # Print to PDF — bypasses the collapsed items section entirely
+    result = await cdp("Page.printToPDF", {
+        'printBackground': True, 'preferCSSPageSize': True,
+        'marginTop': 0.3, 'marginBottom': 0.3,
+        'marginLeft': 0.3, 'marginRight': 0.3
+    })
+    pdf_data = result['result']['data']
+    pdf_bytes = base64.b64decode(pdf_data)
+    
+    # Extract text with pdftotext (brew install poppler)
+    import subprocess
+    with open('/tmp/sc_temp.pdf', 'wb') as f: f.write(pdf_bytes)
+    text = subprocess.run(['pdftotext', '/tmp/sc_temp.pdf', '-'], 
+                          capture_output=True, text=True, timeout=15).stdout
+    os.remove('/tmp/sc_temp.pdf')
+    
+    # Parse items from the clean text
+    # Format: Item name, then Qty N, then $X.XX
+```
+
+**Known orders (from existing data):**
+| Order ID | Date | Items | Total |
+|----------|------|:-----:|:-----:|
+| 8000-0004-7991-553 | Jun 27 | 17 | $208.40 |
+| 8000-0003-5927-335 | May 16 | 13 | $116.32 |
+| 8000-0003-5996-955 | May 03 | 12 | — |
+| 8000-0003-1295-560 | Apr 14 | 13 | — |
+| 8000-0002-8400-883 | Apr 04 | 9 | — |
+| 8000-0002-5459-413 | Mar 29 | 10 | — |
+| 8000-0002-2566-432 | Mar 15 | 3 | — |
+| 8000-0002-1815-461 | Mar 01 | 13 | — |
+| 8000-0001-1129-672 | Jan 11 | 6 | — |
+| 8000-0000-9313-412 | Jan 05 | 13 | — |
+
+**Note:** This pattern (stuck on a React SPA collapsible section → ask Ted → use `Page.printToPDF` instead) is a general technique that works for any site where React prevents programmatic expansion of hidden content. The print preview renders everything expanded.
 ## Timing Notes
 - Wednesday mornings: prices reset
 - Friday: 4x fuel points available (clip coupon)
@@ -109,11 +167,41 @@ POST /atlas/v1/purchase-history/v2/details
 
 **Update 2026-07-13 (Substrate-Hermes):** The API `MISSING_CHANNEL` issue was partially resolved — `x-kroger-channel: WEB` as a header gets past the channel error but hits `body must be an array` / `body[0] does not match any of the allowed types`. Multiple body shapes tried, none fully solved. **However, this API endpoint is not actually needed** — the order detail page (`/mypurchases/detail/<receiptKey>`) renders all item names, prices, quantities, and discounts directly in the page DOM. The existing DOM-based scraper can read it trivially. The API was a nice-to-have for cleanliness, but the data is already available through the rendered page.
 
-## Shopping Guru Integration
-Cross-reference workflow:
-1. Scrape My Specials → extract personalized deals
-2. Scrape Start My Cart / Past Purchases → known items
-3. Check cart → what's already there
-4. Generate cross-reference: "you buy X, it's on sale, you're low"
-5. Present for Ted's approval
-6. Navigate to checkout, let Ted complete the order
+## Weekly Ad / Deal Card Extraction (2026-07-13)
+
+HT's site runs on Kroger's Citrus React framework. Weekly Ad page (`/specials/weeklyad`) renders each deal as an `<li class="AutoGrid-cell">` containing a `SpecialsCard` div. Extractable fields and their selectors:
+
+| Field | Selector | Notes |
+|---|---|---|
+| Deal type badge | `[data-citrus-component="Tag"] span` | Values like "e-VIC Member Price $7.97", "Item Rings at Half Price", "Save at Least $5.00 On 4", "Must Buy 2 to Get 1 Free" |
+| Price | `.TWPAP-Price` + superscript cents | BOGO items have no numeric price — `aria-label` says "Buy 1, Get 1 Free" instead |
+| Multi-buy prefix | `.TWFP-Prefix-Text` | Gives "4/", "2/", "Buy 2, Get 3 Free" |
+| Product name | `[class*="SpecialsCardTitle"]` | |
+| Image alt | product `<img>` `alt` attribute | Cleaner, shorter product name than the title element |
+
+**Deal category classification** (derived from badge text): `multi-buy` (Save at Least $X, per-lb deals), `bogo` (BOGO / half-price), `e-vic` (e-VIC member pricing), `generic` (plain sale price).
+
+**Edge cases:**
+- My Specials page (`/specials/my-specials`) is gated behind UI-based store selection — direct URL shows "Unavailable." Falls back to Weekly Ad, which doesn't have this gate.
+- Multi-buy vs. per-unit price is ambiguous from the badge text alone — capture the raw card text alongside the parsed fields so ambiguous cases can be manually resolved later.
+- BOGO items have a null numeric price — don't treat that as a parse failure.
+- "lb" sometimes appears in the multi-buy prefix field as a false positive from per-lb deal cards (not an actual multi-buy).
+
+**CLI usage:**
+```bash
+python3 ht_weekly_sales_fetcher.py           # Weekly Ad
+python3 ht_weekly_sales_fetcher.py --my-specials  # falls back to weekly ad
+```
+
+**Output format:** JSON with `store`, `page`, `fetch_time`, `deal_count`, and a `deals` array — each deal has `name`, `price`, `price_value`, `deal_type`, `deal_category`, `multi_buy`, `bogo_text`, `savings`, `limit`, `image_alt`. Lands at `Commons/Substrate_Finance_Planning/Evidence/Grocery_Receipt_Staging/ht_deals_weeklyad_latest.json`.
+
+## Shopping Guru Integration — LIVE (2026-07-13)
+
+Phases 1–3 built and running unattended:
+1. **Purchase history** — `grocery_receipt_fetcher.py` (HT + Sam's Club, weekly, no-agent)
+2. **Weekly deals** — `ht_weekly_sales_fetcher.py` (HT weekly ad DOM scrape, 43 deals/week typical)
+3. **Cross-reference** — `shopping_guru_crossref.py` (token-overlap match against purchase history; deliberately conservative — requires 2+ shared distinctive tokens after stripping store-brand/size noise words, to avoid false-positive matches like "Red Raspberries" vs "Harris Teeter Red Beans" on a single shared word)
+
+All three chained into `shopping_guru_weekly.sh`, scheduled Wednesdays 9am (Hermes cron `shopping-guru-weekly-crossref`, substrate-hermes profile) — right after HT's price reset, ahead of Ted's usual weekend pickup. Output: `Commons/Substrate_Finance_Planning/Evidence/Grocery_Receipt_Staging/shopping_guru_crossref_latest.json`.
+
+**Not yet built (Phase 4):** the human-readable report itself (meal suggestions, pantry awareness, delivery to morning briefing). Checkout stays human-only by design — no automation touches cart/purchase.

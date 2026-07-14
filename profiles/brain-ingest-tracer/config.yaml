@@ -28,7 +28,7 @@ agent:
   environment_probe: true
   environment_hint: ''
   coding_context: auto
-  verify_on_stop: true
+  verify_on_stop: 'true'
   gateway_timeout_warning: 900
   clarify_timeout: 600
   gateway_notify_interval: 180
@@ -542,17 +542,16 @@ approvals:
   mcp_reload_confirm: true
   destructive_slash_confirm: false
 command_allowlist:
-  - overwrite system file via redirection
-  - hermes update (restarts gateway, kills running agents)
-  - stop/restart hermes launchd service (kills running agents)
-  - stop/restart hermes gateway (kills running agents)
-  - script execution via -e/-c flag
-  - delete in root path
   - overwrite project env/config via redirection
+  - hermes update (restarts gateway, kills running agents)
   - execute_code
   - overwrite project env/config file
-  - git force push (rewrites remote history)
   - script execution via heredoc
+  - script execution via -e/-c flag
+  - overwrite system file via redirection
+  - stop/restart hermes launchd service (kills running agents)
+  - stop/restart hermes gateway (kills running agents)
+  - git force push (rewrites remote history)
 hooks:
   pre_llm_call:
     - command: python3 /Users/ted/Control/claude/hooks/hermes_pre_llm_call_memory_recall.py
@@ -632,6 +631,7 @@ sessions:
 onboarding:
   seen:
     busy_input_prompt: true
+    tool_progress_prompt: true
   profile_build: ask
 updates:
   pre_update_backup: false
@@ -744,4 +744,3 @@ session_reset:
 platforms:
   api_server:
     enabled: false
-TELEGRAM_HOME_CHANNEL: 8547176321

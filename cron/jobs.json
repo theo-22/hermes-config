@@ -108,15 +108,15 @@
       "schedule_display": "45 6 * * *",
       "repeat": {
         "times": null,
-        "completed": 18
+        "completed": 19
       },
       "enabled": true,
       "state": "scheduled",
       "paused_at": null,
       "paused_reason": null,
       "created_at": "2026-06-28T12:05:05.026224-04:00",
-      "next_run_at": "2026-07-14T06:45:00-04:00",
-      "last_run_at": "2026-07-13T07:46:34.071770-04:00",
+      "next_run_at": "2026-07-15T06:45:00-04:00",
+      "last_run_at": "2026-07-14T06:47:14.583491-04:00",
       "last_status": "ok",
       "last_error": null,
       "last_delivery_error": null,
@@ -234,15 +234,15 @@
       "schedule_display": "30 6 * * *",
       "repeat": {
         "times": null,
-        "completed": 16
+        "completed": 17
       },
       "enabled": true,
       "state": "scheduled",
       "paused_at": null,
       "paused_reason": null,
       "created_at": "2026-06-28T16:45:26.792627-04:00",
-      "next_run_at": "2026-07-14T06:30:00-04:00",
-      "last_run_at": "2026-07-13T07:44:35.493331-04:00",
+      "next_run_at": "2026-07-15T06:30:00-04:00",
+      "last_run_at": "2026-07-14T06:30:08.303988-04:00",
       "last_status": "ok",
       "last_error": null,
       "last_delivery_error": null,
@@ -276,15 +276,15 @@
       "schedule_display": "0 7 * * *",
       "repeat": {
         "times": null,
-        "completed": 16
+        "completed": 17
       },
       "enabled": true,
       "state": "scheduled",
       "paused_at": null,
       "paused_reason": null,
       "created_at": "2026-06-28T16:47:42.420192-04:00",
-      "next_run_at": "2026-07-14T07:00:00-04:00",
-      "last_run_at": "2026-07-13T07:44:35.671969-04:00",
+      "next_run_at": "2026-07-15T07:00:00-04:00",
+      "last_run_at": "2026-07-14T07:00:11.301635-04:00",
       "last_status": "ok",
       "last_error": null,
       "last_delivery_error": null,
@@ -574,15 +574,15 @@
       "schedule_display": "15 */4 * * *",
       "repeat": {
         "times": null,
-        "completed": 68
+        "completed": 69
       },
       "enabled": true,
       "state": "scheduled",
       "paused_at": null,
       "paused_reason": null,
       "created_at": "2026-07-03T00:57:54.447668-04:00",
-      "next_run_at": "2026-07-14T04:15:00-04:00",
-      "last_run_at": "2026-07-14T00:15:07.058481-04:00",
+      "next_run_at": "2026-07-14T08:15:00-04:00",
+      "last_run_at": "2026-07-14T04:15:10.529523-04:00",
       "last_status": "ok",
       "last_error": null,
       "last_delivery_error": null,
@@ -614,15 +614,15 @@
       "schedule_display": "30 7 * * *",
       "repeat": {
         "times": null,
-        "completed": 11
+        "completed": 12
       },
       "enabled": true,
       "state": "scheduled",
       "paused_at": null,
       "paused_reason": null,
       "created_at": "2026-07-03T09:27:35.431740-04:00",
-      "next_run_at": "2026-07-14T07:30:00-04:00",
-      "last_run_at": "2026-07-13T07:44:35.717656-04:00",
+      "next_run_at": "2026-07-15T07:30:00-04:00",
+      "last_run_at": "2026-07-14T07:30:11.753183-04:00",
       "last_status": "ok",
       "last_error": null,
       "last_delivery_error": null,
@@ -654,15 +654,15 @@
       "schedule_display": "45 6 * * *",
       "repeat": {
         "times": null,
-        "completed": 10
+        "completed": 11
       },
       "enabled": true,
       "state": "scheduled",
       "paused_at": null,
       "paused_reason": null,
       "created_at": "2026-07-03T13:45:53.381724-04:00",
-      "next_run_at": "2026-07-14T06:45:00-04:00",
-      "last_run_at": "2026-07-13T07:44:35.997718-04:00",
+      "next_run_at": "2026-07-15T06:45:00-04:00",
+      "last_run_at": "2026-07-14T06:45:10.687164-04:00",
       "last_status": "ok",
       "last_error": null,
       "last_delivery_error": null,
@@ -734,15 +734,15 @@
       "schedule_display": "45 7 * * *",
       "repeat": {
         "times": null,
-        "completed": 10
+        "completed": 11
       },
       "enabled": true,
       "state": "scheduled",
       "paused_at": null,
       "paused_reason": null,
       "created_at": "2026-07-05T01:15:09.602937-04:00",
-      "next_run_at": "2026-07-14T07:45:00-04:00",
-      "last_run_at": "2026-07-13T07:46:28.965026-04:00",
+      "next_run_at": "2026-07-15T07:45:00-04:00",
+      "last_run_at": "2026-07-14T07:46:29.866148-04:00",
       "last_status": "ok",
       "last_error": null,
       "last_delivery_error": null,
@@ -774,15 +774,15 @@
       "schedule_display": "0 */4 * * *",
       "repeat": {
         "times": null,
-        "completed": 52
+        "completed": 53
       },
       "enabled": true,
       "state": "scheduled",
       "paused_at": null,
       "paused_reason": null,
       "created_at": "2026-07-05T18:09:46.374910-04:00",
-      "next_run_at": "2026-07-14T08:00:00-04:00",
-      "last_run_at": "2026-07-14T04:00:08.113404-04:00",
+      "next_run_at": "2026-07-14T12:00:00-04:00",
+      "last_run_at": "2026-07-14T08:00:12.037347-04:00",
       "last_status": "ok",
       "last_error": null,
       "last_delivery_error": null,
@@ -814,17 +814,17 @@
       "schedule_display": "15 7 * * *",
       "repeat": {
         "times": null,
-        "completed": 8
+        "completed": 9
       },
       "enabled": true,
       "state": "scheduled",
       "paused_at": null,
       "paused_reason": null,
       "created_at": "2026-07-06T20:02:31.867269-04:00",
-      "next_run_at": "2026-07-14T07:15:00-04:00",
-      "last_run_at": "2026-07-13T07:44:37.025179-04:00",
+      "next_run_at": "2026-07-15T07:15:00-04:00",
+      "last_run_at": "2026-07-14T07:15:11.414120-04:00",
       "last_status": "error",
-      "last_error": "Script exited with code 1\nstdout:\n/Users/ted/Operations/scripts/check_role_workspace_access.py:93: DeprecationWarning: datetime.datetime.utcnow() is deprecated and scheduled for removal in a future version. Use timezone-aware objects to represent datetimes in UTC: datetime.datetime.now(datetime.UTC).\n  \"ts\": datetime.datetime.utcnow().isoformat() + \"Z\",\n[FAIL] coordinator    /Volumes/Extra/Substrate/Coordinator/ChatGPT \u2014 Path is outside allowed roots: /Volumes/Extra/Substrate/Coordinator/ChatGPT\n[OK  ] homes_manager  /Volumes/Extra/Substrate/Homes_Manager/ChatGPT\n[FAIL] icon_system    /Volumes/Extra/Substrate/IconSystem/ChatGPT \u2014 Path is outside allowed roots: /Volumes/Extra/Substrate/IconSystem/ChatGPT\n[OK  ] analyst        /Users/ted/Embedded/ChatGPT\n[FAIL] image_factory  /Users/ted/Image_Factory/ChatGPT \u2014 Path is outside allowed roots: /Users/ted/Image_Factory/ChatGPT \u2014 MISSING ON DISK\n[OK  ] digest         /Users/ted/Operations/reports/AI_Monitoring_Digest\n[OK  ] audit          /Users/ted/Projects_GPT/Audit\n\n3 role(s) cannot reach their workspace: coordinator, icon_system, image_factory\nFIX: add each role's home to ALLOWED_ROOTS in Control/mcp/server.py, restart com.ted.control.mcp, re-run.\n{\"ts\": \"2026-07-13T11:44:36.892122Z\", \"results\": {\"coordinator\": {\"workspace\": \"/Volumes/Extra/Substrate/Coordinator/ChatGPT\", \"exists\": true, \"readable\": false, \"error\": \"Path is outside allowed roots: /Volumes/Extra/Substrate/Coordinator/ChatGPT\"}, \"homes_manager\": {\"workspace\": \"/Volumes/Extra/Substrate/Homes_Manager/ChatGPT\", \"exists\": true, \"readable\": true, \"error\": null}, \"icon_system\": {\"workspace\": \"/Volumes/Extra/Substrate/IconSystem/ChatGPT\", \"exists\": true, \"readable\": false, \"error\": \"Path is outside allowed roots: /Volumes/Extra/Substrate/IconSystem/ChatGPT\"}, \"analyst\": {\"workspace\": \"/Users/ted/Embedded/ChatGPT\", \"exists\": true, \"readable\": true, \"error\": null}, \"image_factory\": {\"workspace\": \"/Users/ted/Image_Factory/ChatGPT\", \"exists\": false, \"readable\": false, \"error\": \"Path is outside allowed roots: /Users/ted/Image_Factory/ChatGPT\"}, \"digest\": {\"workspace\": \"/Users/ted/Operations/reports/AI_Monitoring_Digest\", \"exists\": true, \"readable\": true, \"error\": null}, \"audit\": {\"workspace\": \"/Users/ted/Projects_GPT/Audit\", \"exists\": true, \"readable\": true, \"error\": null}}, \"fails\": [\"coordinator\", \"icon_system\", \"image_factory\"]}",
+      "last_error": "Script exited with code 2\nstderr:\n/Volumes/Extra/Substrate/.hermes/profiles/substrate-hermes/scripts/check_role_workspace_access.sh: line 3: \ncheck_role_workspace_access.py \u2014 guard against the recurring role: command not found\n/Volumes/Extra/Substrate/.hermes/profiles/substrate-hermes/scripts/check_role_workspace_access.sh: line 4: workspace: command not found\n/Volumes/Extra/Substrate/.hermes/profiles/substrate-hermes/scripts/check_role_workspace_access.sh: line 10: syntax error near unexpected token `('\n/Volumes/Extra/Substrate/.hermes/profiles/substrate-hermes/scripts/check_role_workspace_access.sh: line 10: `roots\". This bug was found live twice on 2026-07-05 (Homes Manager, then Image'",
       "last_delivery_error": null,
       "deliver": "local",
       "origin": null,
@@ -990,15 +990,15 @@
       "schedule_display": "0 */2 * * *",
       "repeat": {
         "times": null,
-        "completed": 73
+        "completed": 75
       },
       "enabled": true,
       "state": "scheduled",
       "paused_at": null,
       "paused_reason": null,
       "created_at": "2026-07-07T21:42:44.416472-04:00",
-      "next_run_at": "2026-07-14T06:00:00-04:00",
-      "last_run_at": "2026-07-14T02:00:06.891036-04:00",
+      "next_run_at": "2026-07-14T10:00:00-04:00",
+      "last_run_at": "2026-07-14T06:00:04.835647-04:00",
       "last_status": "ok",
       "last_error": null,
       "last_delivery_error": null,
@@ -1030,15 +1030,15 @@
       "schedule_display": "15 */4 * * *",
       "repeat": {
         "times": null,
-        "completed": 37
+        "completed": 38
       },
       "enabled": true,
       "state": "scheduled",
       "paused_at": null,
       "paused_reason": null,
       "created_at": "2026-07-07T21:42:50.012014-04:00",
-      "next_run_at": "2026-07-14T04:15:00-04:00",
-      "last_run_at": "2026-07-14T00:15:04.924027-04:00",
+      "next_run_at": "2026-07-14T08:15:00-04:00",
+      "last_run_at": "2026-07-14T04:15:45.825027-04:00",
       "last_status": "ok",
       "last_error": null,
       "last_delivery_error": null,
@@ -1110,15 +1110,15 @@
       "schedule_display": "0 7 * * *",
       "repeat": {
         "times": null,
-        "completed": 4
+        "completed": 5
       },
       "enabled": true,
       "state": "scheduled",
       "paused_at": null,
       "paused_reason": null,
       "created_at": "2026-07-09T08:54:13.647380-04:00",
-      "next_run_at": "2026-07-14T07:00:00-04:00",
-      "last_run_at": "2026-07-13T07:44:35.880359-04:00",
+      "next_run_at": "2026-07-15T07:00:00-04:00",
+      "last_run_at": "2026-07-14T07:00:11.430255-04:00",
       "last_status": "ok",
       "last_error": null,
       "last_delivery_error": null,
@@ -1150,15 +1150,15 @@
       "schedule_display": "0 7 * * *",
       "repeat": {
         "times": null,
-        "completed": 4
+        "completed": 5
       },
       "enabled": true,
       "state": "scheduled",
       "paused_at": null,
       "paused_reason": null,
       "created_at": "2026-07-09T08:58:52.283971-04:00",
-      "next_run_at": "2026-07-14T07:00:00-04:00",
-      "last_run_at": "2026-07-13T07:44:36.419648-04:00",
+      "next_run_at": "2026-07-15T07:00:00-04:00",
+      "last_run_at": "2026-07-14T07:00:11.763936-04:00",
       "last_status": "ok",
       "last_error": null,
       "last_delivery_error": null,
@@ -1190,15 +1190,15 @@
       "schedule_display": "5 7 * * *",
       "repeat": {
         "times": null,
-        "completed": 4
+        "completed": 5
       },
       "enabled": true,
       "state": "scheduled",
       "paused_at": null,
       "paused_reason": null,
       "created_at": "2026-07-09T08:58:53.308393-04:00",
-      "next_run_at": "2026-07-14T07:05:00-04:00",
-      "last_run_at": "2026-07-13T07:44:36.315019-04:00",
+      "next_run_at": "2026-07-15T07:05:00-04:00",
+      "last_run_at": "2026-07-14T07:05:11.733888-04:00",
       "last_status": "ok",
       "last_error": null,
       "last_delivery_error": null,
@@ -1270,15 +1270,15 @@
       "schedule_display": "0 6 * * *",
       "repeat": {
         "times": null,
-        "completed": 4
+        "completed": 5
       },
       "enabled": true,
       "state": "scheduled",
       "paused_at": null,
       "paused_reason": null,
       "created_at": "2026-07-09T09:53:45.218648-04:00",
-      "next_run_at": "2026-07-14T06:00:00-04:00",
-      "last_run_at": "2026-07-13T07:44:36.170749-04:00",
+      "next_run_at": "2026-07-15T06:00:00-04:00",
+      "last_run_at": "2026-07-14T06:00:04.212084-04:00",
       "last_status": "ok",
       "last_error": null,
       "last_delivery_error": null,
@@ -1350,15 +1350,15 @@
       "schedule_display": "0 */4 * * *",
       "repeat": {
         "times": null,
-        "completed": 29
+        "completed": 30
       },
       "enabled": true,
       "state": "scheduled",
       "paused_at": null,
       "paused_reason": null,
       "created_at": "2026-07-09T09:53:47.258465-04:00",
-      "next_run_at": "2026-07-14T08:00:00-04:00",
-      "last_run_at": "2026-07-14T04:00:08.053094-04:00",
+      "next_run_at": "2026-07-14T12:00:00-04:00",
+      "last_run_at": "2026-07-14T08:00:11.984469-04:00",
       "last_status": "ok",
       "last_error": null,
       "last_delivery_error": null,
@@ -1470,15 +1470,15 @@
       "schedule_display": "0 7 * * *",
       "repeat": {
         "times": null,
-        "completed": 4
+        "completed": 5
       },
       "enabled": true,
       "state": "scheduled",
       "paused_at": null,
       "paused_reason": null,
       "created_at": "2026-07-09T09:53:56.631977-04:00",
-      "next_run_at": "2026-07-14T07:00:00-04:00",
-      "last_run_at": "2026-07-13T07:44:36.263912-04:00",
+      "next_run_at": "2026-07-15T07:00:00-04:00",
+      "last_run_at": "2026-07-14T07:00:11.298773-04:00",
       "last_status": "ok",
       "last_error": null,
       "last_delivery_error": null,
@@ -1550,15 +1550,15 @@
       "schedule_display": "0 */4 * * *",
       "repeat": {
         "times": null,
-        "completed": 28
+        "completed": 29
       },
       "enabled": true,
       "state": "scheduled",
       "paused_at": null,
       "paused_reason": null,
       "created_at": "2026-07-09T09:53:58.682054-04:00",
-      "next_run_at": "2026-07-14T08:00:00-04:00",
-      "last_run_at": "2026-07-14T00:00:14.820381-04:00",
+      "next_run_at": "2026-07-14T12:00:00-04:00",
+      "last_run_at": "2026-07-14T04:00:18.187981-04:00",
       "last_status": "ok",
       "last_error": null,
       "last_delivery_error": null,
@@ -1590,15 +1590,15 @@
       "schedule_display": "*/20 * * * *",
       "repeat": {
         "times": null,
-        "completed": 319
+        "completed": 330
       },
       "enabled": true,
       "state": "scheduled",
       "paused_at": null,
       "paused_reason": null,
       "created_at": "2026-07-09T09:53:59.696632-04:00",
-      "next_run_at": "2026-07-14T04:20:00-04:00",
-      "last_run_at": "2026-07-14T04:00:08.094279-04:00",
+      "next_run_at": "2026-07-14T08:20:00-04:00",
+      "last_run_at": "2026-07-14T07:40:11.797723-04:00",
       "last_status": "ok",
       "last_error": null,
       "last_delivery_error": null,
@@ -1750,17 +1750,17 @@
       "schedule_display": "0 8 * * *",
       "repeat": {
         "times": null,
-        "completed": 4
+        "completed": 5
       },
       "enabled": true,
       "state": "scheduled",
       "paused_at": null,
       "paused_reason": null,
       "created_at": "2026-07-09T10:29:13.186624-04:00",
-      "next_run_at": "2026-07-14T08:00:00-04:00",
-      "last_run_at": "2026-07-13T08:00:36.687113-04:00",
-      "last_status": "ok",
-      "last_error": null,
+      "next_run_at": "2026-07-15T08:00:00-04:00",
+      "last_run_at": "2026-07-14T08:00:11.960288-04:00",
+      "last_status": "error",
+      "last_error": "Script exited with code 127\nstdout:\n/Volumes/Extra/Substrate/.hermes/profiles/substrate-hermes/scripts/ynab_writeback_cron.sh: line 5: /Users/ted/.hermes/hermes-agent/venv/bin/python3: No such file or directory",
       "last_delivery_error": null,
       "deliver": "local",
       "origin": null,
@@ -1790,17 +1790,17 @@
       "schedule_display": "0 7 * * *",
       "repeat": {
         "times": null,
-        "completed": 5
+        "completed": 6
       },
       "enabled": true,
       "state": "scheduled",
       "paused_at": null,
       "paused_reason": null,
       "created_at": "2026-07-09T10:31:34.740815-04:00",
-      "next_run_at": "2026-07-14T07:00:00-04:00",
-      "last_run_at": "2026-07-13T07:44:47.850446-04:00",
-      "last_status": "error",
-      "last_error": "Script exited with code 1\nstdout:\n[fundrise] Tab: A8AB23F65420334A\n[fundrise] Tab is on unknown \u2014 navigating to Fundrise...\n[fundrise] Login required \u2014 open the browser window and log into Fundrise once",
+      "next_run_at": "2026-07-15T07:00:00-04:00",
+      "last_run_at": "2026-07-14T07:00:23.117375-04:00",
+      "last_status": "ok",
+      "last_error": null,
       "last_delivery_error": null,
       "deliver": "local",
       "origin": null,
@@ -1870,15 +1870,15 @@
       "schedule_display": "0 */4 * * *",
       "repeat": {
         "times": null,
-        "completed": 16
+        "completed": 17
       },
       "enabled": true,
       "state": "scheduled",
       "paused_at": null,
       "paused_reason": null,
       "created_at": "2026-07-11T16:29:55.461353-04:00",
-      "next_run_at": "2026-07-14T08:00:00-04:00",
-      "last_run_at": "2026-07-14T00:00:07.403381-04:00",
+      "next_run_at": "2026-07-14T12:00:00-04:00",
+      "last_run_at": "2026-07-14T04:00:10.646202-04:00",
       "last_status": "ok",
       "last_error": null,
       "last_delivery_error": null,
@@ -2006,5 +2006,5 @@
       "workdir": "/Volumes/Extra/Substrate/Commons/Substrate_Finance_Planning"
     }
   ],
-  "updated_at": "2026-07-14T04:00:08.113605-04:00"
+  "updated_at": "2026-07-14T08:00:12.037723-04:00"
 }

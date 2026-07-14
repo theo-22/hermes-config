@@ -1,8 +1,6 @@
 model:
   default: glm-5.2
   provider: zai
-  base_url: https://api.z.ai/api/paas/v4
-  api_key: ''
 providers:
   deepseek:
     api_key: [REDACTED]
@@ -10,9 +8,10 @@ providers:
   zai:
     api_key: [REDACTED]
     base_url: https://api.z.ai
-fallback_providers: '[{"model": "deepseek/deepseek-v4-flash", "provider": "deepseek"}, {"model": "glm-4.7-flash", "provider": "zai"}]'
+fallback_providers: '[{"model": "deepseek/deepseek-v4-flash", "provider": "deepseek"},
+  {"model": "glm-4.7-flash", "provider": "zai"}]'
 toolsets:
-  - hermes-cli
+- hermes-cli
 max_live_sessions: 8
 agent:
   max_turns: 60
@@ -31,7 +30,7 @@ agent:
   verbose: false
 terminal:
   backend: local
-  cwd: /Users/ted/Hermes
+  cwd: .
   timeout: 180
   daemon_term_grace_seconds: 2
   home_mode: auto
@@ -119,37 +118,36 @@ mcp_servers:
     url: https://wgaigjtcwobmanjwerei.supabase.co/functions/v1/open-brain-mcp?key=SeZa4B78mJhf7jej0dQnANby6fX_rPm8a9ePo3A0wyE
 platform_toolsets:
   cli:
-    - browser
-    - clarify
-    - code_execution
-    - computer_use
-    - cronjob
-    - delegation
-    - file
-    - image_gen
-    - kanban
-    - memory
-    - messaging
-    - session_search
-    - skills
-    - terminal
-    - todo
-    - tts
-    - vision
-    - web
+  - browser
+  - clarify
+  - code_execution
+  - computer_use
+  - cronjob
+  - delegation
+  - file
+  - image_gen
+  - kanban
+  - memory
+  - messaging
+  - session_search
+  - skills
+  - terminal
+  - todo
+  - tts
+  - vision
+  - web
   telegram:
-    - hermes-telegram
+  - hermes-telegram
 plugins:
   disabled: []
   enabled:
-    - openai
+  - openai
 hooks:
   pre_llm_call:
-    - command: python3 /Users/ted/Control/claude/hooks/hermes_pre_llm_call_memory_recall.py
-      timeout: 10
-    - command: python3 /Users/ted/Operations/scripts/userprompt_behavior_authority_signal.py
-        --actor hermes
-      timeout: 10
+  - command: python3 /Users/ted/Control/claude/hooks/hermes_pre_llm_call_memory_recall.py
+    timeout: 10
+  - command: python3 /Users/ted/Operations/scripts/userprompt_behavior_authority_signal.py
+      --actor hermes
+    timeout: 10
 hooks_auto_accept: true
-cwd: /Users/ted/Hermes
 platforms: '{"telegram":{"enabled":true}}'

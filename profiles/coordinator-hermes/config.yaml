@@ -79,7 +79,7 @@ agent:
 terminal:
   backend: local
   modal_mode: auto
-  cwd: /Users/ted/Coordinator/
+  cwd: /Volumes/Extra/Substrate/Coordinator/
   timeout: 180
   daemon_term_grace_seconds: 2
   env_passthrough: []
@@ -781,4 +781,3 @@ session_reset:
   at_hour: 4
   idle_minutes: 1440
   mode: both
-cwd: /Users/ted/Hermes

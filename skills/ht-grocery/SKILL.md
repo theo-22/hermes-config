@@ -87,6 +87,28 @@ Items like "Birds Eye Steamfresh Vegetables — Select Varieties" use a Shop Dea
 - Friday: 4x fuel points available (clip coupon)
 - Current shop: Pickup at Village at Chestnut Street (136 Merrimon Ave, Asheville NC)
 
+## Unused lead — first-party JSON API (found 2026-07-12, never wired in)
+
+The currently-running purchase-history scraper (`grocery_receipt_fetcher.py`) works by clicking into each order and reading rendered page text — the same class of approach that broke on Sam's Club when its site changed. HT actually has a clean, undocumented-but-real first-party JSON API that could replace that DOM-scraping entirely. Found via CDP network inspection, called directly from the page's own JS context (same-origin `fetch()`, cookies already attached — no extra auth needed for this one):
+
+**Order list** — works, fully proven:
+```
+GET /atlas/v1/post-order/v1/purchase-history-search?pageNo=1&pageSize=10
+```
+Returns clean JSON: `createdDateTime`, `handoffStoreId`, `total` (e.g. `"USD 38.97"`), `purchaseType` (`PICKUP`/`IN_STORE`), `receiptKey` (format `097~00348~2026-07-12~1460~941917`), `lineItems` (UPC codes only, no names/prices at this level), `status`, plus `pageNo`/`pageSize`/`pageTotal`/`isLastPage` for pagination.
+
+**Item-level detail — found the endpoint, never got it working:**
+```
+POST /atlas/v1/purchase-history/v2/details
+```
+- `GET` with `?receiptKey=...` → 405 Method Not Allowed (confirms POST-only).
+- `POST` with `{"receiptKey": "..."}` body → 400, `{"reason": "Channel Missing", "code": "MISSING_CHANNEL"}`.
+- Tried adding `channel`/`purchaseType` fields to the JSON body (`WEB`, `web`, `ONLINE`, `DESKTOP`) — all still hit the same `MISSING_CHANNEL` error. Never captured what the site's own JS actually sends for this call (would need to intercept the real request when the site itself opens an order detail view — reload didn't re-trigger it, needs a real click-through while `Network.requestWillBeSent` is being watched).
+
+**Why this is still worth it:** if solved, this replaces DOM-scraping (fragile to site redesigns, exactly what broke Sam's Club) with a stable JSON contract for both order list AND item detail. **Next step for whoever picks this up:** click into a real order detail view while capturing the live request's headers/body (not guessing), find whatever `channel` value or header the site's own frontend sends, then this can fully replace the current DOM-based scraper.
+
+**Update 2026-07-13 (Substrate-Hermes):** The API `MISSING_CHANNEL` issue was partially resolved — `x-kroger-channel: WEB` as a header gets past the channel error but hits `body must be an array` / `body[0] does not match any of the allowed types`. Multiple body shapes tried, none fully solved. **However, this API endpoint is not actually needed** — the order detail page (`/mypurchases/detail/<receiptKey>`) renders all item names, prices, quantities, and discounts directly in the page DOM. The existing DOM-based scraper can read it trivially. The API was a nice-to-have for cleanliness, but the data is already available through the rendered page.
+
 ## Shopping Guru Integration
 Cross-reference workflow:
 1. Scrape My Specials → extract personalized deals

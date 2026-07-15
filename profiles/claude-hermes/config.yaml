@@ -1,6 +1,6 @@
 model:
-  default: glm-5.2
-  provider: zai
+  default: deepseek-v4-pro
+  provider: deepseek
 providers:
   deepseek:
     api_key: [REDACTED]
@@ -8,8 +8,8 @@ providers:
   zai:
     api_key: [REDACTED]
     base_url: https://api.z.ai
-fallback_providers: '[{"model": "deepseek/deepseek-v4-flash", "provider": "deepseek"},
-  {"model": "glm-4.7-flash", "provider": "zai"}]'
+fallback_providers: '[{"model": "deepseek-v4-flash", "provider": "deepseek"},
+  {"model": "glm-5.2", "provider": "zai"}]'
 toolsets:
 - hermes-cli
 max_live_sessions: 8

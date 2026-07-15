@@ -28,7 +28,7 @@ agent:
   environment_probe: true
   environment_hint: ''
   coding_context: auto
-  verify_on_stop: true
+  verify_on_stop: 'true'
   gateway_timeout_warning: 900
   clarify_timeout: 600
   gateway_notify_interval: 180

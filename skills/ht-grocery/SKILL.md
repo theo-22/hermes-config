@@ -90,7 +90,7 @@ Items like "Birds Eye Steamfresh Vegetables — Select Varieties" use a Shop Dea
 
 Sam's Club order detail pages use a React collapsible "N items" section that CDP `click()` cannot reliably expand (React synthetic events don't fire). **Solution:** use `Page.printToPDF` via CDP to render the page as PDF (includes ALL items expanded), then extract text with `pdftotext`.
 
-**URL format:** 
+**URL format:**
 ```
 https://www.samsclub.com/en/orders/{orderIdNoDashes}?groupId={groupId}
 ```
@@ -104,7 +104,7 @@ async with websockets.connect(ws_url) as ws:
     # Navigate (also dismisses any open print dialog)
     await cdp("Page.navigate", {"url": order_url})
     await asyncio.sleep(8)
-    
+
     # Print to PDF — bypasses the collapsed items section entirely
     result = await cdp("Page.printToPDF", {
         'printBackground': True, 'preferCSSPageSize': True,
@@ -113,14 +113,14 @@ async with websockets.connect(ws_url) as ws:
     })
     pdf_data = result['result']['data']
     pdf_bytes = base64.b64decode(pdf_data)
-    
+
     # Extract text with pdftotext (brew install poppler)
     import subprocess
     with open('/tmp/sc_temp.pdf', 'wb') as f: f.write(pdf_bytes)
-    text = subprocess.run(['pdftotext', '/tmp/sc_temp.pdf', '-'], 
+    text = subprocess.run(['pdftotext', '/tmp/sc_temp.pdf', '-'],
                           capture_output=True, text=True, timeout=15).stdout
     os.remove('/tmp/sc_temp.pdf')
-    
+
     # Parse items from the clean text
     # Format: Item name, then Qty N, then $X.XX
 ```

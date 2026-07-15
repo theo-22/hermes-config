@@ -57,6 +57,9 @@ If the `/` menu is crowded, scan this card first, then search for the exact skil
 - `role-workspace-sufficiency`
   Use when creating, converting, reviewing, or repairing a role-runtime role and the question is whether it has enough continuity, scratch, staged output, receipts, telemetry, persistence, sandbox folders, or anti-curtailment room to function well without broad write access.
 
+- `role-hermes-worker-access`
+  Use when a ChatGPT role-runtime role needs direct Hermes worker dispatch or a review of worker authority. Designs role-specific wrappers, path fences, proof receipts, and narrow per-role access instead of exposing broad `dispatch_worker` by default.
+
 - `coordinator-hermes-work-loop`
   Use when Ted and Coordinator produce something that should become a durable handoff — a file placement, scan, report, or cleanup task. Coordinator shapes intent into a bounded Hermes handoff; Hermes evaluates for flow/friction before executing.
 
@@ -160,6 +163,7 @@ If the `/` menu is crowded, scan this card first, then search for the exact skil
 
 - `coordinator-hermes-work-loop` = Coordinator shapes handoff, Hermes evaluates and executes
 - `role-workspace-sufficiency` = check and add enough owned workspace for a role-runtime role
+- `role-hermes-worker-access` = design/review role-scoped Hermes worker dispatch without broad generic worker access
 - `dashboard-api` = monitor Hermes Dashboard for cron health, logs, and gateway status
 - `system-14-update` = update the System 14 plan — chapter-first, then thread upward
 - `icon-relocation-audit` = update icon scripts for relocated ~/→Extra roots
@@ -187,6 +191,7 @@ Use this as orientation only; the individual skill trigger still decides whether
 | `affected-gpt-hearing` | Settlement evidence: get affected-GPT operational input before changing another GPT's operating surface |
 | `manager-handoff-contract` | Manager intake: shape lower-cost worker or Hermes output so Ted/Codex/Claude can accept, reject, discard, fold in, or route forward |
 | `role-workspace-sufficiency` | Capability design: make sure a role has owned continuity/scratch/staged/receipt surfaces without broad write access |
+| `role-hermes-worker-access` | Capability/access design: add or review bounded Hermes worker dispatch through role-specific wrappers and fences |
 
 ## Short Routing Guide
 
@@ -262,6 +267,9 @@ If the main need is shaping Hermes, cheap-model, overnight, or conversational ou
 If the main need is deciding whether a role has enough workspace or sandbox to function well:
 - use `role-workspace-sufficiency`
 
+If the main need is deciding whether a role may safely dispatch Hermes workers:
+- use `role-hermes-worker-access`
+
 ## Common Confusions
 
 - If you want a snapshot of system state, use `check-system`, not `signal-review`.
@@ -313,6 +321,7 @@ If the main need is deciding whether a role has enough workspace or sandbox to f
 - `proposal-packet`
 - `quick-save`
 - `relocate-role-from-projects-gpt`
+- `role-hermes-worker-access`
 - `role-workspace-sufficiency`
 - `scope-comparison`
 - `share-learning`

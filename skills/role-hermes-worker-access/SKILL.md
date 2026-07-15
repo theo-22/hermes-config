@@ -1,6 +1,10 @@
 ---
 name: role-hermes-worker-access
 description: Use when designing, implementing, or reviewing Hermes worker dispatch access for ChatGPT role runtimes. Covers ROLE_TOOL_SCOPES exposure, role-specific dispatch wrappers, Home/Room/path fences, mutating vs read-only worker authority, start-card/role-packet/registry updates, proof receipts, and narrow per-role access variants. Use for roles that need to dispatch Hermes workers directly or safely inherit Coordinator-style worker orchestration.
+category: gpt
+write_mode: file
+one_line_use: Design or review role-scoped Hermes worker dispatch for ChatGPT role runtimes.
+fast_pick: yes
 ---
 
 # Role Hermes Worker Access

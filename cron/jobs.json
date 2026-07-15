@@ -108,15 +108,15 @@
       "schedule_display": "45 6 * * *",
       "repeat": {
         "times": null,
-        "completed": 19
+        "completed": 20
       },
       "enabled": true,
       "state": "scheduled",
       "paused_at": null,
       "paused_reason": null,
       "created_at": "2026-06-28T12:05:05.026224-04:00",
-      "next_run_at": "2026-07-15T06:45:00-04:00",
-      "last_run_at": "2026-07-14T06:47:14.583491-04:00",
+      "next_run_at": "2026-07-16T06:45:00-04:00",
+      "last_run_at": "2026-07-15T06:48:22.203635-04:00",
       "last_status": "ok",
       "last_error": null,
       "last_delivery_error": null,
@@ -234,15 +234,15 @@
       "schedule_display": "30 6 * * *",
       "repeat": {
         "times": null,
-        "completed": 17
+        "completed": 18
       },
       "enabled": true,
       "state": "scheduled",
       "paused_at": null,
       "paused_reason": null,
       "created_at": "2026-06-28T16:45:26.792627-04:00",
-      "next_run_at": "2026-07-15T06:30:00-04:00",
-      "last_run_at": "2026-07-14T06:30:08.303988-04:00",
+      "next_run_at": "2026-07-16T06:30:00-04:00",
+      "last_run_at": "2026-07-15T06:30:34.343436-04:00",
       "last_status": "ok",
       "last_error": null,
       "last_delivery_error": null,
@@ -276,15 +276,15 @@
       "schedule_display": "0 7 * * *",
       "repeat": {
         "times": null,
-        "completed": 17
+        "completed": 18
       },
       "enabled": true,
       "state": "scheduled",
       "paused_at": null,
       "paused_reason": null,
       "created_at": "2026-06-28T16:47:42.420192-04:00",
-      "next_run_at": "2026-07-15T07:00:00-04:00",
-      "last_run_at": "2026-07-14T07:00:11.301635-04:00",
+      "next_run_at": "2026-07-16T07:00:00-04:00",
+      "last_run_at": "2026-07-15T07:00:34.893382-04:00",
       "last_status": "ok",
       "last_error": null,
       "last_delivery_error": null,
@@ -362,12 +362,12 @@
         "times": null,
         "completed": 7
       },
-      "enabled": false,
-      "state": "paused",
-      "paused_at": "2026-06-29T02:37:34.096246+00:00",
-      "paused_reason": "Paused by Codex 2026-06-28: broad agent job combined account login, extraction, and direct ledger writes. Ted authorizes receipt gathering, but output must stage first; use grocery-receipt-staged-fetcher plus preflight until reliability is proven.",
+      "enabled": true,
+      "state": "scheduled",
+      "paused_at": null,
+      "paused_reason": null,
       "created_at": "2026-06-28T20:27:12.669727-04:00",
-      "next_run_at": "2026-07-05T10:00:00-04:00",
+      "next_run_at": "2026-07-19T10:00:00-04:00",
       "last_run_at": "2026-06-28T21:21:14.820991-04:00",
       "last_status": null,
       "last_error": null,
@@ -484,9 +484,9 @@
         "times": null,
         "completed": 3
       },
-      "enabled": false,
-      "state": "paused",
-      "paused_at": "2026-07-13T21:33:33.632276-04:00",
+      "enabled": true,
+      "state": "scheduled",
+      "paused_at": null,
       "paused_reason": null,
       "created_at": "2026-06-29T22:56:38.200425-04:00",
       "next_run_at": "2026-07-19T20:00:00-04:00",
@@ -530,9 +530,9 @@
         "times": null,
         "completed": 4
       },
-      "enabled": false,
-      "state": "paused",
-      "paused_at": "2026-07-13T21:33:33.779100-04:00",
+      "enabled": true,
+      "state": "scheduled",
+      "paused_at": null,
       "paused_reason": null,
       "created_at": "2026-06-29T22:56:56.493258-04:00",
       "next_run_at": "2026-07-15T20:00:00-04:00",
@@ -574,15 +574,15 @@
       "schedule_display": "15 */4 * * *",
       "repeat": {
         "times": null,
-        "completed": 74
+        "completed": 75
       },
       "enabled": true,
       "state": "scheduled",
       "paused_at": null,
       "paused_reason": null,
       "created_at": "2026-07-03T00:57:54.447668-04:00",
-      "next_run_at": "2026-07-15T04:15:00-04:00",
-      "last_run_at": "2026-07-15T00:15:30.585444-04:00",
+      "next_run_at": "2026-07-15T08:15:00-04:00",
+      "last_run_at": "2026-07-15T04:15:20.244327-04:00",
       "last_status": "ok",
       "last_error": null,
       "last_delivery_error": null,
@@ -614,15 +614,15 @@
       "schedule_display": "30 7 * * *",
       "repeat": {
         "times": null,
-        "completed": 12
+        "completed": 13
       },
       "enabled": true,
       "state": "scheduled",
       "paused_at": null,
       "paused_reason": null,
       "created_at": "2026-07-03T09:27:35.431740-04:00",
-      "next_run_at": "2026-07-15T07:30:00-04:00",
-      "last_run_at": "2026-07-14T07:30:11.753183-04:00",
+      "next_run_at": "2026-07-16T07:30:00-04:00",
+      "last_run_at": "2026-07-15T07:30:36.357081-04:00",
       "last_status": "ok",
       "last_error": null,
       "last_delivery_error": null,
@@ -654,15 +654,15 @@
       "schedule_display": "45 6 * * *",
       "repeat": {
         "times": null,
-        "completed": 11
+        "completed": 12
       },
       "enabled": true,
       "state": "scheduled",
       "paused_at": null,
       "paused_reason": null,
       "created_at": "2026-07-03T13:45:53.381724-04:00",
-      "next_run_at": "2026-07-15T06:45:00-04:00",
-      "last_run_at": "2026-07-14T06:45:10.687164-04:00",
+      "next_run_at": "2026-07-16T06:45:00-04:00",
+      "last_run_at": "2026-07-15T06:45:34.947252-04:00",
       "last_status": "ok",
       "last_error": null,
       "last_delivery_error": null,
@@ -734,15 +734,15 @@
       "schedule_display": "45 7 * * *",
       "repeat": {
         "times": null,
-        "completed": 11
+        "completed": 12
       },
       "enabled": true,
       "state": "scheduled",
       "paused_at": null,
       "paused_reason": null,
       "created_at": "2026-07-05T01:15:09.602937-04:00",
-      "next_run_at": "2026-07-15T07:45:00-04:00",
-      "last_run_at": "2026-07-14T07:46:29.866148-04:00",
+      "next_run_at": "2026-07-16T07:45:00-04:00",
+      "last_run_at": "2026-07-15T07:47:42.854981-04:00",
       "last_status": "ok",
       "last_error": null,
       "last_delivery_error": null,
@@ -774,15 +774,15 @@
       "schedule_display": "0 */4 * * *",
       "repeat": {
         "times": null,
-        "completed": 58
+        "completed": 59
       },
       "enabled": true,
       "state": "scheduled",
       "paused_at": null,
       "paused_reason": null,
       "created_at": "2026-07-05T18:09:46.374910-04:00",
-      "next_run_at": "2026-07-15T08:00:00-04:00",
-      "last_run_at": "2026-07-15T04:00:15.228457-04:00",
+      "next_run_at": "2026-07-15T12:00:00-04:00",
+      "last_run_at": "2026-07-15T08:00:52.945473-04:00",
       "last_status": "ok",
       "last_error": null,
       "last_delivery_error": null,
@@ -814,17 +814,17 @@
       "schedule_display": "15 7 * * *",
       "repeat": {
         "times": null,
-        "completed": 9
+        "completed": 10
       },
       "enabled": true,
       "state": "scheduled",
       "paused_at": null,
       "paused_reason": null,
       "created_at": "2026-07-06T20:02:31.867269-04:00",
-      "next_run_at": "2026-07-15T07:15:00-04:00",
-      "last_run_at": "2026-07-14T07:15:11.414120-04:00",
-      "last_status": "error",
-      "last_error": "Script exited with code 2\nstderr:\n/Volumes/Extra/Substrate/.hermes/profiles/substrate-hermes/scripts/check_role_workspace_access.sh: line 3: \ncheck_role_workspace_access.py \u2014 guard against the recurring role: command not found\n/Volumes/Extra/Substrate/.hermes/profiles/substrate-hermes/scripts/check_role_workspace_access.sh: line 4: workspace: command not found\n/Volumes/Extra/Substrate/.hermes/profiles/substrate-hermes/scripts/check_role_workspace_access.sh: line 10: syntax error near unexpected token `('\n/Volumes/Extra/Substrate/.hermes/profiles/substrate-hermes/scripts/check_role_workspace_access.sh: line 10: `roots\". This bug was found live twice on 2026-07-05 (Homes Manager, then Image'",
+      "next_run_at": "2026-07-16T07:15:00-04:00",
+      "last_run_at": "2026-07-15T07:15:36.897878-04:00",
+      "last_status": "ok",
+      "last_error": null,
       "last_delivery_error": null,
       "deliver": "local",
       "origin": null,
@@ -990,15 +990,15 @@
       "schedule_display": "0 */2 * * *",
       "repeat": {
         "times": null,
-        "completed": 85
+        "completed": 87
       },
       "enabled": true,
       "state": "scheduled",
       "paused_at": null,
       "paused_reason": null,
       "created_at": "2026-07-07T21:42:44.416472-04:00",
-      "next_run_at": "2026-07-15T06:00:00-04:00",
-      "last_run_at": "2026-07-15T02:00:30.053297-04:00",
+      "next_run_at": "2026-07-15T10:00:00-04:00",
+      "last_run_at": "2026-07-15T06:00:33.848791-04:00",
       "last_status": "ok",
       "last_error": null,
       "last_delivery_error": null,
@@ -1030,15 +1030,15 @@
       "schedule_display": "15 */4 * * *",
       "repeat": {
         "times": null,
-        "completed": 43
+        "completed": 44
       },
       "enabled": true,
       "state": "scheduled",
       "paused_at": null,
       "paused_reason": null,
       "created_at": "2026-07-07T21:42:50.012014-04:00",
-      "next_run_at": "2026-07-15T04:15:00-04:00",
-      "last_run_at": "2026-07-15T00:15:27.893885-04:00",
+      "next_run_at": "2026-07-15T08:15:00-04:00",
+      "last_run_at": "2026-07-15T04:15:17.463713-04:00",
       "last_status": "ok",
       "last_error": null,
       "last_delivery_error": null,
@@ -1110,15 +1110,15 @@
       "schedule_display": "0 7 * * *",
       "repeat": {
         "times": null,
-        "completed": 5
+        "completed": 6
       },
       "enabled": true,
       "state": "scheduled",
       "paused_at": null,
       "paused_reason": null,
       "created_at": "2026-07-09T08:54:13.647380-04:00",
-      "next_run_at": "2026-07-15T07:00:00-04:00",
-      "last_run_at": "2026-07-14T07:00:11.430255-04:00",
+      "next_run_at": "2026-07-16T07:00:00-04:00",
+      "last_run_at": "2026-07-15T07:00:35.015821-04:00",
       "last_status": "ok",
       "last_error": null,
       "last_delivery_error": null,
@@ -1150,15 +1150,15 @@
       "schedule_display": "0 7 * * *",
       "repeat": {
         "times": null,
-        "completed": 5
+        "completed": 6
       },
       "enabled": true,
       "state": "scheduled",
       "paused_at": null,
       "paused_reason": null,
       "created_at": "2026-07-09T08:58:52.283971-04:00",
-      "next_run_at": "2026-07-15T07:00:00-04:00",
-      "last_run_at": "2026-07-14T07:00:11.763936-04:00",
+      "next_run_at": "2026-07-16T07:00:00-04:00",
+      "last_run_at": "2026-07-15T07:00:35.485957-04:00",
       "last_status": "ok",
       "last_error": null,
       "last_delivery_error": null,
@@ -1190,15 +1190,15 @@
       "schedule_display": "5 7 * * *",
       "repeat": {
         "times": null,
-        "completed": 5
+        "completed": 6
       },
       "enabled": true,
       "state": "scheduled",
       "paused_at": null,
       "paused_reason": null,
       "created_at": "2026-07-09T08:58:53.308393-04:00",
-      "next_run_at": "2026-07-15T07:05:00-04:00",
-      "last_run_at": "2026-07-14T07:05:11.733888-04:00",
+      "next_run_at": "2026-07-16T07:05:00-04:00",
+      "last_run_at": "2026-07-15T07:05:35.261252-04:00",
       "last_status": "ok",
       "last_error": null,
       "last_delivery_error": null,
@@ -1270,15 +1270,15 @@
       "schedule_display": "0 6 * * *",
       "repeat": {
         "times": null,
-        "completed": 5
+        "completed": 6
       },
       "enabled": true,
       "state": "scheduled",
       "paused_at": null,
       "paused_reason": null,
       "created_at": "2026-07-09T09:53:45.218648-04:00",
-      "next_run_at": "2026-07-15T06:00:00-04:00",
-      "last_run_at": "2026-07-14T06:00:04.212084-04:00",
+      "next_run_at": "2026-07-16T06:00:00-04:00",
+      "last_run_at": "2026-07-15T06:00:33.363559-04:00",
       "last_status": "ok",
       "last_error": null,
       "last_delivery_error": null,
@@ -1350,15 +1350,15 @@
       "schedule_display": "0 */4 * * *",
       "repeat": {
         "times": null,
-        "completed": 35
+        "completed": 36
       },
       "enabled": true,
       "state": "scheduled",
       "paused_at": null,
       "paused_reason": null,
       "created_at": "2026-07-09T09:53:47.258465-04:00",
-      "next_run_at": "2026-07-15T08:00:00-04:00",
-      "last_run_at": "2026-07-15T04:00:15.145883-04:00",
+      "next_run_at": "2026-07-15T12:00:00-04:00",
+      "last_run_at": "2026-07-15T08:00:52.740005-04:00",
       "last_status": "ok",
       "last_error": null,
       "last_delivery_error": null,
@@ -1470,15 +1470,15 @@
       "schedule_display": "0 7 * * *",
       "repeat": {
         "times": null,
-        "completed": 5
+        "completed": 6
       },
       "enabled": true,
       "state": "scheduled",
       "paused_at": null,
       "paused_reason": null,
       "created_at": "2026-07-09T09:53:56.631977-04:00",
-      "next_run_at": "2026-07-15T07:00:00-04:00",
-      "last_run_at": "2026-07-14T07:00:11.298773-04:00",
+      "next_run_at": "2026-07-16T07:00:00-04:00",
+      "last_run_at": "2026-07-15T07:00:34.896018-04:00",
       "last_status": "ok",
       "last_error": null,
       "last_delivery_error": null,
@@ -1550,15 +1550,15 @@
       "schedule_display": "0 */4 * * *",
       "repeat": {
         "times": null,
-        "completed": 34
+        "completed": 36
       },
       "enabled": true,
       "state": "scheduled",
       "paused_at": null,
       "paused_reason": null,
       "created_at": "2026-07-09T09:53:58.682054-04:00",
-      "next_run_at": "2026-07-15T08:00:00-04:00",
-      "last_run_at": "2026-07-15T00:00:37.858093-04:00",
+      "next_run_at": "2026-07-15T12:00:00-04:00",
+      "last_run_at": "2026-07-15T08:00:52.956074-04:00",
       "last_status": "ok",
       "last_error": null,
       "last_delivery_error": null,
@@ -1590,15 +1590,15 @@
       "schedule_display": "*/20 * * * *",
       "repeat": {
         "times": null,
-        "completed": 391
+        "completed": 403
       },
       "enabled": true,
       "state": "scheduled",
       "paused_at": null,
       "paused_reason": null,
       "created_at": "2026-07-09T09:53:59.696632-04:00",
-      "next_run_at": "2026-07-15T04:20:00-04:00",
-      "last_run_at": "2026-07-15T04:00:15.226106-04:00",
+      "next_run_at": "2026-07-15T08:20:00-04:00",
+      "last_run_at": "2026-07-15T08:00:52.933904-04:00",
       "last_status": "ok",
       "last_error": null,
       "last_delivery_error": null,
@@ -1710,7 +1710,7 @@
       "schedule_display": "30 10 * * 0",
       "repeat": {
         "times": null,
-        "completed": 1
+        "completed": 2
       },
       "enabled": true,
       "state": "scheduled",
@@ -1718,9 +1718,9 @@
       "paused_reason": null,
       "created_at": "2026-07-09T10:22:54.236292-04:00",
       "next_run_at": "2026-07-19T10:30:00-04:00",
-      "last_run_at": "2026-07-12T10:30:53.997511-04:00",
-      "last_status": "error",
-      "last_error": "Script exited with code 1\nstderr:\nTraceback (most recent call last):\n  File \"/Volumes/Extra/Substrate/.hermes/profiles/substrate-hermes/scripts/sams_club_fetcher.py\", line 193, in <module>\n    result = asyncio.run(fetch_receipts())\n             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n  File \"/Users/ted/.local/share/uv/python/cpython-3.11.15-macos-aarch64-none/lib/python3.11/asyncio/runners.py\", line 190, in run\n    return runner.run(main)\n           ^^^^^^^^^^^^^^^^\n  File \"/Users/ted/.local/share/uv/python/cpython-3.11.15-macos-aarch64-none/lib/python3.11/asyncio/runners.py\", line 118, in run\n    return self._loop.run_until_complete(task)\n           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n  File \"/Users/ted/.local/share/uv/python/cpython-3.11.15-macos-aarch64-none/lib/python3.11/asyncio/base_events.py\", line 654, in run_until_complete\n    return future.result()\n           ^^^^^^^^^^^^^^^\n  File \"/Volumes/Extra/Substrate/.hermes/profiles/substrate-hermes/scripts/sams_club_fetcher.py\", line 58, in fetch_receipts\n    await page.wait_for_selector('h2', timeout=20000)\n  File \"/Users/ted/.hermes/hermes-agent/venv/lib/python3.11/site-packages/playwright/async_api/_generated.py\", line 8948, in wait_for_selector\n    await self._impl_obj.wait_for_selector(\n  File \"/Users/ted/.hermes/hermes-agent/venv/lib/python3.11/site-packages/playwright/_impl/_page.py\", line 427, in wait_for_selector\n    return await self._main_frame.wait_for_selector(**locals_to_params(locals()))\n           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n  File \"/Users/ted/.hermes/hermes-agent/venv/lib/python3.11/site-packages/playwright/_impl/_frame.py\", line 394, in wait_for_selector\n    await self._channel.send(\n  File \"/Users/ted/.hermes/hermes-agent/venv/lib/python3.11/site-packages/playwright/_impl/_connection.py\", line 69, in send\n    return await self._connection.wrap_api_call(\n           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n  File \"/Users/ted/.hermes/hermes-agent/venv/lib/python3.11/site-packages/playwright/_impl/_connection.py\", line 563, in wrap_api_call\n    raise rewrite_error(error, f\"{parsed_st['apiName']}: {error}\") from None\nplaywright._impl._errors.TimeoutError: Page.wait_for_selector: Timeout 20000ms exceeded.\nCall log:\n  - waiting for locator(\"h2\") to be visible\n    - waiting for\" https://www.samsclub.com/login?vid=oaoh&tid=0&returnUrl=%2Forders\" navigation to finish...\n    - navigated to \"https://www.samsclub.com/login?vid=oaoh&tid=0&returnUrl=%2Forders\"\nstdout:\n=== Sam's Club Receipt Fetcher ===\nNavigating to purchase history...",
+      "last_run_at": "2026-07-15T07:29:46.190997-04:00",
+      "last_status": "ok",
+      "last_error": null,
       "last_delivery_error": null,
       "deliver": "local",
       "origin": null,
@@ -1750,17 +1750,17 @@
       "schedule_display": "0 8 * * *",
       "repeat": {
         "times": null,
-        "completed": 5
+        "completed": 6
       },
       "enabled": true,
       "state": "scheduled",
       "paused_at": null,
       "paused_reason": null,
       "created_at": "2026-07-09T10:29:13.186624-04:00",
-      "next_run_at": "2026-07-15T08:00:00-04:00",
-      "last_run_at": "2026-07-14T08:00:11.960288-04:00",
-      "last_status": "error",
-      "last_error": "Script exited with code 127\nstdout:\n/Volumes/Extra/Substrate/.hermes/profiles/substrate-hermes/scripts/ynab_writeback_cron.sh: line 5: /Users/ted/.hermes/hermes-agent/venv/bin/python3: No such file or directory",
+      "next_run_at": "2026-07-16T08:00:00-04:00",
+      "last_run_at": "2026-07-15T07:19:21.265062-04:00",
+      "last_status": "ok",
+      "last_error": null,
       "last_delivery_error": null,
       "deliver": "local",
       "origin": null,
@@ -1784,23 +1784,23 @@
       "context_from": null,
       "schedule": {
         "kind": "cron",
-        "expr": "0 7 * * *",
-        "display": "0 7 * * *"
+        "expr": "0 7 1,15 * *",
+        "display": "0 7 1,15 * *"
       },
-      "schedule_display": "0 7 * * *",
+      "schedule_display": "0 7 1,15 * *",
       "repeat": {
         "times": null,
-        "completed": 6
+        "completed": 7
       },
       "enabled": true,
       "state": "scheduled",
       "paused_at": null,
       "paused_reason": null,
       "created_at": "2026-07-09T10:31:34.740815-04:00",
-      "next_run_at": "2026-07-15T07:00:00-04:00",
-      "last_run_at": "2026-07-14T07:00:23.117375-04:00",
-      "last_status": "ok",
-      "last_error": null,
+      "next_run_at": "2026-08-01T07:00:00-04:00",
+      "last_run_at": "2026-07-15T07:00:46.636986-04:00",
+      "last_status": "error",
+      "last_error": "Script exited with code 1\nstdout:\n[fundrise] Tab: 4FB8BF46BA86C319\n[fundrise] Tab is on unknown \u2014 navigating to Fundrise...\n[fundrise] Login required \u2014 open the browser window and log into Fundrise once",
       "last_delivery_error": null,
       "deliver": "local",
       "origin": null,
@@ -1870,15 +1870,15 @@
       "schedule_display": "0 */4 * * *",
       "repeat": {
         "times": null,
-        "completed": 22
+        "completed": 23
       },
       "enabled": true,
       "state": "scheduled",
       "paused_at": null,
       "paused_reason": null,
       "created_at": "2026-07-11T16:29:55.461353-04:00",
-      "next_run_at": "2026-07-15T08:00:00-04:00",
-      "last_run_at": "2026-07-15T00:00:30.728890-04:00",
+      "next_run_at": "2026-07-15T12:00:00-04:00",
+      "last_run_at": "2026-07-15T04:00:18.794153-04:00",
       "last_status": "ok",
       "last_error": null,
       "last_delivery_error": null,
@@ -2006,5 +2006,5 @@
       "workdir": "/Volumes/Extra/Substrate/Commons/Substrate_Finance_Planning"
     }
   ],
-  "updated_at": "2026-07-15T04:00:15.228676-04:00"
+  "updated_at": "2026-07-15T08:00:52.957963-04:00"
 }

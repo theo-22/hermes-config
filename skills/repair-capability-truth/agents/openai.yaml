@@ -1,0 +1,4 @@
+interface:
+  display_name: "Repair Capability Truth"
+  short_description: "Reconcile live capability, docs, and typed queries"
+  default_prompt: "Use $repair-capability-truth to reconcile live role capability, current documentation, and typed operational queries with evidence-backed proof."

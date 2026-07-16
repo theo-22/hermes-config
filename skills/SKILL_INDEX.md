@@ -45,6 +45,9 @@ If the `/` menu is crowded, scan this card first, then search for the exact skil
 - `codex-usage-audit`
   Use when Codex itself needs an efficiency/reliability pass. Audits AGENTS, config, hooks, MCP/plugins, slash/status surfaces, repeated workflows, paste-heavy workflows, subagent fit, and review wiring before proposing small patches.
 
+- `repair-capability-truth`
+  Use when a role's fresh-session callable surface, static scope, current documentation, and typed operational queries disagree. Separates evidence layers, preserves specialist-role inhabitation, repairs full live-schema mappings without migration, and requires direct plus aggregate proof.
+
 - `audit-yield-stamp`
   Use when completed audit case files lack a yield rating or have a Pending rating that needs recheck. Reads Findings + Recommended Next Move, verifies against a live evidence surface, writes the historical `## CC yield rating` stamp with citation. Falls back to `Pending — not verified this session` when verification isn't possible this session.
 
@@ -155,6 +158,7 @@ If the `/` menu is crowded, scan this card first, then search for the exact skil
 - `workflow-orchestration` = run one conductor-routed work lane
 - `project-room-review` = review a Project Room from live room-local state
 - `codex-usage-audit` = audit Codex overhead before patching
+- `repair-capability-truth` = reconcile live capability, current docs, and typed operational queries
 - `audit-yield-stamp` = verify and stamp audit case files
 - `builder-batch` = run the Builder update queue across the fleet
 - `manager-handoff-contract` = shape worker output into a manager-ready handoff
@@ -255,6 +259,9 @@ If the main need is reviewing or resuming a Project Room from live state:
 If the main need is reducing Codex context, tool, MCP, reasoning, subagent, or review-loop waste:
 - use `codex-usage-audit`
 
+If fresh-session role capability, current documentation, and typed operational queries disagree:
+- use `repair-capability-truth`
+
 If the main need is rating and closing out accumulated audit case files:
 - use `audit-yield-stamp`
 
@@ -285,6 +292,7 @@ If the main need is deciding whether a role may safely dispatch Hermes workers:
 - If the GPT environment change is proposed but the question is whether the affected GPT must be heard before settlement, use `affected-gpt-hearing`, not `gpt-environment-build`.
 - If the issue is not summary but whether new digest material materially changes a living topic, use `digest-topic-refresh`.
 - If the issue is disputed live state, do not infer from intended-state files; use `live-surface-verification`.
+- If disputed live state has already proved stale capability docs or typed-query mappings and the authorized job is to repair and verify them, use `repair-capability-truth`; use `live-surface-verification` when the job is still proof-only.
 - If the issue is one Project Room's current standing, next action, v1-readiness, or chain handoff, use `project-room-review`, not broad workspace discovery.
 - If the issue is not yet proposal or implementation work but a worker output needs to be handed to Ted/Codex/Claude in a usable shape, use `manager-handoff-contract`.
 
@@ -320,6 +328,7 @@ If the main need is deciding whether a role may safely dispatch Hermes workers:
 - `proposal-candidate-surfacing`
 - `proposal-packet`
 - `quick-save`
+- `repair-capability-truth`
 - `relocate-role-from-projects-gpt`
 - `role-hermes-worker-access`
 - `role-workspace-sufficiency`

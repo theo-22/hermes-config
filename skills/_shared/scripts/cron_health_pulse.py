@@ -6,7 +6,19 @@ Designed for session-start checks (quiet when healthy)."""
 import json, os, sys
 from pathlib import Path
 
-BASE = Path(os.environ["HOME"]) / ".hermes"
+# Live Hermes home moved to the Substrate drive in the 2026-07 flatten migration;
+# ~/.hermes is a dormant twin. Honor HERMES_HOME, fall back to the live Substrate
+# path, and only then to the legacy ~/.hermes. (Fixed 2026-07-16 after the pulse
+# silently reported "healthy" while 8 live cron jobs sat in error state.)
+_candidates = [
+    os.environ.get("HERMES_HOME"),
+    "/Volumes/Extra/Substrate/.hermes",
+    str(Path(os.environ["HOME"]) / ".hermes"),
+]
+BASE = next(
+    (Path(p) for p in _candidates if p and (Path(p) / "cron" / "jobs.json").exists()),
+    Path(_candidates[1]),
+)
 PROFILES_DIR = BASE / "profiles"
 
 errors = []

@@ -19,7 +19,19 @@ BASE = next(
     (Path(p) for p in _candidates if p and (Path(p) / "cron" / "jobs.json").exists()),
     Path(_candidates[1]),
 )
-PROFILES_DIR = BASE / "profiles"
+# Profiles directory — cannot derive from BASE because HERMES_HOME may point
+# to a specific profile dir (common in cron context), making BASE / "profiles"
+# resolve to e.g. ~/.hermes/profiles/substrate-hermes/profiles which doesn't
+# exist. Look in canonical locations instead.
+KNOWN_PROFILES_DIRS = [
+    Path.home() / ".hermes" / "profiles",
+    Path("/Volumes/Extra/Substrate/.hermes") / "profiles",
+    BASE / "profiles",
+]
+PROFILES_DIR = next(
+    (p for p in KNOWN_PROFILES_DIRS if p.exists()),
+    BASE / "profiles",
+)
 
 errors = []
 

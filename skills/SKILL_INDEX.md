@@ -26,6 +26,12 @@ If the `/` menu is crowded, scan this card first, then search for the exact skil
 - `proposal-packet`
   Use when the proposal already exists and you want a compact durable packet for evaluation or handoff. Tracks in database.
 
+- `graph-edge-finding`
+  Use when a graph node is thin, orphaned, or "feels" disconnected. Finds its real missing edges and writes them to database.
+
+- `topic-assembly`
+  Use when a live discussion topic deepens and should be assembled into its connected node-neighborhood, not just discussed. Writes nodes/edges to database.
+
 ### Knowledge-Capture (writes to _shared/)
 
 - `share-learning`
@@ -318,6 +324,7 @@ If the main need is deciding whether a role may safely dispatch Hermes workers:
 - `digest-topic-refresh`
 - `gpt-environment-build`
 - `gpt-instructions-discipline`
+- `graph-edge-finding`
 - `ht-grocery`
 - `icon-relocation-audit`
 - `image-factory-16x9-replacement-workflow`
@@ -345,5 +352,6 @@ If the main need is deciding whether a role may safely dispatch Hermes workers:
 - `surface-routing`
 - `synthesis-review`
 - `system-14-update`
+- `topic-assembly`
 - `workflow-orchestration`
 - `workspace-orchestration-coordination`

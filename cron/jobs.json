@@ -532,15 +532,15 @@
       "schedule_display": "15 */4 * * *",
       "repeat": {
         "times": null,
-        "completed": 123
+        "completed": 124
       },
       "enabled": true,
       "state": "scheduled",
       "paused_at": null,
       "paused_reason": null,
       "created_at": "2026-07-03T00:57:54.447668-04:00",
-      "next_run_at": "2026-07-23T08:15:00-04:00",
-      "last_run_at": "2026-07-23T04:15:05.945920-04:00",
+      "next_run_at": "2026-07-23T12:15:00-04:00",
+      "last_run_at": "2026-07-23T08:15:42.181769-04:00",
       "last_status": "ok",
       "last_error": null,
       "last_delivery_error": null,
@@ -732,15 +732,15 @@
       "schedule_display": "0 */4 * * *",
       "repeat": {
         "times": null,
-        "completed": 107
+        "completed": 108
       },
       "enabled": true,
       "state": "scheduled",
       "paused_at": null,
       "paused_reason": null,
       "created_at": "2026-07-05T18:09:46.374910-04:00",
-      "next_run_at": "2026-07-23T12:00:00-04:00",
-      "last_run_at": "2026-07-23T08:00:40.688194-04:00",
+      "next_run_at": "2026-07-23T16:00:00-04:00",
+      "last_run_at": "2026-07-23T12:00:10.916037-04:00",
       "last_status": "ok",
       "last_error": null,
       "last_delivery_error": null,
@@ -948,15 +948,15 @@
       "schedule_display": "0 */2 * * *",
       "repeat": {
         "times": null,
-        "completed": 183
+        "completed": 185
       },
       "enabled": true,
       "state": "scheduled",
       "paused_at": null,
       "paused_reason": null,
       "created_at": "2026-07-07T21:42:44.416472-04:00",
-      "next_run_at": "2026-07-23T10:00:00-04:00",
-      "last_run_at": "2026-07-23T06:00:23.779750-04:00",
+      "next_run_at": "2026-07-23T14:00:00-04:00",
+      "last_run_at": "2026-07-23T10:00:54.370291-04:00",
       "last_status": "ok",
       "last_error": null,
       "last_delivery_error": null,
@@ -988,17 +988,17 @@
       "schedule_display": "15 */4 * * *",
       "repeat": {
         "times": null,
-        "completed": 92
+        "completed": 93
       },
       "enabled": true,
       "state": "scheduled",
       "paused_at": null,
       "paused_reason": null,
       "created_at": "2026-07-07T21:42:50.012014-04:00",
-      "next_run_at": "2026-07-23T08:15:00-04:00",
-      "last_run_at": "2026-07-23T04:15:05.944116-04:00",
-      "last_status": "ok",
-      "last_error": null,
+      "next_run_at": "2026-07-23T12:15:00-04:00",
+      "last_run_at": "2026-07-23T08:15:51.467967-04:00",
+      "last_status": "error",
+      "last_error": "Script exited with code 1\nstdout:\n{\n  \"surface\": \"refresh_actual_ai_cost\",\n  \"provider_pull_generated_at\": \"2026-07-23T12:15:51Z\",\n  \"provider_errors\": {\n    \"gemini\": \"cannot import name 'bigquery' from 'google.cloud' (unknown location)\"\n  },\n  \"actual_cost_generated_at\": \"2026-07-23T12:15:51Z\",\n  \"actual_total_status\": \"KNOWN\",\n  \"verified_provider_readings_usd\": 96.627322,\n  \"manual_assumptions_usd\": 0,\n  \"local_ledger_estimate_usd\": 0.141172,\n  \"report_path\": \"/Users/ted/Operations/reports/Actual_AI_Cost_LATEST.md\",\n  \"state_path\": \"/Users/ted/Operations/state/actual_ai_cost_latest.json\"\n}\nERROR: refresh failed",
       "last_delivery_error": null,
       "deliver": "local",
       "origin": null,
@@ -1028,17 +1028,17 @@
       "schedule_display": "0 9 * * *",
       "repeat": {
         "times": null,
-        "completed": 15
+        "completed": 16
       },
       "enabled": true,
       "state": "scheduled",
       "paused_at": null,
       "paused_reason": null,
       "created_at": "2026-07-07T21:43:18.689990-04:00",
-      "next_run_at": "2026-07-23T09:00:00-04:00",
-      "last_run_at": "2026-07-22T09:00:36.450974-04:00",
-      "last_status": "ok",
-      "last_error": null,
+      "next_run_at": "2026-07-24T09:00:00-04:00",
+      "last_run_at": "2026-07-23T09:00:46.679258-04:00",
+      "last_status": "error",
+      "last_error": "Script exited with code 1\nstdout:\n\u26a0\ufe0f  AI cost dashboard readings need refresh:\n  deepseek/dashboard_manual: 4d stale (last 2026-07-18T18:52:13Z)\n  anthropic/dashboard_manual: 4d stale (last 2026-07-18T18:52:13Z)\nVisit https://platform.deepseek.com/usage and https://platform.claude.com/dashboard",
       "last_delivery_error": null,
       "deliver": "local",
       "origin": null,
@@ -1268,15 +1268,15 @@
       "schedule_display": "30 8 * * *",
       "repeat": {
         "times": null,
-        "completed": 13
+        "completed": 14
       },
       "enabled": true,
       "state": "scheduled",
       "paused_at": null,
       "paused_reason": null,
       "created_at": "2026-07-09T09:53:46.240993-04:00",
-      "next_run_at": "2026-07-23T08:30:00-04:00",
-      "last_run_at": "2026-07-22T08:30:31.106720-04:00",
+      "next_run_at": "2026-07-24T08:30:00-04:00",
+      "last_run_at": "2026-07-23T08:30:43.657532-04:00",
       "last_status": "ok",
       "last_error": null,
       "last_delivery_error": null,
@@ -1308,15 +1308,15 @@
       "schedule_display": "0 */4 * * *",
       "repeat": {
         "times": null,
-        "completed": 84
+        "completed": 85
       },
       "enabled": true,
       "state": "scheduled",
       "paused_at": null,
       "paused_reason": null,
       "created_at": "2026-07-09T09:53:47.258465-04:00",
-      "next_run_at": "2026-07-23T12:00:00-04:00",
-      "last_run_at": "2026-07-23T08:00:40.677527-04:00",
+      "next_run_at": "2026-07-23T16:00:00-04:00",
+      "last_run_at": "2026-07-23T12:00:10.914132-04:00",
       "last_status": "ok",
       "last_error": null,
       "last_delivery_error": null,
@@ -1508,15 +1508,15 @@
       "schedule_display": "0 */4 * * *",
       "repeat": {
         "times": null,
-        "completed": 83
+        "completed": 84
       },
       "enabled": true,
       "state": "scheduled",
       "paused_at": null,
       "paused_reason": null,
       "created_at": "2026-07-09T09:53:58.682054-04:00",
-      "next_run_at": "2026-07-23T12:00:00-04:00",
-      "last_run_at": "2026-07-23T04:00:13.958397-04:00",
+      "next_run_at": "2026-07-23T16:00:00-04:00",
+      "last_run_at": "2026-07-23T08:00:41.539592-04:00",
       "last_status": "ok",
       "last_error": null,
       "last_delivery_error": null,
@@ -1548,15 +1548,15 @@
       "schedule_display": "*/20 * * * *",
       "repeat": {
         "times": null,
-        "completed": 977
+        "completed": 989
       },
       "enabled": true,
       "state": "scheduled",
       "paused_at": null,
       "paused_reason": null,
       "created_at": "2026-07-09T09:53:59.696632-04:00",
-      "next_run_at": "2026-07-23T08:20:00-04:00",
-      "last_run_at": "2026-07-23T08:00:40.686231-04:00",
+      "next_run_at": "2026-07-23T12:20:00-04:00",
+      "last_run_at": "2026-07-23T12:00:10.908694-04:00",
       "last_status": "ok",
       "last_error": null,
       "last_delivery_error": null,
@@ -1668,7 +1668,7 @@
       "schedule_display": "0 8 * * *",
       "repeat": {
         "times": null,
-        "completed": 14
+        "completed": 15
       },
       "enabled": true,
       "state": "scheduled",
@@ -1676,7 +1676,7 @@
       "paused_reason": null,
       "created_at": "2026-07-09T10:29:13.186624-04:00",
       "next_run_at": "2026-07-24T08:00:00-04:00",
-      "last_run_at": "2026-07-22T08:00:26.887994-04:00",
+      "last_run_at": "2026-07-23T08:00:40.759517-04:00",
       "last_status": "ok",
       "last_error": null,
       "last_delivery_error": null,
@@ -1748,17 +1748,17 @@
       "schedule_display": "0 */4 * * *",
       "repeat": {
         "times": null,
-        "completed": 71
+        "completed": 72
       },
       "enabled": true,
       "state": "scheduled",
       "paused_at": null,
       "paused_reason": null,
       "created_at": "2026-07-11T16:29:55.461353-04:00",
-      "next_run_at": "2026-07-23T12:00:00-04:00",
-      "last_run_at": "2026-07-23T04:00:03.668759-04:00",
-      "last_status": "error",
-      "last_error": "Script exited with code 1\nstderr:\nTraceback (most recent call last):\n  File \"/Users/ted/.hermes/profiles/substrate-hermes/scripts/sync_public_config.py\", line 240, in <module>\n    main()\n  File \"/Users/ted/.hermes/profiles/substrate-hermes/scripts/sync_public_config.py\", line 165, in main\n    for prof_dir in SOURCES[\"profiles\"].iterdir():\n  File \"/Users/ted/.local/share/uv/python/cpython-3.11.15-macos-aarch64-none/lib/python3.11/pathlib.py\", line 931, in iterdir\n    for name in os.listdir(self):\n                ^^^^^^^^^^^^^^^^\nFileNotFoundError: [Errno 2] No such file or directory: '/Volumes/Extra/Substrate/.hermes/profiles'\nstdout:\n\u2192 Syncing Hermes config to public repo...\n  copying profiles...",
+      "next_run_at": "2026-07-23T16:00:00-04:00",
+      "last_run_at": "2026-07-23T08:00:43.491037-04:00",
+      "last_status": "ok",
+      "last_error": null,
       "last_delivery_error": null,
       "deliver": "local",
       "origin": null,
@@ -1908,15 +1908,15 @@
       "schedule_display": "every 10m",
       "repeat": {
         "times": null,
-        "completed": 379
+        "completed": 402
       },
       "enabled": true,
       "state": "scheduled",
       "paused_at": null,
       "paused_reason": null,
       "created_at": "2026-07-20T16:54:21.440840-04:00",
-      "next_run_at": "2026-07-23T08:10:40.682685-04:00",
-      "last_run_at": "2026-07-23T08:00:40.682685-04:00",
+      "next_run_at": "2026-07-23T12:01:10.083525-04:00",
+      "last_run_at": "2026-07-23T11:51:10.083525-04:00",
       "last_status": "ok",
       "last_error": null,
       "last_delivery_error": null,
@@ -2047,5 +2047,5 @@
       "fire_claim": null
     }
   ],
-  "updated_at": "2026-07-23T08:00:40.688395-04:00"
+  "updated_at": "2026-07-23T12:00:10.916285-04:00"
 }

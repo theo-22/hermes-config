@@ -1,0 +1,4 @@
+interface:
+  display_name: "MCP Client Disconnect Repair"
+  short_description: "Repair and prove MCP transport disconnect handling"
+  default_prompt: "Use $repair-mcp-client-disconnects to diagnose, patch, and live-verify an MCP bridge client-disconnect failure."

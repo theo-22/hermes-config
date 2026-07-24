@@ -54,6 +54,9 @@ If the `/` menu is crowded, scan this card first, then search for the exact skil
 - `repair-capability-truth`
   Use when a role's fresh-session callable surface, static scope, current documentation, and typed operational queries disagree. Separates evidence layers, preserves specialist-role inhabitation, repairs full live-schema mappings without migration, and requires direct plus aggregate proof.
 
+- `repair-mcp-client-disconnects`
+  Use when an MCP bridge logs expected SSE or streamable-HTTP client disconnect errors, unhandled AnyIO exception groups, intermittent restarts, or post-disconnect hangs. Suppresses only proven disconnect leaves, preserves cancellation and unrelated faults, and requires authenticated abrupt-disconnect plus fresh-client proof.
+
 - `cross-actor-incident-repair`
   Use when a live fault spans siloed actors — one role/GPT surfaces a specific symptom, the filesystem-access actor diagnoses root cause (self-correcting wrong first guesses before handoff), and a different code-owning actor repairs inside its fence, with Ted conducting between the walled-off lanes. STATUS: proposed — Codex/ChatGPT surfacer/fixer lanes pending `CROSS_ACTOR_SKILL_REVIEW`.
 
@@ -168,6 +171,7 @@ If the `/` menu is crowded, scan this card first, then search for the exact skil
 - `project-room-review` = review a Project Room from live room-local state
 - `codex-usage-audit` = audit Codex overhead before patching
 - `repair-capability-truth` = reconcile live capability, current docs, and typed operational queries
+- `repair-mcp-client-disconnects` = narrowly handle and live-prove normal MCP transport disconnects
 - `cross-actor-incident-repair` = diagnose→handoff→repair→verify a fault across siloed actors, Ted conducting (proposed)
 - `audit-yield-stamp` = verify and stamp audit case files
 - `builder-batch` = run the Builder update queue across the fleet
@@ -340,6 +344,7 @@ If the main need is deciding whether a role may safely dispatch Hermes workers:
 - `proposal-packet`
 - `quick-save`
 - `repair-capability-truth`
+- `repair-mcp-client-disconnects`
 - `cross-actor-incident-repair`
 - `relocate-role-from-projects-gpt`
 - `role-hermes-worker-access`

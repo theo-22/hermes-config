@@ -743,5 +743,6 @@ session_reset:
   mode: both
 platforms:
   api_server:
-    enabled: false
+    enabled: true
+    port: 8641
 TELEGRAM_HOME_CHANNEL: 8547176321

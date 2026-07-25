@@ -54,6 +54,9 @@ If the `/` menu is crowded, scan this card first, then search for the exact skil
 - `project-room-review`
   Use when Ted asks to review, resume, orient, discuss, advance, save, or decide the next move for a Project Room. Reads room-local state first, checks v1-readiness, and prepares bounded save or QuickSave-chain handoffs without broadening into implementation.
 
+- `contradiction-sweep`
+  Use before a session close or handoff when several durable artifacts were written in one sitting. Hands them to a different, cheaper, uncommitted model and asks only for contradictions between them — because an author cannot find the ones he resolved without noticing, a resolved contradiction being experienced as settled rather than smoothed. Pre-register a predicted count; the gap is the finding. Sort returns into defects (fix) and tensions (preserve unresolved).
+
 - `codex-usage-audit`
   Use when Codex itself needs an efficiency/reliability pass. Audits AGENTS, config, hooks, MCP/plugins, slash/status surfaces, repeated workflows, paste-heavy workflows, subagent fit, and review wiring before proposing small patches.
 
@@ -181,6 +184,7 @@ If the `/` menu is crowded, scan this card first, then search for the exact skil
 - `quick-save` = save a bounded task without full session-end
 - `workflow-orchestration` = run one conductor-routed work lane
 - `project-room-review` = review a Project Room from live room-local state
+- `contradiction-sweep` = a cold model finds the contradictions you smoothed over
 - `codex-usage-audit` = audit Codex overhead before patching
 - `repair-capability-truth` = reconcile live capability, current docs, and typed operational queries
 - `repair-mcp-client-disconnects` = narrowly handle and live-prove normal MCP transport disconnects
@@ -337,6 +341,7 @@ If the main need is deciding whether a role may safely dispatch Hermes workers:
 - `clip-cycle-closer`
 - `codex-usage-audit`
 - `concept-bridge-surfacing`
+- `contradiction-sweep`
 - `context-extension-surfacing`
 - `coordinator-consolidation-synthesis`
 - `coordinator-hermes-work-loop`

@@ -57,6 +57,9 @@ If the `/` menu is crowded, scan this card first, then search for the exact skil
 - `repair-mcp-client-disconnects`
   Use when an MCP bridge logs expected SSE or streamable-HTTP client disconnect errors, unhandled AnyIO exception groups, intermittent restarts, or post-disconnect hangs. Suppresses only proven disconnect leaves, preserves cancellation and unrelated faults, and requires authenticated abrupt-disconnect plus fresh-client proof.
 
+- `repair-hermes-update-continuity`
+  Use before a Hermes update or when sessions/profiles disappear, Desktop fails after an update, or CLI/Desktop state disagrees. Takes read-only pre/post session snapshots, distinguishes real row loss from cache/profile/home/version drift, requires SQLite-safe backup, and proves both the session corpus and Ted-facing client before completion.
+
 - `cross-actor-incident-repair`
   Use when a live fault spans siloed actors — one role/GPT surfaces a specific symptom, the filesystem-access actor diagnoses root cause (self-correcting wrong first guesses before handoff), and a different code-owning actor repairs inside its fence, with Ted conducting between the walled-off lanes. STATUS: proposed — Codex/ChatGPT surfacer/fixer lanes pending `CROSS_ACTOR_SKILL_REVIEW`.
 
@@ -172,6 +175,7 @@ If the `/` menu is crowded, scan this card first, then search for the exact skil
 - `codex-usage-audit` = audit Codex overhead before patching
 - `repair-capability-truth` = reconcile live capability, current docs, and typed operational queries
 - `repair-mcp-client-disconnects` = narrowly handle and live-prove normal MCP transport disconnects
+- `repair-hermes-update-continuity` = preserve and prove sessions across Hermes updates before repairing visibility or version skew
 - `cross-actor-incident-repair` = diagnose→handoff→repair→verify a fault across siloed actors, Ted conducting (proposed)
 - `audit-yield-stamp` = verify and stamp audit case files
 - `builder-batch` = run the Builder update queue across the fleet
@@ -345,6 +349,7 @@ If the main need is deciding whether a role may safely dispatch Hermes workers:
 - `quick-save`
 - `repair-capability-truth`
 - `repair-mcp-client-disconnects`
+- `repair-hermes-update-continuity`
 - `cross-actor-incident-repair`
 - `relocate-role-from-projects-gpt`
 - `role-hermes-worker-access`

@@ -31,7 +31,9 @@ The origin (Ted, 2026-07-18): *"This works because I point at them. You could qu
    - **The rest of the map:** nodes the topic touches that weren't in the first find.
    - **Pieces:** ask about the topic across sessions and other apps — the connecting ideas that live off-substrate (ChatGPT, browser, prior sessions). Pieces is a **lead-finder, not authority**: verify each lead against live files/DB before wiring it (see [pieces-ambient-lead-evaluation]).
 5. **Lay it down in multidimensions and connect.** Wire the verified connections as **proposed** edges (candidate / dashed), grouped by facet/axis so the topic reads as a legible volume, not a line. Each edge names a real shared *mechanism* (not topic-similarity). Create a node only if a genuine concept is missing, following concept-bridge-surfacing discipline.
-6. **Leave a tail.** The assembled neighborhood IS a re-entry handle — record it (a memory, a thread, or just the wired map region) so the topic can be dropped back into later instead of re-derived. The assembly's own output is a conversation tail.
+6. **Leave a tail — and persist it.** The assembled neighborhood IS a re-entry handle. **Run [persist]** (Brain + memory file with its `MEMORY.md` pointer + a buoyancy touch) so the topic can be dropped back into later instead of re-derived.
+
+   **The wired map region alone does not count.** It is the artifact; it does not carry why the pass happened or what was decided. Earlier wording here permitted "or just the wired map region" — that loophole is closed deliberately, because it is the step that gets skipped under end-of-session token pressure, exactly when the understanding still feels present. If invoked as stage 1 of [lens-assembly-pass], this is that engine's closing andon.
 
 ## Evidence / success criteria
 - The connected subset walks as a coherent through-line; breaks are named, not papered over.

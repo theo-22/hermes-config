@@ -30,7 +30,13 @@ If the `/` menu is crowded, scan this card first, then search for the exact skil
   Use when a graph node is thin, orphaned, or "feels" disconnected. Finds its real missing edges and writes them to database.
 
 - `topic-assembly`
-  Use when a live discussion topic deepens and should be assembled into its connected node-neighborhood, not just discussed. Writes nodes/edges to database.
+  Use when a live discussion topic deepens and should be assembled into its connected node-neighborhood, not just discussed. Writes nodes/edges to database. Stage 1 of `lens-assembly-pass`.
+
+- `lens-assembly-pass`
+  **The engine — start here for concept-map work.** Use when a topic is worth laying down rather than just discussed, or when a session produced understanding that will otherwise evaporate. Runs the full loop: assemble (`topic-assembly`) → fortify (spine verdict: realized / gap / drift) → persist. Use this instead of re-deriving the sequence by hand.
+
+- `persist`
+  Use as the never-skipped closing step of any concept work — writes the idea to all three durable surfaces (Brain, memory file + `MEMORY.md` pointer, buoyancy touch). Callable alone. Not a substitute for `quick-save`/`session-end`: those close a session, this closes an idea.
 
 ### Knowledge-Capture (writes to _shared/)
 

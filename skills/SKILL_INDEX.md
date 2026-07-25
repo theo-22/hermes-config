@@ -81,6 +81,9 @@ If the `/` menu is crowded, scan this card first, then search for the exact skil
 - `role-workspace-sufficiency`
   Use when creating, converting, reviewing, or repairing a role-runtime role and the question is whether it has enough continuity, scratch, staged output, receipts, telemetry, persistence, sandbox folders, or anti-curtailment room to function well without broad write access.
 
+- `role-contract-boundary-reconciliation`
+  Use when a durable role runtime's job, neighboring-role boundaries, Home ownership, continuity authority, static access, live doctrine, or orchestration identity disagree. Reconciles the complete contract and existing authority, requires exact positive/negative proof plus independent verification, and stops before fresh-session acceptance, map mutation, new capability, or fleet rollout.
+
 - `role-hermes-worker-access`
   Use when a ChatGPT role-runtime role needs direct Hermes worker dispatch or a review of worker authority. Designs role-specific wrappers, path fences, proof receipts, and narrow per-role access instead of exposing broad `dispatch_worker` by default.
 
@@ -191,6 +194,7 @@ If the `/` menu is crowded, scan this card first, then search for the exact skil
 
 - `coordinator-hermes-work-loop` = Coordinator shapes handoff, Hermes evaluates and executes
 - `role-workspace-sufficiency` = check and add enough owned workspace for a role-runtime role
+- `role-contract-boundary-reconciliation` = reconcile a role's job, ownership, continuity, access, and lifecycle identity without adding capability
 - `role-hermes-worker-access` = design/review role-scoped Hermes worker dispatch without broad generic worker access
 - `dashboard-api` = monitor Hermes Dashboard for cron health, logs, and gateway status
 - `system-14-update` = update the System 14 plan — chapter-first, then thread upward
@@ -298,6 +302,9 @@ If the main need is shaping Hermes, cheap-model, overnight, or conversational ou
 If the main need is deciding whether a role has enough workspace or sandbox to function well:
 - use `role-workspace-sufficiency`
 
+If the role's job, neighboring-role boundary, Home ownership, continuity authority, existing access, or lifecycle identity disagree:
+- use `role-contract-boundary-reconciliation`
+
 If the main need is deciding whether a role may safely dispatch Hermes workers:
 - use `role-hermes-worker-access`
 
@@ -342,10 +349,12 @@ If the main need is deciding whether a role may safely dispatch Hermes workers:
 - `ht-grocery`
 - `icon-relocation-audit`
 - `image-factory-16x9-replacement-workflow`
+- `lens-assembly-pass`
 - `live-session-to-skill`
 - `live-surface-verification`
 - `manager-handoff-contract`
 - `model-switch-surfacing`
+- `persist`
 - `pieces-ambient-lead-evaluation`
 - `poka-yoke`
 - `profile-birthday-proof`
@@ -358,6 +367,7 @@ If the main need is deciding whether a role may safely dispatch Hermes workers:
 - `repair-hermes-update-continuity`
 - `cross-actor-incident-repair`
 - `relocate-role-from-projects-gpt`
+- `role-contract-boundary-reconciliation`
 - `role-hermes-worker-access`
 - `role-workspace-sufficiency`
 - `scope-comparison`

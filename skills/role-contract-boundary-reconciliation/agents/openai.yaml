@@ -1,0 +1,4 @@
+interface:
+  display_name: "Role Contract Boundary Reconciliation"
+  short_description: "Reconcile role contracts, ownership, and access"
+  default_prompt: "Use $role-contract-boundary-reconciliation to reconcile this role runtime from live contract, Home, continuity, access, lifecycle, and verification evidence."

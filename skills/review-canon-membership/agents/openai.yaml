@@ -1,0 +1,4 @@
+interface:
+  display_name: "Review Canon Membership"
+  short_description: "Classify Canon files with independent evidence"
+  default_prompt: "Use $review-canon-membership to independently classify these current files as Keep, Keep-trim, Move, or Extract."

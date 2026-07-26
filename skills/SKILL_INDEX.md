@@ -75,6 +75,9 @@ If the `/` menu is crowded, scan this card first, then search for the exact skil
 - `audit-yield-stamp`
   Use when completed audit case files lack a yield rating or have a Pending rating that needs recheck. Reads Findings + Recommended Next Move, verifies against a live evidence surface, writes the historical `## CC yield rating` stamp with citation. Falls back to `Pending — not verified this session` when verification isn't possible this session.
 
+- `review-canon-membership`
+  Use when Canon files, batches, specimens, or mixed doctrine/current-state documents need an independent Keep / Keep-trim / Move / Extract verdict. Reads the live criterion and current file bodies, preserves reviewer independence, requires failed-test evidence for non-Keep verdicts, routes a comparison-ready return, and stops before Ted-authorized mutation.
+
 - `builder-batch`
   Use when GPT Builder changes have accumulated and Ted is ready for a fleet pass. Reads `/api/gpt-status` work queue + `Builder_Update_Batch.md`, executes the four-step checklist per pending GPT, requires proof receipts before marking complete. Composes `gpt-instructions-discipline` and `gpt-environment-build`.
 
@@ -191,6 +194,7 @@ If the `/` menu is crowded, scan this card first, then search for the exact skil
 - `repair-hermes-update-continuity` = preserve and prove sessions across Hermes updates before repairing visibility or version skew
 - `cross-actor-incident-repair` = diagnose→handoff→repair→verify a fault across siloed actors, Ted conducting (proposed)
 - `audit-yield-stamp` = verify and stamp audit case files
+- `review-canon-membership` = independently classify Canon membership without mutating Canon
 - `builder-batch` = run the Builder update queue across the fleet
 - `manager-handoff-contract` = shape worker output into a manager-ready handoff
 
@@ -370,6 +374,7 @@ If the main need is deciding whether a role may safely dispatch Hermes workers:
 - `repair-capability-truth`
 - `repair-mcp-client-disconnects`
 - `repair-hermes-update-continuity`
+- `review-canon-membership`
 - `cross-actor-incident-repair`
 - `relocate-role-from-projects-gpt`
 - `role-contract-boundary-reconciliation`

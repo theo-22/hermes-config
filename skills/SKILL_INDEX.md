@@ -72,6 +72,9 @@ If the `/` menu is crowded, scan this card first, then search for the exact skil
 - `cross-actor-incident-repair`
   Use when a live fault spans siloed actors — one role/GPT surfaces a specific symptom, the filesystem-access actor diagnoses root cause (self-correcting wrong first guesses before handoff), and a different code-owning actor repairs inside its fence, with Ted conducting between the walled-off lanes. STATUS: proposed — Codex/ChatGPT surfacer/fixer lanes pending `CROSS_ACTOR_SKILL_REVIEW`.
 
+- `live-multi-actor-negotiation`
+  Use when a decision needs live, synchronous input from 2-3 standing AI actors with non-overlapping access (e.g. a ChatGPT role owning graph/role meaning, Claude Code owning filesystem/DB execution) — actors read and answer each other directly in a shared thread, Ted present throughout, every claim independently re-verified before acting. STATUS: proposed — flags a real, unresolved tension with `cross-actor-incident-repair`'s walled-off-by-design premise; pending Opus adversarial review and Ted sign-off before treated as settled.
+
 - `audit-yield-stamp`
   Use when completed audit case files lack a yield rating or have a Pending rating that needs recheck. Reads Findings + Recommended Next Move, verifies against a live evidence surface, writes the historical `## CC yield rating` stamp with citation. Falls back to `Pending — not verified this session` when verification isn't possible this session.
 
@@ -193,6 +196,7 @@ If the `/` menu is crowded, scan this card first, then search for the exact skil
 - `repair-mcp-client-disconnects` = narrowly handle and live-prove normal MCP transport disconnects
 - `repair-hermes-update-continuity` = preserve and prove sessions across Hermes updates before repairing visibility or version skew
 - `cross-actor-incident-repair` = diagnose→handoff→repair→verify a fault across siloed actors, Ted conducting (proposed)
+- `live-multi-actor-negotiation` = live shared-thread dialogue between 2-3 standing actors, Ted present, every claim independently re-verified (proposed, tension with cross-actor-incident-repair unresolved)
 - `audit-yield-stamp` = verify and stamp audit case files
 - `review-canon-membership` = independently classify Canon membership without mutating Canon
 - `builder-batch` = run the Builder update queue across the fleet
@@ -376,6 +380,7 @@ If the main need is deciding whether a role may safely dispatch Hermes workers:
 - `repair-hermes-update-continuity`
 - `review-canon-membership`
 - `cross-actor-incident-repair`
+- `live-multi-actor-negotiation`
 - `relocate-role-from-projects-gpt`
 - `role-contract-boundary-reconciliation`
 - `role-hermes-worker-access`

@@ -33,9 +33,23 @@ Node and edge writes in the concept map do **not** count as persist. They are th
 4. **Touch.** `add_touch.py <surface_path> <surface_class> <touch_type> --actor claude_code --concept-key <key> --why "..."`. Use a stable `concept-key` so repeat work on the same concept accumulates rather than scattering.
 5. **State what you wrote.** Name the three surfaces and what landed on each. An unverified "persisted" claim is the failure this skill exists to prevent.
 
+## When a surface refuses
+
+**A surface can legitimately reject a write, and this skill previously had nothing to say about it.** Added 2026-07-26 from a live case: `capture_thought` refused a session-close capture twice as a near-duplicate (0.72 similarity) of a note whose claim was close to *inverse* — one said "the thing works, only the record is wrong," the other "the record is right and it reaches nobody." Same domain, same vocabulary, opposite direction, different repair. Rewriting the capture to lead with the distinction barely moved the number.
+
+**What to do, in order:**
+
+1. **Read the thing it collided with.** Not the preview — the actual content. Then decide honestly whether the claims differ in what they would make someone *do*. Shared vocabulary is not shared meaning; different repair is the test that matters.
+2. **If it is genuinely a duplicate, say so and stop.** The refusal did its job. Update the existing record if the new pass sharpened it.
+3. **If it is genuinely distinct, do not force it through by merging.** Rewriting the existing entry to absorb the new claim collapses two rules into one and destroys the distinction that made the second worth writing — the failure this system is explicit about avoiding. A forced merge is worse than a missing capture, because it corrupts what was already there.
+4. **Land the other surfaces, and report two of three as two of three.** Never round up. An unverified "persisted" is the exact failure this skill exists to prevent, and a partial persist reported as complete is that failure wearing the skill's own name.
+5. **Route the block to whoever owns the refusing surface**, with the reproduction case and the reason you judged the claims distinct. A refusal that nobody hears is a silent loss: a duplicate is visible and removable later, while **a refused capture leaves nothing behind at all** unless the calling actor reports it.
+
+**Why the asymmetry matters when tuning any such check:** over-blocking and over-accepting fail in opposite directions and only one of them is visible afterwards. That is worth saying out loud whenever a duplicate-detector's threshold is set.
+
 ## Evidence / success criteria
 
-- All three surfaces written, each named explicitly in the response.
+- All three surfaces written, each named explicitly in the response — or, where one refused, that surface named along with the reason and where the block was routed.
 - The memory file has its `MEMORY.md` pointer line — verified, not assumed.
 - A cold reader could reconstruct the claim and its reasoning from the Brain capture alone, with no access to this conversation.
 - The touch carries a `concept-key` that matches prior work on the same concept.
@@ -47,6 +61,8 @@ Node and edge writes in the concept map do **not** count as persist. They are th
 - **Persisting a fog.** Writing three surfaces about work that never resolved to a claim. Produces the appearance of continuity with none of the substance. If step 1 won't write, stop.
 - **End-of-session token pressure.** This step is the one that gets dropped when budget runs short, precisely because the understanding still feels present. Treat it as the andon: it does not yield to remaining tokens. **If budget is genuinely short, persist first and cut depth elsewhere.**
 - **Duplicating instead of updating.** Check for an existing memory file covering the same fact; update it rather than forking a second version that will drift.
+- **Merging instead of distinguishing** — the opposite error, and the more expensive one. Two records on one topic are usually two rules under different conditions. Before collapsing them, ask whether they imply different actions; if they do, keep both and cross-link them. The dedup instinct is correct for identical facts and destructive for adjacent ones.
+- **Reporting a partial persist as complete.** If a surface refused, or the touch errored, or the index line did not land — say which one and why. Rounding two surfaces up to three is the same shape as a mechanism reported as wired when nothing points at it.
 
 ## Runtime Notes
 
@@ -59,4 +75,4 @@ Node and edge writes in the concept map do **not** count as persist. They are th
 No direct write. Route the three payloads (Brain capture, memory file content, touch parameters) to `_AI_Inbox/` for an actor with write access to land.
 
 ## Update-surfacing backstop
-Names live paths (`add_touch.py`, the memory directory, `MEMORY.md`) and the open-brain tool name. If any drift, fix here or leave a review note.
+Names live paths (`add_touch.py`, the memory directory, `MEMORY.md`) and the open-brain tool name. If any drift, fix here or leave a review note. **Also watch:** whether `capture_thought`'s overlap threshold keeps refusing distinct-but-adjacent claims. That check was added deliberately (2026-07-18) to stop Brain accumulating duplicates and it works; the 2026-07-26 case is the first recorded instance of it failing in the other direction. If a second lands, this is evidence for an override path, not a one-off.

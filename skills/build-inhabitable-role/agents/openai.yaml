@@ -1,0 +1,4 @@
+interface:
+  display_name: "Build Inhabitable Role"
+  short_description: "Build portable roles from observed use"
+  default_prompt: "Use $build-inhabitable-role to turn this emerging role into a portable, inhabitable environment."

@@ -57,6 +57,9 @@ If the `/` menu is crowded, scan this card first, then search for the exact skil
 - `contradiction-sweep`
   Use before a session close or handoff when several durable artifacts were written in one sitting. Hands them to a different, cheaper, uncommitted model and asks only for contradictions between them — because an author cannot find the ones he resolved without noticing, a resolved contradiction being experienced as settled rather than smoothed. Pre-register a predicted count; the gap is the finding. Sort returns into defects (fix) and tensions (preserve unresolved).
 
+- `opus-review-surfacing`
+  Use proactively after a real, structurally significant chunk of work has landed in a long session — not just a contradiction check, a full bearings pass. Packages the specific files/DB state (not the raw transcript), dispatches an uncommitted Opus reviewer told explicitly to find problems (blind spots, premature actions, unverified claims presented as confirmed) rather than summarize, and surfaces the result honestly either way. Ted's named general rhythm: "assembling my never ending string of ideas, packaging now and then to get our bearings."
+
 - `codex-usage-audit`
   Use when Codex itself needs an efficiency/reliability pass. Audits AGENTS, config, hooks, MCP/plugins, slash/status surfaces, repeated workflows, paste-heavy workflows, subagent fit, and review wiring before proposing small patches.
 
@@ -89,6 +92,9 @@ If the `/` menu is crowded, scan this card first, then search for the exact skil
 
 - `role-workspace-sufficiency`
   Use when creating, converting, reviewing, or repairing a role-runtime role and the question is whether it has enough continuity, scratch, staged output, receipts, telemetry, persistence, sandbox folders, or anti-curtailment room to function well without broad write access.
+
+- `build-inhabitable-role`
+  Use when a role emerges from conversation, specifies its own workspace, must be portable across ChatGPT/Codex/Claude/Hermes, or needs separate inhabitability, operability, runtime-integration, and clean-exit proofs.
 
 - `role-contract-boundary-reconciliation`
   Use when a durable role runtime's job, neighboring-role boundaries, Home ownership, continuity authority, static access, live doctrine, or orchestration identity disagree. Reconciles the complete contract and existing authority, requires exact positive/negative proof plus independent verification, and stops before fresh-session acceptance, map mutation, new capability, or fleet rollout.
@@ -191,6 +197,7 @@ If the `/` menu is crowded, scan this card first, then search for the exact skil
 - `workflow-orchestration` = run one conductor-routed work lane
 - `project-room-review` = review a Project Room from live room-local state
 - `contradiction-sweep` = a cold model finds the contradictions you smoothed over
+- `opus-review-surfacing` = proactive full bearings-check on a real chunk of landed work, uncommitted Opus reviewer
 - `codex-usage-audit` = audit Codex overhead before patching
 - `repair-capability-truth` = reconcile live capability, current docs, and typed operational queries
 - `repair-mcp-client-disconnects` = narrowly handle and live-prove normal MCP transport disconnects
@@ -206,6 +213,7 @@ If the `/` menu is crowded, scan this card first, then search for the exact skil
 
 - `coordinator-hermes-work-loop` = Coordinator shapes handoff, Hermes evaluates and executes
 - `role-workspace-sufficiency` = check and add enough owned workspace for a role-runtime role
+- `build-inhabitable-role` = build a portable role through self-specification, inhabitability, real-work operability, runtime adapters, and clean exit
 - `role-contract-boundary-reconciliation` = reconcile a role's job, ownership, continuity, access, and lifecycle identity without adding capability
 - `role-hermes-worker-access` = design/review role-scoped Hermes worker dispatch without broad generic worker access
 - `dashboard-api` = monitor Hermes Dashboard for cron health, logs, and gateway status
@@ -313,6 +321,9 @@ If the main need is shaping Hermes, cheap-model, overnight, or conversational ou
 
 If the main need is deciding whether a role has enough workspace or sandbox to function well:
 - use `role-workspace-sufficiency`
+
+If a role is emerging, specifying its own environment, crossing runtimes, or needs an entry/operate/exit lifecycle:
+- use `build-inhabitable-role`
 
 If the role's job, neighboring-role boundary, Home ownership, continuity authority, existing access, or lifecycle identity disagree:
 - use `role-contract-boundary-reconciliation`

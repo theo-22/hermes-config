@@ -352,6 +352,7 @@ If the main need is deciding whether a role may safely dispatch Hermes workers:
 
 ## Exact Skill Names
 
+- `build-inhabitable-role`
 - `affected-gpt-hearing`
 - `audit-yield-stamp`
 - `builder-batch`
@@ -378,6 +379,7 @@ If the main need is deciding whether a role may safely dispatch Hermes workers:
 - `live-surface-verification`
 - `manager-handoff-contract`
 - `model-switch-surfacing`
+- `opus-review-surfacing`
 - `persist`
 - `pieces-ambient-lead-evaluation`
 - `poka-yoke`

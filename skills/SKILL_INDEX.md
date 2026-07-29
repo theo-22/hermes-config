@@ -78,6 +78,9 @@ If the `/` menu is crowded, scan this card first, then search for the exact skil
 - `live-multi-actor-negotiation`
   Use when a decision needs live, synchronous input from 2-3 standing AI actors with non-overlapping access (e.g. a ChatGPT role owning graph/role meaning, Claude Code owning filesystem/DB execution) — actors read and answer each other directly in a shared thread, Ted present throughout, every claim independently re-verified before acting. STATUS: proposed — flags a real, unresolved tension with `cross-actor-incident-repair`'s walled-off-by-design premise; pending Opus adversarial review and Ted sign-off before treated as settled.
 
+- `verify-curator-return`
+  Use immediately after a live verifying actor (Map Curator or similar) reports back on CC-authored work — read the raw rows it touched, apply verdicts including ones that reject CC's own edges, append attribution corrections without rewriting the verifier's events, separate what it fixed from what only CC can reach, and catch claims it corrected in prose, not just relation/edge types. The receiving-side counterpart to `live-multi-actor-negotiation` and `live-surface-verification` — neither covers what happens with the report once it lands.
+
 - `audit-yield-stamp`
   Use when completed audit case files lack a yield rating or have a Pending rating that needs recheck. Reads Findings + Recommended Next Move, verifies against a live evidence surface, writes the historical `## CC yield rating` stamp with citation. Falls back to `Pending — not verified this session` when verification isn't possible this session.
 
@@ -204,6 +207,7 @@ If the `/` menu is crowded, scan this card first, then search for the exact skil
 - `repair-hermes-update-continuity` = preserve and prove sessions across Hermes updates before repairing visibility or version skew
 - `cross-actor-incident-repair` = diagnose→handoff→repair→verify a fault across siloed actors, Ted conducting (proposed)
 - `live-multi-actor-negotiation` = live shared-thread dialogue between 2-3 standing actors, Ted present, every claim independently re-verified (proposed, tension with cross-actor-incident-repair unresolved)
+- `verify-curator-return` = read the verifier's raw state, don't just file the verdict
 - `audit-yield-stamp` = verify and stamp audit case files
 - `review-canon-membership` = independently classify Canon membership without mutating Canon
 - `builder-batch` = run the Builder update queue across the fleet
@@ -394,6 +398,7 @@ If the main need is deciding whether a role may safely dispatch Hermes workers:
 - `review-canon-membership`
 - `cross-actor-incident-repair`
 - `live-multi-actor-negotiation`
+- `verify-curator-return`
 - `relocate-role-from-projects-gpt`
 - `role-contract-boundary-reconciliation`
 - `role-hermes-worker-access`

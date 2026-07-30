@@ -451,7 +451,7 @@
       "paused_at": null,
       "paused_reason": null,
       "created_at": "2026-06-29T22:56:56.493258-04:00",
-      "next_run_at": "2026-07-29T20:00:00-04:00",
+      "next_run_at": "2026-08-05T20:00:00-04:00",
       "last_run_at": "2026-07-22T20:28:26.712287-04:00",
       "last_status": "ok",
       "last_error": null,
@@ -490,17 +490,17 @@
       "schedule_display": "15 */4 * * *",
       "repeat": {
         "times": null,
-        "completed": 160
+        "completed": 162
       },
       "enabled": true,
       "state": "scheduled",
       "paused_at": null,
       "paused_reason": null,
       "created_at": "2026-07-03T00:57:54.447668-04:00",
-      "next_run_at": "2026-07-29T12:15:00-04:00",
-      "last_run_at": "2026-07-29T08:15:25.897576-04:00",
-      "last_status": "ok",
-      "last_error": null,
+      "next_run_at": "2026-07-29T20:15:00-04:00",
+      "last_run_at": "2026-07-29T17:15:33.024067-04:00",
+      "last_status": "error",
+      "last_error": "Script timed out after 3600s: /Users/ted/.hermes/profiles/substrate-hermes/scripts/hermes_coordination_health.py",
       "last_delivery_error": null,
       "deliver": "local",
       "origin": null,
@@ -690,15 +690,15 @@
       "schedule_display": "0 */4 * * *",
       "repeat": {
         "times": null,
-        "completed": 144
+        "completed": 145
       },
       "enabled": true,
       "state": "scheduled",
       "paused_at": null,
       "paused_reason": null,
       "created_at": "2026-07-05T18:09:46.374910-04:00",
-      "next_run_at": "2026-07-29T16:00:00-04:00",
-      "last_run_at": "2026-07-29T12:00:09.554049-04:00",
+      "next_run_at": "2026-07-30T00:00:00-04:00",
+      "last_run_at": "2026-07-29T16:00:32.884581-04:00",
       "last_status": "ok",
       "last_error": null,
       "last_delivery_error": null,
@@ -906,15 +906,15 @@
       "schedule_display": "0 */2 * * *",
       "repeat": {
         "times": null,
-        "completed": 257
+        "completed": 261
       },
       "enabled": true,
       "state": "scheduled",
       "paused_at": null,
       "paused_reason": null,
       "created_at": "2026-07-07T21:42:44.416472-04:00",
-      "next_run_at": "2026-07-29T14:00:00-04:00",
-      "last_run_at": "2026-07-29T10:00:28.316999-04:00",
+      "next_run_at": "2026-07-29T22:00:00-04:00",
+      "last_run_at": "2026-07-29T18:00:03.313758-04:00",
       "last_status": "ok",
       "last_error": null,
       "last_delivery_error": null,
@@ -946,17 +946,17 @@
       "schedule_display": "15 */4 * * *",
       "repeat": {
         "times": null,
-        "completed": 129
+        "completed": 131
       },
       "enabled": true,
       "state": "scheduled",
       "paused_at": null,
       "paused_reason": null,
       "created_at": "2026-07-07T21:42:50.012014-04:00",
-      "next_run_at": "2026-07-29T12:15:00-04:00",
-      "last_run_at": "2026-07-29T08:15:25.912363-04:00",
-      "last_status": "ok",
-      "last_error": null,
+      "next_run_at": "2026-07-29T20:15:00-04:00",
+      "last_run_at": "2026-07-29T17:15:33.020113-04:00",
+      "last_status": "error",
+      "last_error": "Script timed out after 3600s: /Users/ted/.hermes/profiles/substrate-hermes/scripts/refresh_ai_cost.sh",
       "last_delivery_error": null,
       "deliver": "local",
       "origin": null,
@@ -1266,17 +1266,17 @@
       "schedule_display": "0 */4 * * *",
       "repeat": {
         "times": null,
-        "completed": 121
+        "completed": 122
       },
       "enabled": true,
       "state": "scheduled",
       "paused_at": null,
       "paused_reason": null,
       "created_at": "2026-07-09T09:53:47.258465-04:00",
-      "next_run_at": "2026-07-29T16:00:00-04:00",
-      "last_run_at": "2026-07-29T12:00:09.525236-04:00",
-      "last_status": "ok",
-      "last_error": null,
+      "next_run_at": "2026-07-30T00:00:00-04:00",
+      "last_run_at": "2026-07-29T17:00:32.774710-04:00",
+      "last_status": "error",
+      "last_error": "Script timed out after 3600s: /Users/ted/.hermes/profiles/substrate-hermes/scripts/drift_deltas.py",
       "last_delivery_error": null,
       "deliver": "local",
       "origin": null,
@@ -1466,17 +1466,17 @@
       "schedule_display": "0 */4 * * *",
       "repeat": {
         "times": null,
-        "completed": 120
+        "completed": 122
       },
       "enabled": true,
       "state": "scheduled",
       "paused_at": null,
       "paused_reason": null,
       "created_at": "2026-07-09T09:53:58.682054-04:00",
-      "next_run_at": "2026-07-29T16:00:00-04:00",
-      "last_run_at": "2026-07-29T08:00:26.209369-04:00",
-      "last_status": "ok",
-      "last_error": null,
+      "next_run_at": "2026-07-30T00:00:00-04:00",
+      "last_run_at": "2026-07-29T17:00:32.770612-04:00",
+      "last_status": "error",
+      "last_error": "Script timed out after 3600s: /Users/ted/.hermes/profiles/substrate-hermes/scripts/ai_cost_posture.py",
       "last_delivery_error": null,
       "deliver": "origin",
       "origin": null,
@@ -1506,15 +1506,15 @@
       "schedule_display": "*/20 * * * *",
       "repeat": {
         "times": null,
-        "completed": 1421
+        "completed": 1437
       },
       "enabled": true,
       "state": "scheduled",
       "paused_at": null,
       "paused_reason": null,
       "created_at": "2026-07-09T09:53:59.696632-04:00",
-      "next_run_at": "2026-07-29T12:20:00-04:00",
-      "last_run_at": "2026-07-29T12:00:09.560345-04:00",
+      "next_run_at": "2026-07-29T20:20:00-04:00",
+      "last_run_at": "2026-07-29T19:40:12.180513-04:00",
       "last_status": "ok",
       "last_error": null,
       "last_delivery_error": null,
@@ -1673,7 +1673,7 @@
       "paused_at": null,
       "paused_reason": null,
       "created_at": "2026-07-11T08:48:23.391149-04:00",
-      "next_run_at": "2026-07-29T20:00:00-04:00",
+      "next_run_at": "2026-07-30T20:00:00-04:00",
       "last_run_at": "2026-07-28T20:12:40.232279-04:00",
       "last_status": "ok",
       "last_error": null,
@@ -1706,17 +1706,17 @@
       "schedule_display": "0 */4 * * *",
       "repeat": {
         "times": null,
-        "completed": 108
+        "completed": 110
       },
       "enabled": true,
       "state": "scheduled",
       "paused_at": null,
       "paused_reason": null,
       "created_at": "2026-07-11T16:29:55.461353-04:00",
-      "next_run_at": "2026-07-29T16:00:00-04:00",
-      "last_run_at": "2026-07-29T08:00:28.613572-04:00",
-      "last_status": "ok",
-      "last_error": null,
+      "next_run_at": "2026-07-30T00:00:00-04:00",
+      "last_run_at": "2026-07-29T16:00:37.872299-04:00",
+      "last_status": "error",
+      "last_error": "Script exited with code 1\nstderr:\nTraceback (most recent call last):\n  File \"/Users/ted/.hermes/profiles/substrate-hermes/scripts/sync_public_config.py\", line 240, in <module>\n    main()\n  File \"/Users/ted/.hermes/profiles/substrate-hermes/scripts/sync_public_config.py\", line 174, in main\n    copy_redacted(SOURCES[\"skills\"], export / \"skills\")\n  File \"/Users/ted/.hermes/profiles/substrate-hermes/scripts/sync_public_config.py\", line 60, in copy_redacted\n    for item in src.rglob(\"*\"):\n  File \"/Users/ted/.local/share/uv/python/cpython-3.11.15-macos-aarch64-none/lib/python3.11/pathlib.py\", line 968, in rglob\n    for p in selector.select_from(self):\n  File \"/Users/ted/.local/share/uv/python/cpython-3.11.15-macos-aarch64-none/lib/python3.11/pathlib.py\", line 408, in _select_from\n    for p in successor_select(starting_point, is_dir, exists, scandir):\n  File \"/Users/ted/.local/share/uv/python/cpython-3.11.15-macos-aarch64-none/lib/python3.11/pathlib.py\", line 355, in _select_from\n    with scandir(parent_path) as scandir_it:\n         ^^^^^^^^^^^^^^^^^^^^\n  File \"/Users/ted/.local/share/uv/python/cpython-3.11.15-macos-aarch64-none/lib/python3.11/pathlib.py\", line 938, in _scandir\n    return os.scandir(self)\n           ^^^^^^^^^^^^^^^^\nInterruptedError: [Errno 4] Interrupted system call: '/Volumes/Extra/Substrate/Skills'\nstdout:\n\u2192 Syncing Hermes config to public repo...\n  copying profiles...\n  copying skills...",
       "last_delivery_error": null,
       "deliver": "local",
       "origin": null,
@@ -1786,15 +1786,15 @@
       "schedule_display": "0 18 * * 3",
       "repeat": {
         "times": null,
-        "completed": 2
+        "completed": 3
       },
       "enabled": true,
       "state": "scheduled",
       "paused_at": null,
       "paused_reason": null,
       "created_at": "2026-07-13T23:23:35.265988-04:00",
-      "next_run_at": "2026-07-29T18:00:00-04:00",
-      "last_run_at": "2026-07-22T18:09:58.631794-04:00",
+      "next_run_at": "2026-08-05T18:00:00-04:00",
+      "last_run_at": "2026-07-29T18:08:59.529160-04:00",
       "last_status": "ok",
       "last_error": null,
       "last_delivery_error": null,
@@ -1866,15 +1866,15 @@
       "schedule_display": "every 10m",
       "repeat": {
         "times": null,
-        "completed": 1263
+        "completed": 1310
       },
       "enabled": true,
       "state": "scheduled",
       "paused_at": null,
       "paused_reason": null,
       "created_at": "2026-07-20T16:54:21.440840-04:00",
-      "next_run_at": "2026-07-29T12:10:09.563215-04:00",
-      "last_run_at": "2026-07-29T12:00:09.563215-04:00",
+      "next_run_at": "2026-07-29T20:01:13.140878-04:00",
+      "last_run_at": "2026-07-29T19:51:13.140878-04:00",
       "last_status": "ok",
       "last_error": null,
       "last_delivery_error": null,
@@ -2066,15 +2066,15 @@
       "schedule_display": "0 8,11,14,17,20 * * *",
       "repeat": {
         "times": null,
-        "completed": 20
+        "completed": 22
       },
       "enabled": true,
       "state": "scheduled",
       "paused_at": null,
       "paused_reason": null,
       "created_at": "2026-07-25T17:16:54.732748-04:00",
-      "next_run_at": "2026-07-29T14:00:00-04:00",
-      "last_run_at": "2026-07-29T11:09:21.979178-04:00",
+      "next_run_at": "2026-07-30T08:00:00-04:00",
+      "last_run_at": "2026-07-29T17:31:57.197709-04:00",
       "last_status": "ok",
       "last_error": null,
       "last_delivery_error": null,
@@ -2205,5 +2205,5 @@
       "fire_claim": null
     }
   ],
-  "updated_at": "2026-07-29T12:00:09.563351-04:00"
+  "updated_at": "2026-07-29T20:00:13.897518-04:00"
 }

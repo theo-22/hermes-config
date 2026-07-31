@@ -1,0 +1,47 @@
+Cronjob Response: substrate-morning-briefing
+(job_id: 531b6e8e5f51)
+-------------
+
+Briefing written to `/Users/ted/Operations/Substrate_Morning_Briefing.md` (resolved: `/Volumes/Extra/Substrate/Operations/Substrate_Morning_Briefing.md`).
+
+---
+
+# Substrate Morning Briefing — 2026-07-31
+
+**Status:** YELLOW
+
+## 1. Overnight Summary
+Overnight batch (no-agent, local, free) ran clean and found one real defect plus quiet-room drift: **D5 — `System13_Plugin_Candidate_Trial` is referenced in the dashboard but the directory does not exist** (the only RED finding). Everything else is disposition work: ~40 drift flags on Project Rooms that are mostly "Maintenance / Quiet until trigger," 5 rooms the meta-agent says need a refresh-or-quiet decision, a stale session-chain launch index (15d), and a QuickSave receipt-count contradiction (index claims 665, live dir has 0). No proof gaps, no returned research needing absorption, crons healthy in the last 24h — though the grocery receipt fetcher errored on its 07-29 run (no CDP browser). Preflight overall YELLOW (only cause: 2 uncommitted files in Operations repo).
+
+## 2. Grouped Findings
+
+| Priority | Finding | Source | Can auto-fix? |
+|----------|---------|--------|---------------|
+| high | **D5 broken path** — `System13_Plugin_Candidate_Trial` referenced in dashboard, directory not found | Overnight consolidated | yes (after path verification) |
+| med | **Cron error** — `grocery_receipt_fetcher` failed 07-29 (exit 1: "No CDP browser available"); next run Sun 08-02 09:30 likely fails again | cron list | no — needs runtime (start Chrome w/ CDP) |
+| med | **5 rooms need action** — Agent_Continuity_State_Loss (35d), Orchestration (32d), Work_Notes_Decision_Intake (32d), Hermes_Operator_Integration (16d), Role_Runtime_Architecture (17d) | meta_agent sweep 07-31 | yes — morning cleanup pass |
+| med | **2 rooms worth a quick look** — Research_Coordination (11d), Project_Interface_Workspace_Flow (11d) | meta_agent sweep | yes |
+| med | **QuickSave receipt contradiction** — index claims 665 receipts, live dir has 0; index 29d old | contradiction check 07-31 | verify first, then likely yes |
+| low | **Session chain launch menu stale** — `00_START_HERE.md` last updated 07-16 (15d); CONDUCTOR.md itself current (rows staged through 07-28) | Overnight consolidated | yes — refresh pointers |
+| low | **Operations repo dirty** — 2 uncommitted files (Claude_Handoff session, Contradiction_Check_LATEST) — sole cause of preflight YELLOW | preflight / git status | yes (commit, with approval) |
+| low | **AI cost posture = watch** — escalation/over-ceiling events logged recently | rollup | informational |
+| low | **3 new `_AI_Inbox` items** (map_curator_defects, pieces_digest ×2) — other actors' triage lanes | inbox check | informational |
+| low | **No proof gaps, no research returns** — Research queue all absorbed (RC-004/005 parked) | consolidated / RC queue | informational |
+
+## 3. Proposed Fixes
+1. **D5 broken path** — locate dashboard reference (likely `PROJECT_ROOMS_STATUS.md` row or Control data), correct path or remove dead reference. One-line, reversible via git.
+2. **Room cleanup (5)** — per meta-agent pickup targets: read room `CURRENT_STATE.md`/`NEXT_ACTION.md` + dashboard row, refresh honestly or mark quiet. File-state only.
+3. **Quick-look (2)** — freshness check on Research_Coordination + Project_Interface_Workspace_Flow.
+4. **QuickSave reconciliation** — find the index claiming 665, locate where receipts actually live, correct count + refresh date. Verify before writing.
+5. **`00_START_HERE.md` refresh** — point launch menu at live CONDUCTOR rows (SUBSTRATE-DESCRIPTION-RETIREMENT-001, TRIGGER-VOCABULARY-SURFACE-001 staged 07-28).
+6. **Operations commit** — commit the 2 modified files after confirming content.
+
+## 4. Questions for Ted
+1. **grocery_receipt_fetcher** — start Chrome with CDP before Sunday 09:30 (exact command in cron error), or skip grocery receipts this week?
+2. **System13_Plugin_Candidate_Trial** — project gone? Remove dashboard reference or restore directory?
+3. **QuickSave receipts** — index claims 665, live dir empty. Intentionally migrated (e.g. /Volumes/Extra), or real loss?
+
+## 5. Approval Gate
+**Gate:** No actions executed. If Ted approves, run: morning cleanup pass (5 rooms), D5 path correction, QuickSave index reconciliation, `00_START_HERE.md` refresh, Operations commit — then re-run preflight to confirm GREEN.
+
+To stop or manage this job, send me a new message (e.g. "stop reminder substrate-morning-briefing").

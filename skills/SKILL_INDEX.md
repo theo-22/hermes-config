@@ -72,6 +72,9 @@ If the `/` menu is crowded, scan this card first, then search for the exact skil
 - `repair-hermes-update-continuity`
   Use before a Hermes update or when sessions/profiles disappear, Desktop fails after an update, or CLI/Desktop state disagrees. Takes read-only pre/post session snapshots, distinguishes real row loss from cache/profile/home/version drift, requires SQLite-safe backup, and proves both the session corpus and Ted-facing client before completion.
 
+- `repair-pieces-runtime`
+  Use when Pieces "isn't working" — MCP disconnected, an LTM query failing, "Pieces Core Services Unavailable," or a page claiming a corrupted database — and especially right after a Pieces auto-update. Separates a parked process from one still running its startup integrity check, backs up before anything touches the database, and requires a real LTM query rather than a health 200 as proof of repair.
+
 - `cross-actor-incident-repair`
   Use when a live fault spans siloed actors — one role/GPT surfaces a specific symptom, the filesystem-access actor diagnoses root cause (self-correcting wrong first guesses before handoff), and a different code-owning actor repairs inside its fence, with Ted conducting between the walled-off lanes. STATUS: proposed — Codex/ChatGPT surfacer/fixer lanes pending `CROSS_ACTOR_SKILL_REVIEW`.
 
@@ -205,6 +208,7 @@ If the `/` menu is crowded, scan this card first, then search for the exact skil
 - `repair-capability-truth` = reconcile live capability, current docs, and typed operational queries
 - `repair-mcp-client-disconnects` = narrowly handle and live-prove normal MCP transport disconnects
 - `repair-hermes-update-continuity` = preserve and prove sessions across Hermes updates before repairing visibility or version skew
+- `repair-pieces-runtime` = Pieces alive but not serving — back up, quit fully, relaunch, verify with a real query
 - `cross-actor-incident-repair` = diagnose→handoff→repair→verify a fault across siloed actors, Ted conducting (proposed)
 - `live-multi-actor-negotiation` = live shared-thread dialogue between 2-3 standing actors, Ted present, every claim independently re-verified (proposed, tension with cross-actor-incident-repair unresolved)
 - `verify-curator-return` = read the verifier's raw state, don't just file the verdict
@@ -395,6 +399,7 @@ If the main need is deciding whether a role may safely dispatch Hermes workers:
 - `repair-capability-truth`
 - `repair-mcp-client-disconnects`
 - `repair-hermes-update-continuity`
+- `repair-pieces-runtime`
 - `review-canon-membership`
 - `cross-actor-incident-repair`
 - `live-multi-actor-negotiation`

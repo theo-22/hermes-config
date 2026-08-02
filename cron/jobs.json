@@ -493,15 +493,15 @@
       "schedule_display": "15 */4 * * *",
       "repeat": {
         "times": null,
-        "completed": 184
+        "completed": 185
       },
       "enabled": true,
       "state": "scheduled",
       "paused_at": null,
       "paused_reason": null,
       "created_at": "2026-07-03T00:57:54.447668-04:00",
-      "next_run_at": "2026-08-02T12:15:00-04:00",
-      "last_run_at": "2026-08-02T08:15:02.070299-04:00",
+      "next_run_at": "2026-08-02T16:15:00-04:00",
+      "last_run_at": "2026-08-02T12:15:30.481480-04:00",
       "last_status": "ok",
       "last_error": null,
       "last_delivery_error": null,
@@ -700,7 +700,7 @@
       "paused_at": null,
       "paused_reason": null,
       "created_at": "2026-07-05T18:09:46.374910-04:00",
-      "next_run_at": "2026-08-02T16:00:00-04:00",
+      "next_run_at": "2026-08-02T20:00:00-04:00",
       "last_run_at": "2026-08-02T12:00:29.626368-04:00",
       "last_status": "ok",
       "last_error": null,
@@ -819,7 +819,7 @@
       "schedule_display": "0 7 1 * *",
       "repeat": {
         "times": null,
-        "completed": 1
+        "completed": 2
       },
       "enabled": true,
       "state": "scheduled",
@@ -827,9 +827,9 @@
       "paused_reason": null,
       "created_at": "2026-07-07T10:50:33.433543-04:00",
       "next_run_at": "2026-09-01T07:00:00-04:00",
-      "last_run_at": "2026-08-01T07:00:06.326969-04:00",
-      "last_status": "error",
-      "last_error": "Script exited with code 1\nstdout:\nCHANGES_LOG dedup check \u2014 3 duplicate(s) found\nScanned: 1758 entries across 1758\n\n  [2026-05-23] - digest and project room access repair landed [codex]\n    Files: CHANGES_LOG_Archive_2026-05.md, CHANGES_LOG_Archive_2026-05.md\n\n  [2026-07-06] deepseek api deep-dive + 3 experiments (e1 direct, e2 claude code, e3 cache) + kanban swarm test [lab-hermes]\n    Files: CHANGES_LOG_Archive_2026-07.md, CHANGES_LOG_Archive_2026-07.md\n\n  [2026-07-29] overnight low-input maintenance pass while ted slept [claude code]\n    Files: CHANGES_LOG_Archive_2026-07.md, CHANGES_LOG_Archive_2026-07.md\n\nAction: review and remove duplicate entries from archive files.\nActive CHANGES_LOG.md entries should not duplicate archive entries.",
+      "last_run_at": "2026-08-02T12:38:05.066647-04:00",
+      "last_status": "ok",
+      "last_error": null,
       "last_delivery_error": null,
       "deliver": "origin",
       "origin": {
@@ -911,15 +911,15 @@
       "schedule_display": "0 */2 * * *",
       "repeat": {
         "times": null,
-        "completed": 306
+        "completed": 307
       },
       "enabled": true,
       "state": "scheduled",
       "paused_at": null,
       "paused_reason": null,
       "created_at": "2026-07-07T21:42:44.416472-04:00",
-      "next_run_at": "2026-08-02T14:00:00-04:00",
-      "last_run_at": "2026-08-02T12:00:29.750993-04:00",
+      "next_run_at": "2026-08-02T18:00:00-04:00",
+      "last_run_at": "2026-08-02T14:00:41.329940-04:00",
       "last_status": "ok",
       "last_error": null,
       "last_delivery_error": null,
@@ -951,15 +951,15 @@
       "schedule_display": "15 */4 * * *",
       "repeat": {
         "times": null,
-        "completed": 153
+        "completed": 154
       },
       "enabled": true,
       "state": "scheduled",
       "paused_at": null,
       "paused_reason": null,
       "created_at": "2026-07-07T21:42:50.012014-04:00",
-      "next_run_at": "2026-08-02T12:15:00-04:00",
-      "last_run_at": "2026-08-02T08:15:02.072165-04:00",
+      "next_run_at": "2026-08-02T16:15:00-04:00",
+      "last_run_at": "2026-08-02T12:15:30.483916-04:00",
       "last_status": "ok",
       "last_error": null,
       "last_delivery_error": null,
@@ -1271,15 +1271,15 @@
       "schedule_display": "0 */4 * * *",
       "repeat": {
         "times": null,
-        "completed": 145
+        "completed": 146
       },
       "enabled": true,
       "state": "scheduled",
       "paused_at": null,
       "paused_reason": null,
       "created_at": "2026-07-09T09:53:47.258465-04:00",
-      "next_run_at": "2026-08-02T16:00:00-04:00",
-      "last_run_at": "2026-08-02T12:00:29.334489-04:00",
+      "next_run_at": "2026-08-02T20:00:00-04:00",
+      "last_run_at": "2026-08-02T16:00:53.067899-04:00",
       "last_status": "ok",
       "last_error": null,
       "last_delivery_error": null,
@@ -1471,15 +1471,15 @@
       "schedule_display": "0 */4 * * *",
       "repeat": {
         "times": null,
-        "completed": 145
+        "completed": 146
       },
       "enabled": true,
       "state": "scheduled",
       "paused_at": null,
       "paused_reason": null,
       "created_at": "2026-07-09T09:53:58.682054-04:00",
-      "next_run_at": "2026-08-02T16:00:00-04:00",
-      "last_run_at": "2026-08-02T12:00:29.415762-04:00",
+      "next_run_at": "2026-08-02T20:00:00-04:00",
+      "last_run_at": "2026-08-02T16:00:53.107867-04:00",
       "last_status": "ok",
       "last_error": null,
       "last_delivery_error": null,
@@ -1511,15 +1511,15 @@
       "schedule_display": "*/20 * * * *",
       "repeat": {
         "times": null,
-        "completed": 1702
+        "completed": 1714
       },
       "enabled": true,
       "state": "scheduled",
       "paused_at": null,
       "paused_reason": null,
       "created_at": "2026-07-09T09:53:59.696632-04:00",
-      "next_run_at": "2026-08-02T12:20:00-04:00",
-      "last_run_at": "2026-08-02T12:00:29.357097-04:00",
+      "next_run_at": "2026-08-02T16:20:00-04:00",
+      "last_run_at": "2026-08-02T16:00:53.087312-04:00",
       "last_status": "ok",
       "last_error": null,
       "last_delivery_error": null,
@@ -1711,15 +1711,15 @@
       "schedule_display": "0 */4 * * *",
       "repeat": {
         "times": null,
-        "completed": 132
+        "completed": 133
       },
       "enabled": true,
       "state": "scheduled",
       "paused_at": null,
       "paused_reason": null,
       "created_at": "2026-07-11T16:29:55.461353-04:00",
-      "next_run_at": "2026-08-02T16:00:00-04:00",
-      "last_run_at": "2026-08-02T08:01:03.411557-04:00",
+      "next_run_at": "2026-08-02T20:00:00-04:00",
+      "last_run_at": "2026-08-02T12:00:57.684386-04:00",
       "last_status": "ok",
       "last_error": null,
       "last_delivery_error": null,
@@ -1751,7 +1751,7 @@
       "schedule_display": "0 9 * * 3",
       "repeat": {
         "times": null,
-        "completed": 3
+        "completed": 4
       },
       "enabled": true,
       "state": "scheduled",
@@ -1759,9 +1759,9 @@
       "paused_reason": null,
       "created_at": "2026-07-13T22:09:17.660843-04:00",
       "next_run_at": "2026-08-05T09:00:00-04:00",
-      "last_run_at": "2026-07-29T09:00:33.880959-04:00",
-      "last_status": "error",
-      "last_error": "Script exited with code 1\nstderr:\nTraceback (most recent call last):\n  File \"/Users/ted/.hermes/profiles/substrate-hermes/scripts/shopping_guru_crossref.py\", line 212, in <module>\n    main()\n  File \"/Users/ted/.hermes/profiles/substrate-hermes/scripts/shopping_guru_crossref.py\", line 188, in main\n    purchases = load_purchase_history()\n                ^^^^^^^^^^^^^^^^^^^^^^^\n  File \"/Users/ted/.hermes/profiles/substrate-hermes/scripts/shopping_guru_crossref.py\", line 94, in load_purchase_history\n    _extract_order(order_id, store, order.get(\"date\", \"\"),\n  File \"/Users/ted/.hermes/profiles/substrate-hermes/scripts/shopping_guru_crossref.py\", line 60, in _extract_order\n    \"price\": parse_price(item.get(\"price\")),\n             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n  File \"/Users/ted/.hermes/profiles/substrate-hermes/scripts/shopping_guru_crossref.py\", line 48, in parse_price\n    match = re.search(r\"[\\d.]+\", price_str)\n            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n  File \"/Users/ted/.local/share/uv/python/cpython-3.11.15-macos-aarch64-none/lib/python3.11/re/__init__.py\", line 176, in search\n    return _compile(pattern, flags).search(string)\n           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\nTypeError: expected string or bytes-like object, got 'float'\nstdout:\n[2026-07-29 09:00:26] Fetching HT weekly ad...\n=== HT Weekly Sales Fetcher [weekly-ad] ===\n  Using existing HT tab: Purchase History - Harris Teeter\n  Navigating to: https://www.harristeeter.com/specials/weeklyad\n  Current URL: https://www.harristeeter.com/specials/weeklyad\n  Extracting deal cards...\n  Extracted 0 deal cards\n\n\u2705 Saved 0 deals to /Volumes/Extra/Substrate/Commons/Substrate_Finance_Planning/Evidence/Grocery_Receipt_Staging/ht_deals_weeklyad_20260729_130033.json\n   Breakdown: {}\n[2026-07-29 09:00:33] Cross-referencing against purchase history...",
+      "last_run_at": "2026-08-02T12:38:35.316871-04:00",
+      "last_status": "ok",
+      "last_error": null,
       "last_delivery_error": null,
       "deliver": "local",
       "origin": null,
@@ -1871,15 +1871,15 @@
       "schedule_display": "every 10m",
       "repeat": {
         "times": null,
-        "completed": 1837
+        "completed": 1861
       },
       "enabled": true,
       "state": "scheduled",
       "paused_at": null,
       "paused_reason": null,
       "created_at": "2026-07-20T16:54:21.440840-04:00",
-      "next_run_at": "2026-08-02T12:06:32.865697-04:00",
-      "last_run_at": "2026-08-02T11:56:32.865697-04:00",
+      "next_run_at": "2026-08-02T16:07:52.580189-04:00",
+      "last_run_at": "2026-08-02T15:57:52.580189-04:00",
       "last_status": "ok",
       "last_error": null,
       "last_delivery_error": null,
@@ -2071,15 +2071,15 @@
       "schedule_display": "0 8,11,14,17,20 * * *",
       "repeat": {
         "times": null,
-        "completed": 39
+        "completed": 40
       },
       "enabled": true,
       "state": "scheduled",
       "paused_at": null,
       "paused_reason": null,
       "created_at": "2026-07-25T17:16:54.732748-04:00",
-      "next_run_at": "2026-08-02T14:00:00-04:00",
-      "last_run_at": "2026-08-02T11:07:13.411887-04:00",
+      "next_run_at": "2026-08-02T17:00:00-04:00",
+      "last_run_at": "2026-08-02T14:09:07.768342-04:00",
       "last_status": "ok",
       "last_error": null,
       "last_delivery_error": null,
@@ -2296,5 +2296,5 @@
       "fire_claim": null
     }
   ],
-  "updated_at": "2026-08-02T12:00:29.751223-04:00"
+  "updated_at": "2026-08-02T16:00:53.108104-04:00"
 }

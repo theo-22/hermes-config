@@ -34,6 +34,43 @@ PROFILES_DIR = next(
 )
 
 errors = []
+findings = []
+seen_job_ids = set()
+
+
+def classify(job):
+    """Classify a job's last_status='error' into a real error or a by-design finding.
+
+    No-agent watchdog jobs (silent on success, loud on findings) exit 1 with
+    stdout when they find something to report — that is a *finding*, not a
+    failure. Exit-2+ or exit-1-with-stderr stays a real error. The stdout/stderr
+    sections are embedded in the last_error string itself ('\nstdout:\n' vs
+    '\nstderr:\n'). (Patch 2026-08-01 per brain-hermes finding: pulse was
+    conflating watchdogs with broken jobs.)
+    """
+    job_id = job.get("id")
+    if job_id and job_id in seen_job_ids:
+        return  # already counted — avoids double-read when HERMES_HOME is a profile dir
+    if job_id:
+        seen_job_ids.add(job_id)
+    err = job.get("last_error") or job.get("last_delivery_error") or ""
+    err_lower = err.lower()
+    has_stdout = "\nstdout:\n" in err
+    has_stderr = "\nstderr:\n" in err
+    is_watchdog_finding = (
+        "exited with code 1" in err_lower
+        and has_stdout
+        and not has_stderr
+    )
+    entry = {
+        "name": job.get("name", "?"),
+        "error": err[:200],
+    }
+    if is_watchdog_finding:
+        findings.append(entry)
+    else:
+        errors.append(entry)
+
 
 # Default profile
 jobs_file = BASE / "cron" / "jobs.json"
@@ -42,11 +79,7 @@ if jobs_file.exists():
         data = json.load(f)
     for job in data.get("jobs", []):
         if job.get("last_status") == "error" and job.get("enabled", True) is not False:
-            errors.append({
-                "profile": "default",
-                "name": job.get("name", "?"),
-                "error": (job.get("last_error") or job.get("last_delivery_error") or "?")[:200]
-            })
+            classify(job)
 
 # Per-profile
 for prof_dir in sorted(PROFILES_DIR.iterdir()):
@@ -59,17 +92,19 @@ for prof_dir in sorted(PROFILES_DIR.iterdir()):
         data = json.load(f)
     for job in data.get("jobs", []):
         if job.get("last_status") == "error" and job.get("enabled", True) is not False:
-            errors.append({
-                "profile": prof_dir.name,
-                "name": job.get("name", "?"),
-                "error": (job.get("last_error") or job.get("last_delivery_error") or "?")[:200]
-            })
+            classify(job)
 
-if not errors:
+if not errors and not findings:
     sys.exit(0)
 
-print(f"⚠️  Cron health: {len(errors)} job(s) with errors")
-for e in errors:
-    print(f"   [{e['profile']}] {e['name']}: {e['error']}")
-    print()
+if errors:
+    print(f"⚠️  Cron health: {len(errors)} job(s) with errors")
+    for e in errors:
+        print(f"   [error] {e['name']}: {e['error']}")
+        print()
+if findings:
+    print(f"🔎 Cron watchdogs: {len(findings)} finding(s) (by-design exit 1 — inspect, not an error)")
+    for e in findings:
+        print(f"   [finding] {e['name']}: {e['error']}")
+        print()
 sys.exit(0)

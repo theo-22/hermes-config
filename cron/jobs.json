@@ -405,7 +405,7 @@
       "paused_at": null,
       "paused_reason": null,
       "created_at": "2026-06-29T22:56:38.200425-04:00",
-      "next_run_at": "2026-08-02T20:00:00-04:00",
+      "next_run_at": "2026-08-09T20:00:00-04:00",
       "last_run_at": "2026-07-26T20:20:45.935290-04:00",
       "last_status": "ok",
       "last_error": null,
@@ -493,15 +493,15 @@
       "schedule_display": "15 */4 * * *",
       "repeat": {
         "times": null,
-        "completed": 185
+        "completed": 186
       },
       "enabled": true,
       "state": "scheduled",
       "paused_at": null,
       "paused_reason": null,
       "created_at": "2026-07-03T00:57:54.447668-04:00",
-      "next_run_at": "2026-08-02T16:15:00-04:00",
-      "last_run_at": "2026-08-02T12:15:30.481480-04:00",
+      "next_run_at": "2026-08-02T20:15:00-04:00",
+      "last_run_at": "2026-08-02T16:15:55.496263-04:00",
       "last_status": "ok",
       "last_error": null,
       "last_delivery_error": null,
@@ -693,15 +693,15 @@
       "schedule_display": "0 */4 * * *",
       "repeat": {
         "times": null,
-        "completed": 168
+        "completed": 169
       },
       "enabled": true,
       "state": "scheduled",
       "paused_at": null,
       "paused_reason": null,
       "created_at": "2026-07-05T18:09:46.374910-04:00",
-      "next_run_at": "2026-08-02T20:00:00-04:00",
-      "last_run_at": "2026-08-02T12:00:29.626368-04:00",
+      "next_run_at": "2026-08-03T00:00:00-04:00",
+      "last_run_at": "2026-08-02T16:00:53.152114-04:00",
       "last_status": "ok",
       "last_error": null,
       "last_delivery_error": null,
@@ -911,15 +911,15 @@
       "schedule_display": "0 */2 * * *",
       "repeat": {
         "times": null,
-        "completed": 307
+        "completed": 309
       },
       "enabled": true,
       "state": "scheduled",
       "paused_at": null,
       "paused_reason": null,
       "created_at": "2026-07-07T21:42:44.416472-04:00",
-      "next_run_at": "2026-08-02T18:00:00-04:00",
-      "last_run_at": "2026-08-02T14:00:41.329940-04:00",
+      "next_run_at": "2026-08-02T22:00:00-04:00",
+      "last_run_at": "2026-08-02T18:00:09.253359-04:00",
       "last_status": "ok",
       "last_error": null,
       "last_delivery_error": null,
@@ -951,15 +951,15 @@
       "schedule_display": "15 */4 * * *",
       "repeat": {
         "times": null,
-        "completed": 154
+        "completed": 155
       },
       "enabled": true,
       "state": "scheduled",
       "paused_at": null,
       "paused_reason": null,
       "created_at": "2026-07-07T21:42:50.012014-04:00",
-      "next_run_at": "2026-08-02T16:15:00-04:00",
-      "last_run_at": "2026-08-02T12:15:30.483916-04:00",
+      "next_run_at": "2026-08-02T20:15:00-04:00",
+      "last_run_at": "2026-08-02T16:15:55.524799-04:00",
       "last_status": "ok",
       "last_error": null,
       "last_delivery_error": null,
@@ -1278,7 +1278,7 @@
       "paused_at": null,
       "paused_reason": null,
       "created_at": "2026-07-09T09:53:47.258465-04:00",
-      "next_run_at": "2026-08-02T20:00:00-04:00",
+      "next_run_at": "2026-08-03T00:00:00-04:00",
       "last_run_at": "2026-08-02T16:00:53.067899-04:00",
       "last_status": "ok",
       "last_error": null,
@@ -1478,7 +1478,7 @@
       "paused_at": null,
       "paused_reason": null,
       "created_at": "2026-07-09T09:53:58.682054-04:00",
-      "next_run_at": "2026-08-02T20:00:00-04:00",
+      "next_run_at": "2026-08-03T00:00:00-04:00",
       "last_run_at": "2026-08-02T16:00:53.107867-04:00",
       "last_status": "ok",
       "last_error": null,
@@ -1511,15 +1511,15 @@
       "schedule_display": "*/20 * * * *",
       "repeat": {
         "times": null,
-        "completed": 1714
+        "completed": 1725
       },
       "enabled": true,
       "state": "scheduled",
       "paused_at": null,
       "paused_reason": null,
       "created_at": "2026-07-09T09:53:59.696632-04:00",
-      "next_run_at": "2026-08-02T16:20:00-04:00",
-      "last_run_at": "2026-08-02T16:00:53.087312-04:00",
+      "next_run_at": "2026-08-02T20:20:00-04:00",
+      "last_run_at": "2026-08-02T19:40:17.616190-04:00",
       "last_status": "ok",
       "last_error": null,
       "last_delivery_error": null,
@@ -1678,7 +1678,7 @@
       "paused_at": null,
       "paused_reason": null,
       "created_at": "2026-07-11T08:48:23.391149-04:00",
-      "next_run_at": "2026-08-02T20:00:00-04:00",
+      "next_run_at": "2026-08-03T20:00:00-04:00",
       "last_run_at": "2026-08-01T20:15:12.163152-04:00",
       "last_status": "ok",
       "last_error": null,
@@ -1711,15 +1711,15 @@
       "schedule_display": "0 */4 * * *",
       "repeat": {
         "times": null,
-        "completed": 133
+        "completed": 134
       },
       "enabled": true,
       "state": "scheduled",
       "paused_at": null,
       "paused_reason": null,
       "created_at": "2026-07-11T16:29:55.461353-04:00",
-      "next_run_at": "2026-08-02T20:00:00-04:00",
-      "last_run_at": "2026-08-02T12:00:57.684386-04:00",
+      "next_run_at": "2026-08-03T00:00:00-04:00",
+      "last_run_at": "2026-08-02T16:00:55.797219-04:00",
       "last_status": "ok",
       "last_error": null,
       "last_delivery_error": null,
@@ -1871,15 +1871,15 @@
       "schedule_display": "every 10m",
       "repeat": {
         "times": null,
-        "completed": 1861
+        "completed": 1885
       },
       "enabled": true,
       "state": "scheduled",
       "paused_at": null,
       "paused_reason": null,
       "created_at": "2026-07-20T16:54:21.440840-04:00",
-      "next_run_at": "2026-08-02T16:07:52.580189-04:00",
-      "last_run_at": "2026-08-02T15:57:52.580189-04:00",
+      "next_run_at": "2026-08-02T20:08:19.128428-04:00",
+      "last_run_at": "2026-08-02T19:58:19.128428-04:00",
       "last_status": "ok",
       "last_error": null,
       "last_delivery_error": null,
@@ -2071,15 +2071,15 @@
       "schedule_display": "0 8,11,14,17,20 * * *",
       "repeat": {
         "times": null,
-        "completed": 40
+        "completed": 41
       },
       "enabled": true,
       "state": "scheduled",
       "paused_at": null,
       "paused_reason": null,
       "created_at": "2026-07-25T17:16:54.732748-04:00",
-      "next_run_at": "2026-08-02T17:00:00-04:00",
-      "last_run_at": "2026-08-02T14:09:07.768342-04:00",
+      "next_run_at": "2026-08-03T08:00:00-04:00",
+      "last_run_at": "2026-08-02T17:06:15.432848-04:00",
       "last_status": "ok",
       "last_error": null,
       "last_delivery_error": null,
@@ -2294,7 +2294,46 @@
       "enabled_toolsets": null,
       "workdir": null,
       "fire_claim": null
+    },
+    {
+      "id": "937c76b0513b",
+      "name": "work-queue-weekly-pass",
+      "prompt": "Weekly work-queue pass (WORK_QUEUE.md item created 2026-08-02, Ted: \"hard to catch all the do it later stop now stuff\").\n\nRead /Volumes/Extra/Substrate/Operations/WORK_QUEUE.md, specifically section A of the Quick Index (\"CC can just build these -- no Ted input needed\"). Work through its entries in order.\n\nFor each entry:\n1. Read enough surrounding context (linked files, referenced code) to understand exactly what it's asking for.\n2. Check LIVE STATE FIRST before building anything -- this codebase has a real, repeated pattern of items already being done and never marked closed (found 2+ examples in the 2026-08-02 session that created this job). Grep/read the actual current file or run the actual current code before assuming the item is still open.\n3. If it's already done: verify it live (run it, curl it, read the actual current file), then close it in WORK_QUEUE.md with the evidence, same format as the \"Closed 2026-08-02 evening\" section in that file -- do not just delete the line, add a real closure note with what you checked.\n4. If it's genuinely open and buildable: build it, then LIVE-VERIFY the result (run the code, restart the relevant service if one exists e.g. `launchctl kickstart -k gui/$(id -u)/com.ted.control.mcp` for Control/mcp/server.py changes, test the actual behavior) before marking it closed. Never mark something closed on the basis of \"the code looks right\" alone.\n5. If while working an item you discover it actually needs Ted's judgment, is blocked (permissions, a contested fact, missing infrastructure), or turns out bigger than \"just build it\" -- do NOT force it through. Move it to section B or C of the Quick Index with a clear note explaining why, same as items C-cp and AI2 were reclassified in the 2026-08-02 session. Being honest about what's blocked is the job, not a failure of it.\n6. Commit each real change with a clear message, in the correct git repo (each top-level Substrate directory -- Roles/, Planning/, Operations/, Concept_Graph/, etc. -- is its own repo; Control/ under /Users/ted is a separate repo from all of them).\n\nStop after working through what's realistically doable in one pass -- do not rush low-quality closures just to empty the list. If nothing in section A is runnable this week (all genuinely blocked/reclassified), say so plainly rather than inventing something to close.\n\nDo not touch sections B, C, or D of the queue -- those need Ted's input, a different actor, or an external condition, not another automated pass.\n\nEnd with a short summary: how many items closed, how many reclassified, how many left untouched and why.",
+      "skills": [],
+      "skill": null,
+      "model": null,
+      "provider": null,
+      "provider_snapshot": "deepseek",
+      "model_snapshot": "deepseek-v4-flash",
+      "base_url": null,
+      "script": null,
+      "no_agent": false,
+      "context_from": null,
+      "schedule": {
+        "kind": "cron",
+        "expr": "15 7 * * 0",
+        "display": "15 7 * * 0"
+      },
+      "schedule_display": "15 7 * * 0",
+      "repeat": {
+        "times": null,
+        "completed": 0
+      },
+      "enabled": true,
+      "state": "scheduled",
+      "paused_at": null,
+      "paused_reason": null,
+      "created_at": "2026-08-02T16:47:27.332030-04:00",
+      "next_run_at": "2026-08-09T07:15:00-04:00",
+      "last_run_at": null,
+      "last_status": null,
+      "last_error": null,
+      "last_delivery_error": null,
+      "deliver": "origin",
+      "origin": null,
+      "enabled_toolsets": null,
+      "workdir": "/Users/ted"
     }
   ],
-  "updated_at": "2026-08-02T16:00:53.108104-04:00"
+  "updated_at": "2026-08-02T20:00:19.247864-04:00"
 }

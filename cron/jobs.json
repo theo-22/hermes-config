@@ -490,15 +490,15 @@
       "schedule_display": "15 */4 * * *",
       "repeat": {
         "times": null,
-        "completed": 197
+        "completed": 198
       },
       "enabled": true,
       "state": "scheduled",
       "paused_at": null,
       "paused_reason": null,
       "created_at": "2026-07-03T00:57:54.447668-04:00",
-      "next_run_at": "2026-08-04T16:15:00-04:00",
-      "last_run_at": "2026-08-04T12:15:07.283103-04:00",
+      "next_run_at": "2026-08-04T20:15:00-04:00",
+      "last_run_at": "2026-08-04T16:15:01.550318-04:00",
       "last_status": "ok",
       "last_error": null,
       "last_delivery_error": null,
@@ -690,15 +690,15 @@
       "schedule_display": "0 */4 * * *",
       "repeat": {
         "times": null,
-        "completed": 180
+        "completed": 181
       },
       "enabled": true,
       "state": "scheduled",
       "paused_at": null,
       "paused_reason": null,
       "created_at": "2026-07-05T18:09:46.374910-04:00",
-      "next_run_at": "2026-08-04T20:00:00-04:00",
-      "last_run_at": "2026-08-04T12:00:06.172213-04:00",
+      "next_run_at": "2026-08-05T00:00:00-04:00",
+      "last_run_at": "2026-08-04T16:00:00.700310-04:00",
       "last_status": "ok",
       "last_error": null,
       "last_delivery_error": null,
@@ -908,15 +908,15 @@
       "schedule_display": "0 */2 * * *",
       "repeat": {
         "times": null,
-        "completed": 331
+        "completed": 333
       },
       "enabled": true,
       "state": "scheduled",
       "paused_at": null,
       "paused_reason": null,
       "created_at": "2026-07-07T21:42:44.416472-04:00",
-      "next_run_at": "2026-08-04T18:00:00-04:00",
-      "last_run_at": "2026-08-04T14:00:16.946105-04:00",
+      "next_run_at": "2026-08-04T22:00:00-04:00",
+      "last_run_at": "2026-08-04T18:00:11.465070-04:00",
       "last_status": "ok",
       "last_error": null,
       "last_delivery_error": null,
@@ -948,15 +948,15 @@
       "schedule_display": "15 */4 * * *",
       "repeat": {
         "times": null,
-        "completed": 166
+        "completed": 167
       },
       "enabled": true,
       "state": "scheduled",
       "paused_at": null,
       "paused_reason": null,
       "created_at": "2026-07-07T21:42:50.012014-04:00",
-      "next_run_at": "2026-08-04T16:15:00-04:00",
-      "last_run_at": "2026-08-04T12:15:07.285117-04:00",
+      "next_run_at": "2026-08-04T20:15:00-04:00",
+      "last_run_at": "2026-08-04T16:15:01.559811-04:00",
       "last_status": "ok",
       "last_error": null,
       "last_delivery_error": null,
@@ -1268,15 +1268,15 @@
       "schedule_display": "0 */4 * * *",
       "repeat": {
         "times": null,
-        "completed": 158
+        "completed": 159
       },
       "enabled": true,
       "state": "scheduled",
       "paused_at": null,
       "paused_reason": null,
       "created_at": "2026-07-09T09:53:47.258465-04:00",
-      "next_run_at": "2026-08-04T20:00:00-04:00",
-      "last_run_at": "2026-08-04T16:00:00.524091-04:00",
+      "next_run_at": "2026-08-05T00:00:00-04:00",
+      "last_run_at": "2026-08-04T20:00:22.922355-04:00",
       "last_status": "ok",
       "last_error": null,
       "last_delivery_error": null,
@@ -1468,15 +1468,15 @@
       "schedule_display": "0 */4 * * *",
       "repeat": {
         "times": null,
-        "completed": 158
+        "completed": 159
       },
       "enabled": true,
       "state": "scheduled",
       "paused_at": null,
       "paused_reason": null,
       "created_at": "2026-07-09T09:53:58.682054-04:00",
-      "next_run_at": "2026-08-04T20:00:00-04:00",
-      "last_run_at": "2026-08-04T16:00:00.562657-04:00",
+      "next_run_at": "2026-08-05T00:00:00-04:00",
+      "last_run_at": "2026-08-04T20:00:22.927492-04:00",
       "last_status": "ok",
       "last_error": null,
       "last_delivery_error": null,
@@ -1508,15 +1508,15 @@
       "schedule_display": "*/20 * * * *",
       "repeat": {
         "times": null,
-        "completed": 1858
+        "completed": 1870
       },
       "enabled": true,
       "state": "scheduled",
       "paused_at": null,
       "paused_reason": null,
       "created_at": "2026-07-09T09:53:59.696632-04:00",
-      "next_run_at": "2026-08-04T16:20:00-04:00",
-      "last_run_at": "2026-08-04T16:00:00.527561-04:00",
+      "next_run_at": "2026-08-04T20:20:00-04:00",
+      "last_run_at": "2026-08-04T20:00:22.900813-04:00",
       "last_status": "ok",
       "last_error": null,
       "last_delivery_error": null,
@@ -1675,7 +1675,7 @@
       "paused_at": null,
       "paused_reason": null,
       "created_at": "2026-07-11T08:48:23.391149-04:00",
-      "next_run_at": "2026-08-04T20:00:00-04:00",
+      "next_run_at": "2026-08-05T20:00:00-04:00",
       "last_run_at": "2026-08-03T20:13:42.185440-04:00",
       "last_status": "ok",
       "last_error": null,
@@ -1708,15 +1708,15 @@
       "schedule_display": "0 */4 * * *",
       "repeat": {
         "times": null,
-        "completed": 145
+        "completed": 146
       },
       "enabled": true,
       "state": "scheduled",
       "paused_at": null,
       "paused_reason": null,
       "created_at": "2026-07-11T16:29:55.461353-04:00",
-      "next_run_at": "2026-08-04T20:00:00-04:00",
-      "last_run_at": "2026-08-04T12:00:09.722948-04:00",
+      "next_run_at": "2026-08-05T00:00:00-04:00",
+      "last_run_at": "2026-08-04T16:00:04.657127-04:00",
       "last_status": "ok",
       "last_error": null,
       "last_delivery_error": null,
@@ -1868,15 +1868,15 @@
       "schedule_display": "every 10m",
       "repeat": {
         "times": null,
-        "completed": 2148
+        "completed": 2172
       },
       "enabled": true,
       "state": "scheduled",
       "paused_at": null,
       "paused_reason": null,
       "created_at": "2026-07-20T16:54:21.440840-04:00",
-      "next_run_at": "2026-08-04T16:07:00.065610-04:00",
-      "last_run_at": "2026-08-04T15:57:00.065610-04:00",
+      "next_run_at": "2026-08-04T20:07:22.577694-04:00",
+      "last_run_at": "2026-08-04T19:57:22.577694-04:00",
       "last_status": "ok",
       "last_error": null,
       "last_delivery_error": null,
@@ -2068,15 +2068,15 @@
       "schedule_display": "0 8,11,14,17,20 * * *",
       "repeat": {
         "times": null,
-        "completed": 50
+        "completed": 52
       },
       "enabled": true,
       "state": "scheduled",
       "paused_at": null,
       "paused_reason": null,
       "created_at": "2026-07-25T17:16:54.732748-04:00",
-      "next_run_at": "2026-08-04T17:00:00-04:00",
-      "last_run_at": "2026-08-04T14:03:31.779689-04:00",
+      "next_run_at": "2026-08-05T08:00:00-04:00",
+      "last_run_at": "2026-08-04T17:04:43.884410-04:00",
       "last_status": "ok",
       "last_error": null,
       "last_delivery_error": null,
@@ -2295,7 +2295,7 @@
     {
       "id": "937c76b0513b",
       "name": "work-queue-weekly-pass",
-      "prompt": "Weekly work-queue pass (WORK_QUEUE.md item created 2026-08-02, Ted: \"hard to catch all the do it later stop now stuff\").\n\nRead /Volumes/Extra/Substrate/Operations/WORK_QUEUE.md, specifically section A of the Quick Index (\"CC can just build these -- no Ted input needed\"). Work through its entries in order.\n\nFor each entry:\n1. Read enough surrounding context (linked files, referenced code) to understand exactly what it's asking for.\n2. Check LIVE STATE FIRST before building anything -- this codebase has a real, repeated pattern of items already being done and never marked closed (found 2+ examples in the 2026-08-02 session that created this job). Grep/read the actual current file or run the actual current code before assuming the item is still open.\n3. If it's already done: verify it live (run it, curl it, read the actual current file), then close it in WORK_QUEUE.md with the evidence, same format as the \"Closed 2026-08-02 evening\" section in that file -- do not just delete the line, add a real closure note with what you checked.\n4. If it's genuinely open and buildable: build it, then LIVE-VERIFY the result (run the code, restart the relevant service if one exists e.g. `launchctl kickstart -k gui/$(id -u)/com.ted.control.mcp` for Control/mcp/server.py changes, test the actual behavior) before marking it closed. Never mark something closed on the basis of \"the code looks right\" alone.\n5. If while working an item you discover it actually needs Ted's judgment, is blocked (permissions, a contested fact, missing infrastructure), or turns out bigger than \"just build it\" -- do NOT force it through. Move it to section B or C of the Quick Index with a clear note explaining why, same as items C-cp and AI2 were reclassified in the 2026-08-02 session. Being honest about what's blocked is the job, not a failure of it.\n6. Commit each real change with a clear message, in the correct git repo (each top-level Substrate directory -- Roles/, Planning/, Operations/, Concept_Graph/, etc. -- is its own repo; Control/ under /Users/ted is a separate repo from all of them).\n\nStop after working through what's realistically doable in one pass -- do not rush low-quality closures just to empty the list. If nothing in section A is runnable this week (all genuinely blocked/reclassified), say so plainly rather than inventing something to close.\n\nDo not touch sections B, C, or D of the queue -- those need Ted's input, a different actor, or an external condition, not another automated pass.\n\nEnd with a short summary: how many items closed, how many reclassified, how many left untouched and why.",
+      "prompt": "Weekly work-item pass (repointed 2026-08-04 -- WORK_QUEUE.md is retired; work_items in system.db is now the one real record. Ted: \"hard to catch all the do it later stop now stuff\").\n\nQuery the live work queue: curl \"http://localhost:5555/api/work-items?state=pending&actor=substrate_hermes\" -- this returns everything pending that is NOT hard-gated away from you (owner is a soft \"likely best fit\" hint, only a required_owner match or blank means you're free to act; a required_owner set to someone else means skip it, it's not yours to force).\n\nFor each item returned where owner is \"claude_code\" or blank (this job's realistic buildable range, same scope as the old section A):\n1. Read enough surrounding context (linked files, referenced code -- follow source_surface) to understand exactly what it's asking for.\n2. Check LIVE STATE FIRST before building anything -- this codebase has a real, repeated pattern of items already being done and never marked closed. Grep/read the actual current file or run the actual current code before assuming the item is still open.\n3. If it's already done: verify it live (run it, curl it, read the actual current file), then close it out for real: curl -X POST \"http://localhost:5555/api/work-items/state\" -H \"Content-Type: application/json\" -d '{\"item_id\": <id>, \"state\": \"acted\", \"actor\": \"substrate_hermes\"}' -- and add a note of what you checked by first reading the row's current notes and PATCHing an updated notes field via a fresh POST /api/work-items with the same source_surface if the API doesn't support notes-append directly, or by appending to the row's notes column with a short SQL UPDATE against system.db (append, do not overwrite the original context).\n4. If it's genuinely open and buildable: build it, then LIVE-VERIFY the result (run the code, restart the relevant service if one exists e.g. `launchctl kickstart -k gui/$(id -u)/com.ted.control.mcp` for Control/mcp/server.py changes, test the actual behavior) before closing it via the same state-transition call. Never mark something closed on the basis of \"the code looks right\" alone.\n5. If while working an item you discover it actually needs Ted's judgment, is blocked (permissions, a contested fact, missing infrastructure), or turns out bigger than \"just build it\" -- do NOT force it through. Set its required_owner to \"ted\" via a raw SQL UPDATE against system.db's work_items table (or ask Ted directly if you have a live channel) with a clear note explaining why. Being honest about what's blocked is the job, not a failure of it.\n6. Commit each real code change with a clear message, in the correct git repo (each top-level Substrate directory -- Roles/, Planning/, Operations/, Concept_Graph/, etc. -- is its own repo; Control/ under /Users/ted is a separate repo from all of them).\n\nStop after working through what's realistically doable in one pass -- do not rush low-quality closures just to empty the list. If nothing returned is runnable this week (all genuinely blocked/ted-gated), say so plainly rather than inventing something to close.\n\nDo not touch items where required_owner is already set to someone other than you -- those need Ted's input, a different actor, or an external condition, not another automated pass.\n\nEnd with a short summary: how many items closed, how many reclassified (required_owner set), how many left untouched and why.",
       "skills": [],
       "skill": null,
       "model": null,
@@ -2332,5 +2332,5 @@
       "workdir": "/Users/ted"
     }
   ],
-  "updated_at": "2026-08-04T16:00:00.562916-04:00"
+  "updated_at": "2026-08-04T20:00:22.927800-04:00"
 }

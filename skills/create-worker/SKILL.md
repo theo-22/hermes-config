@@ -28,6 +28,8 @@ verifies the receipt; the worker executes; Ted approves at gates.
 ## What every worker gets (correct by construction)
 
 The factory guarantees, for every caller, the same poka-yoke:
+- a fixed unit classification of `worker`, with a functional task-shape name;
+  the model remains separate runtime configuration and never defines identity;
 - cloned from a mold profile (default `migrator`), config floor applied
   (`verify_on_stop`, memory, `max_turns` — the settings that were wrong on 9/10
   hand-built profiles), refuses to clobber an existing profile;
@@ -37,6 +39,10 @@ The factory guarantees, for every caller, the same poka-yoke:
 - a **kind**: `read-only` (examines/reports, never mutates — the safe default) or
   `mutating` (bounded reversible changes, preserves originals). The SOUL's
   disciplines flex to match.
+- the shared human-attention contract at
+  `/Users/ted/_shared/Human_Attention_Routing.md`; workers submit a validated
+  Planner request instead of creating Calendar, Reminders, or duplicate inbox
+  projections themselves.
 
 ## How each actor invokes it
 
@@ -67,6 +73,9 @@ result. Then dispatch the new worker with the `dispatch_worker` tool.
    deterministic scan where one exists; neither is trusted alone. (A live worker
    false-negative was caught exactly this way on 2026-07-11.)
 4. Update `_shared/Worker_Dispatch.md`'s registry when a worker is minted.
+5. If the worker exposes a future need for Ted's attention, submit it with
+   `Operations/scripts/planner_request.py`; the hub does not let the worker
+   choose the projection.
 
 ## Guardrails
 
@@ -78,3 +87,5 @@ result. Then dispatch the new worker with the `dispatch_worker` tool.
 - Mechanical exact transforms (e.g. string repoints across files) belong in a
   deterministic script, not worker freehand; the worker does the *judgment*
   (live vs. historical, safe vs. unsafe), the script does the transform.
+- Do not name a worker for a provider, model tier, personality, or current
+  assignee. Name the recurring task shape it performs.

@@ -48,10 +48,18 @@ Do not use when:
 
 ## Core Workflow
 
-1. Define the desired workflow.
+1. Classify and name the unit before building its environment.
+Durable domain GPTs are `specialist`; recurring operational functions are
+`service`; model/provider comparisons are `evaluation`. Name the unit for its
+domain, responsibility, service, or experimental question—not a personality or
+current model. Record function, expertise, tools, evidence rules, authority,
+interaction mode, and model separately. Follow
+`/Users/ted/_shared/Human_Attention_Routing.md`.
+
+2. Define the desired workflow.
 Do not start from the current limitation. Name the workflow Ted actually wants.
 
-2. Inspect the current environment.
+3. Inspect the current environment.
 Check the active surfaces:
 - instructions
 - knowledge files
@@ -60,28 +68,33 @@ Check the active surfaces:
 - proxy/MCP routes
 - continuity/state surfaces
 
-3. Let the GPT try the real task.
+4. Let the GPT try the real task.
 Prefer live use over hypothetical reasoning. Real friction is better evidence than imagined gaps.
 
-4. Ask the GPT what it needs, when useful.
+5. Ask the GPT what it needs, when useful.
 Use direct self-assessment prompts when the GPT is already in the workflow and can name its own missing affordances.
 
-5. Patch the actual blocker with contained scope.
+6. Patch the actual blocker with contained scope.
 Fix the live path before debating abstractions. Prioritize active blockers over cleanup philosophy.
 
-6. Verify in layers.
+7. Verify in layers.
 For new or repaired actions, verify separately:
 - local backend
 - remote/proxy path
 - fresh GPT chat with raw tool results
 
-7. Refresh Builder only where needed.
+8. Refresh Builder only where needed.
 If the schema changed, re-import the schema.
 If instructions changed, re-paste instructions.
 If knowledge files changed, refresh the Builder knowledge set from the authoritative local source.
 
-8. Save continuity and carry forward the lesson.
+9. Save continuity and carry forward the lesson.
 When a new pattern proves durable, add it to the shared build/process docs so the next GPT starts from the better standard.
+
+10. Route future human attention through Codex Planner.
+The GPT records the canonical obligation and submits a validated Planner
+request. It does not independently create Calendar, Reminders, or duplicate
+inbox projections.
 
 ## Verification Rules
 

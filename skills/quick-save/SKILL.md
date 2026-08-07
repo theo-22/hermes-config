@@ -186,5 +186,5 @@ If session-end requirements, repo boundaries, or continuity surfaces change, upd
 
 - `/Users/ted/Operations/Codex_Handoff/SESSION_END.md`
 - `/Users/ted/Operations/SESSION_END.md` when CC parity matters
-- `/Users/ted/Canon/System/REPO_WORKSPACE_MAP.md`
+- `/Volumes/Extra/Substrate/Operations/Workspace_Orientation/REPO_WORKSPACE_MAP.md`
 - `/Users/ted/Operations/CHANGES_LOG.md` for current entry style

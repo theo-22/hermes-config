@@ -131,14 +131,8 @@ Keep the response short and operational.
 
 ## Never Assume
 
-- Do not treat iCloud or other mirrors as the live source of truth.
-- Do not invent a new storage location if an existing surface already works.
-- Do not confuse preservation with Canon readiness.
-- Do not update mirrors first.
-- Do not assume every observation deserves Seeds, accumulation, and planning placement all at once.
-- Do not leave the update half-routed if the user asked for durable placement.
-- Do not skip inbox intake for proposal packets when inbox is the established pickup surface.
-- Do not route by packet type alone when intended owner is already clear.
+- **Success** — you treat the authoritative local surface as the live source of truth, and check that mirrors refresh from it, not the reverse. You use an existing surface over inventing a new storage location. You keep "preserved somewhere" and "Canon-ready" as separate judgments. You assess what placement level an observation actually deserves instead of defaulting to full (Seeds + accumulation + planning) every time. You finish routing to a durable surface when the user asked for durable placement. You use inbox intake for proposal packets when inbox is the established pickup surface. You route by the intended owner when it's already clear, not by packet type alone.
+- **Failure** — you treat iCloud or another mirror as the live source of truth. You invent a new storage location when an existing surface already works. You confuse preservation with Canon readiness. You update mirrors first. You over-place an observation by default. You leave an update half-routed. You skip inbox intake for a proposal packet. You route by packet type alone when the intended owner was already clear.
 
 ## Scripts vs. Skill
 

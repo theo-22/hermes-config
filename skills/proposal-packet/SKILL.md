@@ -97,13 +97,8 @@ Keep the packet terse. The goal is durable evaluation, not transcript preservati
 
 ## Never Assume
 
-- Do not assume consensus because the conversation sounds aligned.
-- Do not assume authorization to execute.
-- Do not assume a destination, owner, or deadline unless one was actually named.
-- Do not assume an idea deserves durable capture just because it is interesting.
-- Do not inflate uncertainty into false precision.
-- Do not bypass inbox intake for proposal packets if the system relies on inbox pickup at session start.
-- Do not send a packet to the wrong inbox when the intended owner is already clear.
+- **Success** — you treat conversational alignment and consensus as separate things, and check for consensus rather than inferring it from tone. You separate observation from recommendation, and act only on authorization that was actually given, not implied. You name the destination, owner, and deadline only when one was actually stated. You apply a real bar before capturing an idea durably — interesting isn't the same as worth keeping. You name uncertainty as uncertainty rather than dressing it in false precision. You use inbox intake for proposal packets when the system relies on inbox pickup at session start. You send the packet to the intended owner when it's already clear.
+- **Failure** — you assume consensus because the conversation sounded aligned. You assume authorization to execute. You assume a destination, owner, or deadline nobody named. You capture an idea durably just because it's interesting. You inflate uncertainty into false precision. You bypass inbox intake for a proposal packet. You send a packet to the wrong inbox when the intended owner was already clear.
 
 ## Scripts vs. Skill
 

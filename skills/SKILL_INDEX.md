@@ -66,6 +66,9 @@ If the `/` menu is crowded, scan this card first, then search for the exact skil
 - `repair-capability-truth`
   Use when a role's fresh-session callable surface, static scope, current documentation, and typed operational queries disagree. Separates evidence layers, preserves specialist-role inhabitation, repairs full live-schema mappings without migration, and requires direct plus aggregate proof.
 
+- `reconcile-runtime-authority`
+  Use when startup, continuity, configuration, generated reports, or documentation disagree about which surface is authoritative. Classifies active, state, generated, tombstone, and historical surfaces; reconciles readers and writers; and requires deterministic plus genuinely fresh-runtime proof.
+
 - `repair-mcp-client-disconnects`
   Use when an MCP bridge logs expected SSE or streamable-HTTP client disconnect errors, unhandled AnyIO exception groups, intermittent restarts, or post-disconnect hangs. Suppresses only proven disconnect leaves, preserves cancellation and unrelated faults, and requires authenticated abrupt-disconnect plus fresh-client proof.
 
@@ -397,6 +400,7 @@ If the main need is deciding whether a role may safely dispatch Hermes workers:
 - `proposal-packet`
 - `quick-save`
 - `repair-capability-truth`
+- `reconcile-runtime-authority`
 - `repair-mcp-client-disconnects`
 - `repair-hermes-update-continuity`
 - `repair-pieces-runtime`

@@ -24,15 +24,15 @@
       "schedule_display": "30 0 * * *",
       "repeat": {
         "times": null,
-        "completed": 43
+        "completed": 44
       },
       "enabled": true,
       "state": "scheduled",
       "paused_at": null,
       "paused_reason": null,
       "created_at": "2026-06-27T23:04:42.313578-04:00",
-      "next_run_at": "2026-08-08T00:30:00-04:00",
-      "last_run_at": "2026-08-07T00:35:58.200553-04:00",
+      "next_run_at": "2026-08-09T00:30:00-04:00",
+      "last_run_at": "2026-08-08T00:33:55.732924-04:00",
       "last_status": "ok",
       "last_error": null,
       "last_delivery_error": null,
@@ -150,15 +150,15 @@
       "schedule_display": "0 4 * * *",
       "repeat": {
         "times": null,
-        "completed": 45
+        "completed": 46
       },
       "enabled": true,
       "state": "scheduled",
       "paused_at": null,
       "paused_reason": null,
       "created_at": "2026-06-28T16:28:51.676442-04:00",
-      "next_run_at": "2026-08-08T04:00:00-04:00",
-      "last_run_at": "2026-08-07T04:00:09.781511-04:00",
+      "next_run_at": "2026-08-09T04:00:00-04:00",
+      "last_run_at": "2026-08-08T04:00:05.174243-04:00",
       "last_status": "ok",
       "last_error": null,
       "last_delivery_error": null,
@@ -490,15 +490,15 @@
       "schedule_display": "15 */4 * * *",
       "repeat": {
         "times": null,
-        "completed": 217
+        "completed": 218
       },
       "enabled": true,
       "state": "scheduled",
       "paused_at": null,
       "paused_reason": null,
       "created_at": "2026-07-03T00:57:54.447668-04:00",
-      "next_run_at": "2026-08-08T00:15:00-04:00",
-      "last_run_at": "2026-08-07T20:15:11.269063-04:00",
+      "next_run_at": "2026-08-08T04:15:00-04:00",
+      "last_run_at": "2026-08-08T00:15:34.378030-04:00",
       "last_status": "ok",
       "last_error": null,
       "last_delivery_error": null,
@@ -690,15 +690,15 @@
       "schedule_display": "0 */4 * * *",
       "repeat": {
         "times": null,
-        "completed": 200
+        "completed": 202
       },
       "enabled": true,
       "state": "scheduled",
       "paused_at": null,
       "paused_reason": null,
       "created_at": "2026-07-05T18:09:46.374910-04:00",
-      "next_run_at": "2026-08-08T04:00:00-04:00",
-      "last_run_at": "2026-08-07T20:00:10.641383-04:00",
+      "next_run_at": "2026-08-08T08:00:00-04:00",
+      "last_run_at": "2026-08-08T04:00:05.228313-04:00",
       "last_status": "ok",
       "last_error": null,
       "last_delivery_error": null,
@@ -908,15 +908,15 @@
       "schedule_display": "0 */2 * * *",
       "repeat": {
         "times": null,
-        "completed": 371
+        "completed": 373
       },
       "enabled": true,
       "state": "scheduled",
       "paused_at": null,
       "paused_reason": null,
       "created_at": "2026-07-07T21:42:44.416472-04:00",
-      "next_run_at": "2026-08-08T02:00:00-04:00",
-      "last_run_at": "2026-08-07T22:00:23.438596-04:00",
+      "next_run_at": "2026-08-08T06:00:00-04:00",
+      "last_run_at": "2026-08-08T02:00:46.649989-04:00",
       "last_status": "ok",
       "last_error": null,
       "last_delivery_error": null,
@@ -948,15 +948,15 @@
       "schedule_display": "15 */4 * * *",
       "repeat": {
         "times": null,
-        "completed": 186
+        "completed": 187
       },
       "enabled": true,
       "state": "scheduled",
       "paused_at": null,
       "paused_reason": null,
       "created_at": "2026-07-07T21:42:50.012014-04:00",
-      "next_run_at": "2026-08-08T00:15:00-04:00",
-      "last_run_at": "2026-08-07T20:15:11.264741-04:00",
+      "next_run_at": "2026-08-08T04:15:00-04:00",
+      "last_run_at": "2026-08-08T00:15:34.386389-04:00",
       "last_status": "ok",
       "last_error": null,
       "last_delivery_error": null,
@@ -1148,15 +1148,15 @@
       "schedule_display": "35 0 * * *",
       "repeat": {
         "times": null,
-        "completed": 29
+        "completed": 30
       },
       "enabled": true,
       "state": "scheduled",
       "paused_at": null,
       "paused_reason": null,
       "created_at": "2026-07-09T09:53:44.198846-04:00",
-      "next_run_at": "2026-08-08T00:35:00-04:00",
-      "last_run_at": "2026-08-07T00:35:38.654589-04:00",
+      "next_run_at": "2026-08-09T00:35:00-04:00",
+      "last_run_at": "2026-08-08T00:35:36.372923-04:00",
       "last_status": "ok",
       "last_error": null,
       "last_delivery_error": null,
@@ -1268,15 +1268,15 @@
       "schedule_display": "0 */4 * * *",
       "repeat": {
         "times": null,
-        "completed": 178
+        "completed": 179
       },
       "enabled": true,
       "state": "scheduled",
       "paused_at": null,
       "paused_reason": null,
       "created_at": "2026-07-09T09:53:47.258465-04:00",
-      "next_run_at": "2026-08-08T04:00:00-04:00",
-      "last_run_at": "2026-08-08T00:00:33.168980-04:00",
+      "next_run_at": "2026-08-08T08:00:00-04:00",
+      "last_run_at": "2026-08-08T04:00:05.179800-04:00",
       "last_status": "ok",
       "last_error": null,
       "last_delivery_error": null,
@@ -1468,15 +1468,15 @@
       "schedule_display": "0 */4 * * *",
       "repeat": {
         "times": null,
-        "completed": 177
+        "completed": 178
       },
       "enabled": true,
       "state": "scheduled",
       "paused_at": null,
       "paused_reason": null,
       "created_at": "2026-07-09T09:53:58.682054-04:00",
-      "next_run_at": "2026-08-08T04:00:00-04:00",
-      "last_run_at": "2026-08-07T20:00:16.068158-04:00",
+      "next_run_at": "2026-08-08T08:00:00-04:00",
+      "last_run_at": "2026-08-08T00:00:35.488093-04:00",
       "last_status": "ok",
       "last_error": null,
       "last_delivery_error": null,
@@ -1508,15 +1508,15 @@
       "schedule_display": "*/20 * * * *",
       "repeat": {
         "times": null,
-        "completed": 2098
+        "completed": 2110
       },
       "enabled": true,
       "state": "scheduled",
       "paused_at": null,
       "paused_reason": null,
       "created_at": "2026-07-09T09:53:59.696632-04:00",
-      "next_run_at": "2026-08-08T00:20:00-04:00",
-      "last_run_at": "2026-08-08T00:00:33.187683-04:00",
+      "next_run_at": "2026-08-08T04:20:00-04:00",
+      "last_run_at": "2026-08-08T04:00:05.191141-04:00",
       "last_status": "ok",
       "last_error": null,
       "last_delivery_error": null,
@@ -1708,17 +1708,17 @@
       "schedule_display": "0 */4 * * *",
       "repeat": {
         "times": null,
-        "completed": 165
+        "completed": 166
       },
       "enabled": true,
       "state": "scheduled",
       "paused_at": null,
       "paused_reason": null,
       "created_at": "2026-07-11T16:29:55.461353-04:00",
-      "next_run_at": "2026-08-08T04:00:00-04:00",
-      "last_run_at": "2026-08-07T20:00:14.141145-04:00",
-      "last_status": "ok",
-      "last_error": null,
+      "next_run_at": "2026-08-08T08:00:00-04:00",
+      "last_run_at": "2026-08-08T00:01:49.938088-04:00",
+      "last_status": "error",
+      "last_error": "Script exited with code 1\nstderr:\nfatal: unable to access 'https://github.com/theo-22/hermes-config.git/': Failed to connect to github.com port 443 after 75002 ms: Couldn't connect to server\nTraceback (most recent call last):\n  File \"/Users/ted/.hermes/profiles/substrate-hermes/scripts/sync_public_config.py\", line 240, in <module>\n    main()\n  File \"/Users/ted/.hermes/profiles/substrate-hermes/scripts/sync_public_config.py\", line 233, in main\n    subprocess.run([\"git\", \"-C\", str(REPO_DIR), \"push\"], check=True)\n  File \"/Users/ted/.local/share/uv/python/cpython-3.11.15-macos-aarch64-none/lib/python3.11/subprocess.py\", line 571, in run\n    raise CalledProcessError(retcode, process.args,\nsubprocess.CalledProcessError: Command '['git', '-C', '/Volumes/Extra/Substrate/hermes-public-config', 'push']' returned non-zero exit status 128.\nstdout:\n[main 8520b4c] auto-sync 4bd425c8db147f18\n 87 files changed, 1196 insertions(+), 355 deletions(-)\n delete mode 100644 cron/output/0075bbbcf4a5/2026-08-07_05-00-18.md\n delete mode 100644 cron/output/0075bbbcf4a5/2026-08-07_05-20-19.md\n delete mode 100644 cron/output/0075bbbcf4a5/2026-08-07_05-40-22.md\n delete mode 100644 cron/output/0075bbbcf4a5/2026-08-07_06-00-25.md\n delete mode 100644 cron/output/0075bbbcf4a5/2026-08-07_06-20-28.md\n delete mode 100644 cron/output/0075bbbcf4a5/2026-08-07_06-40-31.md\n delete mode 100644 cron/output/0075bbbcf4a5/2026-08-07_07-00-34.md\n delete mode 100644 cron/output/0075bbbcf4a5/2026-08-07_07-20-36.md\n rename cron/output/0075bbbcf4a5/{2026-08-07_03-40-06.md => 2026-08-07_20-20-11.md} (77%)\n rename cron/output/0075bbbcf4a5/{2026-08-07_04-00-09.md => 2026-08-07_20-40-13.md} (77%)\n rename cron/output/0075bbbcf4a5/{2026-08-07_04-20-13.md => 2026-08-07_21-00-15.md} (77%)\n rename cron/output/0075bbbcf4a5/{2026-08-07_04-40-15.md => 2026-08-07_21-20-18.md} (77%)\n create mode 100644 cron/output/0075bbbcf4a5/2026-08-07_21-40-21.md\n create mode 100644 cron/output/0075bbbcf4a5/2026-08-07_22-00-22.md\n create mode 100644 cron/output/0075bbbcf4a5/2026-08-07_22-20-24.md\n create mode 100644 cron/output/0075bbbcf4a5/2026-08-07_22-40-26.md\n create mode 100644 cron/output/0075bbbcf4a5/2026-08-07_23-00-27.md\n create mode 100644 cron/output/0075bbbcf4a5/2026-08-07_23-20-29.md\n create mode 100644 cron/output/0075bbbcf4a5/2026-08-07_23-40-31.md\n create mode 100644 cron/output/0075bbbcf4a5/2026-08-08_00-00-33.md\n rename cron/output/2c9def206fbc/{2026-07-28_20-21-06.md => 2026-08-07_20-22-03.md} (93%)\n rename cron/output/42f2a4a94448/{2026-07-30_12-15-07.md => 2026-08-07_20-15-11.md} (82%)\n rename cron/output/62f8ce338b4e/{2026-07-30_12-00-10.md => 2026-08-07_20-00-16.md} (77%)\n create mode 100644 cron/output/68222deaba3e/2026-08-07_20-00-10.md\n create mode 100644 cron/output/7c8c4369ae24/2026-08-07_22-02-07.md\n delete mode 100644 cron/output/88056a883866/2026-08-07_12-17-52.md\n delete mode 100644 cron/output/88056a883866/2026-08-07_12-27-53.md\n delete mode 100644 cron/output/88056a883866/2026-08-07_12-37-53.md\n delete mode 100644 cron/output/88056a883866/2026-08-07_12-47-53.md\n delete mode 100644 cron/output/88056a883866/2026-08-07_12-57-53.md\n delete mode 100644 cron/output/88056a883866/2026-08-07_13-07-53.md\n delete mode 100644 cron/output/88056a883866/2026-08-07_13-17-53.md\n delete mode 100644 cron/output/88056a883866/2026-08-07_13-27-53.md\n delete mode 100644 cron/output/88056a883866/2026-08-07_13-37-53.md\n delete mode 100644 cron/output/88056a883866/2026-08-07_13-47-54.md\n delete mode 100644 cron/output/88056a883866/2026-08-07_13-57-54.md\n delete mode 100644 cron/output/88056a883866/2026-08-07_14-07-54.md\n delete mode 100644 cron/output/88056a883866/2026-08-07_14-17-54.md\n delete mode 100644 cron/output/88056a883866/2026-08-07_14-27-54.md\n delete mode 100644 cron/output/88056a883866/2026-08-07_14-37-54.md\n delete mode 100644 cron/output/88056a883866/2026-08-07_14-47-55.md\n delete mode 100644 cron/output/88056a883866/2026-08-07_14-57-55.md\n delete mode 100644 cron/output/88056a883866/2026-08-07_15-07-55.md\n delete mode 100644 cron/output/88056a883866/2026-08-07_15-17-55.md\n delete mode 100644 cron/output/88056a883866/2026-08-07_15-27-55.md\n rename cron/output/88056a883866/{2026-08-07_11-37-52.md => 2026-08-07_20-01-09.md} (77%)\n rename cron/output/88056a883866/{2026-08-07_11-47-52.md => 2026-08-07_20-11-10.md} (77%)\n rename cron/output/88056a883866/{2026-08-07_11-57-52.md => 2026-08-07_20-21-11.md} (77%)\n rename cron/output/88056a883866/{2026-08-07_12-07-52.md => 2026-08-07_20-31-12.md} (77%)\n create mode 100644 cron/output/88056a883866/2026-08-07_20-41-13.md\n create mode 100644 cron/output/88056a883866/2026-08-07_20-51-14.md\n create mode 100644 cron/output/88056a883866/2026-08-07_21-01-15.md\n create mode 100644 cron/output/88056a883866/2026-08-07_21-11-16.md\n create mode 100644 cron/output/88056a883866/2026-08-07_21-21-18.md\n create mode 100644 cron/output/88056a883866/2026-08-07_21-31-20.md\n create mode 100644 cron/output/88056a883866/2026-08-07_21-41-21.md\n create mode 100644 cron/output/88056a883866/2026-08-07_21-51-21.md\n create mode 100644 cron/output/88056a883866/2026-08-07_22-01-22.md\n create mode 100644 cron/output/88056a883866/2026-08-07_22-11-23.md\n create mode 100644 cron/output/88056a883866/2026-08-07_22-21-24.md\n create mode 100644 cron/output/88056a883866/2026-08-07_22-31-25.md\n create mode 100644 cron/output/88056a883866/2026-08-07_22-41-26.md\n create mode 100644 cron/output/88056a883866/2026-08-07_22-51-27.md\n create mode 100644 cron/output/88056a883866/2026-08-07_23-01-28.md\n create mode 100644 cron/output/88056a883866/2026-08-07_23-11-28.md\n create mode 100644 cron/output/88056a883866/2026-08-07_23-21-29.md\n create mode 100644 cron/output/88056a883866/2026-08-07_23-31-30.md\n create mode 100644 cron/output/88056a883866/2026-08-07_23-41-31.md\n create mode 100644 cron/output/88056a883866/2026-08-07_23-51-32.md\n create mode 100644 cron/output/960b48e55c16/2026-08-07_21-00-15.md\n create mode 100644 cron/output/960b48e55c16/2026-08-07_22-00-22.md\n create mode 100644 cron/output/960b48e55c16/2026-08-07_23-00-27.md\n create mode 100644 cron/output/960b48e55c16/2026-08-08_00-00-33.md\n create mode 100644 cron/output/976d3e8fa25f/2026-08-07_20-03-02.md\n delete mode 100644 cron/output/ad2b6a13c7bb/2026-07-30_16-00-33.md\n create mode 100644 cron/output/ad2b6a13c7bb/2026-08-08_00-00-33.md\n delete mode 100644 cron/output/b394c81eb214/2026-08-03_18-00-05.md\n create mode 100644 cron/output/b394c81eb214/2026-08-07_22-00-23.md\n rename cron/output/ce776293a1fc/{2026-07-30_12-15-07.md => 2026-08-07_20-15-11.md} (63%)\n delete mode 100644 cron/output/dcb4605c5d36/2026-07-30_12-00-09.md\n create mode 100644 cron/output/dcb4605c5d36/2026-08-07_20-00-14.md\n create mode 100644 cron/output/e1e39e714337/2026-08-07_20-15-24.md\n create mode 100644 skills/reconcile-runtime-authority/SKILL.md\n create mode 100644 skills/reconcile-runtime-authority/agents/openai.yaml\n\u2192 Syncing Hermes config to public repo...\n  copying profiles...\n  copying skills...\n  copying cron...\n  writing README...",
       "last_delivery_error": null,
       "deliver": "local",
       "origin": null,
@@ -1868,15 +1868,15 @@
       "schedule_display": "every 10m",
       "repeat": {
         "times": null,
-        "completed": 2626
+        "completed": 2650
       },
       "enabled": true,
       "state": "scheduled",
       "paused_at": null,
       "paused_reason": null,
       "created_at": "2026-07-20T16:54:21.440840-04:00",
-      "next_run_at": "2026-08-08T00:01:32.348529-04:00",
-      "last_run_at": "2026-08-07T23:51:32.348529-04:00",
+      "next_run_at": "2026-08-08T04:02:03.912432-04:00",
+      "last_run_at": "2026-08-08T03:52:03.912432-04:00",
       "last_status": "ok",
       "last_error": null,
       "last_delivery_error": null,
@@ -2581,15 +2581,15 @@
       "schedule_display": "0 * * * *",
       "repeat": {
         "times": null,
-        "completed": 10
+        "completed": 14
       },
       "enabled": true,
       "state": "scheduled",
       "paused_at": null,
       "paused_reason": null,
       "created_at": "2026-08-07T18:32:45.646414+00:00",
-      "next_run_at": "2026-08-08T01:00:00-04:00",
-      "last_run_at": "2026-08-08T00:00:33.180159-04:00",
+      "next_run_at": "2026-08-08T05:00:00-04:00",
+      "last_run_at": "2026-08-08T04:00:05.194330-04:00",
       "last_status": "ok",
       "last_error": null,
       "last_delivery_error": null,
@@ -3402,7 +3402,7 @@
       "paused_at": null,
       "paused_reason": null,
       "created_at": "2026-08-07T18:32:45.646414+00:00",
-      "next_run_at": "2026-08-08T04:00:00-04:00",
+      "next_run_at": "2026-08-09T04:00:00-04:00",
       "last_run_at": null,
       "last_status": null,
       "last_error": null,
@@ -3582,5 +3582,5 @@
       "fire_claim": null
     }
   ],
-  "updated_at": "2026-08-08T00:00:33.188142-04:00"
+  "updated_at": "2026-08-08T04:00:05.228523-04:00"
 }

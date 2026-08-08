@@ -69,6 +69,9 @@ If the `/` menu is crowded, scan this card first, then search for the exact skil
 - `reconcile-runtime-authority`
   Use when startup, continuity, configuration, generated reports, or documentation disagree about which surface is authoritative. Classifies active, state, generated, tombstone, and historical surfaces; reconciles readers and writers; and requires deterministic plus genuinely fresh-runtime proof.
 
+- `verify-real-invocation-path`
+  Use when a fix, hook, script, service, launcher, or integration is called verified but the evidence may have exercised a proxy, stale path, interpreter shortcut, health-only surface, or warmed client instead of the exact installed consumer path. Requires paired real-path probes, observable consequences, layered proof, and independent/fresh-client gates when applicable.
+
 - `repair-mcp-client-disconnects`
   Use when an MCP bridge logs expected SSE or streamable-HTTP client disconnect errors, unhandled AnyIO exception groups, intermittent restarts, or post-disconnect hangs. Suppresses only proven disconnect leaves, preserves cancellation and unrelated faults, and requires authenticated abrupt-disconnect plus fresh-client proof.
 
@@ -404,6 +407,7 @@ If the main need is deciding whether a role may safely dispatch Hermes workers:
 - `repair-mcp-client-disconnects`
 - `repair-hermes-update-continuity`
 - `repair-pieces-runtime`
+- `verify-real-invocation-path`
 - `review-canon-membership`
 - `cross-actor-incident-repair`
 - `live-multi-actor-negotiation`

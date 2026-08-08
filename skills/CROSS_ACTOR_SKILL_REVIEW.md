@@ -15,7 +15,7 @@ Purpose: keep a small, repeatable queue for skills that may benefit the whole gr
 
 ### 1. Scheduled output quality review
 
-- Source: `/Users/ted/.hermes/skills/quality-assurance/cron-job-output-quality-assessment/SKILL.md`
+- Source: `/Users/ted/.hermes/skills/quality-assurance/cron-job-output-quality-assessment/SKILL.md [orphaned-ref 2026-08-08: renamed/retired skill, closest candidates (cron-job-health-audit, gateway-resilience) are related but not confidently the same skill]`
 - Proposed shared shape: `scheduled-output-quality-review`
 - Why it helps the group: scheduled outputs, digests, monitor results, dispatcher reports, and cron-style summaries all need the same practical question answered: did this output satisfy the job it was supposed to perform?
 - Recommendation: promote/adapt first.
@@ -47,7 +47,7 @@ Purpose: keep a small, repeatable queue for skills that may benefit the whole gr
 
 ### 5. Hermes gateway recovery
 
-- Source: `/Users/ted/.hermes/skills/software-development/hermes-macos-gateway-recovery/SKILL.md`
+- Source: `/Users/ted/.hermes/skills/software-development/hermes-macos-gateway-recovery/SKILL.md [orphaned-ref 2026-08-08: renamed/retired skill, closest candidates (cron-job-health-audit, gateway-resilience) are related but not confidently the same skill]`
 - Proposed shared shape: keep Hermes-local; optionally reference from Hermes shared runtime documentation.
 - Why it helps the group: it prevents wrong recovery behavior around the Hermes runtime.
 - Recommendation: do not make a general shared skill.

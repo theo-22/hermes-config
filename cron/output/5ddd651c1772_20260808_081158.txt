@@ -1,0 +1,42 @@
+Cronjob Response: audit-request-daily-triage
+(job_id: 5ddd651c1772)
+-------------
+
+The byte-level check confirms the file is clean (`has 0x2a: False` — the `****` is a display-layer artifact; actual bytes are `20260804-20260808`). The restored candidate is verified: `status: audit_candidate`, 5 change_refs, in `dispatched/`, backup preserved.
+
+All session-start steps are complete. Here is the report.
+
+---
+
+# Audit Request Daily Triage — 2026-08-08
+
+## Primary result: 0 requests processed — VERIFIED true empty ✅
+
+- `pending/` contains only `.DS_Store` (no JSON requests)
+- `Summary_Latest.md` regenerated at run time (06:45 EDT today)
+- No mechanical passes/fails, no audit candidates, no Ted decisions, no duplicates
+
+## Action taken this run (auto-fixed, bounded)
+
+**Restored the 08-07 audit candidate and folded in a 5th alert.** The `audit-alert-control-mcp-server-20260806.json` candidate (created 08-07 to operationalize the routing decision on repeated `Control/mcp/server.py` changes) was sitting in `done/` — an undocumented move that contradicts both the script's mapping (`audit_candidate` → `dispatched/`) and the README (done/ is the terminal state for `mechanical_pass`). Restored to `dispatched/`, updated:
+
+- **5th stop-hook alert folded in**: `Audit_Alert_High_Signal_f64e89c2` (emitted today 06:57 UTC, session `f64e89c2`) — change_refs now cover all 5 sessions (4b51f4c1, 307d52d8, 2839b975, c3734de1, f64e89c2) across Aug 4–8
+- dedupe window extended to `20260804-20260808`; candidate question updated to 5 sessions
+- Git evidence confirms today's change is intentional feature work (`5ad4c853 Add Clinical inbox lifecycle disposition`) → the question stays a **consistency/coverage review**, not churn/corruption
+- Backup preserved at `/tmp/audit-cand-backup.json`; JSON parses clean (verified byte-level)
+
+This keeps the routing decision visible in the pipeline (awaiting Ted/Codex approval) instead of buried in `done/`. No dispatch — v0 trial remains report-only. The 5 alert `.md` files stay in `_AI_Inbox/` as the evidence trail.
+
+## Items needing attention
+
+1. **Approve/disposition the restored server.py audit candidate** (Ted or Codex) — `Operations/Audit_Request_Queue/dispatched/audit-alert-control-mcp-server-20260806.json`, now covering 5 alerts in 5 days. Pattern is intensifying with no disposition since the 08-05 surface. Decision: create the Audit GPT inbox item, or route otherwise.
+2. **Brain cron cluster — 3 failures in one window (06:55–06:59 EDT)** — Brain Daily Dump ×2 (system `ed136c55c061`, brain-hermes `cbd055c757ba`) + Brain Test-Probe Sweep (brain-hermes `c7b8b9232058`), all agent-based on `deepseek-v4-flash`, all `Provider has been unresponsive (no response received) for 5-6 consecutive stale attempts`. **DeepSeek verified reachable NOW** (HTTP 401 auth-gated = answering) → transient provider stall window. Next scheduled runs (06:00/06:20 tomorrow) should self-clear. Surfaced, not fixed (not my jobs).
+3. **Symlink-home-path sweep: 1 NEW violation — this one IS mechanically fixable** — `~/.claude/skills/reconcile-runtime-authority` → `/Users/ted/Skills/reconcile-runtime-authority`. Unlike the parked Control cases (no canonical twin), the canonical target **exists**: `/Volumes/Extra/Substrate/Skills/reconcile-runtime-authority`. It's CC's `.claude/skills/` wiring, so not auto-fixed — route to CC/Ted to repoint.
+4. **Meta-agent room accumulation (18 need action)** — unchanged from pre-dawn sweep; 4 quiet rooms now 32d overdue for the quiet-refresh pass (last done Jul 7). Waiting on Ted's cleanup route.
+
+## Health summary
+
+- Preflight YELLOW (baseline git dirt only + the Brain Daily Dump error above); watchdog run-integrity silent; System 14 v0.36 (08-05) fresh; Zulip no mentions; AI Inbox 72 outstanding, 0 addressed to Substrate-Hermes by name
+- CHAT.md appended with this session's entry; no claude-validator response pending
+
+To stop or manage this job, send me a new message (e.g. "stop reminder audit-request-daily-triage").

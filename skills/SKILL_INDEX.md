@@ -118,7 +118,7 @@ If the `/` menu is crowded, scan this card first, then search for the exact skil
   Use when Ted and Coordinator produce something that should become a durable handoff — a file placement, scan, report, or cleanup task. Coordinator shapes intent into a bounded Hermes handoff; Hermes evaluates for flow/friction before executing.
 
 - `image-factory-16x9-replacement-workflow`
-  Use when Ted asks Image Factory to generate and place a 16:9 replacement candidate — "let's generate a replacement," "do a 16:9 replacement run," "continue the replacement program." Runs generate → stage → inspect → label → move (dry-run then live) → sidecar → record-change as one accountable loop; flags an incomplete run (esp. missing sidecar) instead of reporting false success.
+  Use when Ted asks Image Factory to generate, capture, place, recover, or export native-16:9 replacement keepers. Preserves exact-byte identity, dry-run/no-overwrite placement, sidecar titles, durable partial-state recovery, globally collision-safe `All_Burn` output names, and evidence stronger than counts or worker text.
 
 - `profile-birthday-proof`
   Use when a new AI profile, Hermes profile, role runtime, agent, or major operating surface needs first-wake/birthday proof. Requires live path verification, session-start artifact, proof note, correction handling, honest BORN status, and CHANGES_LOG when durable state changes.

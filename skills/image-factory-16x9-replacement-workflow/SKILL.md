@@ -1,158 +1,199 @@
 ---
 name: image-factory-16x9-replacement-workflow
-description: Collect Ted-approved native-16:9 replacement keepers into one manifest, retrieve the frozen batch once through a bounded browser worker, then reconcile and curate each asset recoverably.
-version: 2.0
-owner: Image Factory
-status: active
+description: Capture, verify, place, recover, and optionally export Ted-approved native-16:9 Image Factory keepers. Use for one keeper or a frozen batch when exact image identity, collision-safe placement, sidecar preservation, recoverable retries, and proof stronger than output counts are required.
 category: meta
 write_mode: file
-one_line_use: collect keepers, retrieve one frozen batch, then reconcile and curate recoverably
+one_line_use: capture exact keepers, finish placement recoverably, and verify optional All_Burn export
 fast_pick: "no"
 ---
 
 # Image Factory 16:9 Replacement Workflow
 
-One canonical cross-runtime procedure for the Replacement Program. Runtime tools
-may differ; the authority, ordering, evidence, and failure rules do not.
+One canonical cross-runtime procedure for moving approved replacement images from
+chat acceptance to verified Image Factory placement. Runtime tools may differ;
+the authority, identity checks, evidence, and failure rules do not.
 
 ## When to use
 
-- Ted names an Image Factory category or subject for 16:9 replacement.
-- An exhibit/category contains older non-16:9 images.
-- A keeper batch is collecting or ready for retrieval.
-- Accepted generated images need one browser-download pass before curation.
+- Ted accepts a generated native-16:9 image for Image Factory.
+- One accepted keeper needs exact capture and placement.
+- A keeper batch is collecting, frozen, awaiting retrieval, or ready to finish.
+- A previously interrupted placement needs evidence-based recovery.
+- Ted asks to refresh the derived `All_Burn` export after placement.
 
 ## When not to use
 
-- Ordinary free image exploration.
-- Files are already in `_Incoming` and no keeper batch is involved; use
-  Production Intake.
-- Canonical Museum exhibit design or taxonomy is the primary task; use Museum
-  Space.
+- Ordinary image exploration with no accepted keeper.
+- Files are already in `_Incoming` and no keeper or replacement workflow is
+  involved; use Production Intake.
+- Canonical Museum taxonomy or exhibit design is the primary task.
 - The request is to recreate an old image exactly.
 
-## Core rule
+## Core rules
 
-Old images and filenames are subject seeds only. Generate fresh native-16:9
-images covering the same useful territory; do not recreate the old composition.
+1. Old images and filenames are subject seeds only. Generate fresh native-16:9
+   compositions; do not recreate the old composition.
+2. Acceptance, exact-byte capture, placement, and export are separate state
+   transitions. Never treat one as proof of another.
+3. Verify identity before any move. A filename, preview, count, or worker message
+   is not image identity.
+4. Preserve durable partial state and retry from evidence. Never blindly replay a
+   failed multi-step operation.
 
 ## Canonical workflow
 
-### A. Audit
+### A. Audit and generate
 
 1. Start Image Factory in Replacement Program mode.
-2. Run the category aspect audit.
-3. Review actual category coverage when practical.
-4. Choose one subject seed or coherent cluster.
-5. Open or resume one JSON keeper manifest.
-
-### B. Collect keepers
-
-1. Generate one native-16:9 candidate at a time.
-2. Show Ted the image before any asset operation.
-3. On acceptance, append one manifest item with title, intended filename, chat
-   anchor, dimensions when known, and exact verdict wording.
-4. On rejection, do not retrieve or stage.
+2. Audit the target category and choose one subject seed or coherent cluster.
+3. Generate one native-16:9 candidate at a time and show it to Ted.
+4. On rejection, do not capture, stage, or place it.
 5. On hold, preserve undecided state without counting it as accepted.
-6. Continue until Ted declares the batch ready.
 
-A keeper is not an intake trigger. `Keep it. T.` records the keeper first, then
-moves to New Theme within the same category. Do not dispatch, download, move,
-sidecar, or retire after each accepted image.
+### B. Record acceptance and capture exact bytes
 
-### C. Freeze
+1. Record the accepted title, intended filename, category, chat anchor, verdict,
+   and dimensions when known in the canonical keeper manifest.
+2. If the exact full-resolution bytes are available in the current session,
+   capture them immediately through `image_factory_capture_generated` using
+   exact base64 bytes or an allowlisted path visible to the server.
+3. Reject thumbnails and previews by comparing dimensions and SHA-256 evidence.
+4. Treat capture as durable retrieval only. It does not authorize or prove
+   placement.
+5. If exact bytes are not available, leave the item accepted but uncaptured and
+   use the frozen-batch retrieval route in section C.
 
-- Resolve superseded items and ambiguous chat anchors.
-- Require exact unique intended filenames and a server-derived accepted count.
-- Freeze the accepted set and record its digest.
-- Do not change accepted membership after freeze. Clone a new collecting batch
-  if membership must change.
+Remote ChatGPT paths such as `/mnt/data/...` are not assumed to be mounted on the
+Mac MCP host. Do not pass a path merely because it exists in the chat runtime.
 
-### D. Retrieve once
+### C. Freeze and retrieve only when needed
 
-Use the manifest tool's read-only retrieval preparation, then make one explicit
-shared worker dispatch.
+For a batch whose exact bytes could not be captured at acceptance:
 
-Worker boundary:
+1. Resolve superseded items and ambiguous chat anchors.
+2. Require exact unique intended filenames and a server-derived accepted count.
+3. Freeze the accepted set and record its digest. Do not mutate frozen membership;
+   clone a new collecting batch if membership must change.
+4. Prepare retrieval read-only, then dispatch one bounded browser/Hermes worker.
+5. The worker may locate only the listed images, download each once under its
+   intended filename, and report type, dimensions, bytes, and SHA-256. It must
+   stop on ambiguity and has no curatorial authority.
+6. Record the worker reference only when the manifest hash and frozen digest
+   match.
 
-- locate only listed images in the originating ChatGPT thread;
-- download each once under its exact intended filename;
-- report valid image type, dimensions, byte count, and SHA-256;
-- stop on ambiguity;
-- do not categorize, sidecar, place, reject, replace, retire, or make curatorial
-  choices.
+Do not dispatch a worker per keeper when exact bytes are already available.
 
-Record the worker/run reference only when manifest hash and frozen digest match.
+### D. Finish placement
 
-### E. Reconcile intake
+Use `image_factory_finish_keeper` for one item or an `items[]` batch.
 
-1. Preview exact filename/count reconciliation against the frozen manifest.
-2. Inspect type, aspect ratio, dimensions, bytes, and SHA-256.
-3. Preserve host-chat and returned-file hashes separately.
-4. Confirm only after the preview is correct.
-5. Block with exact missing, unexpected, invalid, or wrong-aspect evidence.
+For every item:
 
-Reconciliation does not move files or make curation decisions.
+1. Require identity-strength evidence: `known_host_sha256` or a prior exact-capture
+   retrieval SHA-256.
+2. Preview the exact source, final filename, target category, collision result,
+   sidecar, and any retirement proposal.
+3. Use dry-run first. Live placement must be no-overwrite and same-folder rename
+   semantics must remain recoverable.
+4. Preserve the approved title in the sidecar; do not replace it with a filename
+   stem or regenerated label.
+5. Read back the placed image and sidecar. Verify type, native aspect, dimensions,
+   bytes, SHA-256, and final path.
+6. Retire an older original recoverably only after the new placement is verified.
+7. Record a terminal manifest disposition and durable receipt.
 
-### F. Curate
+Reject non-publishable targets such as `Rejects`, `assets`, underscore-prefixed,
+or dot-prefixed categories.
 
-For each verified keeper:
+### E. Recover interrupted operations
 
-1. choose the best existing category and role in coverage;
-2. inspect plausible older replacement targets;
-3. preview label and sidecar;
-4. dry-run placement;
-5. perform live candidate processing;
-6. read back sidecar and inspect the placed image;
-7. record the change;
-8. retire an original recoverably only after new placement verification;
-9. verify retirement and record the terminal disposition.
+Before retrying, inspect the live manifest, filesystem, sidecar, and receipts.
 
-A keeper may be an addition rather than a one-for-one replacement.
+- If capture completed but manifest mutation failed, recover from the durable
+  capture evidence rather than downloading again.
+- If placement and sidecar completed but the final manifest/receipt write failed,
+  use receipt-only recovery after verifying the placed bytes and sidecar.
+- If identity evidence, target state, or provenance is ambiguous, stop and report
+  the mismatch. Do not infer success or rerun the full operation.
+- Repair missing manifest state from verified durable evidence; never overwrite a
+  conflicting live state.
+
+### F. Optional `All_Burn` export
+
+Use `image_factory_export_all_burn` only when Ted requests or the authorized
+workflow requires the derived export.
+
+1. Preview by default.
+2. On confirmed execution, use the fixed refresh implementation rather than an
+   arbitrary command path.
+3. Treat output names as globally reserved across the export, not merely unique
+   within one category.
+4. Verify the exact expected name set and, for every output, image decoding,
+   dimensions, byte count, and SHA-256.
+5. Never accept output count alone as export proof.
 
 ### G. Close
 
-Complete only when every frozen item has a terminal disposition and all changed
-paths, sidecars, retirements, records, and exceptions are verified. Typed close
-verifies batch ID, manifest path, revision, SHA-256, state, and any retrieval
-receipt/claim reference.
+Complete only when every accepted item in scope has an explicit terminal state
+and all placements, sidecars, retirements, receipts, and requested exports are
+verified. Fresh-client ChatGPT acceptance is a separate evidence layer from local
+implementation tests or installed-connector proof.
+
+## Capsule handling
+
+For composite operations that require a current capability capsule:
+
+- A valid, same-boot, recently expired capsule may be auto-refreshed once.
+- An old, invalid, cross-boot, or otherwise untrusted capsule must fail closed.
+- Freshness guards must retain an explicit force-repair path; they must not turn a
+  stale or corrupted derived artifact into an unrecoverable dead end.
 
 ## Evidence and success criteria
 
-- Keeper phrases mutate only the collecting manifest.
-- Frozen-set membership and revision conflicts fail closed.
-- One explicit worker pass matches the frozen manifest.
-- Intake preview is read-only and confirmation records verified bytes.
-- New placement and sidecar read-back precede recoverable retirement.
-- Completion has no hidden pending accepted items.
-- Production changes have collision-safe paths and receipts.
+- Acceptance wording and intended filename are preserved in canonical state.
+- Captured bytes have verified image type, dimensions, byte count, and SHA-256.
+- Placement requires identity-strength evidence and is dry-run/no-overwrite safe.
+- Sidecar title and placed image are read back before any retirement.
+- Recovery resumes from verified partial state without duplicating work.
+- Export verification proves exact names and each file's validity, not just count.
+- Local tests, installed-consumer proof, and fresh-client acceptance are reported
+  as distinct evidence layers.
 
 ## Failure modes
 
-- Blind retry after a named failure.
-- Guessing an image or chat anchor.
-- Dispatching per keeper or implicitly from the manifest tool.
-- Treating the worker as curatorial authority.
-- Requiring the returned hash to equal the host hash.
+- Treating keeper acceptance as proof that placement happened.
+- Passing a chat-runtime path that the MCP host cannot see.
+- Capturing a preview or thumbnail as the original.
+- Guessing an image, chat anchor, SHA-256, or terminal state.
+- Blindly replaying a composite operation after a partial failure.
+- Treating worker text, filename, or output count as sufficient proof.
+- Checking output-name collisions only inside one category.
 - Deleting, overwriting, or retiring before replacement verification.
-- Claiming completion from worker text alone.
+- Letting a freshness guard block the authorized repair route.
+- Claiming fresh-client acceptance from server-side or connector tests.
 
 ## Runtime notes
 
 ### Image Factory MCP
 
-Use `image_factory_keeper_manifest` for lifecycle state. Use shared
-`dispatch_worker` only after `freeze` and `prepare_retrieval`. Use
-`image_factory_process_candidate` for verified placement where appropriate.
+- `image_factory_keeper_manifest`: keeper and batch lifecycle authority.
+- `image_factory_capture_generated`: exact-byte capture when current-session bytes
+  are available.
+- `image_factory_finish_keeper`: dry-run and live one/batch placement, plus bounded
+  evidence-based recovery.
+- `image_factory_export_all_burn`: dry-run by default; confirmed refresh uses the
+  fixed `refresh_all_burn.sh --force` implementation and verifies all outputs.
+- `dispatch_worker`: fallback for one frozen retrieval pass when exact bytes are
+  unavailable to the current session.
 
 ### Filesystem runtimes
 
-Treat `Image_Factory/ChatGPT/manifests/` as canonical role state and use the same
-schema/revision rules. Do not rewrite a live manifest by hand when the composite
-tool is available.
+Treat `Image_Factory/ChatGPT/manifests/` as canonical role state and preserve the
+same identity, revision, recovery, and evidence rules. Do not hand-edit a live
+manifest when the composite tool can perform or recover the transition.
 
 ## Update-surfacing backstop
 
-This skill names live tools, schema, and paths. If any differ in live capability
-truth, preserve the workflow boundaries, record the mismatch, and propose one
-shared-skill update rather than creating a local doctrine fork.
+This skill names live tools, schemas, and paths. If live capability truth differs,
+preserve the workflow boundaries, record the mismatch, and update this shared
+skill rather than creating a local doctrine fork.

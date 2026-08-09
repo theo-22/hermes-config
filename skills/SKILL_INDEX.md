@@ -72,6 +72,9 @@ If the `/` menu is crowded, scan this card first, then search for the exact skil
 - `verify-real-invocation-path`
   Use when a fix, hook, script, service, launcher, or integration is called verified but the evidence may have exercised a proxy, stale path, interpreter shortcut, health-only surface, or warmed client instead of the exact installed consumer path. Requires paired real-path probes, observable consequences, layered proof, and independent/fresh-client gates when applicable.
 
+- `repair-model-visible-token-transport`
+  Use when a model, client, or safety layer blocks credential-shaped tool arguments before they reach the server. Replaces raw token transport with short server-resolved handles while preserving scope, expiry, restart invalidation, fail-closed checks, and layered live proof.
+
 - `repair-mcp-client-disconnects`
   Use when an MCP bridge logs expected SSE or streamable-HTTP client disconnect errors, unhandled AnyIO exception groups, intermittent restarts, or post-disconnect hangs. Suppresses only proven disconnect leaves, preserves cancellation and unrelated faults, and requires authenticated abrupt-disconnect plus fresh-client proof.
 
@@ -405,6 +408,7 @@ If the main need is deciding whether a role may safely dispatch Hermes workers:
 - `repair-capability-truth`
 - `reconcile-runtime-authority`
 - `repair-mcp-client-disconnects`
+- `repair-model-visible-token-transport`
 - `repair-hermes-update-continuity`
 - `repair-pieces-runtime`
 - `verify-real-invocation-path`

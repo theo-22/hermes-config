@@ -54,6 +54,8 @@ Check the actual files or runtime state that were changed. Do not save from memo
 
 For receipt proof, prefer the narrowest surface that proves the task: a completion report, source packet, generated receipt, room-local state file, or exact output file. Use `CHANGES_LOG.md` as the proof path only when the log entry itself is the changed surface or when it contains the exact verification needed. For multi-item closure, avoid pointing only at `CHANGES_LOG.md`; write or name a focused proof/report/source packet so future review does not have to mine history.
 
+**Acceptance-criteria guard:** Before closing a stale-looking source item, restate the exact behavior or connection that item requires and map live evidence to every material clause. A related component, earlier stage, or neighboring mechanism is not completion evidence for an unbuilt connecting behavior. If any material clause is unmet, leave the item open or rewrite it to the precise remaining gap; do not paper-close it because adjacent work exists.
+
 3. **Find touched repo roots.**
 Use the repo map or `git rev-parse --show-toplevel` before git inspection. Check status for each touched repo. Do not stage, commit, pull, or push unless Ted asked.
 

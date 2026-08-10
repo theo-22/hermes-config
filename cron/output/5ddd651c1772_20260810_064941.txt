@@ -1,0 +1,41 @@
+Cronjob Response: audit-request-daily-triage
+(job_id: 5ddd651c1772)
+-------------
+
+All verification complete and logged. This run had real findings to surface — the symlink pattern intensified and I caught (and cleanly reverted) a false-positive integrity fix.
+
+---
+
+# Substrate Monitor — Audit Request Daily Triage · 2026-08-10 (06:45 cron)
+
+## Queue: TRUE EMPTY (verified, not assumed)
+- `Audit_Request_Queue/pending/` holds only `.DS_Store` — no JSON requests.
+- `Summary_Latest.md` regenerated 06:45 today. 0 processed across all five outcome buckets. No auto-fixes needed.
+
+## Candidate placement: VERIFIED, restore still holds
+- `audit-alert-control-mcp-server-20260806.json` **STILL in `dispatched/`** (mtime Aug 8 07:49, `_restored_at` stamp intact, 5 change_refs, `status: audit_candidate`). The undocumented `done/` move from 08-07 has not repeated.
+- **No new server.py stop-hook alert** since `f64e89c2` (08-08) — 5 sessions remains the fold-in count. Candidate state current, still awaiting Ted/Codex approval (v0 report-only).
+- **Byte-level integrity check:** dedupe_key verified clean — actual bytes `20260804-20260808`. The apparent `202****0804` was **display-layer masking** of the digit run, not file corruption (a legitimate glob asterisk exists only in `source_surface`). I briefly attempted a fix on the masked display, caught it via hex dump + `b'****' in val: False`, and **reverted byte-identical** (2397 bytes, original mtime, backup cleaned). Skill patched with the inverse-trap case so this doesn't recur.
+
+## Actionable items for Ted/CC (3, unchanged routing)
+
+1. **Symlink pattern intensifying — needs a repoint pass (CC surface).** Today's sweep: **3 NEW violations** (up from 2 on 08-09, 1 on 08-08): `~/.claude/skills/reconcile-runtime-authority` (3rd consecutive day), `verify-real-invocation-path` (2nd day), NEW `repair-model-visible-token-transport` — all → `/Users/ted/Skills/*`. **Canonical twins ALL EXIST** (verified: `/Volumes/Extra/Substrate/Skills/<each>`), so all three are mechanically repointable to `/Volumes/Extra/Substrate/Skills/<name>`. They live in CC's `.claude/skills/` wiring → not auto-fixed per de-alias rule; CC or Ted should repoint (or rule on the pattern).
+2. **Clinical stop-hook alert still pending disposition** — `Audit_Alert_High_Signal_1e4b107a` (clinical_source_reader.py, surfaced 08-09). Git still shows intentional feature commit `e66bf102 Harden Clinical public source retrieval` → recommendation stands: **archive as routine governance**, keep `.md` as evidence. Needs CC/Ted confirm since it touches the clinical/mcp surface.
+3. **Capability drift still pending (CC/Ted lane)** — `audit_capability_drift_2026-08-09T103001Z.md`: `GET /api/verification-gaps` implemented but in no GPT schema. Recommend document as internal-only in `Operations/Capability_Registry.md`; Control backend owner lane. No new drift alert today.
+
+## Health
+- **Preflight YELLOW** — 1 dirty Operations git entry only (baseline).
+- **Cron pulse:** 2 by-design findings, not errors — grocery-receipt-staged-fetcher (HT parked on sign-in, known quirk class) and symlink-home-path-sweep (the 3 violations above). **0 crons in error state 24h.**
+- **Watchdog run-integrity:** silent.
+- **Meta-agent (00:30):** 36 rooms, 18 need action (same parked set, +1d each), report-only. Quiet rooms now 34–45d; 4 quiet rooms at 34d — **quiet-refresh pass increasingly overdue, needs Ted route** (no cleanup route this session).
+- **AI Inbox:** 112 outstanding, **0 addressed to Substrate-Hermes by name**; no claude-validator response pending. Zulip: no mentions.
+
+## What I did this session
+1. Verified true-empty queue + candidate placement (no repeat of the undocumented move).
+2. Ran byte-level integrity check on the candidate → caught the display-masking trap, reverted my own false-positive edit, restored file byte-identical.
+3. Verified canonical twins exist for all 3 symlink violations (repoint targets confirmed).
+4. Patched `meta-agent-pattern` skill (inverse display-masking trap) and logged the session to CHAT.md.
+
+**Still open:** same 3 routing decisions above (all await Ted/CC), plus the standing parked set from the meta-agent sweep (quiet-refresh pass). Nothing new requires your hand today beyond the symlink repoint decision, which is now 3 days of the same unfixed items accumulating.
+
+To stop or manage this job, send me a new message (e.g. "stop reminder audit-request-daily-triage").

@@ -1,9 +1,9 @@
 ---
 name: repair-capability-truth
-description: Reconcile an AI role or runtime's live callable capability, static scope declarations, current documentation, and typed operational-query mappings. Use when fresh-session proof contradicts first-rung or stale capability docs, when connected apps or cached tool schemas are being conflated with actual calls, or when typed SQLite queries fail against a live schema. Preserve existing capability and role-mobility boundaries; do not use this skill to authorize permission expansion, database migration, or adjacent feature stages.
+description: Reconcile an AI role or runtime's live callable capability, enforced access, static scope declarations, current documentation, and typed operational-query mappings. Use when fresh-session proof contradicts first-rung or stale capability docs, when status or receipts project an access mode that may not be enforced, when connected apps or cached tool schemas are conflated with actual calls, or when typed SQLite queries fail against a live schema. Preserve existing capability and role-mobility boundaries; do not use this skill to authorize permission expansion, database migration, or adjacent feature stages.
 category: meta
 write_mode: file
-one_line_use: reconcile live role capability, current docs, and typed operational queries
+one_line_use: reconcile live role capability, enforced access, current docs, and typed operational queries
 fast_pick: "yes"
 ---
 
@@ -61,6 +61,49 @@ specialist role.
   show their schemas exist.
 - Record unavailable checks as `UNKNOWN`, not successful.
 - Let current direct proof outrank stale descriptions and historical assumptions.
+
+### 3a. Distinguish projected access from enforced access
+
+When a runtime reports `read_only`, `write_enabled`, an allowed path, or a
+similar access mode, trace the value through all four layers:
+
+1. profile or registry configuration;
+2. request construction and defaults;
+3. status and terminal-receipt projection;
+4. the backend branch that authorizes or rejects the mutation.
+
+A truthful status field is not an enforcement proof. Require the mode and
+allowed targets to reach the mutation boundary, and validate them there before
+claim acquisition or side effects. Keep the default read-only. Grant a write
+mode only to the named actor/profile and its owned root; reject sibling roles,
+neighbor paths, and unregistered targets.
+
+For async worker paths, propagate the resolved mode and allowed roots through
+live state, status, and the terminal receipt so a later verifier can compare
+reported authority with the branch that actually ran.
+
+Prove the boundary with a fresh client and a reversible specimen:
+
+- one allowed owned write followed by readback and receipt inspection;
+- the same write rejected for a read-only verifier;
+- writes rejected outside the owned root and into a neighboring role;
+- the fresh-client schema and status showing the same resolved mode;
+- independent verification after implementation.
+
+Do not substitute a mocked worker, direct backend call, or projected status for
+the installed consumer path when that path is available.
+
+### 3b. Preserve lifecycle truth under concurrency
+
+For a narrow parent-child completion operation, require the accepted parent,
+linked terminal receipt, matching work item, owner fence, and canonical state
+transition. Make replay idempotent.
+
+If concurrent activity changes the target between pre-read and acceptance, do
+not rewind or manufacture the earlier state to recreate the proof. Record the
+exact evidence gap, prove idempotent replay against the current state, and rely
+on scoped regression coverage for the transition branch until a fresh natural
+specimen is available.
 
 ### 4. Reconcile typed queries with the live schema
 
@@ -129,6 +172,9 @@ proof is stable. Release every claim and verify the active-claim list is empty.
 Return `PASS` only when:
 
 - current documentation matches fresh-session evidence;
+- projected access mode matches enforcement at the mutation boundary;
+- positive owned-write and negative actor/path/neighbor-role cases pass when
+  mutation authority is in scope;
 - no unsupported mode label or capability claim was added;
 - no existing capability or intentional role mobility was narrowed;
 - every named typed table passes individually and through the aggregate;
@@ -147,6 +193,11 @@ Use `PARTIAL`, `FAIL`, or `UNKNOWN` honestly when any condition is missing.
 - Treating an account-connected app as callable in the current chat.
 - Naming a connector mode that the product never exposed.
 - Treating a broad trusted surface as ambient mutation authority.
+- Treating `read_only=false` or another receipt/status field as proof that a
+  write was authorized and bounded.
+- Validating write scope only in a wrapper while leaving the backend mutation
+  path broadly callable.
+- Rewinding live lifecycle state to recreate a missed concurrency specimen.
 - “Preserving boundaries” by erasing intentional specialist-role inhabitation.
 - Rewriting historical receipts instead of repairing current state surfaces.
 - Combining truth repair with schema migration, new connectors, scheduling, or

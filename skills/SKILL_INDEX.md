@@ -146,6 +146,9 @@ If the `/` menu is crowded, scan this card first, then search for the exact skil
 
 ### Judgment-Only (no database writes)
 
+- `trace-claim-evidence`
+  Use when a concrete AI assertion must be checked against the exact tool evidence available before it was stated, when replaying known wrong claims, or when deciding whether a watch-only detector has earned promotion. Preserves intermediate text and event order, separates relevance from support, allows `not_established`, and keeps machine status distinct from human calibration.
+
 - `manager-handoff-contract`
   Use when Hermes, a cheaper model, an overnight monitor, a Home report, or a conversation has produced shaped material that may need Ted/Codex/Claude manager review. Defines required outcomes for the handoff without approving, implementing, or preserving every thought.
 
@@ -208,6 +211,7 @@ If the `/` menu is crowded, scan this card first, then search for the exact skil
 - `affected-gpt-hearing` = hear the GPT whose operating surface would change
 - `digest-topic-refresh` = compare digest deltas against a living topic
 - `live-surface-verification` = prove the live surface before trusting docs
+- `trace-claim-evidence` = match each assertion to prior evidence before judging or promoting a detector
 - `quick-save` = save a bounded task without full session-end
 - `workflow-orchestration` = run one conductor-routed work lane
 - `project-room-review` = review a Project Room from live room-local state
@@ -256,6 +260,7 @@ Use this as orientation only; the individual skill trigger still decides whether
 | `skills-review` | Maintenance loop: keep the skill set aligned with live practice |
 | `project-room-review` | Room review loop: recover live room state, choose the next bounded move, and gate v1 orchestration |
 | `live-surface-verification` | Verification: route proof to the actual runtime surface before changing docs or code |
+| `trace-claim-evidence` | Evidence calibration: preserve chronology, attribute assertions to prior results, and keep support separate from human verdicts |
 | `scope-comparison` | Selection-time discipline: write the asked/proposing/gap surface before committing to a scope |
 | `affected-gpt-hearing` | Settlement evidence: get affected-GPT operational input before changing another GPT's operating surface |
 | `manager-handoff-contract` | Manager intake: shape lower-cost worker or Hermes output so Ted/Codex/Claude can accept, reject, discard, fold in, or route forward |
@@ -429,5 +434,6 @@ If the main need is deciding whether a role may safely dispatch Hermes workers:
 - `synthesis-review`
 - `system-14-update`
 - `topic-assembly`
+- `trace-claim-evidence`
 - `workflow-orchestration`
 - `workspace-orchestration-coordination`

@@ -1,0 +1,4 @@
+interface:
+  display_name: "Trace Claim Evidence"
+  short_description: "Attribute assertions to prior evidence in order"
+  default_prompt: "Use $trace-claim-evidence to evaluate these assertions against the evidence available when each was stated."

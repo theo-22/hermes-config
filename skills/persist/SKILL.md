@@ -30,7 +30,7 @@ Node and edge writes in the concept map do **not** count as persist. They are th
 1. **Name the one claim.** One sentence: what is now true that was not true before this pass. If it can't be written in a sentence, the work isn't finished — go back, don't persist a fog.
 2. **Brain.** `capture_thought` with the claim, the reasoning that earned it, and the node ids / file paths it touches. Write for a reader who has none of this conversation.
 3. **Memory file.** One fact per file, standard frontmatter (`name`, `description`, `metadata.type`). Link related memories with `[[slug]]` liberally. **Then add the one-line pointer to `MEMORY.md`** — a memory file with no index line is invisible to a cold session, which defeats the surface's whole purpose.
-4. **Touch.** `add_touch.py <surface_path> <surface_class> <touch_type> --actor claude_code --concept-key <key> --why "..."`. Use a stable `concept-key` so repeat work on the same concept accumulates rather than scattering.
+4. **Touch.** `python3 /Users/ted/Control/backend/scripts/add_touch.py <surface_path> <surface_class> <touch_type> --actor claude_code --concept-key <key> --why "..."`. Use the full path — the script is **not** under `Operations/scripts/`, and a bare filename has been guessed wrong (2026-08-11), which reads as "the script doesn't exist" and silently skips the step. Use a stable `concept-key` so repeat work on the same concept accumulates rather than scattering.
 5. **State what you wrote.** Name the three surfaces and what landed on each. An unverified "persisted" claim is the failure this skill exists to prevent.
 
 ## When a surface refuses

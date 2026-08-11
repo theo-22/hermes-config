@@ -1,6 +1,6 @@
 ---
 name: verify-real-invocation-path
-description: Verify a claimed fix, hook, script, service, launcher, integration, or runtime behavior through the exact path the real consumer uses. Use when tests may have bypassed executable permissions, symlinks, launchers, settings wiring, payload contracts, environment selection, service boundaries, installed artifacts, or fresh-client state; when a proxy test such as `python script.py`, an in-process call, a health 200, or a warmed session is being offered as proof that production behavior works; or before accepting confident `verified`, `confirmed`, `tested`, `done`, `complete`, or `working correctly` claims.
+description: Verify a claimed fix, hook, script, service, launcher, integration, or runtime behavior through the exact path the real consumer uses. Use when tests may have bypassed executable permissions, symlinks, launchers, settings wiring, payload contracts, working-directory or environment selection, service boundaries, installed artifacts, or fresh-client state; when an independent real-client acceptance probe contradicts the implementer's green tests; when a proxy test such as `python script.py`, an in-process call, a health 200, or a warmed session is being offered as proof that production behavior works; or before accepting confident `verified`, `confirmed`, `tested`, `done`, `complete`, or `working correctly` claims.
 metadata:
   category: judgment-only
   write_mode: none
@@ -121,6 +121,39 @@ Report:
 
 Use `PASS`, `PARTIAL`, or `FAIL`. A lower-layer pass with fresh-client proof still pending is `PARTIAL`, not complete.
 
+## Repair Loop When Independent Acceptance Contradicts Green Tests
+
+Use this loop when an uncommitted verifier exercises the real consumer and a
+locally green implementation fails.
+
+1. **Adopt the observed verdict immediately.** Mark the claimed layer `FAIL` or
+   `PARTIAL`; do not defend the implementation from its own tests.
+2. **Reproduce the verifier's exact boundary.** Preserve the command, payload,
+   client/session state, cwd, environment, fixture size, installed path, and
+   observable consequence. Read durable telemetry before changing code.
+3. **Compare preview state with execution state.** Look especially for hidden
+   differences in cwd, inline `cd`, shell expansion, symlink resolution,
+   authentication, cached schemas, environment variables, and target counts.
+4. **Audit the verifier harness too.** A threshold test must create a
+   threshold-sized fixture and pass its cwd explicitly. Correct a
+   context-dependent harness without weakening its acceptance contract or
+   converting a real miss into a pass by changing expectations.
+5. **Repair the smallest demonstrated mechanism.** Add the independent phrasing
+   as a regression, plus one neighboring negative control. Preserve the
+   original safety boundary; do not broaden fail-closed behavior merely to make
+   the score green.
+6. **Rerun three layers:** focused implementation tests, the independent sweep,
+   and the exact installed-path probe that failed. Confirm the real-world
+   consequence (for example, no files changed), not only the exit code.
+7. **Return to the verifier and human gate.** Report the root cause, changed
+   contract, exact evidence, and remaining acceptance action. The repair author
+   does not retroactively become the independent verifier or human acceptor.
+
+Treat an independently authored sweep as a durable regression asset when it is
+self-contained and exercises the real boundary. Tests written solely from the
+implementer's model of the code remain useful unit proof, but they are not an
+independent acceptance layer.
+
 ## Evidence Standard
 
 A `PASS` requires:
@@ -165,4 +198,15 @@ This skill deliberately names principles rather than one product's current hook 
 
 ## Proven Pattern
 
-This method was extracted after a hook was reported as live-proven through `python3 hook.py` while the real settings invoked it directly and its executable bit was missing. A later completion-claim blocker repeated the risk during implementation: replacing the file cleared its executable mode, and the direct-path test caught the failure immediately. The durable method is the layered comparison—proxy test, exact installed invocation, observable consequence, independent verification, then fresh-client acceptance when required.
+This method was extracted after a hook was reported as live-proven through `python3 hook.py` while the real settings invoked it directly and its executable bit was missing. A later completion-claim blocker repeated the risk during implementation: replacing the file cleared its executable mode, and the direct-path test caught the failure immediately.
+
+The contradiction-repair loop was added after 19 implementer-authored tests
+passed while a fresh Claude Code command rewrote 11 disposable files. Telemetry
+showed the guard previewed the session cwd while Bash executed after an inline
+`cd`; the independent sweep also depended on incidental cwd contents. Repairing
+both the runtime cwd model and the sweep's fixture produced 25 focused passes,
+a self-contained 15/15 sweep, and an installed-path block of the exact failed
+command, while human acceptance remained separate. The durable method is the
+layered comparison—proxy test, exact installed invocation, observable
+consequence, independent contradiction repair, then fresh-client and human
+acceptance when required.

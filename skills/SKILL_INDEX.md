@@ -70,7 +70,7 @@ If the `/` menu is crowded, scan this card first, then search for the exact skil
   Use when startup, continuity, configuration, generated reports, or documentation disagree about which surface is authoritative. Classifies active, state, generated, tombstone, and historical surfaces; reconciles readers and writers; and requires deterministic plus genuinely fresh-runtime proof.
 
 - `verify-real-invocation-path`
-  Use when a fix, hook, script, service, launcher, or integration is called verified but the evidence may have exercised a proxy, stale path, interpreter shortcut, health-only surface, or warmed client instead of the exact installed consumer path. Requires paired real-path probes, observable consequences, layered proof, and independent/fresh-client gates when applicable.
+  Use when a fix, hook, script, service, launcher, or integration is called verified but the evidence may have exercised a proxy, stale path, interpreter shortcut, wrong cwd/environment, health-only surface, or warmed client instead of the exact installed consumer path—or when an independent real-client probe contradicts green local tests. Requires paired real-path probes, observable consequences, an evidence-led contradiction-repair loop, and independent/fresh-client/human gates when applicable.
 
 - `repair-model-visible-token-transport`
   Use when a model, client, or safety layer blocks credential-shaped tool arguments before they reach the server. Replaces raw token transport with short server-resolved handles while preserving scope, expiry, restart invalidation, fail-closed checks, and layered live proof.

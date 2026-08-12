@@ -1,0 +1,41 @@
+Cronjob Response: audit-request-daily-triage
+(job_id: 5ddd651c1772)
+-------------
+
+All work complete. Final report:
+
+---
+
+# Audit Triage — 2026-08-12 (06:45 cron)
+
+## Queue: TRUE EMPTY (verified)
+0 processed across all categories. `pending/` holds only `.DS_Store`; `Summary_Latest.md` regenerated 06:45 today. No passes/fails/candidates/duplicates.
+
+## 🔴 Root cause found & fixed: the "undocumented candidate moves" were our own cron
+The `audit-alert-control-mcp-server-20260806.json` candidate was **in `done/` again** (dispatched/ empty) — the same pattern restored on 08-08. This time I traced it to ground truth: **`audit-gpt-dispatch` cron (d5f7aeeaf95b, daily 07:00, no-agent) is the mover.** It runs the profile-runtime copy of `audit_gpt_dispatch.py` which had **stale paths** (`/Users/ted/Projects_GPT/Audit/Inbox` — retired 08-10). Script logic: read dispatched/ → create Audit GPT inbox item → **move candidate to done/**. It fired Aug 7 07:00 (the original move), skipped Aug 8-10 ("Already dispatched"), then **re-fired Aug 11 07:00** after the stale-path inbox item vanished, re-creating it and moving the candidate again.
+
+**Deeper issue:** this cron auto-dispatches audit candidates — **violating the v0 report-only trial gate** ("nothing dispatches without Ted/Codex approval"). It predates the trial (created 06-28).
+
+**Fixes applied & verified:**
+1. **Candidate restored** `done/ → dispatched/` (backup at `/tmp/audit-alert-control-mcp-server-20260806.json.done-backup-20260812.json`), JSON stamped `_restored_at: 2026-08-12T10:51:31Z` with root-cause note
+2. **Script synced** — source (already repointed to canonical 08-11) → profile runtime, md5 MATCH (`0c21062d`). Re-ran fixed script: prints "Already dispatched", candidate **stays in dispatched/**
+3. **Cron PAUSED** (`enabled: False, state: paused`) to honor the v0 gate until Ted/Codex approve dispatch
+4. **Sibling bug fixed too** — `audit_router.py` (06:30 cron) had the identical stale `Projects_GPT/Audit/Inbox` mkdir-resurrection bug; synced (md5 `483fd64b`), verified clean run, removed the resurrected empty retired dirs
+
+**Open for Ted/Codex:** the Audit GPT inbox item exists at canonical `/Volumes/Extra/Substrate/Audit/Inbox/audit-alert-control-mcp-server-20260806.md` (created by the rogue run Aug 11 07:00). Decide: (a) approve the dispatch (trial ends, Audit GPT processes) or (b) delete/archive the inbox item (no dispatch until approved). Candidate stays in `dispatched/` either way. Evidence .md alerts were consumed by drift-watcher auto-commits (git-recoverable); the candidate JSON preserves all 5 change_refs.
+
+## Symlink sweep: 1 NEW violation (CC surface)
+`~/.claude/skills/trace-claim-evidence → /Users/ted/Skills/trace-claim-evidence` (created Aug 11 23:19). Canonical twin EXISTS → mechanically fixable, but CC's `.claude/skills/` surface → **route to CC/Ted, not auto-fixed**. Note: the 3 prior CC skill violations were repointed to canonical by CC on Aug 10 — this is a new instance (pattern: 1→2→3→repointed→1 new).
+
+## System alert (routing decision)
+`SYSTEM_ALERT__new-documents-contain-paths-that-do-not-resolve-63c7511aeb.md` — 336 dead path refs / 141 docs written in the last day; source says "most likely a Hermes agent job... Hermes has no place to register that check." Fleet-level Hermes write-path discipline gap → tooling lane (Ted/CC/Coordinator), not a single-file fix.
+
+## Health
+- Preflight YELLOW (baseline git dirt only); **0 crons in error 24h**
+- Cron pulse: 2 by-design findings (HT parked on sign-in — known quirk; symlink sweep above)
+- Watchdog silent; System 14 v0.37 fresh; Codex offload review current (2d)
+- AI Inbox 118 outstanding, 0 addressed to Substrate-Hermes by name; no claude-validator response pending; Zulip no mentions
+
+**What changed:** candidate restored + root-caused, dispatch cron paused, 2 scripts synced to canonical, retired dir cleanup. **What's open:** Ted/Codex disposition on the server.py audit question + inbox item, CC repoint of trace-claim-evidence, fleet dead-path alert routing.
+
+To stop or manage this job, send me a new message (e.g. "stop reminder audit-request-daily-triage").

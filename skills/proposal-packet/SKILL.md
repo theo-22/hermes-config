@@ -77,6 +77,13 @@ Set `<current_actor>` to the runtime using the skill, such as `codex`, `claude_c
 
 This ensures proposals are visible via `getWorkItems` regardless of which inbox they land in.
 
+10. Hand authorized execution forward without changing object type.
+If an external authority approves the proposal for consequential asynchronous or
+cross-actor execution, use `compile-work-packet` next. Do not turn this proposal
+skill into the execution contract: proposal formation, authorization, packet
+compilation, validation, cold executability probing, and dispatch remain
+separate gates. Compilation does not create authority.
+
 ## Output Shape
 
 Use this compact structure unless the user asks for another format:
@@ -104,13 +111,16 @@ Keep the packet terse. The goal is durable evaluation, not transcript preservati
 
 Use this skill for judgment and packet shaping.
 
-Use scripts or schemas instead when the work requires:
+Use `compile-work-packet` and its schema/linter when externally authorized work
+requires:
 - deterministic validation
 - repeated packet rendering into a fixed format
-- automatic destination routing
 - packet linting or required-field checks
 
-If repeated use shows drift, add a small validator script later instead of growing this file into doctrine.
+Keep automatic destination routing a separate mechanism; packet completeness
+does not itself authorize or activate delivery.
+
+Do not grow this proposal skill into dispatch doctrine.
 
 ## Update-Surfacing Backstop
 

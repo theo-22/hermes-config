@@ -1,0 +1,4 @@
+interface:
+  display_name: "Cold Probe Refine"
+  short_description: "Test reconstructability and refine projections"
+  default_prompt: "Use $cold-probe-refine to test this inference surface cold, diagnose failures, and land comparable Lab evidence."

@@ -1,0 +1,73 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "substrate://work-packet/work_packet.v1",
+  "title": "Substrate Markdown Work Packet v1",
+  "description": "Declarative field contract consumed by validate_work_packet.py.",
+  "schema_version": "work_packet.v1",
+  "linter_version": "compile-work-packet.v1",
+  "metadata": {
+    "critical": [
+      "Packet schema",
+      "Packet ID",
+      "Packet status",
+      "Requested actor",
+      "Authority reference",
+      "Compiler version"
+    ],
+    "quality": [
+      "Priority",
+      "Requested completion"
+    ]
+  },
+  "sections": {
+    "critical": [
+      "Provenance",
+      "Scope comparison",
+      "Objective",
+      "Source surfaces",
+      "Execution lane",
+      "In scope",
+      "Out of scope and boundaries",
+      "Implementer-owned choices",
+      "Stop-worthy meaning forks",
+      "Acceptance criteria",
+      "Verification and acceptance gates",
+      "Return contract",
+      "Stop condition"
+    ],
+    "quality": [
+      "Why now",
+      "Self-critique",
+      "Legacy compatibility",
+      "Cold-probe receipt"
+    ]
+  },
+  "allowed_packet_statuses": [
+    "externally_authorized",
+    "draft"
+  ],
+  "activation_packet_status": "externally_authorized",
+  "placeholder_patterns": [
+    "TBD",
+    "TODO",
+    "\\[fill[^\\]]*\\]",
+    "<fill[^>]*>"
+  ],
+  "required_verification_terms": [
+    "Implementation/local proof",
+    "Independent verification",
+    "Fresh receiving-role acceptance"
+  ],
+  "probe_receipt_required_metadata": [
+    "Result",
+    "Packet SHA-256",
+    "Requested profile",
+    "Actually served profile",
+    "Actually served model/provider"
+  ],
+  "legacy_policy": {
+    "inspect": "warn",
+    "activation": "block_without_recompile_or_explicit_override",
+    "dispatch": "block_requires_recompile"
+  }
+}

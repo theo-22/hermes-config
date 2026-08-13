@@ -1,6 +1,6 @@
 ---
 name: lens-assembly-pass
-description: The full working loop for turning a live topic into wired, durable structure — assemble the topic's nodes in the concept map, check what the spine says about it, then persist the result to Brain, memory, and a touch. Use when a topic has deepened enough in conversation to be worth laying down rather than just discussed, or when a session produced real understanding that will otherwise evaporate. This is the repeatable engine; use it instead of re-deriving the sequence by hand each time. Do not use to mint one node (concept-bridge-surfacing) or connect one stranded node (graph-edge-finding).
+description: The full working loop for turning a live topic into wired, durable structure — assemble the topic's nodes, optionally cold-probe and refine a load-bearing or delegation-facing inference surface, check what the spine says, then persist the result to Brain, memory, and a touch. Use when a topic has deepened enough to be worth laying down or when understanding would otherwise evaporate. Do not use to mint one node (concept-bridge-surfacing) or connect one stranded node (graph-edge-finding).
 category: database-integrated
 write_mode: db
 one_line_use: assemble a topic, gauge the spine, persist it
@@ -9,7 +9,7 @@ fast_pick: "yes"
 
 # Lens Assembly Pass
 
-**The engine, not a one-off.** Three stages, run in order: **assemble → fortify → persist.**
+**The engine, not a one-off.** Core flow: **assemble → fortify → persist.** When the cold-probe trigger applies: **assemble → probe → refine → fortify → persist.**
 
 The origin (Ted, 2026-07-24): the map stopped being a thing described and became a thing *operated* — walk a node together, correct to fine definition, and encode the correction as structure so the next reader inherits the subtlety without Ted re-saying it. This skill is that loop made repeatable.
 
@@ -37,7 +37,17 @@ Two disciplines from it that carry the most weight:
 - **Coherence, not completeness.** The test is whether the *connected* subset walks, and *where it breaks* — not whether everything links. Forcing total connectivity is dishonest.
 - **Pieces is a lead-finder, never authority.** Verify every ambient hit against a live surface before wiring it.
 
-## Stage 2 — FORTIFY
+## Optional Stage 2 — PROBE → REFINE
+
+Run [cold-probe-refine] (`Skills/cold-probe-refine/SKILL.md`) only when the assembled surface is load-bearing, newly refined, meant for delegation to a cheap model, or explicitly being measured for reconstructability.
+
+The cheap/fast cold reader goes first. A stronger independent reader reviews second, compares semantic recovery rather than exact wording, and classifies the failure before any change. The reviewer diagnoses; it does not automatically own concept meaning or edit the graph.
+
+Skip this stage for trivial assemblies and assemblies with current comparable proof. A skipped probe is explicit (`probe: not triggered`), not an unreported omission.
+
+**Output:** the Lab result pointer plus `pass`, `projection_failure`, `instruction_or_traversal_failure`, `reader_limitation`, `infrastructure_failure`, or `inconclusive`. If an authorized refinement lands, preserve a same-question rerun; otherwise record why no rerun occurred.
+
+## Stage 3 — FORTIFY
 
 **Ask what the spine says about what you just assembled.** Three verdicts (Ted's keystone, 2026-07-20: *"the structure is the projection of the spine"*):
 
@@ -55,7 +65,7 @@ Two disciplines from it that carry the most weight:
 
 Most passes end at **realized** and owe nothing. Say so and move on — manufacturing an edit to look productive is the failure mode here.
 
-## Stage 3 — PERSIST
+## Stage 4 — PERSIST
 
 Run [persist] (`Skills/persist/SKILL.md`) — Brain, memory file + `MEMORY.md` pointer, and a buoyancy touch.
 
@@ -69,25 +79,28 @@ Run [persist] (`Skills/persist/SKILL.md`) — Brain, memory file + `MEMORY.md` p
 
 - The connected subset walks as a through-line; breaks are named, not papered over.
 - Every edge names a real shared mechanism; every Pieces lead was verified against a live surface.
+- Probe state is explicit: `not triggered`, or a cold-first result and stronger-review verdict with a durable Lab pointer.
 - A spine verdict is stated explicitly — including "realized, nothing owed."
-- All three persist surfaces written and named. **A pass is not complete without stage 3.**
+- All three persist surfaces written and named. **A pass is not complete without stage 4.**
 
 ## Failure modes
 
 - **Stopping after stage 1.** The most likely failure: the map looks wired, the session ends, nothing durable was written. This is the whole reason the engine exists as one skill instead of three loose ones.
+- **Mandatory probe ceremony.** Running a model test on every trivial assembly obscures the cases where reconstructability evidence matters.
+- **Strong model goes first.** Pre-teaching with the evaluator defeats the cold reader's value as a sensor of the environment.
 - **Manufacturing a spine edit.** Most passes are "realized." Inventing a gap to justify the stage corrupts the gauge.
-- **Confusing the two gauges.** Running `spine_gauge.py` and calling stage 2 done. It answers a different question.
+- **Confusing the two gauges.** Running `spine_gauge.py` and calling stage 3 done. It answers a different question.
 - **Assembling a fog.** If the pass won't reduce to one claim at persist time, it wasn't ready. Stop rather than persist noise.
 - Inherited from [topic-assembly]: forcing total connectivity, Pieces-as-authority, harvest sprawl, generic-hub and similarity-as-edge.
 
 ## Runtime Notes
 
 ### Claude Code
-Stages 1 and 3 are their own skills — invoke them, don't inline them. Stage 2 needs no tooling beyond reading the relevant chapter and `System_14_Plan.md`.
+Stages 1, optional 2, and 4 are their own skills — invoke them, don't inline them. Stage 3 needs no tooling beyond reading the relevant chapter and `System_14_Plan.md`.
 Map regeneration and DB paths are in [topic-assembly]'s runtime notes; the persist surfaces are in [persist]'s.
 
 ### GPT bridge
 No direct DB write. Route the assembled proposal, the spine verdict, and the three persist payloads to `_AI_Inbox/` for an actor with write access.
 
 ## Update-surfacing backstop
-Depends on [topic-assembly], [persist], and `Operations/scripts/spine_gauge.py`. If any is renamed, moved, or retired, fix the reference here.
+Depends on [topic-assembly], [cold-probe-refine], [persist], and `Operations/scripts/spine_gauge.py`. If any is renamed, moved, or retired, fix the reference here.

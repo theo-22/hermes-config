@@ -26,14 +26,20 @@ If the `/` menu is crowded, scan this card first, then search for the exact skil
 - `proposal-packet`
   Use when the proposal already exists and you want a compact durable packet for evaluation or handoff. Tracks in database.
 
+- `compile-work-packet`
+  Use after external authorization when consequential asynchronous or cross-actor work needs a versioned execution contract. Lints schema-defined critical fields, fingerprints the packet, and requires a bounded cold executability probe without treating readability as approval or correctness.
+
 - `graph-edge-finding`
   Use when a graph node is thin, orphaned, or "feels" disconnected. Finds its real missing edges and writes them to database.
 
 - `topic-assembly`
   Use when a live discussion topic deepens and should be assembled into its connected node-neighborhood, not just discussed. Writes nodes/edges to database. Stage 1 of `lens-assembly-pass`.
 
+- `cold-probe-refine`
+  Use when a load-bearing, newly refined, or cheap-model-facing inference surface needs a reconstructability test. Runs cheap/fast cold first, stronger semantic review second, classifies projection versus traversal/model/infrastructure failure, and lands comparable Lab evidence without mutating graph meaning automatically.
+
 - `lens-assembly-pass`
-  **The engine — start here for concept-map work.** Use when a topic is worth laying down rather than just discussed, or when a session produced understanding that will otherwise evaporate. Runs the full loop: assemble (`topic-assembly`) → fortify (spine verdict: realized / gap / drift) → persist. Use this instead of re-deriving the sequence by hand.
+  **The engine — start here for concept-map work.** Use when a topic is worth laying down rather than just discussed, or when a session produced understanding that will otherwise evaporate. Runs assemble (`topic-assembly`) → optional probe/refine (`cold-probe-refine`) → fortify (spine verdict: realized / gap / drift) → persist.
 
 - `persist`
   Use as the never-skipped closing step of any concept work — writes the idea to all three durable surfaces (Brain, memory file + `MEMORY.md` pointer, buoyancy touch). Callable alone. Not a substitute for `quick-save`/`session-end`: those close a session, this closes an idea.
@@ -202,6 +208,7 @@ If the `/` menu is crowded, scan this card first, then search for the exact skil
 - `proposal-candidate-surfacing` = surface and shape the candidate until packet-ready
 - `context-extension-surfacing` = surface and shape agent-ready work before dispatch
 - `proposal-packet` = write the actual proposal packet
+- `compile-work-packet` = compile externally authorized intent for bounded dispatch
 - `synthesis-review` = synthesize accumulated evidence
 - `skills-review` = review the skill set itself
 - `surface-routing` = place it where the system will see it
@@ -253,6 +260,7 @@ Use this as orientation only; the individual skill trigger still decides whether
 | `proposal-candidate-surfacing` | Discovery: shape a forming proposal through conversation until ready for the packet skill |
 | `context-extension-surfacing` | Context preservation: shape determinate work into bounded agent briefings so the primary conversation stays available for judgment and learning |
 | `proposal-packet` | Synthesis output: shape an already-real proposal for evaluation or handoff |
+| `compile-work-packet` | Execution intake: compile externally authorized intent into a linted and cold-readable contract |
 | `synthesis-review` | Cross-pass sensemaking: synthesize accumulated findings or artifacts |
 | `clip-cycle-closer` | Closure: name a completed or near-complete CLiP arc and draft the record |
 | `surface-routing` | Routing/placement: land accepted material where the system will see it |
@@ -362,6 +370,7 @@ If the main need is deciding whether a role may safely dispatch Hermes workers:
 - If you are asking "how do we stop this from depending on memory or convention?" use `poka-yoke`.
 - If a proposal is forming and the enough-for-use version, boundaries, or open questions are still ambiguous, use `proposal-candidate-surfacing` first to shape it. `proposal-packet` writes; it doesn't discover.
 - If the proposal is already real and needs a durable shape, use `proposal-packet`.
+- If the proposal is externally authorized and another actor needs a bounded execution contract, use `compile-work-packet` before consequential dispatch.
 - If there is only one document or one recommendation, `synthesis-review` is probably not the right skill.
 - If the issue is not naming or proposal shape but `where should this now live so the right AI sees it later?` use `surface-routing`.
 - If the issue is not just prompt trimming but the whole Custom GPT environment is failing across multiple layers, use `gpt-environment-build`.
@@ -383,6 +392,8 @@ If the main need is deciding whether a role may safely dispatch Hermes workers:
 - `clip-cycle-closer`
 - `codex-usage-audit`
 - `concept-bridge-surfacing`
+- `cold-probe-refine`
+- `compile-work-packet`
 - `contradiction-sweep`
 - `context-extension-surfacing`
 - `coordinator-consolidation-synthesis`

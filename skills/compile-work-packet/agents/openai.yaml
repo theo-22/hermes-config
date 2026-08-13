@@ -1,0 +1,4 @@
+interface:
+  display_name: "Compile Work Packet"
+  short_description: "Compile authorized intent into executable packets"
+  default_prompt: "Use $compile-work-packet to compile externally authorized intent into a versioned, linted work packet before consequential dispatch."

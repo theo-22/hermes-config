@@ -57,6 +57,9 @@ If the `/` menu is crowded, scan this card first, then search for the exact skil
 - `workflow-orchestration`
   Use when Ted says "Let's get some work done" or asks to advance Operations session-chain work from the conductor board. Runs one routed chain through completion report, validation, QuickSave receipt, and stop.
 
+- `reconcile-inbox-work-items`
+  Use when an `_AI_Inbox` packet represents actionable work or evidence, a stale packet must be proven open/closed, or a work item with an originating packet is completing. Classifies intake, preserves N:M provenance, closes the packet through terminal work state, and verifies reconciliation.
+
 - `project-room-review`
   Use when Ted asks to review, resume, orient, discuss, advance, save, or decide the next move for a Project Room. Reads room-local state first, checks v1-readiness, and prepares bounded save or QuickSave-chain handoffs without broadening into implementation.
 
@@ -430,6 +433,7 @@ If the main need is deciding whether a role may safely dispatch Hermes workers:
 - `proposal-packet`
 - `quick-save`
 - `repair-capability-truth`
+- `reconcile-inbox-work-items`
 - `reconcile-runtime-authority`
 - `repair-retired-path-recreation`
 - `repair-mcp-client-disconnects`

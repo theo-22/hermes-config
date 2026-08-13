@@ -1,6 +1,6 @@
 ---
 name: repair-model-visible-token-transport
-description: Diagnose and repair tool calls blocked before server receipt because JWTs, API keys, signed capsules, or other credential-shaped values appear in model-authored arguments. Use when a client, host, moderation, or tool-call safety layer rejects a call before the connector logs it, or when raw bearer values should move behind short server-resolved handles while preserving expiry, role and scope checks, restart invalidation, refresh behavior, and fresh-client proof.
+description: Diagnose and repair tool calls blocked before server receipt because JWTs, API keys, signed capsules, or other credential-shaped values appear in model-authored arguments. Use when a client, host, moderation, schema preflight, or tool-call safety layer rejects a call before the connector logs it; when raw bearer values should move behind short server-resolved handles; or when a fresh raw-protocol client is needed to distinguish client validation from live server enforcement while preserving expiry, role and scope checks, restart invalidation, refresh behavior, and fresh-client proof.
 metadata:
   category: meta
   write_mode: file
@@ -119,6 +119,25 @@ Then perform paired live probes against the same write-shaped tool:
 
 Finally verify the installed launcher or service, public discovery surface, an actual model-authored tool call, and—when required—a genuinely fresh client. Keep implementation proof, independent review, and fresh-client acceptance as separate verdicts.
 
+### 8. Use an alternate transport when the model client preflights the proof away
+
+If the ordinary model client declares the authorization field required, omitting it may fail locally before dispatch. That proves client containment, but not the live server boundary. Close that evidence gap with a genuinely fresh raw-protocol client:
+
+1. Start a new process and connection against the exact installed/public role-scoped endpoint.
+2. Confirm the server identity and expected protected tool through live discovery.
+3. Mint a fresh opaque handle; redact it from output and durable evidence.
+4. Call one protected mutator with safe, ordinary-looking nonexistent or non-allowlisted arguments and omit the handle.
+5. Repeat the identical call with the valid handle.
+6. Prove from the client implementation, an outbound trace, or a server receipt that the first call was actually sent. Do not assume a “raw” SDK skips input validation.
+
+Accept the pair only when:
+
+- the missing-handle call returns from the live protocol/server boundary with the established schema or authorization rejection;
+- the valid-handle control crosses activation and reaches a deterministic downstream validation failure;
+- neither call can write, execute, or otherwise mutate production state.
+
+This is a boundary probe, not a replacement for the model-authored fresh-client leg. Record which client produced each verdict and combine evidence layers explicitly.
+
 ## Decision Guide
 
 | Observed condition | Appropriate move |
@@ -136,16 +155,20 @@ Finally verify the installed launcher or service, public discovery surface, an a
 - Quietly accepting both handles and legacy raw tokens.
 - Claiming session binding on a transport with no trustworthy session identity.
 - Treating a health check, unit test, or warm client as complete invocation-path proof.
+- Calling through a raw SDK without verifying whether that SDK validates arguments locally before sending.
 - Collapsing local implementation success and fresh-client acceptance into one verdict.
 
 ## Proven Pattern
 
 This pattern was established during the 2026-08-09 role-activation repair: credential-shaped signed capsules were replaced by `cap_...` handles while the original server-side validation remained authoritative. The repair covered 75 protected mutating tools across 15 roles and passed a live Analyst start/write-shaped probe.
 
+The alternate-transport acceptance extension was proven on 2026-08-13 for Codex Builder. A fresh Python MCP client was verified to send `tools/call` without local input-schema validation: omission was rejected at the live MCP server boundary, while the identical call with a fresh handle crossed activation and stopped at the execution allowlist, with no write or execution.
+
 For that concrete implementation and its doctrine, consult:
 
 - `/Volumes/Extra/Substrate/_shared/Role_Activation_Capsule.md`
 - `/Volumes/Extra/Substrate/_AI_Inbox/2026-08-09_codex_return_role_activation_opaque_handle_transport_repair.md`
+- `/Volumes/Extra/Substrate/_AI_Inbox/response_codex_builder_missing_handle_alternate_transport_acceptance_2026-08-13.md`
 
 Treat these as an example, not as permission to copy role-specific names or architecture into another runtime.
 

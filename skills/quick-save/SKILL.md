@@ -91,8 +91,8 @@ For each relevant ledger, record the current state using the same source disposi
 
 Do not create new ledger work from adjacency. This step only reconciles the ledger that actually routed or advertised the saved task.
 
-7. **Close owned surface reservations.**
-If the task opened a reservation in `/Users/ted/Operations/session_chains/SURFACE_RESERVATIONS.md`, close it before claiming QuickSave is done.
+7. **Close owned file checkouts and surface claims.**
+Treat `/Volumes/Extra/Substrate/Operations/session_chains/SURFACE_RESERVATIONS.md` as the generated readable view, not a writable lock ledger. If the task opened typed file checkouts, pass their claim ids to the QuickSave receipt command; it atomically closes the named actor/session set, records the terminal checkout rows in the receipt, and refuses partial closeout. Generic non-file claims still close through the claim API.
 
 Use one of:
 
@@ -100,7 +100,7 @@ Use one of:
 - `parked` - the reservation remains intentionally blocked, with the reason and next trigger recorded
 - `coordinator_handoff` - shared reconciliation is needed after one or more chains finish
 
-Do not close reservations owned by other active chains unless Ted explicitly routes a coordinator reconciliation pass.
+Do not close checkouts or claims owned by other active chains unless Ted explicitly routes a coordinator reconciliation pass. QuickSave itself acquires the receipt ledger as a typed file checkout, performs an expected-hash guarded append, and releases that checkout before returning success.
 
 8. **Preserve source-vs-current routing.**
 If a path moved or a canonical surface changed, name the current path and avoid re-saving stale copies.
@@ -132,19 +132,23 @@ Before the final response, append and validate a machine-readable closeout row w
 
 ```bash
 /Users/ted/Operations/scripts/quicksave_closeout_receipt.py append \
+  --actor "codex_worker|codex_coordinator|claude_code_worker|claude_code_coordinator" \
   --task "<bounded task>" \
   --quicksave "done|not done" \
   --source-path "<path to source queue, default Operations/TODO.md>" \
   --source-item "<exact source item text, if any>" \
   --source-disposition "none|still open|completed and removed|rewritten|parked" \
   --proof-path "<path to proof/report, if any>" \
+  --session "<session id, when checkouts carry one>" \
+  --chain-ref "<chain/work reference, when any>" \
+  --checkout-id "<claim id; repeat for each owned checkout>" \
   --next-session-prompt "needed|not needed"
 /Users/ted/Operations/scripts/quicksave_closeout_receipt.py check
 ```
 
 Before appending, check whether `--proof-path` is a strong proof surface for this task. A history log can support the receipt, but if the task closed several items or rewrote a source queue, the receipt should point at the focused report, archived packet, generated receipt, or owner file that shows the closure directly.
 
-If the receipt check fails, the QuickSave closeout is not done. `source_disposition=none` requires `--allow-no-source`; do not use it for TODO/chain/Project Room work. `still open`, `parked`, and `rewritten` receipts require notes explaining the current state.
+If the receipt check fails, the QuickSave closeout is not done. `source_disposition=none` requires `--allow-no-source`; do not use it for TODO/chain/Project Room work. `still open`, `parked`, and `rewritten` receipts require notes explaining the current state. When `--checkout-id` is present, `--actor` is required and the resulting receipt must show zero matching active checkouts. A successful append always records its own released `ledger_checkout_id`.
 
 Keep the final response short. The receipt must explicitly answer whether QuickSave happened and whether Ted needs a next-session prompt:
 

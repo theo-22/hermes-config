@@ -1,0 +1,4 @@
+interface:
+  display_name: "Reconcile Inbox Work Items"
+  short_description: "Link inbox packets to authoritative work"
+  default_prompt: "Use $reconcile-inbox-work-items to classify an inbox packet, link it to work items, and verify paired closure."

@@ -60,12 +60,12 @@ Stop and ask Ted to choose one lane unless exactly one lane is clearly routed by
    - reserved shared write surfaces, if any;
    - exclusions;
    - stop condition.
-6. If the chain may write shared state, add a narrow reservation in `/Users/ted/Operations/session_chains/SURFACE_RESERVATIONS.md` before the first edit. Shared state includes conductor/status/start files, `CHANGES_LOG.md`, QuickSave receipts, `PROJECT_ROOMS_STATUS.md`, room-local `CURRENT_STATE.md` / `NEXT_ACTION.md`, DB work-item boards, and other active status or closeout ledgers.
+6. If the chain may write shared files, acquire one typed checkout per exact file through `POST /api/file-checkouts/acquire`, set `session` to the current session id and `work_ref` to the selected chain id, and retain the returned claim ids for closeout. Read `/Volumes/Extra/Substrate/Operations/session_chains/SURFACE_RESERVATIONS.md` as the generated projection; do not hand-edit it to create authority. Generic non-file state may still use a narrow DB claim. Shared state includes conductor/status/start files, `CHANGES_LOG.md`, QuickSave receipts, `PROJECT_ROOMS_STATUS.md`, room-local `CURRENT_STATE.md` / `NEXT_ACTION.md`, DB work-item boards, and other active status or closeout ledgers.
 7. Execute only the selected lane. Park adjacent work instead of widening. If the lane discovers it needs a surface reserved by another chain, or an undeclared shared surface, record the finding and leave the write for the owning chain or a coordinator reconciliation pass. If the lane discovers that a future lane must wait for proof, record or update a sequence gate in `SEQUENCE_GATES.md` while the context is fresh; do not turn the gated future lane into runnable work.
 8. Write the required completion report under `/Users/ted/Operations/reports/TODO_Session_Completions/`.
 9. Run `/Users/ted/Operations/scripts/todo_session_completion_check.py <completion-report-path>` when the chain is TODO/session-chain derived.
-10. If this lane opened a surface reservation, close it as `released`, `parked`, or `coordinator_handoff` before claiming QuickSave is done.
-11. Append and validate a QuickSave receipt with `/Users/ted/Operations/scripts/quicksave_closeout_receipt.py append ...` and `check`.
+10. If this lane opened typed checkouts, pass every owned claim id plus the actor/session/chain reference to QuickSave so the set closes atomically as `released`, `parked`, or `coordinator_handoff`. Do not close another chain's checkout.
+11. Append and validate a QuickSave receipt with `/Volumes/Extra/Substrate/Operations/scripts/quicksave_closeout_receipt.py append ...` and `check`; the append itself uses a guarded ledger checkout and records the task-checkout terminal states.
 12. Stop after reporting:
    - `QuickSave: done|not done`;
    - saved surfaces;
@@ -106,7 +106,7 @@ Use this mode only when Ted explicitly wants the current work turned into a chai
 10. Write one chain file under `/Users/ted/Operations/session_chains/` using the existing chain-file style, or revise the existing chain file if the work is already staged. Keep it runnable by a future worker without requiring broad context.
 11. Add or revise exactly one row in `/Users/ted/Operations/session_chains/CONDUCTOR.md` with state `staged`, `waiting`, `condition-triggered`, or `parked` as appropriate. Do not mark it ready if it still needs Ted input or an external trigger.
 12. Update `/Users/ted/Operations/session_chains/00_START_HERE.md` only if the new chain should appear in the launch menu. If it is protected, blocked, or future-triggered, place it under the right non-ready section.
-13. If shared state is edited, use `/Users/ted/Operations/session_chains/SURFACE_RESERVATIONS.md` the same way as an execution lane.
+13. If shared files are edited, use typed file checkouts with the staged/revised chain id as `work_ref`, the same way as an execution lane. The reservations document is only the generated view.
 14. Write a compact staging note or completion report when needed to make the intake durable.
 15. Append and validate a QuickSave receipt if this staging closes or rewrites a real source item; otherwise report `Source item: none` only when no source item existed.
 16. Stop after reporting:

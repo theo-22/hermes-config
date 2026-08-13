@@ -53,7 +53,7 @@ For repeated-correction captures, also identify:
 5. **Log to CHANGES_LOG** — one line noting what was captured and why.
 
 6. **Fleet broadcast** — after writing, call `POST /api/broadcast` to notify applicable actor inboxes:
-   - `destinations`: `["GA", "Coordinator_Inbox", "Codex_Inbox"]` by default (doctrine-level broadcast)
+   - `destinations`: `["_AI_Inbox", "Coordinator_Inbox", "Codex_Inbox"]` by default (doctrine-level broadcast; `_AI_Inbox` is the live successor to the retired `GA` destination key)
    - `title`: `"New _shared/ pattern: <PatternName>"`
    - `kind`: `"handoff"`
    - `tags`: `["fleet-broadcast", "share-learning"]`

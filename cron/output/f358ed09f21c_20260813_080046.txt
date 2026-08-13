@@ -1,0 +1,65 @@
+Cronjob Response: inbox_aging
+(job_id: f358ed09f21c)
+-------------
+
+INBOX AGING: 57 actionable item(s) older than 7 days in _AI_Inbox/
+  18d  REMINDER__claude_capacity_subsidies_expiring__2026-08-05.md
+  18d  claude_code_to_codex_retired_paths_in_control.md
+  18d  claude_code_to_map_curator_substrate_hermes_edges.md
+  17d  memory_catalog_62_filelist.txt
+  17d  ask_map_curator_wiring_method_2026-07-27.md
+  17d  2026-07-27_claude_orchestrator_working_agreement_start.md
+  17d  claude_code_to_audit_server_py_changes_this_session.md
+  16d  opus_review_role_projection_pilot01_2026-07-28.md
+  15d  2026-07-29_codex_return_icon_system_stage2.md
+  15d  2026-07-29_codex_return_icon_system_stage2_preview_schema_repair.md
+  15d  2026-07-29_codex_return_image_factory_behavioral_modernization.md
+  14d  2026-07-29_codex_return_clinical_stage1.md
+  14d  CC_Proposal_Traversal_First_Reading_Method.md
+  14d  CC_Road_Candidates_Reading_And_Role_Runtime.md
+  14d  2026-07-20_relax_no_direct_comms_architecture_question.md
+  14d  2026-07-28_chatgpt_image_factory_behavioral_modernization_ready_for_codex.md
+  14d  2026-07-28_chatgpt_map_curator_return_transition_and_jobs_edge_verification_com.md
+  14d  2026-07-28_codex_return_icon_system_stage1.md
+  14d  2026-07-28_codex_return_orchestrator_control_retry_supersession_v1.md
+  14d  Handoff- Fleet Capacity + Map Integrity + Verification Threads.md
+  14d  claude_code_return_orchestrator_session_end_v1.md
+  14d  orchestrator_record_rung7_transition_review_event_2026-07-28.md
+  12d  2026-08-01_codex_return_clinical_source_retrieval.md
+  12d  2026-08-01_pieces_digest_polish_menu_automation.md
+  12d  Context Economy Across Ted’s Multi-AI System.md
+  12d  Current System Assessment, Trajectory, And Phase Change Strategy.md
+  12d  REMINDER__layer-projection-review__2026-08-01.md
+  12d  REMINDER__memory-consolidate__2026-08-01.md
+  12d  Repeating “Should-Be-Named” Concepts I See In Your Recent Activity (Last ~30 Days).md
+  12d  2026-08-01_cron_health_pulse_findings_vs_errors.md
+  11d  pieces_copilot_message_export_august_2_2026_5_23pm.md
+  10d  2026-08-03_chatgpt_proposal_triangulation_field_for_projection_decisions.md
+  10d  cc_response_triangulation_field_concept_bridge_request.md
+  10d  sole_path_write_count_2026-08-03_dea17c8f.md
+  10d  symlink_home_path_new_2026-08-03T090022Z.md
+  10d  REMINDER__icon-gallery-freshness-check__2026-W32-MON.md
+  9d  pieces_copilot_message_export_august_3_2026_9_34pm.md
+  9d  2026-08-03_codex_proposal_role_work_context_and_stackable_capability_planes.md
+  9d  symlink_home_path_new_2026-08-04T090014Z.md
+  9d  2026-08-04_codex_stage1_role_work_context_shadow_and_preflight_findings.md
+  9d  Ted_Decision_Role_Work_Context_Proposal_Superseded.md
+  9d  2026-08-02T171044Z_Map_Curator_findings-placement_wiring_in_server_py___self-ca.md
+  9d  2026-08-02_chatgpt_clarification_clinical_map_is_a_dedicated_active_map_not_ret.md
+  9d  2026-08-02_chatgpt_move_clinical_cluster_out_of_main_concept_map.md
+  9d  2026-08-02_chatgpt_separate_clinical_cocm_concept_map_plan.md
+  9d  2026-08-03_chatgpt_proposal_unify_ai_inbox_intake_with_authoritative_work_item_.md
+  9d  2026-08-04_chatgpt_codex_implementation_proposal_jobs_role_runtime.md
+  9d  2026-08-04_234626_scribe_surface_refusals.md
+  8d  symlink_home_path_new_2026-08-05T090029Z.md
+  8d  2026-08-05_pieces_digest_meta_me_assessment.md
+  8d  2026-08-05_chatgpt_learning_build_proposal_applied_ai_governance_for_behavioral.md
+  8d  2026-08-05_chatgpt_expand_ai_governance_apprenticeship_design_with_experiential.md
+  8d  2026-08-05_chatgpt_design_rule_working_concepts_before_content.md
+  7d  symlink_home_path_new_2026-08-06T090035Z.md
+  7d  anthropic_dashboard_manual_stale_2026-08-06.md
+  7d  2026-08-05_pieces_digest_glm_profile_experimental_identity_question.md
+  7d  2026-08-06_pieces_digest_system_db_optimization_unconfirmed.md
+Action: review, act, and delete or route to Planning/
+
+To stop or manage this job, send me a new message (e.g. "stop reminder inbox_aging").

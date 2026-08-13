@@ -75,6 +75,12 @@ If the `/` menu is crowded, scan this card first, then search for the exact skil
 - `reconcile-runtime-authority`
   Use when startup, continuity, configuration, generated reports, or documentation disagree about which surface is authoritative. Classifies active, state, generated, tombstone, and historical surfaces; reconciles readers and writers; and requires deterministic plus genuinely fresh-runtime proof.
 
+- `repair-retired-path-recreation`
+  Use when a moved or retired filesystem path reappears. Correlates timestamps with live schedulers and processes, reconciles tracked/installed/published copies, preserves recreated state, adds a no-recreation guard, and proves the exact installed consumer writes only to the canonical destination.
+
+- `update-protected-generated-artifacts`
+  Use when a source generator or builder rewrites shared primary artifacts plus frontend, published, installed, or build mirrors. Acquires typed checkouts for the source and every target, verifies expected pre-write state, runs the sanctioned generator, proves byte parity and preserved meaning/data, verifies the exact consumer path, then receipts and releases the lane.
+
 - `verify-real-invocation-path`
   Use when a fix, hook, script, service, launcher, or integration is called verified but the evidence may have exercised a proxy, stale path, interpreter shortcut, wrong cwd/environment, health-only surface, or warmed client instead of the exact installed consumer path—or when an independent real-client probe contradicts green local tests. Requires paired real-path probes, observable consequences, an evidence-led contradiction-repair loop, and independent/fresh-client/human gates when applicable.
 
@@ -226,6 +232,8 @@ If the `/` menu is crowded, scan this card first, then search for the exact skil
 - `opus-review-surfacing` = proactive full bearings-check on a real chunk of landed work, uncommitted Opus reviewer
 - `codex-usage-audit` = audit Codex overhead before patching
 - `repair-capability-truth` = reconcile live capability, current docs, and typed operational queries
+- `repair-retired-path-recreation` = trace every live recreator, preserve state, repoint the full chain, and prove the retired root stays absent
+- `update-protected-generated-artifacts` = protect the generator and every output, regenerate once, prove parity and real consumer behavior
 - `repair-mcp-client-disconnects` = narrowly handle and live-prove normal MCP transport disconnects
 - `repair-hermes-update-continuity` = preserve and prove sessions across Hermes updates before repairing visibility or version skew
 - `repair-pieces-runtime` = Pieces alive but not serving — back up, quit fully, relaunch, verify with a real query
@@ -423,6 +431,7 @@ If the main need is deciding whether a role may safely dispatch Hermes workers:
 - `quick-save`
 - `repair-capability-truth`
 - `reconcile-runtime-authority`
+- `repair-retired-path-recreation`
 - `repair-mcp-client-disconnects`
 - `repair-model-visible-token-transport`
 - `repair-hermes-update-continuity`
@@ -446,5 +455,6 @@ If the main need is deciding whether a role may safely dispatch Hermes workers:
 - `system-14-update`
 - `topic-assembly`
 - `trace-claim-evidence`
+- `update-protected-generated-artifacts`
 - `workflow-orchestration`
 - `workspace-orchestration-coordination`

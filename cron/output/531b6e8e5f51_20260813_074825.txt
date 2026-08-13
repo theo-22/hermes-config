@@ -1,0 +1,53 @@
+Cronjob Response: substrate-morning-briefing
+(job_id: 531b6e8e5f51)
+-------------
+
+Briefing written and verified. Here it is:
+
+---
+
+# Substrate Morning Briefing — 2026-08-13
+
+**Status:** YELLOW
+
+## 1. Overnight Summary
+
+The overnight batch ran clean (no proof gaps, no research returns, no stale threads beyond the known ledger). The load is room drift: the sweep flagged 36 Project Rooms with stale cards, state files newer than card check, or missing dashboard registration, and the meta-agent says 18 of 36 rooms need action. One cron job errored overnight (`audit_preflight`, HTTP 404 from provider), three watchdog findings need eyes (new home-path symlinks, a stale Anthropic dashboard reading, Harris Teeter parked on a sign-in page), and the shared inbox has grown to 125 outstanding packets. No RED conditions: nothing down, no credentials touched, no data loss.
+
+## 2. Grouped Findings
+
+| Priority | Finding | Source | Can auto-fix? |
+|----------|---------|--------|---------------|
+| med | `audit_preflight` errored 2026-08-12 20:13: `HTTP 404: Provider returned error` (preflight packet prep, runs 8pm nightly; will retry tonight) | cron health pulse | no — provider call, transient likely; watch |
+| med | 3 NEW home-path symlinks: `~/.claude/skills/{cold-probe-refine, compile-work-packet, trace-claim-evidence}` → `~/Skills/...` — new wiring against the de-alias rule. `trace-claim-evidence` was already flagged in yesterday's briefing (created 08-11) and is now part of a set of 3 — appears to be a recurring Claude Code skill-install wiring pattern, not the retired-path recreation (that was repaired 08-13) | symlink_home_path_sweep alert (in `_AI_Inbox/`) | no — touches CC's skill wiring; decision needed |
+| med | 36 Project Rooms flagged: D1 stale cards (24–79d vs 14d threshold), D2 state files modified (up to 08-11) well after card check, D4 rooms not registered in `PROJECT_ROOMS_STATUS.md` | overnight consolidated | yes — bounded state-refresh pass |
+| med | Meta-agent: 18/36 rooms need action (refresh/mark quiet), 0 quick-look, 17 quiet, 1 current; "Recent Hermes sessions seen: 0" | meta_agent_2026-08-13.md | yes — same pass |
+| med | Shared inbox backlog: 125 outstanding, 81 unassigned (queue grew again since the late-July 56→8 sweep) | inbox_consumption.py --status | maybe — sweep lane needs approval |
+| low | Anthropic `dashboard_manual` reading 4d stale (last 2026-08-07) — cost dashboard freshness check exits 1 | ai-cost-dashboard-freshness-check watchdog | no — needs a manual dashboard read by owner |
+| low | Harris Teeter parked on sign-in page — grocery receipt fetcher can't proceed | grocery-receipt-staged-fetcher watchdog | no — Ted's browser action |
+| low | Session chain ledger stale: `CONDUCTOR.md` 16d, `00_START_HERE.md` 28d — expected (ledger only updates on chain state change; no chains moved) | overnight consolidated | no — informational |
+| info | No research returns pending — queue all absorbed/parked (RC-004, RC-005 proposed, not started) | Research queue | n/a |
+| info | Contradiction check ran (07:30, `Substrate_Contradiction_Check_LATEST.md`): no cross-surface contradictions, no recent completion reports. No QuickSave receipts at the expected path — informational | contradiction check | n/a |
+
+## 3. Proposed Fixes
+
+- **Room state cleanup pass (med, yes):** run the meta-agent "Morning Cleanup Pickup" lane against the 18 Needs Action rooms — update each room's `CURRENT_STATE.md`/`NEXT_ACTION.md` and `PROJECT_ROOMS_STATUS.md` row to honest state (active+needs route, quiet until trigger, or blocked), and register the D4 rooms so the dashboard sees them. Files changed: the 18 room state files + `PROJECT_ROOMS_STATUS.md` + one completion note. Safe because: wording/status edits only, no deletion, no implementation work, fully reversible, and it's the standing cleanup lane the meta-agent already documents.
+- **audit_preflight (med, no auto-fix):** no action now — it retries tonight at 20:00. If it 404s again, escalate to provider-router check. No file changes proposed.
+
+## 4. Questions for Ted
+
+1. **Approve the 18-room cleanup pass?** (Proposed fix above. If yes, I run it as the pickup lane — bounded, status-only edits.)
+2. **The 3 new `~/.claude/skills` symlinks — repoint to canonical, or were these created intentionally by a Claude Code skill-install process?** They're new since the last sweep and I won't touch CC's wiring without a call.
+3. **Inbox at 125 outstanding (81 unassigned) — schedule a sweep lane** (like the late-July one) or leave until packets age out?
+
+## 5. Approval Gate
+
+```
+**Gate:** No actions executed. If Ted approves, run: `meta_agent_sweep.py` Morning Cleanup Pickup for the 18 Needs Action rooms (status-only edits to room state + PROJECT_ROOMS_STATUS.md), then report; symlink repoint and inbox sweep only on explicit routing.
+```
+
+---
+
+Written to `/Users/ted/Operations/Substrate_Morning_Briefing.md` (canonical `/Volumes/Extra/Substrate/Operations/Substrate_Morning_Briefing.md`, 4768 bytes, verified on disk). No other files were mutated. Session-start checks: preflight YELLOW (no actor notifications in 24h, Operations git dirty — non-blocking), cron pulse 1 error (`audit_preflight`) + 3 watchdog findings, run-integrity watchdog silent, inbox 125 outstanding (none addressed to substrate-hermes), Codex offload review current.
+
+To stop or manage this job, send me a new message (e.g. "stop reminder substrate-morning-briefing").

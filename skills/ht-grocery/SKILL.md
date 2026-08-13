@@ -20,7 +20,7 @@ If a selector, click pattern, or extraction method in this skill stops working a
 
 ## Prerequisites
 
-- CDP browser running: `--remote-debugging-port=9222 --user-data-dir=/Users/ted/Substrate/Profiles/hermes-browser`
+- CDP browser running: `--remote-debugging-port=9222 --user-data-dir="/Users/ted/Library/Application Support/Browser_Profiles/hermes-browser"`
 - Chrome path: `/Volumes/Extra/Apps/Google Chrome.app`
 - Login once per site — cookies persist in the hermes-browser profile
 - Python deps: `websockets` (stdlib available)

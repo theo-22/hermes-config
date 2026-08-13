@@ -122,7 +122,7 @@ Status language is honest. These apply to *bounded asks*, not to homes/rooms:
 
 ### Plan Viewer
 
-The System 14 Plan Viewer (http://127.0.0.1:5577) renders the plan as a browsable web page with sidebar navigation and dark theme. It reads markdown files from disk on every request — new chapters and edits appear on browser refresh. No restart or build step needed. Health-checked every 4h by substrate-hermes cron (silent unless down). Source: `/Users/ted/Substrate/scripts/s14_viewer.py`.
+The System 14 Plan Viewer (http://127.0.0.1:5577) renders the plan as a browsable web page with sidebar navigation and dark theme. It reads markdown files from disk on every request — new chapters and edits appear on browser refresh. No restart or build step needed. Health-checked every 4h by substrate-hermes cron (silent unless down). Source: `/Volumes/Extra/Substrate/Operations/scripts/s14_viewer.py`.
 
 ### Pitfalls
 

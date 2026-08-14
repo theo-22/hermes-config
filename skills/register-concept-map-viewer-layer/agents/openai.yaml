@@ -1,0 +1,4 @@
+interface:
+  display_name: "Register Concept Map Viewer Layer"
+  short_description: "Add and verify a viewer layer safely"
+  default_prompt: "Use $register-concept-map-viewer-layer to add an authorized Concept Graph viewer layer and prove isolated and Merged behavior."

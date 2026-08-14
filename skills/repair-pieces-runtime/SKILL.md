@@ -75,15 +75,26 @@ Expect conversations / ltm_vision_events / assets. **Only this counts as fixed.*
 
 **5. The desktop app does not auto-retry.** If it still shows "Pieces Core Services Unavailable… POST /connect", click its own **Try again** once health returns 200.
 
-## The three occurrences — different causes, same fix
+## The four occurrences — different causes, same fix
 
 | date | cause | note |
 |---|---|---|
 | 2026-07-09 | data dir trashed as "unused" | `/Volumes/Extra/com.pieces.os` is LIVE, symlinked from `~/Library/com.pieces.os`. Never move it. Data was intact throughout |
 | 2026-07-22 | Ted and CC independently restarted it during a high-CPU episode | coincidental with a Hermes cleanup; **verify each failure against its own dependency chain before assuming a shared cause** |
 | 2026-07-31 | **auto-update** (Sparkle) wrote a new version, whose startup check timed out on a DB grown 1.3→1.5GB | error URL read `failed_to_clean_corrupted_database&os=UNKNOWN_TIMEDOUT`. Symlink held fine; install location was not the cause |
+| 2026-08-14 | down most of a week; process had **already exited** — no process at all, health `000` — at DB 1.7GB / 434,321 pages | clean relaunch reached health 200 in **~10 seconds**; verified by real query (127 conversations, 768 ltm_vision_events). Database healthy: `quick_check` returns `ok` |
 
 **Expect recurrence on future updates, and increasingly as the database grows** — timeout is the failure mode. The first launch after an update deserves patience, not intervention.
+
+**Size alone does not predict a slow check (added 2026-08-14).** At 1.7GB — larger than the 1.5GB that timed out on 07-31 — the startup check finished in ~10 seconds on a clean relaunch. A check that grinds for minutes is therefore evidence of a **contended or stuck prior instance**, not of the database being too big. If the check is slow, look for another process holding the file before concluding the store needs trimming.
+
+**A wedged instance can leave no process behind.** On 08-14 the "won't boot" state was `pgrep` empty and health `000` — nothing to wait for and nothing to kill. Check for the process before deciding whether to wait: the table near the top of this skill covers alive-but-busy and alive-but-parked, and this is a third state, *gone*. Relaunch immediately; do not wait.
+
+### Diagnostic traps hit on 2026-08-14 — all cost time, all avoidable
+
+- **Piping the integrity check kills it.** `sqlite3 ... 'PRAGMA quick_check(1);' | head -5` returns in seconds with no output because `head` closes the pipe. That is SIGPIPE, not a result. Run it unpiped and let it finish.
+- **`du -sh` on the data dir reports 0B.** It does not follow the symlink. Use `du -sh -H`, or measure `/Volumes/Extra/com.pieces.os` directly.
+- **Do not reformat `ls -ld` output on that path.** A `sed` that strips the line's tail removes the `-> /Volumes/Extra/com.pieces.os` target and makes a symlink look like a real directory — which then makes 9.3GB appear to sit on the internal drive (16GB free) rather than on Extra (542GB free). Read the raw `ls -ld` output.
 
 ## Notes that save time
 

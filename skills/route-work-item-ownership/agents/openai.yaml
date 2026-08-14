@@ -1,0 +1,4 @@
+interface:
+  display_name: "Route Work Item Ownership"
+  short_description: "Retarget or supersede canonical work items safely"
+  default_prompt: "Use $route-work-item-ownership to apply an authorized queue retarget or supersession while preserving history and execution authority."

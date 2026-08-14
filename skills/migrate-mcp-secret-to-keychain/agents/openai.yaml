@@ -1,0 +1,4 @@
+interface:
+  display_name: "Migrate MCP Secret to Keychain"
+  short_description: "Centralize local MCP secrets safely"
+  default_prompt: "Use $migrate-mcp-secret-to-keychain to move a hardcoded local MCP access key into macOS Keychain and prove the cutover."

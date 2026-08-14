@@ -54,6 +54,12 @@ If the `/` menu is crowded, scan this card first, then search for the exact skil
 - `quick-save`
   Use when a bounded one-task session needs durable save/checkpoint treatment without full `/session-end`. Updates earned continuity surfaces, verifies touched repo state, names uncommitted work, and escalates to full session-end when the session is too broad.
 
+- `shape-work-item-sessions`
+  Use when Ted reviews or reroutes live work items and wants them set up as future sessions. Classifies each row as runnable, discussion-gated, waiting, routed, multi-session, closeable, or unresolved; appends cold-readable session contracts; verifies any closure; and recommends one next session without executing the shaped backlog.
+
+- `route-work-item-ownership`
+  Use after Coordinator or Ted has already settled a queue-routing decision and the canonical work-item owner must change, or obsolete framing must be superseded with a linked successor. Preserves history and draft authority, stale-checks the live row, proves receiving-role visibility, and closes with audited readback and released claims.
+
 - `workflow-orchestration`
   Use when Ted says "Let's get some work done" or asks to advance Operations session-chain work from the conductor board. Runs one routed chain through completion report, validation, QuickSave receipt, and stop.
 
@@ -92,6 +98,9 @@ If the `/` menu is crowded, scan this card first, then search for the exact skil
 
 - `repair-mcp-client-disconnects`
   Use when an MCP bridge logs expected SSE or streamable-HTTP client disconnect errors, unhandled AnyIO exception groups, intermittent restarts, or post-disconnect hangs. Suppresses only proven disconnect leaves, preserves cancellation and unrelated faults, and requires authenticated abrupt-disconnect plus fresh-client proof.
+
+- `migrate-mcp-secret-to-keychain`
+  Use when a macOS MCP access key is duplicated in local code, keyed URLs, or client configs and Ted has authorized credential changes. Moves one secret to a Keychain-backed shared stdio proxy, removes active plaintext copies, and proves a real workload plus fail-closed behavior without printing the value.
 
 - `repair-hermes-update-continuity`
   Use before a Hermes update or when sessions/profiles disappear, Desktop fails after an update, or CLI/Desktop state disagrees. Takes read-only pre/post session snapshots, distinguishes real row loss from cache/profile/home/version drift, requires SQLite-safe backup, and proves both the session corpus and Ted-facing client before completion.
@@ -229,6 +238,8 @@ If the `/` menu is crowded, scan this card first, then search for the exact skil
 - `live-surface-verification` = prove the live surface before trusting docs
 - `trace-claim-evidence` = match each assertion to prior evidence before judging or promoting a detector
 - `quick-save` = save a bounded task without full session-end
+- `shape-work-item-sessions` = turn live queue rows and current decisions into bounded future-session contracts
+- `route-work-item-ownership` = land an authorized canonical retarget or linked supersession without widening execution authority
 - `workflow-orchestration` = run one conductor-routed work lane
 - `project-room-review` = review a Project Room from live room-local state
 - `contradiction-sweep` = a cold model finds the contradictions you smoothed over
@@ -272,6 +283,8 @@ Use this as orientation only; the individual skill trigger still decides whether
 | `context-extension-surfacing` | Context preservation: shape determinate work into bounded agent briefings so the primary conversation stays available for judgment and learning |
 | `proposal-packet` | Synthesis output: shape an already-real proposal for evaluation or handoff |
 | `compile-work-packet` | Execution intake: compile externally authorized intent into a linted and cold-readable contract |
+| `shape-work-item-sessions` | Work intake: reconcile live queue rows with current decisions and make future sessions cold-readable before stronger orchestration or dispatch |
+| `route-work-item-ownership` | Queue transition: atomically land a settled owner retarget or linked supersession while preserving authority and history |
 | `synthesis-review` | Cross-pass sensemaking: synthesize accumulated findings or artifacts |
 | `clip-cycle-closer` | Closure: name a completed or near-complete CLiP arc and draft the record |
 | `surface-routing` | Routing/placement: land accepted material where the system will see it |
@@ -342,6 +355,9 @@ If the main need is verifying what a GPT/Builder/proxy/action is actually doing:
 If the main need is saving one bounded task without full session-end:
 - use `quick-save`
 
+If the main need is turning a live backlog review into runnable, discussion, waiting, routed, or closeable future sessions:
+- use `shape-work-item-sessions`
+
 If the main need is reviewing or resuming a Project Room from live state:
 - use `project-room-review`
 
@@ -382,11 +398,14 @@ If the main need is deciding whether a role may safely dispatch Hermes workers:
 - If a proposal is forming and the enough-for-use version, boundaries, or open questions are still ambiguous, use `proposal-candidate-surfacing` first to shape it. `proposal-packet` writes; it doesn't discover.
 - If the proposal is already real and needs a durable shape, use `proposal-packet`.
 - If the proposal is externally authorized and another actor needs a bounded execution contract, use `compile-work-packet` before consequential dispatch.
+- If the authoritative queue rows already exist but need current routing, gates, scope, proof, and stop conditions for future sessions, use `shape-work-item-sessions`; use `workflow-orchestration` only when a conductor chain is actually being staged or run.
+- If the routing decision is already settled and the live queue address itself must change, use `route-work-item-ownership`; do not use session shaping or a direct owner update as a substitute.
 - If there is only one document or one recommendation, `synthesis-review` is probably not the right skill.
 - If the issue is not naming or proposal shape but `where should this now live so the right AI sees it later?` use `surface-routing`.
 - If the issue is not just prompt trimming but the whole Custom GPT environment is failing across multiple layers, use `gpt-environment-build`.
 - If the GPT environment change is proposed but the question is whether the affected GPT must be heard before settlement, use `affected-gpt-hearing`, not `gpt-environment-build`.
 - If the issue is not summary but whether new digest material materially changes a living topic, use `digest-topic-refresh`.
+- If a local macOS MCP key is hardcoded or duplicated across clients, use `migrate-mcp-secret-to-keychain`; use `repair-model-visible-token-transport` when the failure is a model/client refusing to transmit a credential-shaped tool argument.
 - If the issue is disputed live state, do not infer from intended-state files; use `live-surface-verification`.
 - If disputed live state has already proved stale capability docs or typed-query mappings and the authorized job is to repair and verify them, use `repair-capability-truth`; use `live-surface-verification` when the job is still proof-only.
 - If the issue is one Project Room's current standing, next action, v1-readiness, or chain handoff, use `project-room-review`, not broad workspace discovery.
@@ -422,6 +441,7 @@ If the main need is deciding whether a role may safely dispatch Hermes workers:
 - `live-session-to-skill`
 - `live-surface-verification`
 - `manager-handoff-contract`
+- `migrate-mcp-secret-to-keychain`
 - `model-switch-surfacing`
 - `opus-review-surfacing`
 - `persist`
@@ -449,7 +469,9 @@ If the main need is deciding whether a role may safely dispatch Hermes workers:
 - `role-contract-boundary-reconciliation`
 - `role-hermes-worker-access`
 - `role-workspace-sufficiency`
+- `route-work-item-ownership`
 - `scope-comparison`
+- `shape-work-item-sessions`
 - `share-learning`
 - `signal-review`
 - `skills-review`

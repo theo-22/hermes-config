@@ -1,6 +1,6 @@
 model:
-  default: deepseek-v4-flash
-  provider: deepseek
+  default: ~deepseek/deepseek-v4-flash-latest
+  provider: openrouter
   base_url: https://api.deepseek.com
 providers:
   anthropic:

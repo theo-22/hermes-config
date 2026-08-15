@@ -1,7 +1,7 @@
 model:
   base_url: https://api.deepseek.com
-  default: deepseek-v4-flash
-  provider: deepseek
+  default: ~deepseek/deepseek-v4-flash-latest
+  provider: openrouter
 providers:
   anthropic:
     api_key: [REDACTED]
@@ -550,7 +550,6 @@ command_allowlist:
 hooks:
   pre_llm_call:
     - command: python3 /Users/ted/Control/claude/hooks/hermes_pre_llm_call_memory_recall.py
-      timeout: 10
       timeout: 10
 hooks_auto_accept: true
 security:

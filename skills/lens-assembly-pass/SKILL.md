@@ -9,7 +9,7 @@ fast_pick: "yes"
 
 # Lens Assembly Pass
 
-**The engine, not a one-off.** Core flow: **assemble → fortify → persist.** When the cold-probe trigger applies: **assemble → probe → refine → fortify → persist.**
+**The engine, not a one-off.** Core flow: **assemble → fortify → persist.** When the cold-probe trigger applies: **assemble → probe → refine → fortify → persist.** When the pass surfaced material Map Curator hasn't seen yet: **… → persist → harvest.**
 
 The origin (Ted, 2026-07-24): the map stopped being a thing described and became a thing *operated* — walk a node together, correct to fine definition, and encode the correction as structure so the next reader inherits the subtlety without Ted re-saying it. This skill is that loop made repeatable.
 
@@ -73,6 +73,20 @@ Run [persist] (`Skills/persist/SKILL.md`) — Brain, memory file + `MEMORY.md` p
 
 **If budget is short, persist first and cut depth elsewhere.** An assembled-but-unpersisted topic is worse than an unassembled one — it looks done in the map while the reasoning that produced it is gone.
 
+## Optional Stage 5 — HARVEST
+
+**Added 2026-08-15**, from `_AI_Inbox/2026-08-15_chatgpt_proposal_session_end_curator_harvest_pipeline.md` (Ted + Map Curator). Run this only when the pass surfaced graph-relevant material Map Curator has not already been told about — a durable Concept worth a node, a State reading, a v14/durable-intent implication, or a plausible road between nodes you noticed but didn't verify. Most passes end at stage 4 and owe nothing here; skip explicitly (`harvest: not triggered`) rather than manufacturing a package.
+
+This is deliberately **not** a widening of persist and **not** a Scribe task. Persist (stage 4) already closed the idea on Brain/memory/touch — harvest records a separate, distinct obligation: that the graph itself may need to change because of it. It does not judge State-vs-Concept-vs-v14 with authority (that stays Map Curator's call) and it does not write the graph — it hands Map Curator a well-shaped lead.
+
+**Mechanism — reuses the existing Curator queue, nothing new:**
+1. Shape each candidate per `Concept_Graph/Curator_Harvest_Candidate_Schema.md` — one sentence claim, source, candidate_kind, freshness, nodes already consulted, possible roads (leads only), the persist pointer from stage 4, and a meaning-fork question if one genuinely remains.
+2. Aggregate the **whole session's** candidates into **one** package — never one work item per finding.
+3. File it as **one** `work_items` row: `type='report'`, `owner='map_curator'`, `source_surface` pointing at a `Concept_Graph/CC_To_Map_Curator_Curator_Harvest_<slug>.md` content file holding the full package, `notes` holding the compact summary. Full field-by-field detail and the exact API call are in the schema file.
+4. Map Curator's own session start already surfaces `work_items.owner=map_curator` — no further delivery step exists or is needed.
+
+**Output:** either `harvest: not triggered` (the normal case), or the `work_items` id filed plus a one-line count of what it carries (candidates by kind, nodes touched, roads, forks).
+
 ---
 
 ## Evidence / success criteria
@@ -82,6 +96,7 @@ Run [persist] (`Skills/persist/SKILL.md`) — Brain, memory file + `MEMORY.md` p
 - Probe state is explicit: `not triggered`, or a cold-first result and stronger-review verdict with a durable Lab pointer.
 - A spine verdict is stated explicitly — including "realized, nothing owed."
 - All three persist surfaces written and named. **A pass is not complete without stage 4.**
+- Harvest state is explicit: `not triggered`, or a filed `work_items` id with the package it carries.
 
 ## Failure modes
 
@@ -91,16 +106,18 @@ Run [persist] (`Skills/persist/SKILL.md`) — Brain, memory file + `MEMORY.md` p
 - **Manufacturing a spine edit.** Most passes are "realized." Inventing a gap to justify the stage corrupts the gauge.
 - **Confusing the two gauges.** Running `spine_gauge.py` and calling stage 3 done. It answers a different question.
 - **Assembling a fog.** If the pass won't reduce to one claim at persist time, it wasn't ready. Stop rather than persist noise.
+- **Spraying the Curator queue.** One `work_items` row per candidate instead of one aggregated package per session — exactly what stage 5 exists to prevent.
+- **Harvest doing Map Curator's job.** Asserting a candidate as settled, or writing the graph directly, instead of handing over a lead. Stage 5 never calls a `map_*` write tool.
 - Inherited from [topic-assembly]: forcing total connectivity, Pieces-as-authority, harvest sprawl, generic-hub and similarity-as-edge.
 
 ## Runtime Notes
 
 ### Claude Code
-Stages 1, optional 2, and 4 are their own skills — invoke them, don't inline them. Stage 3 needs no tooling beyond reading the relevant chapter and `System_14_Plan.md`.
+Stages 1, optional 2, and 4 are their own skills — invoke them, don't inline them. Stage 3 needs no tooling beyond reading the relevant chapter and `System_14_Plan.md`. Stage 5 is a direct `POST /api/work-items` call (or `system_db.add_work_item(...)`) plus one content file under `Concept_Graph/` — no new tool, see the schema file for the exact call shape.
 Map regeneration and DB paths are in [topic-assembly]'s runtime notes; the persist surfaces are in [persist]'s.
 
 ### GPT bridge
-No direct DB write. Route the assembled proposal, the spine verdict, and the three persist payloads to `_AI_Inbox/` for an actor with write access.
+No direct DB write. Route the assembled proposal, the spine verdict, the three persist payloads, and (if triggered) the harvest package to `_AI_Inbox/` for an actor with write access.
 
 ## Update-surfacing backstop
-Depends on [topic-assembly], [cold-probe-refine], [persist], and `Operations/scripts/spine_gauge.py`. If any is renamed, moved, or retired, fix the reference here.
+Depends on [topic-assembly], [cold-probe-refine], [persist], `Operations/scripts/spine_gauge.py`, and `Concept_Graph/Curator_Harvest_Candidate_Schema.md`. If any is renamed, moved, or retired, fix the reference here.

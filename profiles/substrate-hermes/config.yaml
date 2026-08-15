@@ -11,8 +11,9 @@ providers:
     api_key: ''
   deepseek:
     api_key: [REDACTED]
-fallback_providers: '[{"model": "nvidia/nemotron-3-ultra-550b-a55b:free", "provider":
-  "openrouter"}]'
+fallback_providers: '[{"model": "upstage/solar-pro4", "provider": "openrouter"}, {"model":
+  "qwen/qwen3-30b-a3b-instruct-2507", "provider": "openrouter"}, {"model": "nvidia/nemotron-3-ultra-550b-a55b:free",
+  "provider": "openrouter"}]'
 toolsets:
   - hermes-cli
 max_live_sessions: 16

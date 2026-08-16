@@ -30,6 +30,17 @@ verifies the receipt; the worker executes; Ted approves at gates.
 The factory guarantees, for every caller, the same poka-yoke:
 - a fixed unit classification of `worker`, with a functional task-shape name;
   the model remains separate runtime configuration and never defines identity;
+- a **model lane** resolved at mint time and written into the profile's
+  `config.yaml` (`model.default` + `model.provider`) — lanes come from the Lab
+  model replacement scan (2026-08-15): `cheap` (ling-2.6-flash / openrouter for
+  machine-parsed, mechanical, contract-clean output), `mid` (OR
+  `~deepseek/deepseek-v4-flash-latest` / openrouter for judgment/contradiction/
+  verification/config-touching), `specialized` (caller-supplied model+provider,
+  e.g. finance GLM 5.2 / zai — only when the model IS the evaluation subject).
+  **Ask the five lane questions before minting:** (1) machine-parsed or
+  human-read output? (2) mechanical or judgment work? (3) needs 1M context?
+  (4) touches config/runtime surfaces? (5) frequent cron or rare dispatch?
+  cheap earned, mid default, specialized explicit.
 - cloned from a mold profile (default `migrator`), config floor applied
   (`verify_on_stop`, memory, `max_turns` — the settings that were wrong on 9/10
   hand-built profiles), refuses to clobber an existing profile;
@@ -49,11 +60,15 @@ The factory guarantees, for every caller, the same poka-yoke:
 **Claude Code / Codex (shell):**
 ```
 # dry run first (prints the plan, touches nothing):
-python3 /Users/ted/Operations/scripts/create_worker.py <name> \
-    --role "<one-line role>" --kind read-only \
+python3 /Volumes/Extra/Substrate/Operations/scripts/create_worker.py <name> \
+    --role "<one-line role>" --kind read-only --lane cheap \
     --tasks "shape one;shape two"
 # then mint:
-python3 /Users/ted/Operations/scripts/create_worker.py <name> --role "..." --apply
+python3 /Volumes/Extra/Substrate/Operations/scripts/create_worker.py <name> --role "..." \
+    --lane cheap --apply
+# specialized (the model IS the subject, e.g. a model being evaluated):
+python3 /Volumes/Extra/Substrate/Operations/scripts/create_worker.py <name> --role "..." \
+    --lane specialized --model glm-5.2 --provider zai --apply
 ```
 
 **Coordinator / GPT role (MCP tool, no shell):**

@@ -1,7 +1,7 @@
 model:
   base_url: https://api.deepseek.com
-  default: deepseek-v4-flash
-  provider: deepseek
+  default: inclusionai/ling-2.6-flash
+  provider: openrouter
 providers:
   anthropic:
     api_key: [REDACTED]

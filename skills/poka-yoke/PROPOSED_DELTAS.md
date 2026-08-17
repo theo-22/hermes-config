@@ -18,6 +18,12 @@ Each entry has: date, name, proposed text/change, and a one-line rationale tying
 
 ---
 
+## 2026-08-16 — new mechanism: redundant-cadence recovery
+
+**Proposed addition to Mechanism Taxonomy:** `redundant-cadence recovery` - a job survives an isolated failure without anyone noticing because it has two properties together: (1) idempotent — it checks durable state (a ledger, a dedup key) before acting, so re-running after a failure never duplicates or corrupts anything; (2) high-frequency — it runs often enough relative to the cost of a missed cycle that a single failure's damage window is small. Neither property alone is sufficient: idempotent-but-rare leaves a long silent gap; frequent-but-not-idempotent risks damage on the retry itself. Distinct from `self-extinguishing schedule` (that's about a check turning itself off when its job is done, not about surviving its own failure).
+
+**Rationale:** live case, Hermes `ai-inbox-claude-triage` cron job (2026-08-16). A 429 rate-limit error killed one scheduled run outright (no retry, no fallback, confirmed from the run's own output log). The very next scheduled run 3 hours later picked up everything the failed run would have caught, with zero loss, because the job checks an append-only ledger of already-judged files before acting. Ted's framing, verbatim: "self-healing sounds like poka-yoke, how do we have more of it?" — the answer is these two specific properties, not a general vibe. Worth naming so other single-point-of-failure jobs can be checked against a concrete bar instead of an intuition.
+
 ## 2026-05-03 — applied via skills-review
 
 The 2026-05-01 `articulation-lag` and `articulation-as-capture-trigger` deltas were applied to `SKILL.md` after the listener-side hook implementation validated the mechanism in live use.

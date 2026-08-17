@@ -1,0 +1,97 @@
+Cronjob Response: project-room-health-check
+(job_id: fda85e8353d1)
+-------------
+
+# Project Room Drift Check
+
+**Generated:** 2026-08-17
+**Drift threshold:** 14 days
+**Rooms scanned:** `/Users/ted/Projects`
+
+## Findings
+
+- **D1** `AI_Failure_Recovery_Methods` — card checked 2026-06-13 (65d ago, threshold 14d)
+- **D2** `AI_Failure_Recovery_Methods/CURRENT_STATE.md` — modified 2026-08-11 (59d after card checked 2026-06-13)
+- **D4** `AI_Failure_Recovery_Methods` — not registered in `PROJECT_ROOMS_STATUS.md`
+- **D1** `AI_Memory_Fleet_Access` — card checked 2026-06-10 (68d ago, threshold 14d)
+- **D2** `AI_Memory_Fleet_Access/CURRENT_STATE.md` — modified 2026-08-11 (62d after card checked 2026-06-10)
+- **D2** `AI_Memory_Fleet_Access/NEXT_ACTION.md` — modified 2026-08-07 (58d after card checked 2026-06-10)
+- **D4** `AI_Memory_Fleet_Access` — not registered in `PROJECT_ROOMS_STATUS.md`
+- **D4** `Agent_Continuity_State_Loss` — not registered in `PROJECT_ROOMS_STATUS.md`
+- **D1** `CC_Codex_Coordination` — card checked 2026-05-26 (83d ago, threshold 14d)
+- **D2** `CC_Codex_Coordination/CURRENT_STATE.md` — modified 2026-08-11 (77d after card checked 2026-05-26)
+- **D4** `CC_Codex_Coordination` — not registered in `PROJECT_ROOMS_STATUS.md`
+- **D4** `Canon_Reshape` — not registered in `PROJECT_ROOMS_STATUS.md`
+- **D1** `Capability_Drift_Addressing` — card checked 2026-06-14 (64d ago, threshold 14d)
+- **D2** `Capability_Drift_Addressing/CURRENT_STATE.md` — modified 2026-08-11 (58d after card checked 2026-06-14)
+- **D2** `Capability_Drift_Addressing/NEXT_ACTION.md` — modified 2026-08-07 (54d after card checked 2026-06-14)
+- **D4** `Capability_Drift_Addressing` — not registered in `PROJECT_ROOMS_STATUS.md`
+- **D4** `Clinical_CoCM_Development` — not registered in `PROJECT_ROOMS_STATUS.md`
+- **D4** `Clinical_GPT_Development` — not registered in `PROJECT_ROOMS_STATUS.md`
+- **D1** `Clinical_PHI_Audit_Safety` — card checked 2026-06-05 (73d ago, threshold 14d)
+- **D2** `Clinical_PHI_Audit_Safety/CURRENT_STATE.md` — modified 2026-08-16 (72d after card checked 2026-06-05)
+- **D2** `Clinical_PHI_Audit_Safety/NEXT_ACTION.md` — modified 2026-08-07 (63d after card checked 2026-06-05)
+- **D4** `Clinical_PHI_Audit_Safety` — not registered in `PROJECT_ROOMS_STATUS.md`
+- **D4** `Comparative_Systems_And_Long_Range` — not registered in `PROJECT_ROOMS_STATUS.md`
+- **D1** `Dashboard_Consolidation` — card checked 2026-05-26 (83d ago, threshold 14d)
+- **D2** `Dashboard_Consolidation/CURRENT_STATE.md` — modified 2026-08-11 (77d after card checked 2026-05-26)
+- **D4** `Dashboard_Consolidation` — not registered in `PROJECT_ROOMS_STATUS.md`
+- **D1** `Data_Room_Discipline_Trial` — card checked 2026-05-26 (83d ago, threshold 14d)
+- **D2** `Data_Room_Discipline_Trial/CURRENT_STATE.md` — modified 2026-08-11 (77d after card checked 2026-05-26)
+- **D4** `Data_Room_Discipline_Trial` — not registered in `PROJECT_ROOMS_STATUS.md`
+- **D4** `Digest_Research_Monitoring_Calibration` — not registered in `PROJECT_ROOMS_STATUS.md`
+- **D1** `Digest_Verification_Candidate_Routing` — card checked 2026-05-26 (83d ago, threshold 14d)
+- **D2** `Digest_Verification_Candidate_Routing/CURRENT_STATE.md` — modified 2026-08-11 (77d after card checked 2026-05-26)
+- **D4** `Digest_Verification_Candidate_Routing` — not registered in `PROJECT_ROOMS_STATUS.md`
+- **D4** `GPT_Fleet` — not registered in `PROJECT_ROOMS_STATUS.md`
+- **D4** `Hermes_Operator_Integration` — not registered in `PROJECT_ROOMS_STATUS.md`
+- **D4** `Image_Factory_Development` — not registered in `PROJECT_ROOMS_STATUS.md`
+- **D4** `Orchestration` — not registered in `PROJECT_ROOMS_STATUS.md`
+- **D3** `Project_Interface_Workspace_Flow` — `CURRENT_STATE.md` has no `Card checked:` date
+- **D4** `Project_Interface_Workspace_Flow` — not registered in `PROJECT_ROOMS_STATUS.md`
+- **D1** `Project_Room_Next_Action_Visibility` — card checked 2026-05-26 (83d ago, threshold 14d)
+- **D2** `Project_Room_Next_Action_Visibility/CURRENT_STATE.md` — modified 2026-08-11 (77d after card checked 2026-05-26)
+- **D4** `Project_Room_Next_Action_Visibility` — not registered in `PROJECT_ROOMS_STATUS.md`
+- **D1** `Proposal_Context_Probe_Method` — card checked 2026-06-13 (65d ago, threshold 14d)
+- **D2** `Proposal_Context_Probe_Method/CURRENT_STATE.md` — modified 2026-08-11 (59d after card checked 2026-06-13)
+- **D4** `Proposal_Context_Probe_Method` — not registered in `PROJECT_ROOMS_STATUS.md`
+- **D4** `QuickSave` — not registered in `PROJECT_ROOMS_STATUS.md`
+- **D4** `Research_Coordination` — not registered in `PROJECT_ROOMS_STATUS.md`
+- **D4** `Role_Library` — not registered in `PROJECT_ROOMS_STATUS.md`
+- **D4** `Role_Runtime_Architecture` — not registered in `PROJECT_ROOMS_STATUS.md`
+- **D1** `Skills_Architecture_Detection_Conversion` — card checked 2026-05-26 (83d ago, threshold 14d)
+- **D2** `Skills_Architecture_Detection_Conversion/CURRENT_STATE.md` — modified 2026-08-11 (77d after card checked 2026-05-26)
+- **D4** `Skills_Architecture_Detection_Conversion` — not registered in `PROJECT_ROOMS_STATUS.md`
+- **D1** `Skills_Stewardship` — card checked 2026-06-02 (76d ago, threshold 14d)
+- **D2** `Skills_Stewardship/CURRENT_STATE.md` — modified 2026-08-11 (70d after card checked 2026-06-02)
+- **D4** `Skills_Stewardship` — not registered in `PROJECT_ROOMS_STATUS.md`
+- **D3** `Substrate_Finance_Planning` — `CURRENT_STATE.md` has no `Card checked:` date
+- **D4** `Substrate_Finance_Planning` — not registered in `PROJECT_ROOMS_STATUS.md`
+- **D1** `Substrate_Inventory_and_Closeout_Automation` — card checked 2026-05-26 (83d ago, threshold 14d)
+- **D2** `Substrate_Inventory_and_Closeout_Automation/CURRENT_STATE.md` — modified 2026-08-11 (77d after card checked 2026-05-26)
+- **D2** `Substrate_Inventory_and_Closeout_Automation/NEXT_ACTION.md` — modified 2026-08-11 (77d after card checked 2026-05-26)
+- **D4** `Substrate_Inventory_and_Closeout_Automation` — not registered in `PROJECT_ROOMS_STATUS.md`
+- **D1** `Substrate_Origin_Story` — card checked 2026-05-26 (83d ago, threshold 14d)
+- **D2** `Substrate_Origin_Story/CURRENT_STATE.md` — modified 2026-08-11 (77d after card checked 2026-05-26)
+- **D4** `Substrate_Origin_Story` — not registered in `PROJECT_ROOMS_STATUS.md`
+- **D1** `System_Maintenance` — card checked 2026-07-02 (46d ago, threshold 14d)
+- **D2** `System_Maintenance/CURRENT_STATE.md` — modified 2026-08-11 (40d after card checked 2026-07-02)
+- **D2** `System_Maintenance/NEXT_ACTION.md` — modified 2026-08-08 (37d after card checked 2026-07-02)
+- **D4** `System_Maintenance` — not registered in `PROJECT_ROOMS_STATUS.md`
+- **D1** `System_State_Briefing` — card checked 2026-05-28 (81d ago, threshold 14d)
+- **D2** `System_State_Briefing/CURRENT_STATE.md` — modified 2026-08-11 (75d after card checked 2026-05-28)
+- **D4** `System_State_Briefing` — not registered in `PROJECT_ROOMS_STATUS.md`
+- **D4** `Work_Notes_Decision_Intake` — not registered in `PROJECT_ROOMS_STATUS.md`
+- **D4** `Workspace_Icon_System` — not registered in `PROJECT_ROOMS_STATUS.md`
+
+## Finding codes
+
+| Code | Meaning |
+|---|---|
+| D1 | Card-checked date is stale (older than threshold) |
+| D2 | Room file modified significantly after card-checked date |
+| D3 | Missing `CURRENT_STATE.md` or missing `Card checked:` date |
+| D4 | Room not registered in `PROJECT_ROOMS_STATUS.md` |
+| D5 | Dashboard references a directory that doesn't exist |
+
+To stop or manage this job, send me a new message (e.g. "stop reminder project-room-health-check").

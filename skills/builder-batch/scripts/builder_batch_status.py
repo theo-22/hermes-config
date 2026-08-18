@@ -13,8 +13,8 @@ from pathlib import Path
 from typing import Any
 
 STATUS_URL = "http://localhost:5555/api/gpt-status"
-BATCH_PATH = Path("/Volumes/Extra/Substrate/Operations/Builder_Update_Batch.md")
-RECEIPT_ROOT = Path("/Volumes/Extra/Substrate/Operations/reports/GPT_Builder_Receipts")
+BATCH_PATH = Path("/Users/ted/Operations/Builder_Update_Batch.md")
+RECEIPT_ROOT = Path("/Users/ted/Operations/reports/GPT_Builder_Receipts")
 
 STATUS_RE = re.compile(r"^\s*(?:[-*]\s*)?\*\*Status:\*\*\s*(.+?)\s*$", re.IGNORECASE)
 HEADING_RE = re.compile(r"^#{2,4}\s+(.+?)\s*$")

@@ -128,8 +128,8 @@ checkpoints:
   max_file_size_mb: 10
   auto_prune: true
   retention_days: 7
-  delete_orphans: true
   min_interval_hours: 24
+  delete_orphans: true
 file_read_max_chars: 100000
 mcp_discovery_timeout: 1.5
 tool_output:
@@ -157,17 +157,6 @@ compression:
   abort_on_summary_failure: false
   codex_gpt55_autoraise: true
   in_place: false
-kanban:
-  dispatch_in_gateway: true
-  dispatch_interval_seconds: 60
-  failure_limit: 2
-  worker_log_rotate_bytes: 2097152
-  worker_log_backup_count: 1
-  orchestrator_profile: ''
-  default_assignee: ''
-  auto_decompose: true
-  auto_decompose_per_tick: 3
-  dispatch_stale_timeout_seconds: 14400
 prompt_caching:
   cache_ttl: 5m
 openrouter:
@@ -301,6 +290,7 @@ display:
   show_reasoning: false
   reasoning_full: false
   memory_notifications: 'on'
+  background_process_notifications: all
   streaming: true
   timestamps: false
   final_response_markdown: strip
@@ -343,7 +333,6 @@ display:
     render_mode: auto
     scale: 0.33
     unicode_cols: 0
-  background_process_notifications: all
   busy_ack_detail: true
   cleanup_progress: false
   long_running_notifications: true
@@ -583,6 +572,17 @@ cron:
   wrap_response: true
   mirror_delivery: false
   output_retention: 50
+kanban:
+  dispatch_in_gateway: true
+  dispatch_interval_seconds: 60
+  failure_limit: 2
+  worker_log_rotate_bytes: 2097152
+  worker_log_backup_count: 1
+  orchestrator_profile: ''
+  default_assignee: ''
+  auto_decompose: true
+  auto_decompose_per_tick: 3
+  dispatch_stale_timeout_seconds: 14400
 code_execution:
   mode: project
   max_tool_calls: 50

@@ -86,7 +86,7 @@ This rule exists because unverified preservation claims have caused real losses.
 
 Compute the current full pasted-file length and the post-edit projected length. Ted's current paste convention includes the HTML `<!-- ... -->` frontmatter stamped at the top, so count it.
 
-The Claude PreToolUse hook (`/Users/ted/.claude/hooks/check_gpt_instructions_routing.py`) enforces this automatically for Claude edits. The shell/Codex-side guardrail (`/Users/ted/Operations/scripts/check_gpt_instruction_budgets.py`, included in `/Users/ted/Operations/scripts/check_gpt_builder_guardrails.py`) checks active instruction files outside Claude. Any edit path that would push the file over 8000 chars and increase length should be blocked or corrected before Builder paste. Edits that reduce length are always allowed (so trim work is never blocked even when the file is over).
+The Claude PreToolUse hook (`/Users/ted/.claude/hooks/check_gpt_instructions_routing.py`) enforces this automatically for Claude edits. The shell/Codex-side guardrail (`/Volumes/Extra/Substrate/Operations/scripts/check_gpt_instruction_budgets.py`, included in `/Volumes/Extra/Substrate/Operations/scripts/check_gpt_builder_guardrails.py`) checks active instruction files outside Claude. Any edit path that would push the file over 8000 chars and increase length should be blocked or corrected before Builder paste. Edits that reduce length are always allowed (so trim work is never blocked even when the file is over).
 
 The hook also surfaces the routing reminder on every Instructions edit. This is structural enforcement of Step 1 — the question can't be skipped.
 
@@ -143,7 +143,7 @@ Keep the output compact and operational.
 
 ## Update-Surfacing Backstop
 
-If platform limits change (currently: 8000 chars for ChatGPT Custom GPT Instructions; 300 chars for OpenAPI action descriptions), verify against live platform behavior and update this skill in the same pass. The Claude PreToolUse hook (`/Users/ted/.claude/hooks/check_gpt_instructions_routing.py`) and the shell/Codex budget checker (`/Users/ted/Operations/scripts/check_gpt_instruction_budgets.py`) hard-code the 8000 limit — update all three together so they don't drift.
+If platform limits change (currently: 8000 chars for ChatGPT Custom GPT Instructions; 300 chars for OpenAPI action descriptions), verify against live platform behavior and update this skill in the same pass. The Claude PreToolUse hook (`/Users/ted/.claude/hooks/check_gpt_instructions_routing.py`) and the shell/Codex budget checker (`/Volumes/Extra/Substrate/Operations/scripts/check_gpt_instruction_budgets.py`) hard-code the 8000 limit — update all three together so they don't drift.
 
 If a new GPT-related instruction-bearing surface appears (e.g., a new system-context layer file), add it to "The two homes" section.
 

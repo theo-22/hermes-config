@@ -21,8 +21,8 @@ Use this skill when the problem is multi-layered:
 - live verification
 
 Read these shared references first:
-- [/Users/ted/_shared/GPT_Build_Patterns.md](/Users/ted/_shared/GPT_Build_Patterns.md)
-- [/Users/ted/_shared/GPT_Session_Playbooks.md](/Users/ted/_shared/GPT_Session_Playbooks.md)
+- [/Volumes/Extra/Substrate/_shared/GPT_Build_Patterns.md](/Volumes/Extra/Substrate/_shared/GPT_Build_Patterns.md)
+- [/Volumes/Extra/Substrate/_shared/GPT_Session_Playbooks.md](/Volumes/Extra/Substrate/_shared/GPT_Session_Playbooks.md)
 
 Treat those files as the running doctrine for known Builder limits, route/proxy failure modes, and repeatable session methods.
 
@@ -54,7 +54,7 @@ Durable domain GPTs are `specialist`; recurring operational functions are
 domain, responsibility, service, or experimental question—not a personality or
 current model. Record function, expertise, tools, evidence rules, authority,
 interaction mode, and model separately. Follow
-`/Users/ted/_shared/Human_Attention_Routing.md`.
+`/Volumes/Extra/Substrate/_shared/Human_Attention_Routing.md`.
 
 2. Define the desired workflow.
 Do not start from the current limitation. Name the workflow Ted actually wants.
@@ -174,8 +174,8 @@ This skill stays current when ChatGPT Builder, OpenAI Builder, or any other GPT-
 
 If live build or repair work exposes a platform component not named here, or shows that an existing component behaves differently than this skill assumes (for example Builder limits, knowledge-file behavior, or schema refresh behavior):
 
-- check `/Users/ted/_shared/GPT_Build_Patterns.md`
-- check `/Users/ted/_shared/GPT_Session_Playbooks.md`
+- check `/Volumes/Extra/Substrate/_shared/GPT_Build_Patterns.md`
+- check `/Volumes/Extra/Substrate/_shared/GPT_Session_Playbooks.md`
 - update this skill when the new behavior is durable enough to recur across more than one GPT session
 
 `skills-review` is the periodic backstop. Per-use drift during real GPT build work is the main one.

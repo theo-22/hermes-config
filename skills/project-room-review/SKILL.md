@@ -34,7 +34,7 @@ Read only the target room and directly named supporting surfaces.
 7. `04_Working_Model.md`, if present
 8. recent entries from `05_Planning_Log.md`, if present
 9. any room-local files named by `NEXT_ACTION.md` or Ted
-10. `/Users/ted/Projects/PROJECT_ROOMS_STATUS.md` or Control Project Rooms API only as overview/dashboard context
+10. `/Volumes/Extra/Substrate/Operations/Project_Rooms/PROJECT_ROOMS_STATUS.md` or Control Project Rooms API only as overview/dashboard context
 
 If expected room files are missing, report a room-health flag. Do not invent contents.
 
@@ -90,7 +90,7 @@ When reviewing a room, distinguish honest blockers from pre-deferring language. 
 
 ## Digest Topic Index Check
 
-During every Project Room review, do a light conditional check of `/Users/ted/Operations/reports/Digest_Topic_Index/LATEST.md` after the room-local files are understood. Use it only when it helps the room: the room names an external/current topic, long-running watch, research need, platform/provider/service/tool issue, clinical/policy topic, or a parked future revisit trigger. If a matching topic page exists, include the useful hit count or "zero hits" in the Room Review card under `Review requests` or `Suggested next move`. If no matching topic exists but the room clearly has a durable watch topic, suggest adding a custom profile to `/Users/ted/Operations/config/digest_topic_profiles.json`; do not add one unless Ted routes that write. Do not treat index hits as authority or implementation authorization, and do not force the check for rooms whose next action is purely local cleanup, closeout, or known-file editing.
+During every Project Room review, do a light conditional check of `/Volumes/Extra/Substrate/Operations/reports/Digest_Topic_Index/LATEST.md` after the room-local files are understood. Use it only when it helps the room: the room names an external/current topic, long-running watch, research need, platform/provider/service/tool issue, clinical/policy topic, or a parked future revisit trigger. If a matching topic page exists, include the useful hit count or "zero hits" in the Room Review card under `Review requests` or `Suggested next move`. If no matching topic exists but the room clearly has a durable watch topic, suggest adding a custom profile to `/Volumes/Extra/Substrate/Operations/config/digest_topic_profiles.json`; do not add one unless Ted routes that write. Do not treat index hits as authority or implementation authorization, and do not force the check for rooms whose next action is purely local cleanup, closeout, or known-file editing.
 
 ## v1-Readiness
 

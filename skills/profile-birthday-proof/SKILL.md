@@ -51,8 +51,8 @@ Editable mirror:
 
 Coordinator-readable proof:
 /Users/ted/Coordinator/Inbox/
-/Users/ted/Operations/Hermes_Handoff/
-/Users/ted/Operations/CHANGES_LOG.md
+/Volumes/Extra/Substrate/Operations/Hermes_Handoff/
+/Volumes/Extra/Substrate/Operations/CHANGES_LOG.md
 ```
 
 Do not let the profile treat an editable mirror as runtime truth unless Ted explicitly says the mirror is the runtime for this test.
@@ -81,7 +81,7 @@ Keep it brief and profile-shaped.
 For Hermes profiles, use a Coordinator-readable path such as:
 
 ```text
-/Users/ted/Operations/Hermes_Handoff/<Profile>_Session_Start_YYYY-MM-DD.md
+/Volumes/Extra/Substrate/Operations/Hermes_Handoff/<Profile>_Session_Start_YYYY-MM-DD.md
 ```
 
 The artifact should include:
@@ -145,7 +145,7 @@ Use a compact status phrase:
 Do not call it green when path correction, communication setup, or config cleanup remains.
 
 8. **Write CHANGES_LOG for durable profile changes.**
-If the birthday changed durable system state, profile behavior, memory, runtime wiring, or role status, append to `/Users/ted/Operations/CHANGES_LOG.md`.
+If the birthday changed durable system state, profile behavior, memory, runtime wiring, or role status, append to `/Volumes/Extra/Substrate/Operations/CHANGES_LOG.md`.
 
 Include:
 

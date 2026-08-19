@@ -51,7 +51,7 @@ The factory guarantees, for every caller, the same poka-yoke:
   `mutating` (bounded reversible changes, preserves originals). The SOUL's
   disciplines flex to match.
 - the shared human-attention contract at
-  `/Users/ted/_shared/Human_Attention_Routing.md`; workers submit a validated
+  `/Volumes/Extra/Substrate/_shared/Human_Attention_Routing.md`; workers submit a validated
   Planner request instead of creating Calendar, Reminders, or duplicate inbox
   projections themselves.
 

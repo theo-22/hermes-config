@@ -11,7 +11,7 @@ fast_pick: "yes"
 
 Use this skill to prevent role-runtime conversions from becoming packet-only or over-contained. A role needs enough owned workspace to work well, but formal outputs still belong on their owning surfaces.
 
-Read `/Users/ted/_shared/Role_Runtime_Workspace_Sufficiency.md` when applying this skill.
+Read `/Volumes/Extra/Substrate/_shared/Role_Runtime_Workspace_Sufficiency.md` when applying this skill.
 
 ## When to use
 

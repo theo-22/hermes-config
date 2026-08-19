@@ -26,7 +26,7 @@ If the helper is unavailable, read the surfaces directly:
 curl -s "http://localhost:5555/api/gpt-status" 2>/dev/null | python3 -m json.tool | head -40
 
 # Accumulated batch queue
-cat /Users/ted/Operations/Builder_Update_Batch.md
+cat /Volumes/Extra/Substrate/Operations/Builder_Update_Batch.md
 ```
 
 Read the prerequisite skills — they carry per-GPT execution discipline and must be consulted before making per-GPT decisions:
@@ -46,7 +46,7 @@ Use `scripts/builder_batch_status.py --pending` during this step when a concise 
 **2. Run guardrails before any paste.**
 
 ```bash
-/Users/ted/Operations/scripts/check_gpt_builder_guardrails.py
+/Volumes/Extra/Substrate/Operations/scripts/check_gpt_builder_guardrails.py
 ```
 
 Fix flagged issues before continuing. Instruction budget warnings for Image Factory, CoCM, and Workspace Icon System are persistent known issues — do not add Instructions prose during a batch pass. If the guardrails script is unavailable, read `_shared/GPT_Build_Standards.md` and apply its checks manually.

@@ -34,7 +34,7 @@ divergence rather than the whole role contract.
 
 Start from the routed work order, orchestration record, Project Room, or named
 authority file. Before implementing a proposal, apply
-`/Users/ted/_shared/Proposal_Provenance_Policy.md`.
+`/Volumes/Extra/Substrate/_shared/Proposal_Provenance_Policy.md`.
 
 Read only the directly relevant sources:
 
@@ -45,9 +45,9 @@ Read only the directly relevant sources:
 - current MCP/server mechanics and focused tests;
 - helper-profile continuity and recurring outputs;
 - relevant shared doctrine:
-  - `/Users/ted/_shared/Role_Runtime_Workspace_Sufficiency.md`
-  - `/Users/ted/_shared/Role_Runtime_Workspace_Template.md`
-  - `/Users/ted/_shared/Scope_Comparison_Protocol.md`
+  - `/Volumes/Extra/Substrate/_shared/Role_Runtime_Workspace_Sufficiency.md`
+  - `/Volumes/Extra/Substrate/_shared/Role_Runtime_Workspace_Template.md`
+  - `/Volumes/Extra/Substrate/_shared/Scope_Comparison_Protocol.md`
 
 Treat memory, Pieces, tool descriptions, and old migration labels as leads only.
 

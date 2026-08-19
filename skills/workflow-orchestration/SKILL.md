@@ -37,7 +37,7 @@ Use one of two modes.
 
 **Stage new or revised lane** — Ted wants current project work, a discussion, a decision point, or a local artifact turned into a bounded session-chain lane, wants a prior chain plan revised because context changed, or wants a small ordered install sequence for a Project Room. Staging/revision creates or updates the chain surface and conductor row; it does not execute the chain unless Ted separately routes execution.
 
-If Ted has not named a lane, read `/Users/ted/Operations/session_chains/00_START_HERE.md` and present a compact menu of chain names grouped by topic:
+If Ted has not named a lane, read `/Volumes/Extra/Substrate/Operations/session_chains/00_START_HERE.md` and present a compact menu of chain names grouped by topic:
 - include Ted-routable QuickSave chains;
 - include ready-only-with-specific-context chains separately;
 - include completed-since-refresh only as reference, not selectable work;
@@ -48,7 +48,7 @@ Stop and ask Ted to choose one lane unless exactly one lane is clearly routed by
 ### Run Existing Lane
 
 1. Read your runtime's session-start surface and run its startup checks (see Runtime Notes).
-2. Read `/Users/ted/Operations/session_chains/CONDUCTOR.md`, `/Users/ted/Operations/session_chains/SURFACE_RESERVATIONS.md`, and `/Users/ted/Operations/session_chains/SEQUENCE_GATES.md`.
+2. Read `/Volumes/Extra/Substrate/Operations/session_chains/CONDUCTOR.md`, `/Volumes/Extra/Substrate/Operations/session_chains/SURFACE_RESERVATIONS.md`, and `/Volumes/Extra/Substrate/Operations/session_chains/SEQUENCE_GATES.md`.
 3. Select exactly one `active`, `staged`, `ready`, or explicitly routed chain. If more than one is plausible and Ted did not name one, choose the safest currently routed lane and state why.
 4. Read only that chain file and directly named proof/source files.
 5. Before edits, state:
@@ -62,8 +62,8 @@ Stop and ask Ted to choose one lane unless exactly one lane is clearly routed by
    - stop condition.
 6. If the chain may write shared files, acquire one typed checkout per exact file through `POST /api/file-checkouts/acquire`, set `session` to the current session id and `work_ref` to the selected chain id, and retain the returned claim ids for closeout. Read `/Volumes/Extra/Substrate/Operations/session_chains/SURFACE_RESERVATIONS.md` as the generated projection; do not hand-edit it to create authority. Generic non-file state may still use a narrow DB claim. Shared state includes conductor/status/start files, `CHANGES_LOG.md`, QuickSave receipts, `PROJECT_ROOMS_STATUS.md`, room-local `CURRENT_STATE.md` / `NEXT_ACTION.md`, DB work-item boards, and other active status or closeout ledgers.
 7. Execute only the selected lane. Park adjacent work instead of widening. If the lane discovers it needs a surface reserved by another chain, or an undeclared shared surface, record the finding and leave the write for the owning chain or a coordinator reconciliation pass. If the lane discovers that a future lane must wait for proof, record or update a sequence gate in `SEQUENCE_GATES.md` while the context is fresh; do not turn the gated future lane into runnable work.
-8. Write the required completion report under `/Users/ted/Operations/reports/TODO_Session_Completions/`.
-9. Run `/Users/ted/Operations/scripts/todo_session_completion_check.py <completion-report-path>` when the chain is TODO/session-chain derived.
+8. Write the required completion report under `/Volumes/Extra/Substrate/Operations/reports/TODO_Session_Completions/`.
+9. Run `/Volumes/Extra/Substrate/Operations/scripts/todo_session_completion_check.py <completion-report-path>` when the chain is TODO/session-chain derived.
 10. If this lane opened typed checkouts, pass every owned claim id plus the actor/session/chain reference to QuickSave so the set closes atomically as `released`, `parked`, or `coordinator_handoff`. Do not close another chain's checkout.
 11. Append and validate a QuickSave receipt with `/Volumes/Extra/Substrate/Operations/scripts/quicksave_closeout_receipt.py append ...` and `check`; the append itself uses a guarded ledger checkout and records the task-checkout terminal states.
 12. Stop after reporting:
@@ -80,8 +80,8 @@ Stop and ask Ted to choose one lane unless exactly one lane is clearly routed by
 Use this mode only when Ted explicitly wants the current work turned into a chain, wants a prior chain plan revised, or wants a few planned installs lined up for a room. Do not use it just because a project has possible next steps.
 
 1. Read your runtime's session-start surface and run its startup checks (see Runtime Notes).
-2. Read `/Users/ted/Operations/session_chains/CONDUCTOR.md`, `/Users/ted/Operations/session_chains/00_START_HERE.md`, `/Users/ted/Operations/session_chains/SURFACE_RESERVATIONS.md`, `/Users/ted/Operations/session_chains/SEQUENCE_GATES.md`, and any owner surface Ted named for the current work.
-3. Before creating new chain rules, categories, templates, or reusable process language, check existing homes first: `/Users/ted/_shared/WHEN_TO_READ.md`, directly routed `_shared` docs, relevant existing skills, and the owner room's `CURRENT_STATE.md` / `NEXT_ACTION.md` / `README.md`. Reuse or link existing doctrine when it covers the shape; add only the chain-specific procedure needed for this lane.
+2. Read `/Volumes/Extra/Substrate/Operations/session_chains/CONDUCTOR.md`, `/Volumes/Extra/Substrate/Operations/session_chains/00_START_HERE.md`, `/Volumes/Extra/Substrate/Operations/session_chains/SURFACE_RESERVATIONS.md`, `/Volumes/Extra/Substrate/Operations/session_chains/SEQUENCE_GATES.md`, and any owner surface Ted named for the current work.
+3. Before creating new chain rules, categories, templates, or reusable process language, check existing homes first: `/Volumes/Extra/Substrate/_shared/WHEN_TO_READ.md`, directly routed `_shared` docs, relevant existing skills, and the owner room's `CURRENT_STATE.md` / `NEXT_ACTION.md` / `README.md`. Reuse or link existing doctrine when it covers the shape; add only the chain-specific procedure needed for this lane.
 4. Define exactly one new or revised chain with:
    - chain name;
    - chain type: bounded execution, guided decision, or adaptive stewardship/scout;
@@ -101,11 +101,11 @@ Use this mode only when Ted explicitly wants the current work turned into a chai
    - every conductor row with overlapping allowed write surfaces;
    - every chain file directly referenced by those rows.
    Compare dependency order, owner surface, allowed writes, exclusions, stop condition, trigger/start condition, and closeout requirement. Repair the conflict if it is inside the staged/revised chain scope; otherwise record the conflict and mark the affected chain `needs_restage` or waiting for Ted/owner-surface review.
-8. If the staged or revised sequence has a future lane blocked by proof, add or update exactly one sequence gate in `/Users/ted/Operations/session_chains/SEQUENCE_GATES.md`. The gate must name the blocked lane, proof required, allowed prover, unlock action, failure path, protected surfaces, and viability review trigger. Do not use `ready` as a gate state; gates advance by proof or viability review.
+8. If the staged or revised sequence has a future lane blocked by proof, add or update exactly one sequence gate in `/Volumes/Extra/Substrate/Operations/session_chains/SEQUENCE_GATES.md`. The gate must name the blocked lane, proof required, allowed prover, unlock action, failure path, protected surfaces, and viability review trigger. Do not use `ready` as a gate state; gates advance by proof or viability review.
 9. If the chain would touch protected runtime, security, clinical implementation, finance, Builder/schema, automation, startup/session-end, or DB mutation surfaces, stage it as planning/review only unless Ted explicitly authorized those writes.
-10. Write one chain file under `/Users/ted/Operations/session_chains/` using the existing chain-file style, or revise the existing chain file if the work is already staged. Keep it runnable by a future worker without requiring broad context.
-11. Add or revise exactly one row in `/Users/ted/Operations/session_chains/CONDUCTOR.md` with state `staged`, `waiting`, `condition-triggered`, or `parked` as appropriate. Do not mark it ready if it still needs Ted input or an external trigger.
-12. Update `/Users/ted/Operations/session_chains/00_START_HERE.md` only if the new chain should appear in the launch menu. If it is protected, blocked, or future-triggered, place it under the right non-ready section.
+10. Write one chain file under `/Volumes/Extra/Substrate/Operations/session_chains/` using the existing chain-file style, or revise the existing chain file if the work is already staged. Keep it runnable by a future worker without requiring broad context.
+11. Add or revise exactly one row in `/Volumes/Extra/Substrate/Operations/session_chains/CONDUCTOR.md` with state `staged`, `waiting`, `condition-triggered`, or `parked` as appropriate. Do not mark it ready if it still needs Ted input or an external trigger.
+12. Update `/Volumes/Extra/Substrate/Operations/session_chains/00_START_HERE.md` only if the new chain should appear in the launch menu. If it is protected, blocked, or future-triggered, place it under the right non-ready section.
 13. If shared files are edited, use typed file checkouts with the staged/revised chain id as `work_ref`, the same way as an execution lane. The reservations document is only the generated view.
 14. Write a compact staging note or completion report when needed to make the intake durable.
 15. Append and validate a QuickSave receipt if this staging closes or rewrites a real source item; otherwise report `Source item: none` only when no source item existed.
@@ -126,8 +126,8 @@ Use this mode only when Ted explicitly wants the current work turned into a chai
 
 The canonical procedure above is runtime-agnostic (generalized 2026-07-12 — it previously hardcoded Codex's startup). Only the session-start read differs by actor:
 
-- **Claude Code / Sonnet:** read `/Users/ted/Operations/SESSION_START.md`.
-- **Codex:** read `/Users/ted/Operations/CODEX_SESSION_START.md`.
+- **Claude Code / Sonnet:** read `/Volumes/Extra/Substrate/Operations/SESSION_START.md`.
+- **Codex:** read `/Volumes/Extra/Substrate/Operations/CODEX_SESSION_START.md`.
 - **Other runtimes:** read that actor's own session-start; if none exists, run the universal `Canon/SESSION_SIDECAR.md` steps.
 
 Reservation mechanics: shared-surface reservations are now DB-backed via `claims.py` surface-grain claims (System 14 Ch15). `SURFACE_RESERVATIONS.md` is an auto-generated *view* of live claims — do not hand-edit it to reserve; take a surface-grain claim (e.g. `/api/claims/claim` with `grain=surface`, `target=<abs path>`) and release it at closeout. The steps below that say "reserve in `SURFACE_RESERVATIONS.md`" mean this.

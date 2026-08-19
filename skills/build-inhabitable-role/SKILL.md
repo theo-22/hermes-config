@@ -27,7 +27,7 @@ Compose:
    than forcing it into a role. Name it for domain or responsibility, never for
    personality, provider, or current model. Record function, expertise, tools,
    evidence standard, authority, interaction mode, and model separately. Use
-   `/Users/ted/_shared/Human_Attention_Routing.md` as the shared contract.
+   `/Volumes/Extra/Substrate/_shared/Human_Attention_Routing.md` as the shared contract.
 
 2. **Let identity become specific enough.**
    Capture the role's mission, job, non-job, evidence rules, and natural work. Do not force a generic role shell onto a still-forming conversation.

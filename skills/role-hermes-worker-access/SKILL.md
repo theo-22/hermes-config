@@ -28,8 +28,8 @@ Do not expose generic `dispatch_worker` to a role unless the role is intentional
 
 1. **Read authority surfaces first**
    - Role packet under `/Volumes/Extra/Substrate/<Role>/...` or `/Volumes/Extra/Substrate/Roles/...`
-   - `/Users/ted/Projects/Role_Runtime_Architecture/ROLE_LAUNCH_REGISTRY.md`
-   - `/Users/ted/Projects/Role_Runtime_Architecture/CHATGPT_PROJECT_INSTRUCTIONS.md`
+   - `/Volumes/Extra/Substrate/Roles/Role_Runtime_Architecture/ROLE_LAUNCH_REGISTRY.md`
+   - `/Volumes/Extra/Substrate/Roles/Role_Runtime_Architecture/CHATGPT_PROJECT_INSTRUCTIONS.md`
    - `/Users/ted/Control/mcp/server.py`
    - Any `_shared` doc triggered by the role domain, especially access, Project Room/Home governance, or worker orchestration.
 
@@ -71,7 +71,7 @@ Do not expose generic `dispatch_worker` to a role unless the role is intentional
    - Restart the MCP bridge and confirm `http://127.0.0.1:5600/sse` returns the expected OAuth/401 boundary.
 
 7. **Route proof**
-   - Write a receipt under `/Users/ted/Operations/reports/<Role_or_Domain>/`.
+   - Write a receipt under `/Volumes/Extra/Substrate/Operations/reports/<Role_or_Domain>/`.
    - If another actor needs to verify, write a targeted `_AI_Inbox` handoff.
    - Archive or update the source inbox packet.
    - Update CHANGES_LOG/session event only for durable runtime changes.
@@ -111,9 +111,9 @@ Key files:
 
 - `/Users/ted/Control/mcp/server.py`
 - `/Volumes/Extra/Substrate/Homes_Manager/Homes_Manager_Packet.md`
-- `/Users/ted/Projects/Role_Runtime_Architecture/ROLE_LAUNCH_REGISTRY.md`
-- `/Users/ted/Projects/Role_Runtime_Architecture/CHATGPT_PROJECT_INSTRUCTIONS.md`
-- `/Users/ted/Operations/reports/Homes_Manager/2026-07-14_HOMES_MANAGER_BOUNDED_OPERATING_AUTHORITY_RECEIPT.md`
+- `/Volumes/Extra/Substrate/Roles/Role_Runtime_Architecture/ROLE_LAUNCH_REGISTRY.md`
+- `/Volumes/Extra/Substrate/Roles/Role_Runtime_Architecture/CHATGPT_PROJECT_INSTRUCTIONS.md`
+- `/Volumes/Extra/Substrate/Operations/reports/Homes_Manager/2026-07-14_HOMES_MANAGER_BOUNDED_OPERATING_AUTHORITY_RECEIPT.md`
 
 Homes Manager is an exception case because it needs broad Home/Room management authority. Most future roles should get narrower fences.
 

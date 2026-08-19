@@ -20,7 +20,7 @@ Use this simple user-facing split:
 - **QuickSave:** one contained task, already finished or intentionally paused, where the next actor only needs a clean saved state.
 - **Full session-end:** broad session, multiple workstreams, shared skills, Project Rooms, commits/pushes, cross-AI handoff, architecture/startup changes, or any situation where future continuity would be unclear without a sweep.
 
-Ted should not need to choose among actor-local closeout files. In a Codex window, full session-end means `/Users/ted/Operations/Codex_Handoff/SESSION_END.md`. In a Claude Code window, full session-end means `/Users/ted/Operations/SESSION_END.md`. Legacy routers are fallback mechanics, not the normal decision surface.
+Ted should not need to choose among actor-local closeout files. In a Codex window, full session-end means `/Volumes/Extra/Substrate/Operations/Codex_Handoff/SESSION_END.md`. In a Claude Code window, full session-end means `/Volumes/Extra/Substrate/Operations/SESSION_END.md`. Legacy routers are fallback mechanics, not the normal decision surface.
 
 ## Use When
 
@@ -131,7 +131,7 @@ If a next action exists but needs a policy choice, write the next-session prompt
 Before the final response, append and validate a machine-readable closeout row when the work came from a TODO, orchestration-chain item, Project Room next action, or other durable source item:
 
 ```bash
-/Users/ted/Operations/scripts/quicksave_closeout_receipt.py append \
+/Volumes/Extra/Substrate/Operations/scripts/quicksave_closeout_receipt.py append \
   --actor "codex_worker|codex_coordinator|claude_code_worker|claude_code_coordinator" \
   --task "<bounded task>" \
   --quicksave "done|not done" \
@@ -143,7 +143,7 @@ Before the final response, append and validate a machine-readable closeout row w
   --chain-ref "<chain/work reference, when any>" \
   --checkout-id "<claim id; repeat for each owned checkout>" \
   --next-session-prompt "needed|not needed"
-/Users/ted/Operations/scripts/quicksave_closeout_receipt.py check
+/Volumes/Extra/Substrate/Operations/scripts/quicksave_closeout_receipt.py check
 ```
 
 Before appending, check whether `--proof-path` is a strong proof surface for this task. A history log can support the receipt, but if the task closed several items or rewrote a source queue, the receipt should point at the focused report, archived packet, generated receipt, or owner file that shows the closure directly.
@@ -190,7 +190,7 @@ If the work was only a local note, draft, or no-op verification, skip CHANGES_LO
 
 If session-end requirements, repo boundaries, or continuity surfaces change, update this skill in the same pass. Check:
 
-- `/Users/ted/Operations/Codex_Handoff/SESSION_END.md`
-- `/Users/ted/Operations/SESSION_END.md` when CC parity matters
+- `/Volumes/Extra/Substrate/Operations/Codex_Handoff/SESSION_END.md`
+- `/Volumes/Extra/Substrate/Operations/SESSION_END.md` when CC parity matters
 - `/Volumes/Extra/Substrate/Operations/Workspace_Orientation/REPO_WORKSPACE_MAP.md`
-- `/Users/ted/Operations/CHANGES_LOG.md` for current entry style
+- `/Volumes/Extra/Substrate/Operations/CHANGES_LOG.md` for current entry style

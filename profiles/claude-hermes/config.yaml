@@ -1,8 +1,6 @@
 model:
-  default: anthropic/claude-opus-4-8
-  provider: manifest-claude
-  base_url: https://app.manifest.build/v1
-  api_key: [REDACTED]
+  default: deepseek-v4-pro
+  provider: deepseek
 providers:
   deepseek:
     api_key: [REDACTED]

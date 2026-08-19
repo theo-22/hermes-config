@@ -44,14 +44,6 @@ web:
   backend: ''
   search_backend: ''
   extract_backend: ''
-browser:
-  inactivity_timeout: 180
-  command_timeout: 45
-  record_sessions: false
-  allow_private_urls: true
-  engine: none
-  dialog_policy: must_respond
-  dialog_timeout_s: 300
 checkpoints:
   enabled: true
   max_snapshots: 10
@@ -232,7 +224,7 @@ gateway:
   trust_recent_files_seconds: 600
   api_server:
     max_concurrent_runs: 10
-    enabled: true
+    enabled: false
     port: 8644
 streaming:
   enabled: true
@@ -271,7 +263,6 @@ _config_version: 33
 group_sessions_per_user: true
 platform_toolsets:
   cli:
-    - browser
     - clarify
     - code_execution
     - cronjob
@@ -288,3 +279,6 @@ session_reset:
   at_hour: 4
   idle_minutes: 1440
   mode: both
+platforms:
+  api_server:
+    enabled: false

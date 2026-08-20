@@ -47,10 +47,10 @@ Live profile runtime:
 /Users/ted/.hermes/profiles/<profile>/memories/MEMORY.md
 
 Editable mirror:
-/Users/ted/Coordinator/Working/<profile>-profile-edit/
+/Volumes/Extra/Substrate/Coordinator/Working/<profile>-profile-edit/
 
 Coordinator-readable proof:
-/Users/ted/Coordinator/Inbox/
+/Volumes/Extra/Substrate/Coordinator/Inbox/
 /Volumes/Extra/Substrate/Operations/Hermes_Handoff/
 /Volumes/Extra/Substrate/Operations/CHANGES_LOG.md
 ```
@@ -100,7 +100,7 @@ The artifact should include:
 For Coordinator-readable proof, use:
 
 ```text
-/Users/ted/Coordinator/Inbox/<profile>_birth_proof.md
+/Volumes/Extra/Substrate/Coordinator/Inbox/<profile>_birth_proof.md
 ```
 
 The proof note should be short: one-line awake summary, preflight status, and path to the session-start artifact.
@@ -121,7 +121,7 @@ If the profile read from the wrong path, overreached, missed a file, or misrepor
 Use a path like:
 
 ```text
-/Users/ted/Coordinator/Inbox/<profile>_birth_path_check.md
+/Volumes/Extra/Substrate/Coordinator/Inbox/<profile>_birth_path_check.md
 ```
 
 Correction note must include:

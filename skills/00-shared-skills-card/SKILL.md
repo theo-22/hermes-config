@@ -11,7 +11,7 @@ fast_pick: "no"
 
 Use this skill as a lightweight entrypoint to Ted's shared skills.
 
-Read [/Users/ted/Skills/SKILL_INDEX.md](/Users/ted/Skills/SKILL_INDEX.md) and use it as the source of truth for the quick routing index.
+Read [/Volumes/Extra/Substrate/Skills/SKILL_INDEX.md](/Volumes/Extra/Substrate/Skills/SKILL_INDEX.md) and use it as the source of truth for the quick routing index.
 
 ## Workflow
 

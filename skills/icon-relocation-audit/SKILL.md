@@ -67,10 +67,10 @@ done
 ### 2. Check all icon families for stale paths
 
 ```bash
-for f in /Users/ted/IconSystem/Icon_Families/*/apply_family_icons.zsh; do
+for f in /Volumes/Extra/Substrate/IconSystem/Icon_Families/*/apply_family_icons.zsh; do
   family=$(basename "$(dirname "$f")")
   echo "=== $family ==="
-  grep -n '/Users/ted/Commands\|/Users/ted/Homes_Manager\|/Users/ted/Learning_System\|/Users/ted/Transition' "$f" 2>/dev/null || echo "  (no stale paths)"
+  grep -n '/Volumes/Extra/Substrate/Commands\|/Users/ted/Homes_Manager\|/Volumes/Extra/Substrate/Learning_System\|/Volumes/Extra/Substrate/Transition' "$f" 2>/dev/null || echo "  (no stale paths)"
 done
 ```
 
@@ -82,7 +82,7 @@ Search for the actual relocated roots (Commands, Homes_Manager, Learning_System,
 
 ```
 REAL_CMD_ROOT="/Volumes/Extra/Substrate/Commands"
-ALIAS_CMD_ROOT="/Users/ted/Commands"
+ALIAS_CMD_ROOT="/Volumes/Extra/Substrate/Commands"
 ```
 
 ### 4. Update Metallic_Glow or other families
@@ -109,14 +109,14 @@ Each family script maps icon PNGs to targets via `add()` calls. For relocated ro
 ### 5. Backup
 
 ```bash
-cp /Users/ted/IconSystem/Icon_Families/<Family>/apply_family_icons.zsh \
-   /Users/ted/IconSystem/Icon_Families/<Family>/apply_family_icons.zsh.bak.$(date +%Y-%m-%d)
+cp /Volumes/Extra/Substrate/IconSystem/Icon_Families/<Family>/apply_family_icons.zsh \
+   /Volumes/Extra/Substrate/IconSystem/Icon_Families/<Family>/apply_family_icons.zsh.bak.$(date +%Y-%m-%d)
 ```
 
 ### 6. Dry-run
 
 ```bash
-zsh /Users/ted/IconSystem/Icon_Families/<Family>/apply_family_icons.zsh
+zsh /Volumes/Extra/Substrate/IconSystem/Icon_Families/<Family>/apply_family_icons.zsh
 ```
 
 (Default mode is dry-run. Use `--dry-run` explicitly if supported, otherwise no-args is dry-run.)
@@ -124,7 +124,7 @@ zsh /Users/ted/IconSystem/Icon_Families/<Family>/apply_family_icons.zsh
 ### 7. Apply
 
 ```bash
-zsh /Users/ted/IconSystem/Icon_Families/<Family>/apply_family_icons.zsh --apply
+zsh /Volumes/Extra/Substrate/IconSystem/Icon_Families/<Family>/apply_family_icons.zsh --apply
 ```
 
 ### 8. Write receipt to _AI_Inbox
@@ -156,5 +156,5 @@ Include: files inspected, files changed, backups, dry-run results, apply results
 - **Do NOT treat every Extra path as a relocation.** Operations, Control, Canon, and Projects exist as SEPARATE directories at both paths with different contents. They are NOT relocations — they are the runtime/authority roots that stay at `~/` per migration docs.
 - **Do NOT remap Project Rooms.** The migration docs explicitly say "/Users/ted/Projects remain current authority until explicit cutover."
 - **Do NOT assume the apply script supports `--dry-run`.** Read the script's help/usage section. Some default to dry-run (no-flag = dry), others default to apply and need `--dry-run`.
-- **Symlinked targets resolve through the symlink.** Applying an icon to `/Users/ted/Commands` (a symlink) puts the icon on the symlink itself, not on the real directory at Extra. That's fine for Finder navigation through `~/`. The dual-path approach ensures the Extra real path also gets the icon for when Ted browses there directly.
+- **Symlinked targets resolve through the symlink.** Applying an icon to `/Volumes/Extra/Substrate/Commands` (a symlink) puts the icon on the symlink itself, not on the real directory at Extra. That's fine for Finder navigation through `~/`. The dual-path approach ensures the Extra real path also gets the icon for when Ted browses there directly.
 - **Alias files (macOS .alias) don't work the same as symlinks.** `file /Users/ted/WORKSPACE_MAP` shows "MacOS Alias file" — these may not resolve through the same mechanism. Treat aliases differently from symlinks (check per case).

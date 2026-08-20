@@ -69,5 +69,5 @@ Purpose: keep a small, repeatable queue for skills that may benefit the whole gr
 
 ## Already Checked
 
-- `/Users/ted/Skills/poka-yoke/PROPOSED_DELTAS.md` has no current unapplied pending deltas as of this review.
+- `/Volumes/Extra/Substrate/Skills/poka-yoke/PROPOSED_DELTAS.md` has no current unapplied pending deltas as of this review.
 - Hermes has many app/library skills; this queue intentionally lists only the candidates that appeared plausibly useful to the group.

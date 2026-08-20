@@ -6,10 +6,10 @@ providers:
   deepseek:
     api_key: [REDACTED]
 toolsets:
-  - hermes-cli
+- hermes-cli
 max_live_sessions: 4
 agent:
-  max_turns: 40
+  max_turns: 80
   gateway_timeout: 1200
   restart_drain_timeout: 180
   api_max_retries: 3
@@ -165,7 +165,8 @@ goals:
   max_turns: 20
 skills:
   external_dirs:
-    - /Users/ted/Skills
+  - /Users/ted/Skills
+
   template_vars: true
   inline_shell: false
   inline_shell_timeout: 10
@@ -186,7 +187,7 @@ curator:
     keep: 5
 timezone: America/New_York
 command_allowlist:
-  - delete in root path
+- delete in root path
 cron:
   provider: ''
   wrap_response: true
@@ -263,18 +264,18 @@ _config_version: 33
 group_sessions_per_user: true
 platform_toolsets:
   cli:
-    - clarify
-    - code_execution
-    - cronjob
-    - delegation
-    - file
-    - memory
-    - session_search
-    - skills
-    - terminal
-    - todo
-    - vision
-    - web
+  - clarify
+  - code_execution
+  - cronjob
+  - delegation
+  - file
+  - memory
+  - session_search
+  - skills
+  - terminal
+  - todo
+  - vision
+  - web
 session_reset:
   at_hour: 4
   idle_minutes: 1440
@@ -282,3 +283,10 @@ session_reset:
 platforms:
   api_server:
     enabled: false
+mcp_servers:
+  open-brain:
+    connect_timeout: 60
+    timeout: 60
+    transport: http
+    url: "https://wgaigjtcwobmanjwerei.supabase.co/functions/v1/open-brain-mcp?key=SeZa4B78mJhf7jej0dQnANby6fX_rPm8a9ePo3A0wyE"
+fallback_providers: '[{"model": "nvidia/nemotron-3-ultra-550b-a55b:free", "provider": "openrouter"}]'

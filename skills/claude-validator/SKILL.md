@@ -41,14 +41,14 @@ Hermes (any profile) ──→ Claude Code ──→ Back to Hermes
 
 ## Checking for Claude's Response
 
-**At ordinary session start — not a special phrase, just part of starting up.** Ted's model: session start already means "check the inbox and handle what's there." No need for him to say "check your mail" specifically; an inbox check belongs in every session's normal opening, the same way Claude Code's `_AI_Inbox` check happens at every one of its sessions regardless of what Ted said to start it. Look in `/Users/ted/_AI_Inbox/` for `response_<your-profile>_assessment_from_claude_<date>.md`. If one exists:
+**At ordinary session start — not a special phrase, just part of starting up.** Ted's model: session start already means "check the inbox and handle what's there." No need for him to say "check your mail" specifically; an inbox check belongs in every session's normal opening, the same way Claude Code's `_AI_Inbox` check happens at every one of its sessions regardless of what Ted said to start it. Look in `/Volumes/Extra/Substrate/_AI_Inbox/` for `response_<your-profile>_assessment_from_claude_<date>.md`. If one exists:
 1. Read it and run the "Expected Response Format" processing below (Summary / Agreements / Surprises / Action Items / Learning).
 2. Actually apply at least one Action Item this session, not just log it — that's the "learns to produce higher quality work" half of the loop.
 3. Move the request/response pair out of your unprocessed queue (note it as read in your own memory/continuity, so you don't reprocess the same feedback twice). Claude Code archives its side automatically; you don't need to touch `_AI_Inbox/Archived/`.
 
 ## Template: Assessment Request
 
-Copy this structure when sending to Claude. Place it in `/Users/ted/_AI_Inbox/` (not `Codex_Inbox/` — that's Codex's queue, not Claude Code's) with a descriptive filename. Claude Code checks `_AI_Inbox/` at every session start and processes any file titled "Claude Validator Request" autonomously — no need for Ted to relay it.
+Copy this structure when sending to Claude. Place it in `/Volumes/Extra/Substrate/_AI_Inbox/` (not `Codex_Inbox/` — that's Codex's queue, not Claude Code's) with a descriptive filename. Claude Code checks `_AI_Inbox/` at every session start and processes any file titled "Claude Validator Request" autonomously — no need for Ted to relay it.
 
 ```markdown
 # Claude Validator Request — {Profile Name} — {Date}

@@ -54,8 +54,8 @@ If the item is deep content (analysis, proposal text, findings): file first, dat
 For proposal packets, the authoritative intake home is often an inbox surface because those are reviewed at session start.
 
 Default owner rule:
-- Codex-owned or Codex-implemented packet -> `/Users/ted/Codex_Inbox/` + `addWorkItem` with source_surface
-- Claude Code-owned, Canon-affecting, shared-infrastructure, or cross-system packet -> `/Users/ted/_AI_Inbox/` + `addWorkItem`
+- Codex-owned or Codex-implemented packet -> `/Volumes/Extra/Substrate/Codex_Inbox/` + `addWorkItem` with source_surface
+- Claude Code-owned, Canon-affecting, shared-infrastructure, or cross-system packet -> `/Volumes/Extra/Substrate/_AI_Inbox/` + `addWorkItem`
 - GA-owned GPT-layer architecture or reconciliation packet -> `/Users/ted/GPT_Architect/Reconciliations/` (GA writes its own; CC or Codex deliver companion-change packets to `_AI_Inbox/` or `Codex_Inbox/` for out-of-scope work per Plan §3.G)
 - Mid-stream briefing to GA -> `/Users/ted/GPT_Architect/Briefings/` (CC or Ted writes; GA reads at session start)
 - If ownership is already settled on the active surface and Ted wants direct implementation, inbox intake may be skipped
@@ -105,8 +105,8 @@ Not every routing action triggers cleanup. Cleanup applies when material has def
 - `work_items` table — proposals, tasks, notes with state tracking across all inboxes
 
 **File surfaces (deep content):**
-- `/Users/ted/Codex_Inbox/` for Codex-owned proposal-packet intake and session-start pickup
-- `/Users/ted/_AI_Inbox/` for Claude Code-owned, Canon-affecting, or cross-system proposal-packet intake
+- `/Volumes/Extra/Substrate/Codex_Inbox/` for Codex-owned proposal-packet intake and session-start pickup
+- `/Volumes/Extra/Substrate/_AI_Inbox/` for Claude Code-owned, Canon-affecting, or cross-system proposal-packet intake
 - `Learning_System/concepts/` for preserved method observations
 - `Planning/Seeds.md` for resurfacing emerging ideas
 - `Planning/PLANNING_INDEX.md` when a new planning artifact should become visible

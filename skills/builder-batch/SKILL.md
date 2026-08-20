@@ -16,7 +16,7 @@ Run the accumulated GPT Builder update queue as a single coordinated pass. The g
 Read both context surfaces. For Codex or Claude Code, prefer the bundled helper because it performs the repeatable queue/status read the same way every time:
 
 ```bash
-/Users/ted/Skills/builder-batch/scripts/builder_batch_status.py
+/Volumes/Extra/Substrate/Skills/builder-batch/scripts/builder_batch_status.py
 ```
 
 If the helper is unavailable, read the surfaces directly:

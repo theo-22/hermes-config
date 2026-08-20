@@ -58,8 +58,8 @@ If a destination is explicit, use it. If not, suggest one and mark it as a sugge
 When the packet is meant to be picked up in later sessions, route it to the inbox surface of the likely implementing or receiving AI rather than treating Planning as the first home.
 
 Default pattern:
-- Codex-owned or Codex-implemented work -> `/Users/ted/Codex_Inbox/`
-- Claude Code-owned, Canon-affecting, shared-infrastructure, or cross-system implementation work -> `/Users/ted/_AI_Inbox/`
+- Codex-owned or Codex-implemented work -> `/Volumes/Extra/Substrate/Codex_Inbox/`
+- Claude Code-owned, Canon-affecting, shared-infrastructure, or cross-system implementation work -> `/Volumes/Extra/Substrate/_AI_Inbox/`
 - If Ted has already authorized immediate implementation on the active surface, a packet may still be written for tracking, but inbox intake is not required first.
 
 Planning can track the proposal after intake, but inbox is the default pickup surface unless ownership is already settled on the active surface.

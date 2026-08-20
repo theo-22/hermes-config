@@ -33,7 +33,7 @@ After the live session, distill what you learned:
 - **Design constraints** — "human in the loop on checkout"
 
 ### Phase 3: Capture as a Shared Skill
-Write a skill document at `/Users/ted/Skills/<name>/SKILL.md` that any actor can load:
+Write a skill document at `/Volumes/Extra/Substrate/Skills/<name>/SKILL.md` that any actor can load:
 
 - Prerequisites (CDP browser, Python deps, login state)
 - Step-by-step navigation patterns
@@ -61,7 +61,7 @@ Write a handoff to `_AI_Inbox/` for Claude Code or other actors to build the inf
 
 1. **Human in the loop** — The last click is always Ted's. Never auto-submit orders, payments, or critical actions.
 2. **Learn by doing** — Real data and real sites reveal patterns you can't plan for.
-3. **Share early** — Put skills in `/Users/ted/Skills/` so any actor (Hermes, Claude Code, Codex, ChatGPT) can pick them up.
+3. **Share early** — Put skills in `/Volumes/Extra/Substrate/Skills/` so any actor (Hermes, Claude Code, Codex, ChatGPT) can pick them up.
 4. **Cheap automation first** — `no_agent` scripts before agent crons. Free before paid.
 5. **Evidence over planning** — A working example from a live session is worth more than a perfect plan.
 

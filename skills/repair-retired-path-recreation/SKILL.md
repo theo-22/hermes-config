@@ -64,6 +64,8 @@ Classify each match:
 
 Check for dual-copy drift explicitly: tracked versus installed, global versus profile-local, source versus published, and shared skill versus cloned profile skill.
 
+For basename-only scheduler jobs, do not infer the selected file from the job row. Enumerate every resolution tier the runtime can use (for example, global scripts plus default-profile and named-profile copies), record hashes and output roots, and correlate the scheduled timestamp with every resulting artifact. A null or omitted profile field does not prove that only the global copy runs; sync or wrapper logic may select or execute a profile-local copy too.
+
 ### 4. Claim and repair the full live chain
 
 Claim shared targets before mutation. Change the smallest complete chain: authoritative source, installed consumer, enabled job prompt or command, shared/published skill or launcher, and mechanically cloned revivable copies when leaving them stale would recreate the fault later.
@@ -104,6 +106,8 @@ Use `verify-real-invocation-path` and require paired evidence:
 
 - positive: the installed scheduler, service, launcher, or application writes or opens the canonical path;
 - negative: the retired root remains absent during and after the invocation.
+
+Also check known wrong secondary destinations after the invocation. A run is not accepted merely because the canonical artifact appears if another installed copy simultaneously writes the retired root or a registry/archive tree. When several copies are expected to remain installable, compile them, compare their destination constants, and run the exact scheduler-selected copy after the retired root has been moved aside.
 
 Prefer a bounded no-agent job, dry-run, harmless browser launch, or read-only service probe. Do not trigger shopping, financial, messaging, or other consequential actions solely for proof.
 

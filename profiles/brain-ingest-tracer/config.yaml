@@ -534,7 +534,7 @@ hooks:
   pre_llm_call:
   - command: python3 /Users/ted/Control/claude/hooks/hermes_pre_llm_call_memory_recall.py
     timeout: 10
-  - command: python3 /Users/ted/Operations/scripts/userprompt_behavior_authority_signal.py --actor hermes
+  - command: python3 /Volumes/Extra/Substrate/Operations/scripts/userprompt_behavior_authority_signal.py --actor hermes
     timeout: 10
 hooks_auto_accept: true
 security:

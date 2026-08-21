@@ -54,6 +54,10 @@ The substrate has historically walled actors off from each other — no direct A
 6. **Verifier confirms from ground truth** — the fault's signature is gone (WAL cleared, 0 leaked handles, commit present, no new errors, latency normal), not just that the Fixer said "done."
 7. **The real-world acceptance signal beats any local test** — the human doing the thing that was broken and it working (e.g. the connector refreshing fast again).
 
+## Conditional playbooks
+
+- When an MCP role loses connector reachability after a reboot and Tailscale Serve/Funnel is in the path, read [references/tailscale_mcp_reboot_recovery.md](references/tailscale_mcp_reboot_recovery.md). It separates local service health, tailnet readiness, published-route state, public exposure, and affected-role acceptance.
+
 ## Failure Modes
 
 - **Handing off a first guess as a verdict.** Step 3 exists because this is the highest-cost failure — it sends the Fixer into the wrong layer.
@@ -74,6 +78,8 @@ The substrate has historically walled actors off from each other — no direct A
 ## Proven Instance (evidence for promotion)
 
 2026-07-18: Orchestrator (ChatGPT) reported "discovery works, tool execution hangs ~300s." Claude Code diagnosed from server-side ground truth, *self-corrected* a first SSE-transport guess to `system.db` SQLite lock contention (audit-log writes blocking on the busy_timeout), routed a corrected `_AI_Inbox` note to Codex. Codex repaired the connection leak (Control commit `0763d740`), Claude verified from ground truth (WAL gone, 0 handles, sub-second calls), Ted's connector-refresh was the real acceptance signal. Three actors, three lanes, Ted conducting, no crossed streams. See `~/.claude/…/memory/project_2026_07_18_orchestrator_inhabiting_and_mcp_db_contention.md`.
+
+2026-08-20: Orchestrator could not read the MCP Coordination registry after a reboot even though the local MCP service was healthy. Codex traced the fault across the launch wrapper, Tailscale backend state, system extension, Serve/Funnel map, and external HTTPS behavior; repaired retry and single-writer ownership; restored the official Tailscale runtime; and narrowed public exposure rather than restoring the old public dashboard. Ted's successful Orchestrator startup was the affected-role acceptance signal. See the conditional Tailscale/MCP playbook above.
 
 ## Connected doctrine
 - `_shared/CC_Handoff_Protocol.md` — packaging work for CC (the inverse direction).

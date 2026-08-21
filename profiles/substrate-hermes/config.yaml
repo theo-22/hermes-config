@@ -531,18 +531,19 @@ approvals:
   mcp_reload_confirm: true
   destructive_slash_confirm: false
 command_allowlist:
-  - recursive delete
-  - stop/restart hermes gateway (kills running agents)
   - execute_code
-  - overwrite project env/config file
-  - hermes update (restarts gateway, kills running agents)
-  - git force push (rewrites remote history)
-  - stop/restart hermes launchd service (kills running agents)
-  - script execution via heredoc
   - script execution via -e/-c flag
-  - overwrite system file via redirection
+  - command parser limit or malformed executable payload
+  - stop/restart hermes launchd service (kills running agents)
   - overwrite project env/config via redirection
+  - hermes update (restarts gateway, kills running agents)
+  - recursive delete
+  - overwrite project env/config file
   - delete in root path
+  - git force push (rewrites remote history)
+  - overwrite system file via redirection
+  - script execution via heredoc
+  - stop/restart hermes gateway (kills running agents)
 hooks:
   pre_llm_call:
     - command: python3 /Users/ted/Control/claude/hooks/hermes_pre_llm_call_memory_recall.py

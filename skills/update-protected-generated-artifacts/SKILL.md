@@ -33,11 +33,15 @@ Read the routed task and the source generator first. Trace the actual regenerati
 
 Verify repo roots and dirty state for every target before editing. Classify existing changes as task-owned or unrelated; preserve and leave unrelated changes unstaged.
 
+Also enumerate the installed writers for that graph and the exact coordination identity each one acquires. Concrete path/object checkouts and symbolic surface claims (for example, a generic map-regeneration target) may share one database while remaining separate collision domains. Do not assume they interoperate merely because both are called claims or appear in the same status view.
+
 ### 2. Acquire protection before the first write
 
 Inspect the live checkout/claim surface. Acquire one typed file checkout for the source and each generated target, using the same actor, session, purpose, and work reference.
 
 Stop if any acquisition reports a collision, a different holder, an unresolved alias/object identity, or a target outside the routed scope. Do not infer ownership from an empty generic claim list when a stronger typed checkout surface exists.
+
+For every installed writer found in step 1, prove that its coordination target collides with the acquired file/object identities. If a writer uses a separate symbolic or generic target, either acquire the compatible target as well, use an installed bridge that makes the two identities mutually exclusive, or treat that writer as unexcluded. A typed checkout is not exclusive against a writer whose claim cannot collide with it.
 
 Immediately run the deterministic checkout preflight before editing:
 
@@ -57,7 +61,12 @@ Edit the source generator, registry, template, or schema. Do not hand-edit gener
 
 If the runtime can use a guarded-write operation for the source, use it. If the runtime's editor writes directly while holding a checkout, label the evidence honestly: the checkout proves cooperative exclusion, while atomic stale-write enforcement was not exercised for that write.
 
-Before running a direct-writing generator, rerun `checkouts` for the generated targets only. This catches external target mutation since acquisition without treating the intentional source edit as stale.
+Before running a direct-writing generator, rerun `checkouts` for the generated targets only. This catches external target mutation since acquisition without treating the intentional source edit as stale. This check remains mandatory even when every checkout is active, because a writer in a separate coordination namespace may still have changed the outputs.
+
+If an output drifted after checkout acquisition, stop before overwriting it. Use claim audit, regeneration receipts, diffs, and hashes to identify the writer and classify the result:
+
+- If it is a complete, sanctioned, parity-consistent regeneration, adopt it as the new baseline only after releasing the stale output checkouts and reacquiring them against the new hashes.
+- If it is partial, unknown, or inconsistent, do not regenerate over it; reconcile or route the conflict first.
 
 ### 4. Run the sanctioned regeneration path
 
@@ -106,6 +115,7 @@ Write a receipt that records:
 - authority/source task;
 - source and generated targets;
 - checkout/claim ids and final states;
+- installed writer coordination targets, their collision/bridge result, and any cross-namespace writer event;
 - regeneration command and result;
 - parity hashes;
 - exact consumer specimen and proof;
@@ -121,6 +131,7 @@ Release every checkout as `released`, `parked`, or `coordinator_handoff`. Verify
 Keep these claims distinct:
 
 - **Checkout acquired:** cooperative writers are excluded on the canonical file/object identity.
+- **Coordination compatibility proved:** every installed writer is excluded by that identity, a compatible second claim, or an installed bridge.
 - **Expected state matched:** the file still matched its recorded existence/hash immediately before the write.
 - **Guarded write passed:** the actual write used atomic stale-state enforcement.
 - **Parity passed:** all named generated targets are byte-identical.
@@ -133,6 +144,9 @@ Never upgrade one label into another. In particular, checkout acquisition alone 
 - Protecting only the generator while leaving generated targets unclaimed.
 - Editing a generated artifact directly because it is easier than finding the source.
 - Trusting path strings while aliases or hardlinks identify the same object.
+- Assuming a generic semantic/surface claim collides with typed file checkouts because both use the same claim database.
+- Treating active typed checkouts as exclusive without enumerating installed writers and their exact coordination targets.
+- Overwriting coherent post-checkout drift instead of identifying the writer and reacquiring against the accepted baseline.
 - Running checkout preflight after a direct source edit and misclassifying the intentional change as foreign drift.
 - Regenerating through a proxy command or wrong cwd/interpreter.
 - Calling equal hashes a UI or runtime acceptance test.

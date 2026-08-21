@@ -66,6 +66,9 @@ If the `/` menu is crowded, scan this card first, then search for the exact skil
 - `reconcile-inbox-work-items`
   Use when an `_AI_Inbox` packet represents actionable work or evidence, a stale packet must be proven open/closed, or a work item with an originating packet is completing. Classifies intake, preserves N:M provenance, closes the packet through terminal work state, and verifies reconciliation.
 
+- `reconcile-promoted-findings-work-items`
+  Use when an audit/findings sweep has inflated the live queue by treating undispositioned findings as authorized current work. Identifies the exact promotion cohort, preserves unresolved findings as `known_backlog`, closes only evidence-proven exceptions, applies through a guarded transaction with rollback, retires stale projections, and proves the survivor queue.
+
 - `project-room-review`
   Use when Ted asks to review, resume, orient, discuss, advance, save, or decide the next move for a Project Room. Reads room-local state first, checks v1-readiness, and prepares bounded save or QuickSave-chain handoffs without broadening into implementation.
 
@@ -242,6 +245,7 @@ If the `/` menu is crowded, scan this card first, then search for the exact skil
 - `trace-claim-evidence` = match each assertion to prior evidence before judging or promoting a detector
 - `quick-save` = save a bounded task without full session-end
 - `shape-work-item-sessions` = turn live queue rows and current decisions into bounded future-session contracts
+- `reconcile-promoted-findings-work-items` = withdraw an invalid findings-to-work bulk promotion without losing unresolved findings
 - `route-work-item-ownership` = land an authorized canonical retarget or linked supersession without widening execution authority
 - `workflow-orchestration` = run one conductor-routed work lane
 - `project-room-review` = review a Project Room from live room-local state
@@ -287,6 +291,7 @@ Use this as orientation only; the individual skill trigger still decides whether
 | `proposal-packet` | Synthesis output: shape an already-real proposal for evaluation or handoff |
 | `compile-work-packet` | Execution intake: compile externally authorized intent into a linted and cold-readable contract |
 | `shape-work-item-sessions` | Work intake: reconcile live queue rows with current decisions and make future sessions cold-readable before stronger orchestration or dispatch |
+| `reconcile-promoted-findings-work-items` | Queue repair: withdraw an invalid findings promotion, preserve unresolved evidence, and prove the corrected live survivor set |
 | `route-work-item-ownership` | Queue transition: atomically land a settled owner retarget or linked supersession while preserving authority and history |
 | `synthesis-review` | Cross-pass sensemaking: synthesize accumulated findings or artifacts |
 | `clip-cycle-closer` | Closure: name a completed or near-complete CLiP arc and draft the record |
@@ -458,6 +463,7 @@ If the main need is deciding whether a role may safely dispatch Hermes workers:
 - `register-concept-map-viewer-layer`
 - `repair-capability-truth`
 - `reconcile-inbox-work-items`
+- `reconcile-promoted-findings-work-items`
 - `reconcile-runtime-authority`
 - `repair-retired-path-recreation`
 - `repair-mcp-client-disconnects`

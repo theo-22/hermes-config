@@ -1,6 +1,6 @@
 ---
 name: verify-real-invocation-path
-description: Verify a claimed fix, hook, script, service, launcher, integration, or runtime behavior through the exact path the real consumer uses. Use when tests may have bypassed executable permissions, symlinks, launchers, settings wiring, payload contracts, working-directory or environment selection, service boundaries, installed artifacts, or fresh-client state; when an independent real-client acceptance probe contradicts the implementer's green tests; when a proxy test such as `python script.py`, an in-process call, a health 200, or a warmed session is being offered as proof that production behavior works; or before accepting confident `verified`, `confirmed`, `tested`, `done`, `complete`, or `working correctly` claims.
+description: Verify a claimed fix, hook, script, service, launcher, integration, installed UI action, or runtime behavior through the exact path the real consumer uses. Use when tests may have bypassed executable permissions, symlinks, launchers, settings wiring, payload contracts, working-directory or environment selection, service boundaries, installed artifacts, visible pending/success/error feedback, or fresh-client state; when an independent real-client acceptance probe contradicts the implementer's green tests; when a proxy test such as `python script.py`, an in-process call, a health 200, or a warmed session is being offered as proof that production behavior works; or before accepting confident `verified`, `confirmed`, `tested`, `done`, `complete`, or `working correctly` claims.
 metadata:
   category: judgment-only
   write_mode: none
@@ -85,6 +85,15 @@ For executable or hook claims, compare proxy and real invocations explicitly. Ex
 - warmed conversation versus a genuinely fresh client.
 
 A proxy may remain a useful unit test. It does not prove the installed path.
+
+#### Installed UI actions
+
+When the claim concerns visible pending, success, or error feedback, read
+[references/ui-action-feedback.md](references/ui-action-feedback.md). Use the
+installed browser consumer. If exercising the real failure would require
+stopping a healthy service or otherwise disrupting production, control the
+browser response instead and label the result as rendered-client proof—not
+backend or end-to-end proof.
 
 ### 5. Check the result, not only the command
 
@@ -177,6 +186,7 @@ A `PASS` requires:
 - **success-code fixation** — exit status passes while stdout, durable state, or user-visible consequence is wrong
 - **telemetry ambiguity** — no observations is treated as no defects without proving the detector ran
 - **self-acceptance** — the author defines, runs, and accepts the proof without an independent layer where one is required
+- **mock-overclaim** — a controlled browser response proves client rendering, but is reported as proof that the backend or service performed the action
 
 ## Runtime Notes
 
@@ -191,6 +201,10 @@ Resolve the selected profile home, launcher, model/provider configuration, and e
 ### GPT, browser, or connector runtimes
 
 Use the live Builder/action/connector surface or a genuinely fresh conversation. If direct access is unavailable, route a bounded acceptance request instead of accepting exported schemas or local server tests as client proof.
+
+For installed browser UI actions, use the controlled-response method in
+[references/ui-action-feedback.md](references/ui-action-feedback.md) when a
+safe real action cannot exercise every visible branch.
 
 ## Update Backstop
 

@@ -35,7 +35,7 @@ Start here:
    - **Each spine section** that has a matching chapter — read through sections 6-13 (not just the ones you edited) for stale titles, old model language, or chapter name mismatches.
    - **Stale language patterns** — search for old section titles, outdated model/actor names, chapter status terms at odds with the new state, references to retired entities.
    The refinement pass finding from Project Homes Manager (2026-07-04) is the canonical example: first pass claimed "no stale contradictions" but frontmatter said v0.4/07-02 (update log said v0.5/07-04), Section 6 still used old organizing-layer language, and Section 8 still used old Memory/Pieces/Brain title. All three were in sections the first pass did not edit and did not re-read.
-8. Commit/push the repo and record closeout in `/Users/ted/Operations/CHANGES_LOG.md` if durable state changed.
+8. Commit/push the repo and record closeout in `/Volumes/Extra/Substrate/Operations/CHANGES_LOG.md` if durable state changed.
 
 Do not create a parallel plan or chat-only summary. The plan is the System 14 spine; chapter rooms carry the live detail.
 
@@ -44,7 +44,7 @@ Do not create a parallel plan or chat-only summary. The plan is the System 14 sp
 ### Repo Path
 
 ```
-/Volumes/Extra/Substrate/Projects/Substrate_v14/
+/Volumes/Extra/Substrate/Substrate_v14/
 ```
 
 This is a git repo. Commit and push after updates.
@@ -81,7 +81,7 @@ System 14 is a **release definition** — a set of documented goals the live Sub
    - **Next action** — what to do next (lives in `NEXT_ACTION.md`)
 5. **Verify no stale contradictions** — scan for conflicting dates, statuses, or claims. Use the detailed checklist in Prompt step 7.
 6. **Commit and push** the repo
-7. **Record closeout** in `/Users/ted/Operations/CHANGES_LOG.md` if durable state changed
+7. **Record closeout** in `/Volumes/Extra/Substrate/Operations/CHANGES_LOG.md` if durable state changed
 
 ### Active Chapters (as of 2026-07-12)
 

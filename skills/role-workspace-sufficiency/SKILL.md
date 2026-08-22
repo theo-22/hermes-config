@@ -64,7 +64,7 @@ Use when:
 For AI Monitoring Digest, recommend a generic sandbox as a desk:
 
 ```text
-/Users/ted/AI_Monitoring_Digest/ChatGPT/{continuity,scratch,staged,receipts}
+/Volumes/Extra/Substrate/AI_Monitoring_Digest/ChatGPT/{continuity,scratch,staged,receipts}
 ```
 
 Use it for session continuity, scratch synthesis, staged topic candidates, handoff drafts, live-proof notes, and tool receipts.

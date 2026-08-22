@@ -56,8 +56,8 @@ For proposal packets, the authoritative intake home is often an inbox surface be
 Default owner rule:
 - Codex-owned or Codex-implemented packet -> `/Volumes/Extra/Substrate/Codex_Inbox/` + `addWorkItem` with source_surface
 - Claude Code-owned, Canon-affecting, shared-infrastructure, or cross-system packet -> `/Volumes/Extra/Substrate/_AI_Inbox/` + `addWorkItem`
-- GA-owned GPT-layer architecture or reconciliation packet -> `/Users/ted/GPT_Architect/Reconciliations/` (GA writes its own; CC or Codex deliver companion-change packets to `_AI_Inbox/` or `Codex_Inbox/` for out-of-scope work per Plan §3.G)
-- Mid-stream briefing to GA -> `/Users/ted/GPT_Architect/Briefings/` (CC or Ted writes; GA reads at session start)
+- GA-owned GPT-layer architecture or reconciliation packet -> **[orphaned-ref, 2026-08-22]** this named `/Users/ted/GPT_Architect/Reconciliations/` — that root no longer exists live (only an old snapshot under `Transition/AI_History/exports/`); GA's current live workspace wasn't found this session. Until relocated, route GA-bound packets through `_AI_Inbox/` or `Codex_Inbox/` per the line below.
+- Mid-stream briefing to GA -> **[orphaned-ref, 2026-08-22]** same issue — `/Users/ted/GPT_Architect/Briefings/` no longer exists live; use `_AI_Inbox/` until GA's current home is confirmed.
 - If ownership is already settled on the active surface and Ted wants direct implementation, inbox intake may be skipped
 
 2. Identify the resurfacing surfaces.
@@ -91,7 +91,7 @@ After successful placement, check whether the source surface should be cleared:
 - _AI_Inbox item evaluated and decided → clear the file
 - Coordinator/Inbox/ signal integrated into continuity → remove when fully consumed
 - TODO completed or superseded → remove per TODO lifecycle process
-- GA briefing consumed by GA (evidenced by ACTIVE_INDEX update or reconciliation packet emission referencing it) → clear or move briefing out of `GPT_Architect/Briefings/`
+- GA briefing consumed by GA (evidenced by ACTIVE_INDEX update or reconciliation packet emission referencing it) → clear or move the briefing out of GA's current inbox (see orphaned-ref note above — `GPT_Architect/Briefings/` no longer exists live)
 
 Routing is not just placement — it includes clearing what material came from. A surface that only accumulates and never clears becomes noise. Stale items on active surfaces are a poka-yoke failure: AIs may act on information that was current when captured but has since been superseded. Cleanup keeps surfaces honest.
 

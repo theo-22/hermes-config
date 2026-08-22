@@ -167,8 +167,8 @@ The alternate-transport acceptance extension was proven on 2026-08-13 for Codex 
 For that concrete implementation and its doctrine, consult:
 
 - `/Volumes/Extra/Substrate/_shared/Role_Activation_Capsule.md`
-- `/Volumes/Extra/Substrate/_AI_Inbox/2026-08-09_codex_return_role_activation_opaque_handle_transport_repair.md`
-- `/Volumes/Extra/Substrate/_AI_Inbox/response_codex_builder_missing_handle_alternate_transport_acceptance_2026-08-13.md`
+- `/Volumes/Extra/Substrate/_AI_Inbox/2026-08-09_codex_return_role_activation_opaque_handle_transport_repair.md` (retired in the 2026-08-19 archive rotation; no longer on disk)
+- `/Volumes/Extra/Substrate/_AI_Inbox/response_codex_builder_missing_handle_alternate_transport_acceptance_2026-08-13.md` (retired in the 2026-08-19 archive rotation; no longer on disk)
 
 Treat these as an example, not as permission to copy role-specific names or architecture into another runtime.
 

@@ -222,7 +222,7 @@ Coordinator Stage 1, 2026-07-25:
 
 - authority: `orch_20260725_coordinator_stage1`;
 - canonical return:
-  `/Volumes/Extra/Substrate/_AI_Inbox/2026-07-25_codex_return_coordinator_stage1.md`;
+  `/Volumes/Extra/Substrate/_AI_Inbox/_archive/2026-07-25_codex_return_coordinator_stage1.md` (since archived);
 - canonical role contract:
   `/Volumes/Extra/Substrate/Coordinator/ROLE_CONTRACT.md`;
 - independent verifier claims: `735` and `737`;

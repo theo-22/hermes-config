@@ -49,7 +49,7 @@ If yes to any: either propose the structural mechanism that removes the remember
 A proposal that ships memory-dependent steps without naming them is the same failure mode it is failing to surface. The check is non-optional; the answer "no memory dependence introduced" is fine when true and should be stated.
 
 6. Add self-critique.
-List assumptions, weak spots, and where another AI or Ted might reasonably disagree.
+List assumptions, weak spots, and where another AI or Ted might reasonably disagree. Non-optional, same as the poka-yoke check above (work item #427, 2026-08-19: self-critique/review steps were getting silently dropped from plans with no mechanism catching the omission). A packet with no self-critique section is incomplete, not merely terse — if there is genuinely nothing to critique, state that explicitly rather than omitting the section.
 
 7. Suggest a destination.
 If a destination is explicit, use it. If not, suggest one and mark it as a suggestion rather than a settled fact.

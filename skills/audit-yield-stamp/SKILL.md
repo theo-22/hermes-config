@@ -41,10 +41,10 @@ Identify the target set.
 For Codex or Claude Code, this deterministic search is acceptable:
 ```bash
 # Explicitly Pending-rated — always surface regardless of age
-grep -l "^\*\*Rating:\*\* Pending" /Volumes/Extra/Substrate/Audit/Runs/*.md 2>/dev/null
+grep -l "^\*\*Rating:\*\* Pending" /Users/ted/Projects_GPT/Audit/Runs/*.md 2>/dev/null
 
 # Unstamped case files in last 14 days (older unstamped files are accumulated backlog, not session-fresh)
-find /Volumes/Extra/Substrate/Audit/Runs -maxdepth 1 -type f -name "20??-??-??_*.md" -mtime -14 \
+find /Users/ted/Projects_GPT/Audit/Runs -maxdepth 1 -type f -name "20??-??-??_*.md" -mtime -14 \
   -exec grep -L "^## CC yield rating" {} \; 2>/dev/null
 ```
 
@@ -106,4 +106,4 @@ Before leaving each stamped file:
 
 ## Update-Surfacing Backstop
 
-If the `/Volumes/Extra/Substrate/Audit/Runs/` path changes or if the `## CC yield rating` section convention is updated (e.g., new required fields), this skill needs a corresponding update. Check `Operations/CHANGES_LOG.md` and the `Audit/` README before assuming the format is current.
+If the `Projects_GPT/Audit/Runs/` path changes or if the `## CC yield rating` section convention is updated (e.g., new required fields), this skill needs a corresponding update. Check `Operations/CHANGES_LOG.md` and the `Projects_GPT/Audit/` README before assuming the format is current.

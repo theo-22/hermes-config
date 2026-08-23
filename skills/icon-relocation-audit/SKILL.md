@@ -31,7 +31,7 @@ When a root directory is relocated from `/Users/ted/` to `/Volumes/Extra/Substra
 ## Core doctrine
 
 - **Check, don't assume.** A path at `/Volumes/Extra/Substrate/` is not automatically a relocation of the `~/` version. Verify with `file /Users/ted/<Root>` — if it's a symlink to Extra, it's relocated. If both are real directories with different contents, they are NOT the same root and don't get dual-path.
-- **Project Rooms stay.** `/Users/ted/Projects/` remains authoritative until explicit cutover per migration docs. Do not remap. **[orphaned-ref, 2026-08-22]** `/Users/ted/Projects/` no longer exists on disk at all (confirmed — not even present as a compat alias); this doctrine line is stale. Treat Project Rooms as living under `/Volumes/Extra/Substrate/Commons/<Room>/` until someone confirms the actual current authoritative location.
+- **Project Rooms have moved (confirmed 2026-08-22).** `/Users/ted/Projects/` no longer exists on disk at all. `/Volumes/Extra/Substrate/Commons/<Room>/` is the live, populated, authoritative root — verified directly (`Commons/` contains real Room directories; `~/Projects` resolves to nothing). Icon mapping for this family should target Commons.
 - **Runtime/authority roots stay.** Operations, Control, Canon are not relocated — they're separate copies at Extra for backup/Substrate use.
 - **Backup before edit.** Every apply script you modify gets a `.bak.YYYY-MM-DD` copy.
 - **Dry-run before apply.** Run the family script in dry-run mode first to verify no unexpected missing sources/targets.
@@ -137,7 +137,7 @@ Include: files inspected, files changed, backups, dry-run results, apply results
 |--------|---------|---------------------|-------|
 | Dock_Family | `.command` files in Commands/Workspace | ✅ Already dual-path (Icon System) | Auto-discovers icons, targets both real and alias |
 | Metallic_Glow_Family | Top-level `~/` folders + some nested | ⚠️ Update `add()` → `dual_add()` for each relocated root | Handles Commands, Homes_Manager, Learning_System |
-| Project_Rooms_Industrial_Family | `/Users/ted/Projects/<Room>/` **[orphaned-ref, 2026-08-22: path gone, see note above; likely `/Volumes/Extra/Substrate/Commons/<Room>/` now]** | ❌ Not relocated — leave as-is per migration docs | Project Rooms stay ~/ authority |
+| Project_Rooms_Industrial_Family | `/Volumes/Extra/Substrate/Commons/<Room>/` (confirmed 2026-08-22: cutover complete, `/Users/ted/Projects` no longer exists) | ⚠️ Check whether icon mapping needs updating to the new root | Project Rooms moved to Commons |
 | Gold_Family | Single .command file | Check manually | Rarely touched |
 | IconSystem_Family | Icon system directories | Check manually | Rarely touched |
 | Chromatic_Core_Family | Canon icons | No apply script | Icon files only |
@@ -154,7 +154,7 @@ Include: files inspected, files changed, backups, dry-run results, apply results
 ## Pitfalls
 
 - **Do NOT treat every Extra path as a relocation.** Operations, Control, Canon, and Projects exist as SEPARATE directories at both paths with different contents. They are NOT relocations — they are the runtime/authority roots that stay at `~/` per migration docs.
-- **Do NOT remap Project Rooms.** The migration docs explicitly say "/Users/ted/Projects remain current authority until explicit cutover." **[orphaned-ref, 2026-08-22]** that root is gone now — see note above; the cutover may have already happened without this doc being updated.
+- **Project Rooms cutover is complete (confirmed 2026-08-22).** The migration docs' earlier "leave as-is until explicit cutover" guidance is now stale — `/Users/ted/Projects` no longer exists and `/Volumes/Extra/Substrate/Commons/<Room>/` is the live, populated root. Icon mapping for this family should target Commons, not the old `~/Projects` path.
 - **Do NOT assume the apply script supports `--dry-run`.** Read the script's help/usage section. Some default to dry-run (no-flag = dry), others default to apply and need `--dry-run`.
 - **Symlinked targets resolve through the symlink.** Applying an icon to `/Volumes/Extra/Substrate/Commands` (a symlink) puts the icon on the symlink itself, not on the real directory at Extra. That's fine for Finder navigation through `~/`. The dual-path approach ensures the Extra real path also gets the icon for when Ted browses there directly.
 - **Alias files (macOS .alias) don't work the same as symlinks.** `file /Users/ted/WORKSPACE_MAP` shows "MacOS Alias file" — these may not resolve through the same mechanism. Treat aliases differently from symlinks (check per case).

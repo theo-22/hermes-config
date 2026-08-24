@@ -387,10 +387,10 @@
     {
       "id": "8696f134a086",
       "name": "grocery-receipt-pull-sunday",
-      "prompt": "Grocery Receipt Pull — Sunday Night\n\nYou need to pull grocery receipt data from Harris Teeter and Sam's Club for the past week.\n\nIMPORTANT: Send Ted a message first asking him to make sure the browser is active and logged in to both stores. Say: \"Sunday night grocery pull — make sure you're logged in to Harris Teeter and Sam's Club in the browser, then I'll extract new receipts.\"\n\nAfter notifying Ted, proceed if the session is active.\n\nSteps for Harris Teeter:\n1. Navigate to https://www.harristeeter.com/mypurchases\n2. Check for orders since the last entry in /Volumes/Extra/Substrate/Commons/Substrate_Finance_Planning/27_Grocery_Item_Ledger.md\n3. For each new order, click into the detail page and extract all items\n\nSteps for Sam's Club (PRINT VIEW method - most reliable):\n1. Navigate to https://www.samsclub.com/orders\n2. Check for orders since the last Sam's Club entry in the ledger\n3. For each new order:\n   a. Click \"View details\" button\n   b. Click \"Print receipt\" button (this triggers a print-optimized view with all items visible)\n   c. Extract items from DOM: select `.print-items-list .flex.justify-between` elements\n   d. Parse: name is text before \"Qty\", qty is from \"Qty N\" pattern, price is the last $XX.XX in the text\n4. The print view also shows fees: `.print-fees-item` elements contain \"Pickup FREE\", \"Tax $X.XX\"\n\nAppend all new items to /Volumes/Extra/Substrate/Commons/Substrate_Finance_Planning/27_Grocery_Item_Ledger.md using the existing format:\n|| Date | Store | Receipt | Item raw | Item normalized | Group | Qty | Unit | Paid | Confidence | Notes |\n\nUpdate the reconciliation table at the bottom of the file.\n\nIf no new orders exist, send Ted a message saying \"No new receipts this week.\"",
+      "prompt": "Grocery Receipt Pull — Sunday Night\n\nYou need to pull grocery receipt data from Harris Teeter and Sam's Club for the past week.\n\nIMPORTANT: Send Ted a message first asking him to make sure the browser is active and logged in to both stores. Say: \"Sunday night grocery pull — make sure you're logged in to Harris Teeter and Sam's Club in the browser, then I'll extract new receipts.\"\n\nAfter notifying Ted, proceed if the session is active.\n\nWORK WITHIN YOUR OUTPUT CAP: A full week of grocery receipts can be long. Extract in BATCHES — handle one store at a time and continue across turns rather than trying to emit the whole ledger at once. Never let output truncation drop items.\n\nSteps for Harris Teeter:\n1. Navigate to https://www.harristeeter.com/mypurchases\n2. Check for orders since the last entry in /Volumes/Extra/Substrate/Commons/Substrate_Finance_Planning/27_Grocery_Item_Ledger.md\n3. For each new order, click into the detail page and extract all items\n\nSteps for Sam's Club (PRINT VIEW method - most reliable):\n1. Navigate to https://www.samsclub.com/orders\n2. Check for orders since the last Sam's Club entry in the ledger\n3. For each new order:\n   a. Click \"View details\" button\n   b. Click \"Print receipt\" button (this triggers a print-optimized view with all items visible)\n   c. Extract items from DOM: select .print-items-list .flex.justify-between elements\n   d. Parse: name is text before \"Qty\", qty is from \"Qty N\" pattern, price is the last $XX.XX in the text\n4. The print view also shows fees: .print-fees-item elements contain \"Pickup FREE\", \"Tax $X.XX\"\n\nAppend all new items to /Volumes/Extra/Substrate/Commons/Substrate_Finance_Planning/27_Grocery_Item_Ledger.md using the existing format:\n|| Date | Store | Receipt | Item raw | Item normalized | Group | Qty | Unit | Paid | Confidence | Notes |",
       "skills": [],
       "skill": null,
-      "model": "upstage/solar-pro4",
+      "model": "~deepseek/deepseek-v4-flash-latest",
       "provider": "openrouter",
       "provider_snapshot": null,
       "model_snapshot": null,
@@ -500,24 +500,24 @@
       "schedule_display": "15 */4 * * *",
       "repeat": {
         "times": null,
-        "completed": 316
+        "completed": 317
       },
       "enabled": true,
       "state": "scheduled",
       "paused_at": null,
       "paused_reason": null,
       "created_at": "2026-07-03T00:57:54.447668-04:00",
-      "next_run_at": "2026-08-24T12:15:00-04:00",
-      "last_run_at": "2026-08-24T08:15:45.233382-04:00",
-      "last_status": "error",
-      "last_error": "Script exited with code 1\nstderr:\nTraceback (most recent call last):\n  File \"/Users/ted/.hermes/profiles/substrate-hermes/scripts/hermes_coordination_health.py\", line 11, in <module>\n    SCRIPT = resolve_substrate_path('Operations/scripts/hermes_coordination_health.py')\n             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n  File \"/Users/ted/.hermes/profiles/substrate-hermes/scripts/substrate_root.py\", line 32, in resolve_substrate_path\n    return substrate_root() / relative_path\n           ^^^^^^^^^^^^^^^^\n  File \"/Users/ted/.hermes/profiles/substrate-hermes/scripts/substrate_root.py\", line 18, in substrate_root\n    raise SubstrateRootNotConfigured(\nsubstrate_root.SubstrateRootNotConfigured: SUBSTRATE_ROOT is not set; Hermes paths must be configured per runtime rather than guessed from cwd or a compatibility alias.",
+      "next_run_at": "2026-08-24T16:15:00-04:00",
+      "last_run_at": "2026-08-24T12:15:47.625519-04:00",
+      "last_status": "ok",
+      "last_error": null,
       "last_delivery_error": null,
       "deliver": "local",
       "origin": null,
       "enabled_toolsets": null,
       "workdir": null,
       "fire_claim": null,
-      "failure_streak": 3
+      "failure_streak": 0
     },
     {
       "id": "742f6bb2d68b",
@@ -705,15 +705,15 @@
       "schedule_display": "0 */4 * * *",
       "repeat": {
         "times": null,
-        "completed": 299
+        "completed": 301
       },
       "enabled": true,
       "state": "scheduled",
       "paused_at": null,
       "paused_reason": null,
       "created_at": "2026-07-05T18:09:46.374910-04:00",
-      "next_run_at": "2026-08-24T16:00:00-04:00",
-      "last_run_at": "2026-08-24T08:01:01.429749-04:00",
+      "next_run_at": "2026-08-24T20:00:00-04:00",
+      "last_run_at": "2026-08-24T16:00:13.981005-04:00",
       "last_status": "ok",
       "last_error": null,
       "last_delivery_error": null,
@@ -721,10 +721,7 @@
       "origin": null,
       "enabled_toolsets": null,
       "workdir": null,
-      "fire_claim": {
-        "at": "2026-08-24T12:00:42.274852-04:00",
-        "by": "theos-mini.local:19594:ac42b46560564d6da3961392de5cc060"
-      },
+      "fire_claim": null,
       "failure_streak": 0
     },
     {
@@ -929,15 +926,15 @@
       "schedule_display": "0 */2 * * *",
       "repeat": {
         "times": null,
-        "completed": 569
+        "completed": 571
       },
       "enabled": true,
       "state": "scheduled",
       "paused_at": null,
       "paused_reason": null,
       "created_at": "2026-07-07T21:42:44.416472-04:00",
-      "next_run_at": "2026-08-24T14:00:00-04:00",
-      "last_run_at": "2026-08-24T10:00:06.215477-04:00",
+      "next_run_at": "2026-08-24T18:00:00-04:00",
+      "last_run_at": "2026-08-24T14:00:59.683980-04:00",
       "last_status": "ok",
       "last_error": null,
       "last_delivery_error": null,
@@ -946,8 +943,8 @@
       "enabled_toolsets": null,
       "workdir": null,
       "fire_claim": {
-        "at": "2026-08-24T12:00:42.325252-04:00",
-        "by": "theos-mini.local:19594:774fe01dced24bf38eac1f01ffadbd2a"
+        "at": "2026-08-24T16:00:13.730518-04:00",
+        "by": "theos-mini.local:85258:d28d57e833314393a51191d0aa2cc785"
       },
       "failure_streak": 0
     },
@@ -973,15 +970,15 @@
       "schedule_display": "15 */4 * * *",
       "repeat": {
         "times": null,
-        "completed": 285
+        "completed": 286
       },
       "enabled": true,
       "state": "scheduled",
       "paused_at": null,
       "paused_reason": null,
       "created_at": "2026-07-07T21:42:50.012014-04:00",
-      "next_run_at": "2026-08-24T12:15:00-04:00",
-      "last_run_at": "2026-08-24T08:15:45.312656-04:00",
+      "next_run_at": "2026-08-24T16:15:00-04:00",
+      "last_run_at": "2026-08-24T12:15:44.676223-04:00",
       "last_status": "ok",
       "last_error": null,
       "last_delivery_error": null,
@@ -1178,7 +1175,7 @@
       "schedule_display": "35 0 * * *",
       "repeat": {
         "times": null,
-        "completed": 46
+        "completed": 47
       },
       "enabled": true,
       "state": "scheduled",
@@ -1186,16 +1183,16 @@
       "paused_reason": null,
       "created_at": "2026-07-09T09:53:44.198846-04:00",
       "next_run_at": "2026-08-25T00:35:00-04:00",
-      "last_run_at": "2026-08-24T00:35:23.850093-04:00",
-      "last_status": "error",
-      "last_error": "Script exited with code 1\nstderr:\nTraceback (most recent call last):\n  File \"/Users/ted/.hermes/profiles/substrate-hermes/scripts/cron_health_receipt.py\", line 15, in <module>\n    RECORDS_DIR = resolve_substrate_path('Hermes/Hermes_Operator_Integration/Hermes_Records')\n                  ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n  File \"/Users/ted/.hermes/profiles/substrate-hermes/scripts/substrate_root.py\", line 32, in resolve_substrate_path\n    return substrate_root() / relative_path\n           ^^^^^^^^^^^^^^^^\n  File \"/Users/ted/.hermes/profiles/substrate-hermes/scripts/substrate_root.py\", line 18, in substrate_root\n    raise SubstrateRootNotConfigured(\nsubstrate_root.SubstrateRootNotConfigured: SUBSTRATE_ROOT is not set; Hermes paths must be configured per runtime rather than guessed from cwd or a compatibility alias.",
+      "last_run_at": "2026-08-24T12:27:15.450350-04:00",
+      "last_status": "ok",
+      "last_error": null,
       "last_delivery_error": null,
       "deliver": "origin",
       "origin": null,
       "enabled_toolsets": null,
       "workdir": null,
       "fire_claim": null,
-      "failure_streak": 1
+      "failure_streak": 0
     },
     {
       "id": "73a18d9da9c2",
@@ -1219,7 +1216,7 @@
       "schedule_display": "0 6 * * *",
       "repeat": {
         "times": null,
-        "completed": 46
+        "completed": 47
       },
       "enabled": true,
       "state": "scheduled",
@@ -1227,16 +1224,16 @@
       "paused_reason": null,
       "created_at": "2026-07-09T09:53:45.218648-04:00",
       "next_run_at": "2026-08-25T06:00:00-04:00",
-      "last_run_at": "2026-08-24T06:00:32.539574-04:00",
-      "last_status": "error",
-      "last_error": "Script exited with code 1\nstderr:\nTraceback (most recent call last):\n  File \"/Users/ted/.hermes/profiles/substrate-hermes/scripts/proactive_repair.py\", line 26, in <module>\n    REPORT_DIR = resolve_substrate_path('Hermes/Hermes_Operator_Integration/Hermes_Records')\n                 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n  File \"/Users/ted/.hermes/profiles/substrate-hermes/scripts/substrate_root.py\", line 32, in resolve_substrate_path\n    return substrate_root() / relative_path\n           ^^^^^^^^^^^^^^^^\n  File \"/Users/ted/.hermes/profiles/substrate-hermes/scripts/substrate_root.py\", line 18, in substrate_root\n    raise SubstrateRootNotConfigured(\nsubstrate_root.SubstrateRootNotConfigured: SUBSTRATE_ROOT is not set; Hermes paths must be configured per runtime rather than guessed from cwd or a compatibility alias.",
+      "last_run_at": "2026-08-24T12:27:22.693148-04:00",
+      "last_status": "ok",
+      "last_error": null,
       "last_delivery_error": null,
       "deliver": "origin",
       "origin": null,
       "enabled_toolsets": null,
       "workdir": null,
       "fire_claim": null,
-      "failure_streak": 1
+      "failure_streak": 0
     },
     {
       "id": "55ab417ae5ca",
@@ -1260,7 +1257,7 @@
       "schedule_display": "30 8 * * *",
       "repeat": {
         "times": null,
-        "completed": 46
+        "completed": 47
       },
       "enabled": true,
       "state": "scheduled",
@@ -1268,16 +1265,16 @@
       "paused_reason": null,
       "created_at": "2026-07-09T09:53:46.240993-04:00",
       "next_run_at": "2026-08-25T08:30:00-04:00",
-      "last_run_at": "2026-08-24T08:30:46.806635-04:00",
-      "last_status": "error",
-      "last_error": "Script exited with code 1\nstderr:\nTraceback (most recent call last):\n  File \"/Users/ted/.hermes/profiles/substrate-hermes/scripts/morning_digest.py\", line 25, in <module>\n    OUTPUT = resolve_substrate_path('Operations/Substrate_Morning.md')\n             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n  File \"/Users/ted/.hermes/profiles/substrate-hermes/scripts/substrate_root.py\", line 32, in resolve_substrate_path\n    return substrate_root() / relative_path\n           ^^^^^^^^^^^^^^^^\n  File \"/Users/ted/.hermes/profiles/substrate-hermes/scripts/substrate_root.py\", line 18, in substrate_root\n    raise SubstrateRootNotConfigured(\nsubstrate_root.SubstrateRootNotConfigured: SUBSTRATE_ROOT is not set; Hermes paths must be configured per runtime rather than guessed from cwd or a compatibility alias.",
+      "last_run_at": "2026-08-24T12:27:23.343158-04:00",
+      "last_status": "ok",
+      "last_error": null,
       "last_delivery_error": null,
       "deliver": "origin",
       "origin": null,
       "enabled_toolsets": null,
       "workdir": null,
       "fire_claim": null,
-      "failure_streak": 1
+      "failure_streak": 0
     },
     {
       "id": "ad2b6a13c7bb",
@@ -1301,15 +1298,15 @@
       "schedule_display": "0 */4 * * *",
       "repeat": {
         "times": null,
-        "completed": 277
+        "completed": 278
       },
       "enabled": true,
       "state": "scheduled",
       "paused_at": null,
       "paused_reason": null,
       "created_at": "2026-07-09T09:53:47.258465-04:00",
-      "next_run_at": "2026-08-24T16:00:00-04:00",
-      "last_run_at": "2026-08-24T12:00:42.623091-04:00",
+      "next_run_at": "2026-08-24T20:00:00-04:00",
+      "last_run_at": "2026-08-24T16:00:13.930968-04:00",
       "last_status": "ok",
       "last_error": null,
       "last_delivery_error": null,
@@ -1506,15 +1503,15 @@
       "schedule_display": "0 */4 * * *",
       "repeat": {
         "times": null,
-        "completed": 276
+        "completed": 277
       },
       "enabled": true,
       "state": "scheduled",
       "paused_at": null,
       "paused_reason": null,
       "created_at": "2026-07-09T09:53:58.682054-04:00",
-      "next_run_at": "2026-08-24T16:00:00-04:00",
-      "last_run_at": "2026-08-24T08:01:04.071920-04:00",
+      "next_run_at": "2026-08-24T20:00:00-04:00",
+      "last_run_at": "2026-08-24T12:00:49.167091-04:00",
       "last_status": "ok",
       "last_error": null,
       "last_delivery_error": null,
@@ -1523,8 +1520,8 @@
       "enabled_toolsets": null,
       "workdir": null,
       "fire_claim": {
-        "at": "2026-08-24T12:00:42.427433-04:00",
-        "by": "theos-mini.local:19594:4411661ded0243f1877abe95402d0247"
+        "at": "2026-08-24T16:00:13.815356-04:00",
+        "by": "theos-mini.local:85258:4c9d3911150a4e35914dc7b02dcd078f"
       },
       "failure_streak": 0
     },
@@ -1550,15 +1547,15 @@
       "schedule_display": "*/20 * * * *",
       "repeat": {
         "times": null,
-        "completed": 3284
+        "completed": 3296
       },
       "enabled": true,
       "state": "scheduled",
       "paused_at": null,
       "paused_reason": null,
       "created_at": "2026-07-09T09:53:59.696632-04:00",
-      "next_run_at": "2026-08-24T12:20:00-04:00",
-      "last_run_at": "2026-08-24T12:00:42.615306-04:00",
+      "next_run_at": "2026-08-24T16:20:00-04:00",
+      "last_run_at": "2026-08-24T16:00:13.953868-04:00",
       "last_status": "ok",
       "last_error": null,
       "last_delivery_error": null,
@@ -1755,15 +1752,15 @@
       "schedule_display": "0 */4 * * *",
       "repeat": {
         "times": null,
-        "completed": 264
+        "completed": 265
       },
       "enabled": true,
       "state": "scheduled",
       "paused_at": null,
       "paused_reason": null,
       "created_at": "2026-07-11T16:29:55.461353-04:00",
-      "next_run_at": "2026-08-24T16:00:00-04:00",
-      "last_run_at": "2026-08-24T08:01:57.140909-04:00",
+      "next_run_at": "2026-08-24T20:00:00-04:00",
+      "last_run_at": "2026-08-24T12:00:47.836115-04:00",
       "last_status": "ok",
       "last_error": null,
       "last_delivery_error": null,
@@ -1772,8 +1769,8 @@
       "enabled_toolsets": null,
       "workdir": null,
       "fire_claim": {
-        "at": "2026-08-24T12:00:42.459290-04:00",
-        "by": "theos-mini.local:19594:7e0fece759424c3b8c7e2c173e7ff4e3"
+        "at": "2026-08-24T16:00:13.842812-04:00",
+        "by": "theos-mini.local:85258:8005370e17544cc6a2a8984f89326dfb"
       },
       "failure_streak": 0
     },
@@ -1921,15 +1918,15 @@
       "schedule_display": "every 10m",
       "repeat": {
         "times": null,
-        "completed": 4989
+        "completed": 5012
       },
       "enabled": true,
       "state": "scheduled",
       "paused_at": null,
       "paused_reason": null,
       "created_at": "2026-07-20T16:54:21.440840-04:00",
-      "next_run_at": "2026-08-24T12:09:42.171895-04:00",
-      "last_run_at": "2026-08-24T11:59:42.171895-04:00",
+      "next_run_at": "2026-08-24T16:01:12.440382-04:00",
+      "last_run_at": "2026-08-24T15:51:12.440382-04:00",
       "last_status": "ok",
       "last_error": null,
       "last_delivery_error": null,
@@ -2126,15 +2123,15 @@
       "schedule_display": "0 8,11,14,17,20 * * *",
       "repeat": {
         "times": null,
-        "completed": 148
+        "completed": 149
       },
       "enabled": true,
       "state": "scheduled",
       "paused_at": null,
       "paused_reason": null,
       "created_at": "2026-07-25T17:16:54.732748-04:00",
-      "next_run_at": "2026-08-24T14:00:00-04:00",
-      "last_run_at": "2026-08-24T11:11:26.789202-04:00",
+      "next_run_at": "2026-08-24T17:00:00-04:00",
+      "last_run_at": "2026-08-24T14:19:07.835257-04:00",
       "last_status": "ok",
       "last_error": null,
       "last_delivery_error": null,
@@ -2208,7 +2205,7 @@
       "schedule_display": "0 5 * * *",
       "repeat": {
         "times": null,
-        "completed": 30
+        "completed": 31
       },
       "enabled": true,
       "state": "scheduled",
@@ -2216,16 +2213,16 @@
       "paused_reason": null,
       "created_at": "2026-07-26T18:23:19.847062-04:00",
       "next_run_at": "2026-08-25T05:00:00-04:00",
-      "last_run_at": "2026-08-24T05:00:30.366234-04:00",
-      "last_status": "error",
-      "last_error": "Script exited with code 1\nstderr:\nTraceback (most recent call last):\n  File \"/Users/ted/.hermes/profiles/substrate-hermes/scripts/mrs_freshness_sweep.py\", line 11, in <module>\n    SCRIPT = str(resolve_substrate_path(\"Operations/scripts/mrs_freshness_sweep.py\"))\n                 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n  File \"/Users/ted/.hermes/profiles/substrate-hermes/scripts/substrate_root.py\", line 32, in resolve_substrate_path\n    return substrate_root() / relative_path\n           ^^^^^^^^^^^^^^^^\n  File \"/Users/ted/.hermes/profiles/substrate-hermes/scripts/substrate_root.py\", line 18, in substrate_root\n    raise SubstrateRootNotConfigured(\nsubstrate_root.SubstrateRootNotConfigured: SUBSTRATE_ROOT is not set; Hermes paths must be configured per runtime rather than guessed from cwd or a compatibility alias.",
+      "last_run_at": "2026-08-24T12:27:26.267146-04:00",
+      "last_status": "ok",
+      "last_error": null,
       "last_delivery_error": null,
       "deliver": "origin",
       "origin": null,
       "enabled_toolsets": null,
       "workdir": null,
       "fire_claim": null,
-      "failure_streak": 1
+      "failure_streak": 0
     },
     {
       "id": "af1b1dd296d8",
@@ -2290,7 +2287,7 @@
       "schedule_display": "10 4 * * *",
       "repeat": {
         "times": null,
-        "completed": 23
+        "completed": 24
       },
       "enabled": true,
       "state": "scheduled",
@@ -2298,16 +2295,16 @@
       "paused_reason": null,
       "created_at": "2026-08-02T03:23:49.848359-04:00",
       "next_run_at": "2026-08-25T04:10:00-04:00",
-      "last_run_at": "2026-08-24T04:10:28.715340-04:00",
-      "last_status": "error",
-      "last_error": "Script exited with code 1\nstderr:\n/Users/ted/.hermes/profiles/substrate-hermes/scripts/index_curated_memory.sh: line 14: SUBSTRATE_ROOT: SUBSTRATE_ROOT is required for Hermes path resolution",
+      "last_run_at": "2026-08-24T14:28:20.057483-04:00",
+      "last_status": "ok",
+      "last_error": null,
       "last_delivery_error": null,
       "deliver": "origin",
       "origin": null,
       "enabled_toolsets": null,
       "workdir": null,
       "fire_claim": null,
-      "failure_streak": 1
+      "failure_streak": 0
     },
     {
       "id": "dd414f29c444",
@@ -2331,15 +2328,15 @@
       "schedule_display": "23 * * * *",
       "repeat": {
         "times": null,
-        "completed": 172
+        "completed": 176
       },
       "enabled": true,
       "state": "scheduled",
       "paused_at": null,
       "paused_reason": null,
       "created_at": "2026-08-02T11:04:27.256761-04:00",
-      "next_run_at": "2026-08-24T12:23:00-04:00",
-      "last_run_at": "2026-08-24T11:23:38.692145-04:00",
+      "next_run_at": "2026-08-24T16:23:00-04:00",
+      "last_run_at": "2026-08-24T15:23:08.153076-04:00",
       "last_status": "ok",
       "last_error": null,
       "last_delivery_error": null,
@@ -2655,15 +2652,15 @@
       "schedule_display": "0 * * * *",
       "repeat": {
         "times": null,
-        "completed": 405
+        "completed": 409
       },
       "enabled": true,
       "state": "scheduled",
       "paused_at": null,
       "paused_reason": null,
       "created_at": "2026-08-07T18:32:45.646414+00:00",
-      "next_run_at": "2026-08-24T13:00:00-04:00",
-      "last_run_at": "2026-08-24T11:00:36.092716-04:00",
+      "next_run_at": "2026-08-24T17:00:00-04:00",
+      "last_run_at": "2026-08-24T15:00:05.480544-04:00",
       "last_status": "ok",
       "last_error": null,
       "last_delivery_error": null,
@@ -2672,8 +2669,8 @@
       "enabled_toolsets": null,
       "workdir": null,
       "fire_claim": {
-        "at": "2026-08-24T12:00:42.463781-04:00",
-        "by": "theos-mini.local:19594:c4c2a4ae09a7475cb20359427cfc8333"
+        "at": "2026-08-24T16:00:13.846536-04:00",
+        "by": "theos-mini.local:85258:06cdd74f41774a8da717bae63290228b"
       },
       "failure_streak": 0
     },
@@ -2697,7 +2694,7 @@
       "schedule_display": "0 6 * * *",
       "repeat": {
         "times": null,
-        "completed": 18
+        "completed": 19
       },
       "enabled": true,
       "state": "scheduled",
@@ -2705,16 +2702,16 @@
       "paused_reason": null,
       "created_at": "2026-08-07T18:32:45.646414+00:00",
       "next_run_at": "2026-08-25T06:00:00-04:00",
-      "last_run_at": "2026-08-24T06:00:32.728110-04:00",
-      "last_status": "error",
-      "last_error": "Script exited with code 1\nstderr:\nTraceback (most recent call last):\n  File \"/Users/ted/.hermes/profiles/substrate-hermes/scripts/changes_log_size_rotate.py\", line 31, in <module>\n    OPS_DIR = resolve_substrate_path('Operations')\n              ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n  File \"/Users/ted/.hermes/profiles/substrate-hermes/scripts/substrate_root.py\", line 32, in resolve_substrate_path\n    return substrate_root() / relative_path\n           ^^^^^^^^^^^^^^^^\n  File \"/Users/ted/.hermes/profiles/substrate-hermes/scripts/substrate_root.py\", line 18, in substrate_root\n    raise SubstrateRootNotConfigured(\nsubstrate_root.SubstrateRootNotConfigured: SUBSTRATE_ROOT is not set; Hermes paths must be configured per runtime rather than guessed from cwd or a compatibility alias.",
+      "last_run_at": "2026-08-24T12:32:31.755271-04:00",
+      "last_status": "ok",
+      "last_error": null,
       "last_delivery_error": null,
       "deliver": "origin",
       "origin": null,
       "enabled_toolsets": null,
       "workdir": null,
       "fire_claim": null,
-      "failure_streak": 1
+      "failure_streak": 0
     },
     {
       "id": "052dc2d00b10",
@@ -2855,7 +2852,7 @@
       "schedule_display": "5 6 * * *",
       "repeat": {
         "times": null,
-        "completed": 18
+        "completed": 19
       },
       "enabled": true,
       "state": "scheduled",
@@ -2863,9 +2860,9 @@
       "paused_reason": null,
       "created_at": "2026-08-07T18:32:45.646414+00:00",
       "next_run_at": "2026-08-25T06:05:00-04:00",
-      "last_run_at": "2026-08-24T06:05:31.684483-04:00",
-      "last_status": "error",
-      "last_error": "Script exited with code 1\nstderr:\nTraceback (most recent call last):\n  File \"/Users/ted/.hermes/profiles/substrate-hermes/scripts/codex_review_generator.py\", line 9, in <module>\n    TARGET = resolve_substrate_path('Operations/scripts/generate_codex_review.py')\n             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n  File \"/Users/ted/.hermes/profiles/substrate-hermes/scripts/substrate_root.py\", line 32, in resolve_substrate_path\n    return substrate_root() / relative_path\n           ^^^^^^^^^^^^^^^^\n  File \"/Users/ted/.hermes/profiles/substrate-hermes/scripts/substrate_root.py\", line 18, in substrate_root\n    raise SubstrateRootNotConfigured(\nsubstrate_root.SubstrateRootNotConfigured: SUBSTRATE_ROOT is not set; Hermes paths must be configured per runtime rather than guessed from cwd or a compatibility alias.",
+      "last_run_at": "2026-08-24T12:32:32.237075-04:00",
+      "last_status": "ok",
+      "last_error": null,
       "last_delivery_error": null,
       "deliver": "local",
       "origin": null,
@@ -2873,7 +2870,7 @@
       "workdir": null,
       "profile": null,
       "fire_claim": null,
-      "failure_streak": 1
+      "failure_streak": 0
     },
     {
       "id": "68222deaba3e",
@@ -3415,7 +3412,7 @@
       "schedule_display": "30 8 * * *",
       "repeat": {
         "times": null,
-        "completed": 17
+        "completed": 18
       },
       "enabled": true,
       "state": "scheduled",
@@ -3423,16 +3420,16 @@
       "paused_reason": null,
       "created_at": "2026-08-07T18:32:45.646414+00:00",
       "next_run_at": "2026-08-25T08:30:00-04:00",
-      "last_run_at": "2026-08-24T08:30:46.758517-04:00",
-      "last_status": "error",
-      "last_error": "Script exited with code 1\nstderr:\nTraceback (most recent call last):\n  File \"/Users/ted/.hermes/profiles/substrate-hermes/scripts/proposal_lifecycle_check.py\", line 22, in <module>\n    PROPOSALS_DIR = resolve_substrate_path('_AI_Inbox/Proposals')\n                    ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n  File \"/Users/ted/.hermes/profiles/substrate-hermes/scripts/substrate_root.py\", line 32, in resolve_substrate_path\n    return substrate_root() / relative_path\n           ^^^^^^^^^^^^^^^^\n  File \"/Users/ted/.hermes/profiles/substrate-hermes/scripts/substrate_root.py\", line 18, in substrate_root\n    raise SubstrateRootNotConfigured(\nsubstrate_root.SubstrateRootNotConfigured: SUBSTRATE_ROOT is not set; Hermes paths must be configured per runtime rather than guessed from cwd or a compatibility alias.",
+      "last_run_at": "2026-08-24T12:32:32.658610-04:00",
+      "last_status": "ok",
+      "last_error": null,
       "last_delivery_error": null,
       "deliver": "origin",
       "origin": null,
       "enabled_toolsets": null,
       "workdir": null,
       "fire_claim": null,
-      "failure_streak": 1
+      "failure_streak": 0
     },
     {
       "id": "951697499327",
@@ -3628,7 +3625,7 @@
       "schedule_display": "0 6 * * 1",
       "repeat": {
         "times": null,
-        "completed": 3
+        "completed": 4
       },
       "enabled": true,
       "state": "scheduled",
@@ -3636,16 +3633,16 @@
       "paused_reason": null,
       "created_at": "2026-08-07T18:32:45.646414+00:00",
       "next_run_at": "2026-08-31T06:00:00-04:00",
-      "last_run_at": "2026-08-24T06:00:31.988558-04:00",
-      "last_status": "error",
-      "last_error": "Script exited with code 1\nstderr:\nTraceback (most recent call last):\n  File \"/Users/ted/.hermes/profiles/substrate-hermes/scripts/yield_refresh.py\", line 19, in <module>\n    YIELD_SCRIPT = resolve_substrate_path('Operations/scripts/audit_topic_yield.py')\n                   ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n  File \"/Users/ted/.hermes/profiles/substrate-hermes/scripts/substrate_root.py\", line 32, in resolve_substrate_path\n    return substrate_root() / relative_path\n           ^^^^^^^^^^^^^^^^\n  File \"/Users/ted/.hermes/profiles/substrate-hermes/scripts/substrate_root.py\", line 18, in substrate_root\n    raise SubstrateRootNotConfigured(\nsubstrate_root.SubstrateRootNotConfigured: SUBSTRATE_ROOT is not set; Hermes paths must be configured per runtime rather than guessed from cwd or a compatibility alias.",
+      "last_run_at": "2026-08-24T12:32:33.288187-04:00",
+      "last_status": "ok",
+      "last_error": null,
       "last_delivery_error": null,
       "deliver": "local",
       "origin": null,
       "enabled_toolsets": null,
       "workdir": null,
       "fire_claim": null,
-      "failure_streak": 1
+      "failure_streak": 0
     },
     {
       "id": "c87eaa109817",
@@ -3751,7 +3748,7 @@
       "schedule_display": "15 8 * * 1",
       "repeat": {
         "times": null,
-        "completed": 3
+        "completed": 4
       },
       "enabled": true,
       "state": "scheduled",
@@ -3759,16 +3756,16 @@
       "paused_reason": null,
       "created_at": "2026-08-13T12:45:56.445488-04:00",
       "next_run_at": "2026-08-31T08:15:00-04:00",
-      "last_run_at": "2026-08-24T08:15:45.224416-04:00",
+      "last_run_at": "2026-08-24T14:29:03.722966-04:00",
       "last_status": "error",
-      "last_error": "Script exited with code 1\nstderr:\n/Users/ted/.hermes/profiles/substrate-hermes/scripts/stray_db_scan.sh: line 3: SUBSTRATE_ROOT: SUBSTRATE_ROOT is required for Hermes path resolution",
+      "last_error": "Script exited with code 1\nstdout:\n# Stray zero-byte DB files — 5 found\n\nEach is either a decoy created by an AI probing a wrong DB path (sqlite3.connect() creates the file silently, no error) or a genuinely unused placeholder. Verify no live code references the path, then move to Trash — do not delete without checking.\n\n- `/Users/ted/Control/backend/concept_map.db`\n- `/Users/ted/Control/control.db`\n- `/Users/ted/Control/system.db`\n- `/Volumes/Extra/Substrate/Operations/system.db`\n- `/Volumes/Extra/Substrate/Profiles/hermes-browser/GPUPersistentCache/GPUCache/4KVABAMDTCMHHYMCKJ5P5QYONKRD2CYX/cache.db`",
       "last_delivery_error": null,
       "deliver": "local",
       "origin": null,
       "enabled_toolsets": null,
       "workdir": null,
       "fire_claim": null,
-      "failure_streak": 1
+      "failure_streak": 2
     },
     {
       "id": "57d91924e2f2",
@@ -3900,5 +3897,5 @@
       "fire_claim": null
     }
   ],
-  "updated_at": "2026-08-24T12:00:42.629896-04:00"
+  "updated_at": "2026-08-24T16:00:13.981409-04:00"
 }

@@ -1,10 +1,10 @@
 ---
 name: repair-pieces-runtime
 status: active
-description: Diagnose and repair PiecesOS when Pieces "isn't working" — the MCP is disconnected, an ambient/LTM query fails, the desktop app shows "Pieces Core Services Unavailable," or a troubleshooting page pops up claiming a corrupted database. Use this whenever Pieces appears broken, and especially right after a Pieces auto-update, before restarting the Mac or letting the app "clean" anything. Three occurrences to date with three different root causes and the same fix, and the database has never actually been corrupt. Also use when Pieces seems slow to come back after a restart — a large database legitimately takes minutes, and impatience is the usual mistake. Do not use for Pieces MCP client-config questions (Pieces writes those itself; see Notes) or for deciding whether Pieces is worth keeping (that's `pieces-ambient-lead-evaluation`).
+description: Diagnose and repair Pieces when PiecesOS, ambient/LTM queries, scheduled ingestion, continuity digests, or downstream reporting appear broken. Use this before restarting the Mac, letting Pieces clean its database, changing a model pin, or accepting an ambient answer as current runtime truth. Distinguishes the PiecesOS runtime from Hermes producer jobs and their report consumers. Do not use for Pieces MCP client-config questions (Pieces writes those itself; see Notes) or for deciding whether Pieces is worth keeping (that's `pieces-ambient-lead-evaluation`).
 category: meta
 write_mode: file
-one_line_use: alive but not serving → back up, quit fully, relaunch, verify with a real query
+one_line_use: prove runtime, producer jobs, and report consumers separately; repair only the failed layer
 fast_pick: "yes"
 ---
 
@@ -74,6 +74,58 @@ done
 Expect conversations / ltm_vision_events / assets. **Only this counts as fixed.**
 
 **5. The desktop app does not auto-retry.** If it still shows "Pieces Core Services Unavailable… POST /connect", click its own **Try again** once health returns 200.
+
+## If a real query works but reporting still looks stopped
+
+Do **not** restart PiecesOS. A healthy Pieces query proves only the capture/runtime layer. Check the complete chain:
+
+| layer | current proof | common false diagnosis |
+|---|---|---|
+| PiecesOS | `pieces_query.py count` returns real corpus counts | process or HTTP health alone |
+| producer jobs | exact active-profile job has current `ok`, zero failure streak, and expected snapshots | an old error or paused duplicate is treated as current |
+| consumer | current digest exists and the installed reader returns it | missing report is blamed on PiecesOS or ingestion |
+
+### 1. Verify the producers, by profile
+
+Inspect the live dashboard or the exact profile registries. Do not confuse the paused legacy copies under the default profile with the active jobs:
+
+- `brain-hermes`: `pieces-to-brain-ingestion`
+- `substrate-hermes`: `pieces-continuity-daily`, `pieces-digest-router`, `pieces-capture-review`, and `meta-agent-sweep`
+
+For each relevant job, check `enabled`, `last_run_at`, `last_status`, `last_error`, `failure_streak`, and `next_run_at`. For agent jobs protected by the spend-drift guard, also require `provider_snapshot` and `model_snapshot` to match the current explicit provider/model. A model-drift error in an ambient transcript may describe a real **past** failure that has already been pinned and cleared.
+
+Silence is not automatically failure:
+
+- `pieces-to-brain-ingestion` is weekly, not daily.
+- `pieces-capture-review` deliberately returns `[SILENT]` when nothing clears its durability bar.
+- `pieces-continuity-daily` writes the digest file silently by default.
+
+### 2. Verify the producer artifact
+
+The live digest directory is:
+
+```text
+/Volumes/Extra/Substrate/Hermes/Working/
+```
+
+Require a current `pieces_continuity_YYYY-MM-DD.md` with real content before calling continuity generation healthy.
+
+### 3. Verify the actual consumer path
+
+The Project Room reader has two active copies:
+
+```text
+/Volumes/Extra/Substrate/Operations/scripts/meta_agent_sweep.py
+/Users/ted/.hermes/profiles/substrate-hermes/scripts/meta_agent_sweep.py
+```
+
+`PIECES_DIGEST_DIR` must resolve to `/Volumes/Extra/Substrate/Hermes/Working`. `/Users/ted/Hermes/Working` is retired and does not exist. If a digest exists but a Project Room report says `Pieces digest: not found`, inspect both copies for that retired path before touching PiecesOS, cron schedules, or model settings.
+
+After a path repair, compile both scripts and exercise each copy's `get_pieces_digest()` against the current digest header. The installed profile copy is what the `meta-agent-sweep` scheduler executes; changing only the Operations source is not runtime proof.
+
+### 4. Treat Pieces' own explanation as a lead
+
+Pieces can synthesize captured ChatGPT, Claude, Terminal, and Hermes text. That makes it useful for locating evidence, but it does not give the answer live authority over current processes, registries, or files. Reconcile every present-tense claim against the live layer it names.
 
 ## The four occurrences — different causes, same fix
 

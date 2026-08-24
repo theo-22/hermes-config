@@ -112,7 +112,7 @@ If the `/` menu is crowded, scan this card first, then search for the exact skil
   Use before a Hermes update or when sessions/profiles disappear, Desktop fails after an update, or CLI/Desktop state disagrees. Takes read-only pre/post session snapshots, distinguishes real row loss from cache/profile/home/version drift, requires SQLite-safe backup, and proves both the session corpus and Ted-facing client before completion.
 
 - `repair-pieces-runtime`
-  Use when Pieces "isn't working" — MCP disconnected, an LTM query failing, "Pieces Core Services Unavailable," or a page claiming a corrupted database — and especially right after a Pieces auto-update. Separates a parked process from one still running its startup integrity check, backs up before anything touches the database, and requires a real LTM query rather than a health 200 as proof of repair.
+  Use when PiecesOS, an LTM query, scheduled ingestion, continuity digests, or downstream reporting appears broken. Separates the runtime, producer jobs, and report consumers; distinguishes active jobs from paused duplicates and historical model-drift evidence; catches retired digest paths; and requires a real LTM query plus affected-layer proof before repair is complete.
 
 - `cross-actor-incident-repair`
   Use when a live fault spans siloed actors — one role/GPT surfaces a specific symptom, the filesystem-access actor diagnoses root cause (self-correcting wrong first guesses before handoff), and a different code-owning actor repairs inside its fence, with Ted conducting between the walled-off lanes. STATUS: proposed — Codex/ChatGPT surfacer/fixer lanes pending `CROSS_ACTOR_SKILL_REVIEW`.
@@ -257,7 +257,7 @@ If the `/` menu is crowded, scan this card first, then search for the exact skil
 - `update-protected-generated-artifacts` = protect the generator and every output, regenerate once, prove parity and real consumer behavior
 - `repair-mcp-client-disconnects` = narrowly handle and live-prove normal MCP transport disconnects
 - `repair-hermes-update-continuity` = preserve and prove sessions across Hermes updates before repairing visibility or version skew
-- `repair-pieces-runtime` = Pieces alive but not serving — back up, quit fully, relaunch, verify with a real query
+- `repair-pieces-runtime` = prove Pieces runtime, producer jobs, and report consumers separately; repair only the failed layer
 - `cross-actor-incident-repair` = diagnose→handoff→repair→verify a fault across siloed actors, Ted conducting (proposed)
 - `live-multi-actor-negotiation` = live shared-thread dialogue between 2-3 standing actors, Ted present, every claim independently re-verified (proposed, tension with cross-actor-incident-repair unresolved)
 - `verify-curator-return` = read the verifier's raw state, don't just file the verdict

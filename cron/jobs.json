@@ -110,15 +110,15 @@
       "schedule_display": "45 6 * * *",
       "repeat": {
         "times": null,
-        "completed": 60
+        "completed": 61
       },
       "enabled": true,
       "state": "scheduled",
       "paused_at": null,
       "paused_reason": null,
       "created_at": "2026-06-28T12:05:05.026224-04:00",
-      "next_run_at": "2026-08-24T06:45:00-04:00",
-      "last_run_at": "2026-08-23T06:46:08.794817-04:00",
+      "next_run_at": "2026-08-25T06:45:00-04:00",
+      "last_run_at": "2026-08-24T06:46:28.555851-04:00",
       "last_status": "ok",
       "last_error": null,
       "last_delivery_error": null,
@@ -196,15 +196,15 @@
       "schedule_display": "35 6 * * 1",
       "repeat": {
         "times": null,
-        "completed": 9
+        "completed": 10
       },
       "enabled": true,
       "state": "scheduled",
       "paused_at": null,
       "paused_reason": null,
       "created_at": "2026-06-28T16:28:55.049657-04:00",
-      "next_run_at": "2026-08-24T06:35:00-04:00",
-      "last_run_at": "2026-08-17T06:35:22.750501-04:00",
+      "next_run_at": "2026-08-31T06:35:00-04:00",
+      "last_run_at": "2026-08-24T06:35:03.254191-04:00",
       "last_status": "ok",
       "last_error": null,
       "last_delivery_error": null,
@@ -212,7 +212,8 @@
       "origin": null,
       "enabled_toolsets": null,
       "workdir": null,
-      "fire_claim": null
+      "fire_claim": null,
+      "failure_streak": 0
     },
     {
       "id": "4220d47880ba",
@@ -238,15 +239,15 @@
       "schedule_display": "30 6 * * *",
       "repeat": {
         "times": null,
-        "completed": 57
+        "completed": 58
       },
       "enabled": true,
       "state": "scheduled",
       "paused_at": null,
       "paused_reason": null,
       "created_at": "2026-06-28T16:45:26.792627-04:00",
-      "next_run_at": "2026-08-24T06:30:00-04:00",
-      "last_run_at": "2026-08-23T06:30:15.703120-04:00",
+      "next_run_at": "2026-08-25T06:30:00-04:00",
+      "last_run_at": "2026-08-24T06:30:07.175561-04:00",
       "last_status": "ok",
       "last_error": null,
       "last_delivery_error": null,
@@ -498,15 +499,15 @@
       "schedule_display": "15 */4 * * *",
       "repeat": {
         "times": null,
-        "completed": 314
+        "completed": 315
       },
       "enabled": true,
       "state": "scheduled",
       "paused_at": null,
       "paused_reason": null,
       "created_at": "2026-07-03T00:57:54.447668-04:00",
-      "next_run_at": "2026-08-24T04:15:00-04:00",
-      "last_run_at": "2026-08-24T00:15:22.014686-04:00",
+      "next_run_at": "2026-08-24T08:15:00-04:00",
+      "last_run_at": "2026-08-24T04:15:28.318144-04:00",
       "last_status": "error",
       "last_error": "Script exited with code 1\nstderr:\nTraceback (most recent call last):\n  File \"/Users/ted/.hermes/profiles/substrate-hermes/scripts/hermes_coordination_health.py\", line 11, in <module>\n    SCRIPT = resolve_substrate_path('Operations/scripts/hermes_coordination_health.py')\n             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n  File \"/Users/ted/.hermes/profiles/substrate-hermes/scripts/substrate_root.py\", line 32, in resolve_substrate_path\n    return substrate_root() / relative_path\n           ^^^^^^^^^^^^^^^^\n  File \"/Users/ted/.hermes/profiles/substrate-hermes/scripts/substrate_root.py\", line 18, in substrate_root\n    raise SubstrateRootNotConfigured(\nsubstrate_root.SubstrateRootNotConfigured: SUBSTRATE_ROOT is not set; Hermes paths must be configured per runtime rather than guessed from cwd or a compatibility alias.",
       "last_delivery_error": null,
@@ -515,7 +516,7 @@
       "enabled_toolsets": null,
       "workdir": null,
       "fire_claim": null,
-      "failure_streak": 1
+      "failure_streak": 2
     },
     {
       "id": "742f6bb2d68b",
@@ -539,15 +540,15 @@
       "schedule_display": "30 7 * * *",
       "repeat": {
         "times": null,
-        "completed": 52
+        "completed": 53
       },
       "enabled": true,
       "state": "scheduled",
       "paused_at": null,
       "paused_reason": null,
       "created_at": "2026-07-03T09:27:35.431740-04:00",
-      "next_run_at": "2026-08-24T07:30:00-04:00",
-      "last_run_at": "2026-08-23T07:30:25.868739-04:00",
+      "next_run_at": "2026-08-25T07:30:00-04:00",
+      "last_run_at": "2026-08-24T07:30:20.181949-04:00",
       "last_status": "ok",
       "last_error": null,
       "last_delivery_error": null,
@@ -580,15 +581,15 @@
       "schedule_display": "45 6 * * *",
       "repeat": {
         "times": null,
-        "completed": 52
+        "completed": 53
       },
       "enabled": true,
       "state": "scheduled",
       "paused_at": null,
       "paused_reason": null,
       "created_at": "2026-07-03T13:45:53.381724-04:00",
-      "next_run_at": "2026-08-24T06:45:00-04:00",
-      "last_run_at": "2026-08-23T06:45:17.025763-04:00",
+      "next_run_at": "2026-08-25T06:45:00-04:00",
+      "last_run_at": "2026-08-24T06:45:06.178625-04:00",
       "last_status": "ok",
       "last_error": null,
       "last_delivery_error": null,
@@ -662,15 +663,15 @@
       "schedule_display": "45 7 * * *",
       "repeat": {
         "times": null,
-        "completed": 53
+        "completed": 54
       },
       "enabled": true,
       "state": "scheduled",
       "paused_at": null,
       "paused_reason": null,
       "created_at": "2026-07-05T01:15:09.602937-04:00",
-      "next_run_at": "2026-08-24T07:45:00-04:00",
-      "last_run_at": "2026-08-23T07:47:15.943310-04:00",
+      "next_run_at": "2026-08-25T07:45:00-04:00",
+      "last_run_at": "2026-08-24T07:46:49.982124-04:00",
       "last_status": "ok",
       "last_error": null,
       "last_delivery_error": null,
@@ -703,15 +704,15 @@
       "schedule_display": "0 */4 * * *",
       "repeat": {
         "times": null,
-        "completed": 297
+        "completed": 298
       },
       "enabled": true,
       "state": "scheduled",
       "paused_at": null,
       "paused_reason": null,
       "created_at": "2026-07-05T18:09:46.374910-04:00",
-      "next_run_at": "2026-08-24T08:00:00-04:00",
-      "last_run_at": "2026-08-24T00:00:22.821642-04:00",
+      "next_run_at": "2026-08-24T12:00:00-04:00",
+      "last_run_at": "2026-08-24T04:00:29.255537-04:00",
       "last_status": "ok",
       "last_error": null,
       "last_delivery_error": null,
@@ -720,8 +721,8 @@
       "enabled_toolsets": null,
       "workdir": null,
       "fire_claim": {
-        "at": "2026-08-24T04:00:27.401186-04:00",
-        "by": "theos-mini.local:19594:ec2513168bf54f3b843d104f216d56c1"
+        "at": "2026-08-24T08:00:38.013588-04:00",
+        "by": "theos-mini.local:19594:3e2018f0d40c4d22b7c5afe7bc1c181a"
       },
       "failure_streak": 0
     },
@@ -747,15 +748,15 @@
       "schedule_display": "15 7 * * *",
       "repeat": {
         "times": null,
-        "completed": 49
+        "completed": 50
       },
       "enabled": true,
       "state": "scheduled",
       "paused_at": null,
       "paused_reason": null,
       "created_at": "2026-07-06T20:02:31.867269-04:00",
-      "next_run_at": "2026-08-24T07:15:00-04:00",
-      "last_run_at": "2026-08-23T07:15:24.639860-04:00",
+      "next_run_at": "2026-08-25T07:15:00-04:00",
+      "last_run_at": "2026-08-24T07:15:18.320264-04:00",
       "last_status": "ok",
       "last_error": null,
       "last_delivery_error": null,
@@ -927,15 +928,15 @@
       "schedule_display": "0 */2 * * *",
       "repeat": {
         "times": null,
-        "completed": 565
+        "completed": 567
       },
       "enabled": true,
       "state": "scheduled",
       "paused_at": null,
       "paused_reason": null,
       "created_at": "2026-07-07T21:42:44.416472-04:00",
-      "next_run_at": "2026-08-24T06:00:00-04:00",
-      "last_run_at": "2026-08-24T02:00:02.409706-04:00",
+      "next_run_at": "2026-08-24T10:00:00-04:00",
+      "last_run_at": "2026-08-24T06:00:32.035976-04:00",
       "last_status": "ok",
       "last_error": null,
       "last_delivery_error": null,
@@ -944,8 +945,8 @@
       "enabled_toolsets": null,
       "workdir": null,
       "fire_claim": {
-        "at": "2026-08-24T04:00:28.069544-04:00",
-        "by": "theos-mini.local:19594:34bf89039c434cee928aaef899018466"
+        "at": "2026-08-24T08:00:38.023082-04:00",
+        "by": "theos-mini.local:19594:7937f483c6694bb4a1506507aff0eabf"
       },
       "failure_streak": 0
     },
@@ -971,24 +972,24 @@
       "schedule_display": "15 */4 * * *",
       "repeat": {
         "times": null,
-        "completed": 283
+        "completed": 284
       },
       "enabled": true,
       "state": "scheduled",
       "paused_at": null,
       "paused_reason": null,
       "created_at": "2026-07-07T21:42:50.012014-04:00",
-      "next_run_at": "2026-08-24T04:15:00-04:00",
-      "last_run_at": "2026-08-24T00:15:24.767050-04:00",
-      "last_status": "error",
-      "last_error": "Script exited with code 1\nstdout:\n{\n  \"surface\": \"refresh_actual_ai_cost\",\n  \"provider_pull_generated_at\": \"2026-08-24T04:15:24Z\",\n  \"provider_errors\": {\n    \"gemini\": \"cannot import name 'bigquery' from 'google.cloud' (unknown location)\"\n  },\n  \"actual_cost_generated_at\": \"2026-08-24T04:15:24Z\",\n  \"actual_total_status\": \"KNOWN\",\n  \"verified_provider_readings_usd\": 514.523753,\n  \"manual_assumptions_usd\": 0,\n  \"local_ledger_estimate_usd\": 0.0,\n  \"report_path\": \"/Volumes/Extra/Substrate/Operations/reports/Actual_AI_Cost_LATEST.md\",\n  \"state_path\": \"/Volumes/Extra/Substrate/Operations/state/actual_ai_cost_latest.json\"\n}\nERROR: refresh failed",
+      "next_run_at": "2026-08-24T08:15:00-04:00",
+      "last_run_at": "2026-08-24T04:15:28.392431-04:00",
+      "last_status": "ok",
+      "last_error": null,
       "last_delivery_error": null,
       "deliver": "local",
       "origin": null,
       "enabled_toolsets": null,
       "workdir": null,
       "fire_claim": null,
-      "failure_streak": 1
+      "failure_streak": 0
     },
     {
       "id": "c5cf95fa0d31",
@@ -1053,15 +1054,15 @@
       "schedule_display": "0 7 * * *",
       "repeat": {
         "times": null,
-        "completed": 46
+        "completed": 47
       },
       "enabled": true,
       "state": "scheduled",
       "paused_at": null,
       "paused_reason": null,
       "created_at": "2026-07-09T08:54:13.647380-04:00",
-      "next_run_at": "2026-08-24T07:00:00-04:00",
-      "last_run_at": "2026-08-23T07:00:21.184801-04:00",
+      "next_run_at": "2026-08-25T07:00:00-04:00",
+      "last_run_at": "2026-08-24T07:00:11.568436-04:00",
       "last_status": "ok",
       "last_error": null,
       "last_delivery_error": null,
@@ -1094,15 +1095,15 @@
       "schedule_display": "0 7 * * *",
       "repeat": {
         "times": null,
-        "completed": 45
+        "completed": 46
       },
       "enabled": true,
       "state": "scheduled",
       "paused_at": null,
       "paused_reason": null,
       "created_at": "2026-07-09T08:58:52.283971-04:00",
-      "next_run_at": "2026-08-24T07:00:00-04:00",
-      "last_run_at": "2026-08-23T07:00:21.310815-04:00",
+      "next_run_at": "2026-08-25T07:00:00-04:00",
+      "last_run_at": "2026-08-24T07:00:11.511877-04:00",
       "last_status": "ok",
       "last_error": null,
       "last_delivery_error": null,
@@ -1135,15 +1136,15 @@
       "schedule_display": "5 7 * * *",
       "repeat": {
         "times": null,
-        "completed": 45
+        "completed": 46
       },
       "enabled": true,
       "state": "scheduled",
       "paused_at": null,
       "paused_reason": null,
       "created_at": "2026-07-09T08:58:53.308393-04:00",
-      "next_run_at": "2026-08-24T07:05:00-04:00",
-      "last_run_at": "2026-08-23T07:05:21.474114-04:00",
+      "next_run_at": "2026-08-25T07:05:00-04:00",
+      "last_run_at": "2026-08-24T07:05:11.601725-04:00",
       "last_status": "ok",
       "last_error": null,
       "last_delivery_error": null,
@@ -1217,24 +1218,24 @@
       "schedule_display": "0 6 * * *",
       "repeat": {
         "times": null,
-        "completed": 45
+        "completed": 46
       },
       "enabled": true,
       "state": "scheduled",
       "paused_at": null,
       "paused_reason": null,
       "created_at": "2026-07-09T09:53:45.218648-04:00",
-      "next_run_at": "2026-08-24T06:00:00-04:00",
-      "last_run_at": "2026-08-23T06:00:07.646624-04:00",
-      "last_status": "ok",
-      "last_error": null,
+      "next_run_at": "2026-08-25T06:00:00-04:00",
+      "last_run_at": "2026-08-24T06:00:32.539574-04:00",
+      "last_status": "error",
+      "last_error": "Script exited with code 1\nstderr:\nTraceback (most recent call last):\n  File \"/Users/ted/.hermes/profiles/substrate-hermes/scripts/proactive_repair.py\", line 26, in <module>\n    REPORT_DIR = resolve_substrate_path('Hermes/Hermes_Operator_Integration/Hermes_Records')\n                 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n  File \"/Users/ted/.hermes/profiles/substrate-hermes/scripts/substrate_root.py\", line 32, in resolve_substrate_path\n    return substrate_root() / relative_path\n           ^^^^^^^^^^^^^^^^\n  File \"/Users/ted/.hermes/profiles/substrate-hermes/scripts/substrate_root.py\", line 18, in substrate_root\n    raise SubstrateRootNotConfigured(\nsubstrate_root.SubstrateRootNotConfigured: SUBSTRATE_ROOT is not set; Hermes paths must be configured per runtime rather than guessed from cwd or a compatibility alias.",
       "last_delivery_error": null,
       "deliver": "origin",
       "origin": null,
       "enabled_toolsets": null,
       "workdir": null,
       "fire_claim": null,
-      "failure_streak": 0
+      "failure_streak": 1
     },
     {
       "id": "55ab417ae5ca",
@@ -1306,7 +1307,7 @@
       "paused_at": null,
       "paused_reason": null,
       "created_at": "2026-07-09T09:53:47.258465-04:00",
-      "next_run_at": "2026-08-24T08:00:00-04:00",
+      "next_run_at": "2026-08-24T12:00:00-04:00",
       "last_run_at": "2026-08-24T04:00:28.617012-04:00",
       "last_status": "ok",
       "last_error": null,
@@ -1315,7 +1316,10 @@
       "origin": null,
       "enabled_toolsets": null,
       "workdir": null,
-      "fire_claim": null,
+      "fire_claim": {
+        "at": "2026-08-24T08:00:38.427036-04:00",
+        "by": "theos-mini.local:19594:1f87e99d535a4145b8b6501fecb87404"
+      },
       "failure_streak": 0
     },
     {
@@ -1340,15 +1344,15 @@
       "schedule_display": "30 6 * * 1",
       "repeat": {
         "times": null,
-        "completed": 6
+        "completed": 7
       },
       "enabled": true,
       "state": "scheduled",
       "paused_at": null,
       "paused_reason": null,
       "created_at": "2026-07-09T09:53:48.280392-04:00",
-      "next_run_at": "2026-08-24T06:30:00-04:00",
-      "last_run_at": "2026-08-17T06:30:21.134781-04:00",
+      "next_run_at": "2026-08-31T06:30:00-04:00",
+      "last_run_at": "2026-08-24T06:30:06.161234-04:00",
       "last_status": "ok",
       "last_error": null,
       "last_delivery_error": null,
@@ -1356,7 +1360,8 @@
       "origin": null,
       "enabled_toolsets": null,
       "workdir": null,
-      "fire_claim": null
+      "fire_claim": null,
+      "failure_streak": 0
     },
     {
       "id": "c76847b93166",
@@ -1387,7 +1392,7 @@
       "paused_at": null,
       "paused_reason": null,
       "created_at": "2026-07-09T09:53:49.294384-04:00",
-      "next_run_at": "2026-08-24T08:00:00-04:00",
+      "next_run_at": "2026-08-31T08:00:00-04:00",
       "last_run_at": "2026-08-17T08:00:31.288558-04:00",
       "last_status": "ok",
       "last_error": null,
@@ -1396,7 +1401,10 @@
       "origin": null,
       "enabled_toolsets": null,
       "workdir": null,
-      "fire_claim": null
+      "fire_claim": {
+        "at": "2026-08-24T08:00:38.519713-04:00",
+        "by": "theos-mini.local:19594:84da05554b8241bc8fbfa7dc77f9f9fe"
+      }
     },
     {
       "id": "e423a8cf433d",
@@ -1420,15 +1428,15 @@
       "schedule_display": "0 7 * * *",
       "repeat": {
         "times": null,
-        "completed": 53
+        "completed": 54
       },
       "enabled": true,
       "state": "scheduled",
       "paused_at": null,
       "paused_reason": null,
       "created_at": "2026-07-09T09:53:56.631977-04:00",
-      "next_run_at": "2026-08-24T07:00:00-04:00",
-      "last_run_at": "2026-08-23T07:00:29.294337-04:00",
+      "next_run_at": "2026-08-25T07:00:00-04:00",
+      "last_run_at": "2026-08-24T07:00:59.390073-04:00",
       "last_status": "ok",
       "last_error": null,
       "last_delivery_error": null,
@@ -1502,27 +1510,27 @@
       "schedule_display": "0 */4 * * *",
       "repeat": {
         "times": null,
-        "completed": 274
+        "completed": 275
       },
       "enabled": true,
       "state": "scheduled",
       "paused_at": null,
       "paused_reason": null,
       "created_at": "2026-07-09T09:53:58.682054-04:00",
-      "next_run_at": "2026-08-24T08:00:00-04:00",
-      "last_run_at": "2026-08-24T00:00:23.489397-04:00",
-      "last_status": "error",
-      "last_error": "Script exited with code 1\nstderr:\nTraceback (most recent call last):\n  File \"/Users/ted/.hermes/profiles/substrate-hermes/scripts/ai_cost_posture.py\", line 14, in <module>\n    OUTPUT = resolve_substrate_path('Operations/reports/AI_Cost_Posture_LATEST.md')\n             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n  File \"/Users/ted/.hermes/profiles/substrate-hermes/scripts/substrate_root.py\", line 32, in resolve_substrate_path\n    return substrate_root() / relative_path\n           ^^^^^^^^^^^^^^^^\n  File \"/Users/ted/.hermes/profiles/substrate-hermes/scripts/substrate_root.py\", line 18, in substrate_root\n    raise SubstrateRootNotConfigured(\nsubstrate_root.SubstrateRootNotConfigured: SUBSTRATE_ROOT is not set; Hermes paths must be configured per runtime rather than guessed from cwd or a compatibility alias.",
+      "next_run_at": "2026-08-24T12:00:00-04:00",
+      "last_run_at": "2026-08-24T04:00:37.405599-04:00",
+      "last_status": "ok",
+      "last_error": null,
       "last_delivery_error": null,
       "deliver": "origin",
       "origin": null,
       "enabled_toolsets": null,
       "workdir": null,
       "fire_claim": {
-        "at": "2026-08-24T04:00:28.281763-04:00",
-        "by": "theos-mini.local:19594:4ba9ef35994040d69591d571deab73a1"
+        "at": "2026-08-24T08:00:36.039417-04:00",
+        "by": "theos-mini.local:19594:92d1b5d52b75446cbde1dfa26e65adb3"
       },
-      "failure_streak": 1
+      "failure_streak": 0
     },
     {
       "id": "0075bbbcf4a5",
@@ -1546,15 +1554,15 @@
       "schedule_display": "*/20 * * * *",
       "repeat": {
         "times": null,
-        "completed": 3260
+        "completed": 3271
       },
       "enabled": true,
       "state": "scheduled",
       "paused_at": null,
       "paused_reason": null,
       "created_at": "2026-07-09T09:53:59.696632-04:00",
-      "next_run_at": "2026-08-24T04:20:00-04:00",
-      "last_run_at": "2026-08-24T04:00:28.661531-04:00",
+      "next_run_at": "2026-08-24T08:20:00-04:00",
+      "last_run_at": "2026-08-24T07:40:21.023271-04:00",
       "last_status": "ok",
       "last_error": null,
       "last_delivery_error": null,
@@ -1562,7 +1570,10 @@
       "origin": null,
       "enabled_toolsets": null,
       "workdir": null,
-      "fire_claim": null,
+      "fire_claim": {
+        "at": "2026-08-24T08:00:39.310605-04:00",
+        "by": "theos-mini.local:19594:1aeda176c94848538effe69887c27c1e"
+      },
       "failure_streak": 0
     },
     {
@@ -1594,7 +1605,7 @@
       "paused_at": null,
       "paused_reason": null,
       "created_at": "2026-07-09T09:54:00.727611-04:00",
-      "next_run_at": "2026-08-24T08:00:00-04:00",
+      "next_run_at": "2026-08-31T08:00:00-04:00",
       "last_run_at": "2026-08-17T08:00:39.914396-04:00",
       "last_status": "ok",
       "last_error": null,
@@ -1603,7 +1614,10 @@
       "origin": null,
       "enabled_toolsets": null,
       "workdir": null,
-      "fire_claim": null
+      "fire_claim": {
+        "at": "2026-08-24T08:00:36.427753-04:00",
+        "by": "theos-mini.local:19594:544d5e6f34a24c19adf9e7f9b593c24d"
+      }
     },
     {
       "id": "7ebe8d47b4cd",
@@ -1675,7 +1689,7 @@
       "paused_at": null,
       "paused_reason": null,
       "created_at": "2026-07-09T10:29:13.186624-04:00",
-      "next_run_at": "2026-08-24T08:00:00-04:00",
+      "next_run_at": "2026-08-25T08:00:00-04:00",
       "last_run_at": "2026-08-23T08:00:34.323862-04:00",
       "last_status": "ok",
       "last_error": null,
@@ -1684,7 +1698,10 @@
       "origin": null,
       "enabled_toolsets": null,
       "workdir": null,
-      "fire_claim": null,
+      "fire_claim": {
+        "at": "2026-08-24T08:00:36.539393-04:00",
+        "by": "theos-mini.local:19594:b3b8c77bbacd4fa1ae89153d64e863ce"
+      },
       "failure_streak": 0
     },
     {
@@ -1750,27 +1767,27 @@
       "schedule_display": "0 */4 * * *",
       "repeat": {
         "times": null,
-        "completed": 262
+        "completed": 263
       },
       "enabled": true,
       "state": "scheduled",
       "paused_at": null,
       "paused_reason": null,
       "created_at": "2026-07-11T16:29:55.461353-04:00",
-      "next_run_at": "2026-08-24T08:00:00-04:00",
-      "last_run_at": "2026-08-24T00:00:22.681674-04:00",
-      "last_status": "error",
-      "last_error": "Script exited with code 1\nstderr:\nTraceback (most recent call last):\n  File \"/Users/ted/.hermes/profiles/substrate-hermes/scripts/sync_public_config.py\", line 13, in <module>\n    SUBSTRATE = substrate_root()\n                ^^^^^^^^^^^^^^^^\n  File \"/Users/ted/.hermes/profiles/substrate-hermes/scripts/substrate_root.py\", line 18, in substrate_root\n    raise SubstrateRootNotConfigured(\nsubstrate_root.SubstrateRootNotConfigured: SUBSTRATE_ROOT is not set; Hermes paths must be configured per runtime rather than guessed from cwd or a compatibility alias.",
+      "next_run_at": "2026-08-24T12:00:00-04:00",
+      "last_run_at": "2026-08-24T04:00:40.270476-04:00",
+      "last_status": "ok",
+      "last_error": null,
       "last_delivery_error": null,
       "deliver": "local",
       "origin": null,
       "enabled_toolsets": null,
       "workdir": null,
       "fire_claim": {
-        "at": "2026-08-24T04:00:28.295039-04:00",
-        "by": "theos-mini.local:19594:ad7d48f0f3ff4bd5905a4820abcde60f"
+        "at": "2026-08-24T08:00:37.514428-04:00",
+        "by": "theos-mini.local:19594:3b2583175d154efd99c24be580305574"
       },
-      "failure_streak": 1
+      "failure_streak": 0
     },
     {
       "id": "6d5ba1077d61",
@@ -1916,15 +1933,15 @@
       "schedule_display": "every 10m",
       "repeat": {
         "times": null,
-        "completed": 4942
+        "completed": 4965
       },
       "enabled": true,
       "state": "scheduled",
       "paused_at": null,
       "paused_reason": null,
       "created_at": "2026-07-20T16:54:21.440840-04:00",
-      "next_run_at": "2026-08-24T04:09:26.886156-04:00",
-      "last_run_at": "2026-08-24T03:59:26.886156-04:00",
+      "next_run_at": "2026-08-24T08:02:26.327420-04:00",
+      "last_run_at": "2026-08-24T07:52:26.327420-04:00",
       "last_status": "ok",
       "last_error": null,
       "last_delivery_error": null,
@@ -2046,7 +2063,7 @@
       "paused_at": null,
       "paused_reason": null,
       "created_at": "2026-07-22T14:22:44.896384-04:00",
-      "next_run_at": "2026-08-24T08:00:00-04:00",
+      "next_run_at": "2026-08-31T08:00:00-04:00",
       "last_run_at": "2026-08-17T08:00:54.693386-04:00",
       "last_status": "ok",
       "last_error": null,
@@ -2055,7 +2072,10 @@
       "origin": null,
       "enabled_toolsets": null,
       "workdir": null,
-      "fire_claim": null
+      "fire_claim": {
+        "at": "2026-08-24T08:00:37.550102-04:00",
+        "by": "theos-mini.local:19594:d332bf37977b4373bc32def8f7656607"
+      }
     },
     {
       "id": "2c714ac7329b",
@@ -2079,15 +2099,15 @@
       "schedule_display": "6 7 * * *",
       "repeat": {
         "times": null,
-        "completed": 30
+        "completed": 31
       },
       "enabled": true,
       "state": "scheduled",
       "paused_at": null,
       "paused_reason": null,
       "created_at": "2026-07-25T17:04:58.506702-04:00",
-      "next_run_at": "2026-08-24T07:06:00-04:00",
-      "last_run_at": "2026-08-23T07:12:55.689414-04:00",
+      "next_run_at": "2026-08-25T07:06:00-04:00",
+      "last_run_at": "2026-08-24T07:10:02.634379-04:00",
       "last_status": "ok",
       "last_error": null,
       "last_delivery_error": null,
@@ -2127,7 +2147,7 @@
       "paused_at": null,
       "paused_reason": null,
       "created_at": "2026-07-25T17:16:54.732748-04:00",
-      "next_run_at": "2026-08-24T08:00:00-04:00",
+      "next_run_at": "2026-08-24T11:00:00-04:00",
       "last_run_at": "2026-08-23T20:04:29.333771-04:00",
       "last_status": "ok",
       "last_error": null,
@@ -2136,7 +2156,10 @@
       "origin": null,
       "enabled_toolsets": null,
       "workdir": null,
-      "fire_claim": null,
+      "fire_claim": {
+        "at": "2026-08-24T08:00:37.893554-04:00",
+        "by": "theos-mini.local:19594:bebbde5e351c4fc398c50ee0c77f3bad"
+      },
       "failure_streak": 0
     },
     {
@@ -2201,24 +2224,24 @@
       "schedule_display": "0 5 * * *",
       "repeat": {
         "times": null,
-        "completed": 29
+        "completed": 30
       },
       "enabled": true,
       "state": "scheduled",
       "paused_at": null,
       "paused_reason": null,
       "created_at": "2026-07-26T18:23:19.847062-04:00",
-      "next_run_at": "2026-08-24T05:00:00-04:00",
-      "last_run_at": "2026-08-23T05:00:57.620093-04:00",
-      "last_status": "ok",
-      "last_error": null,
+      "next_run_at": "2026-08-25T05:00:00-04:00",
+      "last_run_at": "2026-08-24T05:00:30.366234-04:00",
+      "last_status": "error",
+      "last_error": "Script exited with code 1\nstderr:\nTraceback (most recent call last):\n  File \"/Users/ted/.hermes/profiles/substrate-hermes/scripts/mrs_freshness_sweep.py\", line 11, in <module>\n    SCRIPT = str(resolve_substrate_path(\"Operations/scripts/mrs_freshness_sweep.py\"))\n                 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n  File \"/Users/ted/.hermes/profiles/substrate-hermes/scripts/substrate_root.py\", line 32, in resolve_substrate_path\n    return substrate_root() / relative_path\n           ^^^^^^^^^^^^^^^^\n  File \"/Users/ted/.hermes/profiles/substrate-hermes/scripts/substrate_root.py\", line 18, in substrate_root\n    raise SubstrateRootNotConfigured(\nsubstrate_root.SubstrateRootNotConfigured: SUBSTRATE_ROOT is not set; Hermes paths must be configured per runtime rather than guessed from cwd or a compatibility alias.",
       "last_delivery_error": null,
       "deliver": "origin",
       "origin": null,
       "enabled_toolsets": null,
       "workdir": null,
       "fire_claim": null,
-      "failure_streak": 0
+      "failure_streak": 1
     },
     {
       "id": "af1b1dd296d8",
@@ -2283,24 +2306,24 @@
       "schedule_display": "10 4 * * *",
       "repeat": {
         "times": null,
-        "completed": 22
+        "completed": 23
       },
       "enabled": true,
       "state": "scheduled",
       "paused_at": null,
       "paused_reason": null,
       "created_at": "2026-08-02T03:23:49.848359-04:00",
-      "next_run_at": "2026-08-24T04:10:00-04:00",
-      "last_run_at": "2026-08-23T04:13:08.817024-04:00",
-      "last_status": "ok",
-      "last_error": null,
+      "next_run_at": "2026-08-25T04:10:00-04:00",
+      "last_run_at": "2026-08-24T04:10:28.715340-04:00",
+      "last_status": "error",
+      "last_error": "Script exited with code 1\nstderr:\n/Users/ted/.hermes/profiles/substrate-hermes/scripts/index_curated_memory.sh: line 14: SUBSTRATE_ROOT: SUBSTRATE_ROOT is required for Hermes path resolution",
       "last_delivery_error": null,
       "deliver": "origin",
       "origin": null,
       "enabled_toolsets": null,
       "workdir": null,
       "fire_claim": null,
-      "failure_streak": 0
+      "failure_streak": 1
     },
     {
       "id": "dd414f29c444",
@@ -2324,15 +2347,15 @@
       "schedule_display": "23 * * * *",
       "repeat": {
         "times": null,
-        "completed": 164
+        "completed": 168
       },
       "enabled": true,
       "state": "scheduled",
       "paused_at": null,
       "paused_reason": null,
       "created_at": "2026-08-02T11:04:27.256761-04:00",
-      "next_run_at": "2026-08-24T04:23:00-04:00",
-      "last_run_at": "2026-08-24T03:23:19.735078-04:00",
+      "next_run_at": "2026-08-24T08:23:00-04:00",
+      "last_run_at": "2026-08-24T07:23:18.097087-04:00",
       "last_status": "ok",
       "last_error": null,
       "last_delivery_error": null,
@@ -2417,7 +2440,7 @@
       "paused_at": null,
       "paused_reason": null,
       "created_at": "2026-08-07T18:32:45.646414+00:00",
-      "next_run_at": "2026-08-24T08:00:00-04:00",
+      "next_run_at": "2026-08-25T08:00:00-04:00",
       "last_run_at": "2026-08-23T08:00:50.752186-04:00",
       "last_status": "ok",
       "last_error": null,
@@ -2426,7 +2449,10 @@
       "origin": null,
       "enabled_toolsets": null,
       "workdir": null,
-      "fire_claim": null,
+      "fire_claim": {
+        "at": "2026-08-24T08:00:37.933148-04:00",
+        "by": "theos-mini.local:19594:9c9cb7ba09c94a37be30dfc6d1f21242"
+      },
       "failure_streak": 0
     },
     {
@@ -2490,15 +2516,15 @@
       "schedule_display": "30 6 * * *",
       "repeat": {
         "times": null,
-        "completed": 17
+        "completed": 18
       },
       "enabled": true,
       "state": "scheduled",
       "paused_at": null,
       "paused_reason": null,
       "created_at": "2026-08-07T18:32:45.646414+00:00",
-      "next_run_at": "2026-08-24T06:30:00-04:00",
-      "last_run_at": "2026-08-23T06:30:15.794588-04:00",
+      "next_run_at": "2026-08-25T06:30:00-04:00",
+      "last_run_at": "2026-08-24T06:30:07.191261-04:00",
       "last_status": "ok",
       "last_error": null,
       "last_delivery_error": null,
@@ -2529,15 +2555,15 @@
       "schedule_display": "0 7 * * 1",
       "repeat": {
         "times": null,
-        "completed": 2
+        "completed": 3
       },
       "enabled": true,
       "state": "scheduled",
       "paused_at": null,
       "paused_reason": null,
       "created_at": "2026-08-07T18:32:45.646414+00:00",
-      "next_run_at": "2026-08-24T07:00:00-04:00",
-      "last_run_at": "2026-08-17T07:00:24.972979-04:00",
+      "next_run_at": "2026-08-31T07:00:00-04:00",
+      "last_run_at": "2026-08-24T07:00:11.501757-04:00",
       "last_status": "ok",
       "last_error": null,
       "last_delivery_error": null,
@@ -2545,7 +2571,8 @@
       "origin": null,
       "enabled_toolsets": null,
       "workdir": null,
-      "fire_claim": null
+      "fire_claim": null,
+      "failure_streak": 0
     },
     {
       "id": "49d25fd1e740",
@@ -2567,15 +2594,15 @@
       "schedule_display": "0 7 * * *",
       "repeat": {
         "times": null,
-        "completed": 16
+        "completed": 17
       },
       "enabled": true,
       "state": "scheduled",
       "paused_at": null,
       "paused_reason": null,
       "created_at": "2026-08-07T18:32:45.646414+00:00",
-      "next_run_at": "2026-08-24T07:00:00-04:00",
-      "last_run_at": "2026-08-23T07:00:20.481142-04:00",
+      "next_run_at": "2026-08-25T07:00:00-04:00",
+      "last_run_at": "2026-08-24T07:00:11.325313-04:00",
       "last_status": "ok",
       "last_error": null,
       "last_delivery_error": null,
@@ -2647,15 +2674,15 @@
       "schedule_display": "0 * * * *",
       "repeat": {
         "times": null,
-        "completed": 397
+        "completed": 401
       },
       "enabled": true,
       "state": "scheduled",
       "paused_at": null,
       "paused_reason": null,
       "created_at": "2026-08-07T18:32:45.646414+00:00",
-      "next_run_at": "2026-08-24T05:00:00-04:00",
-      "last_run_at": "2026-08-24T03:00:15.522189-04:00",
+      "next_run_at": "2026-08-24T09:00:00-04:00",
+      "last_run_at": "2026-08-24T07:00:11.626821-04:00",
       "last_status": "ok",
       "last_error": null,
       "last_delivery_error": null,
@@ -2664,8 +2691,8 @@
       "enabled_toolsets": null,
       "workdir": null,
       "fire_claim": {
-        "at": "2026-08-24T04:00:28.310756-04:00",
-        "by": "theos-mini.local:19594:dc82c26587e24dc38ed75ad5300e9307"
+        "at": "2026-08-24T08:00:37.975164-04:00",
+        "by": "theos-mini.local:19594:c823d47bdbaa4fb2951e6ec4f6cb7339"
       },
       "failure_streak": 0
     },
@@ -2689,24 +2716,24 @@
       "schedule_display": "0 6 * * *",
       "repeat": {
         "times": null,
-        "completed": 17
+        "completed": 18
       },
       "enabled": true,
       "state": "scheduled",
       "paused_at": null,
       "paused_reason": null,
       "created_at": "2026-08-07T18:32:45.646414+00:00",
-      "next_run_at": "2026-08-24T06:00:00-04:00",
-      "last_run_at": "2026-08-23T06:00:07.667063-04:00",
-      "last_status": "ok",
-      "last_error": null,
+      "next_run_at": "2026-08-25T06:00:00-04:00",
+      "last_run_at": "2026-08-24T06:00:32.728110-04:00",
+      "last_status": "error",
+      "last_error": "Script exited with code 1\nstderr:\nTraceback (most recent call last):\n  File \"/Users/ted/.hermes/profiles/substrate-hermes/scripts/changes_log_size_rotate.py\", line 31, in <module>\n    OPS_DIR = resolve_substrate_path('Operations')\n              ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n  File \"/Users/ted/.hermes/profiles/substrate-hermes/scripts/substrate_root.py\", line 32, in resolve_substrate_path\n    return substrate_root() / relative_path\n           ^^^^^^^^^^^^^^^^\n  File \"/Users/ted/.hermes/profiles/substrate-hermes/scripts/substrate_root.py\", line 18, in substrate_root\n    raise SubstrateRootNotConfigured(\nsubstrate_root.SubstrateRootNotConfigured: SUBSTRATE_ROOT is not set; Hermes paths must be configured per runtime rather than guessed from cwd or a compatibility alias.",
       "last_delivery_error": null,
       "deliver": "origin",
       "origin": null,
       "enabled_toolsets": null,
       "workdir": null,
       "fire_claim": null,
-      "failure_streak": 0
+      "failure_streak": 1
     },
     {
       "id": "052dc2d00b10",
@@ -2728,15 +2755,15 @@
       "schedule_display": "30 6 * * *",
       "repeat": {
         "times": null,
-        "completed": 16
+        "completed": 17
       },
       "enabled": true,
       "state": "scheduled",
       "paused_at": null,
       "paused_reason": null,
       "created_at": "2026-08-07T18:32:45.646414+00:00",
-      "next_run_at": "2026-08-24T06:30:00-04:00",
-      "last_run_at": "2026-08-23T06:30:15.027010-04:00",
+      "next_run_at": "2026-08-25T06:30:00-04:00",
+      "last_run_at": "2026-08-24T06:30:05.898740-04:00",
       "last_status": "ok",
       "last_error": null,
       "last_delivery_error": null,
@@ -2808,15 +2835,15 @@
       "schedule_display": "40 6 * * 1",
       "repeat": {
         "times": null,
-        "completed": 2
+        "completed": 3
       },
       "enabled": true,
       "state": "scheduled",
       "paused_at": null,
       "paused_reason": null,
       "created_at": "2026-08-07T18:32:45.646414+00:00",
-      "next_run_at": "2026-08-24T06:40:00-04:00",
-      "last_run_at": "2026-08-17T06:40:22.563141-04:00",
+      "next_run_at": "2026-08-31T06:40:00-04:00",
+      "last_run_at": "2026-08-24T06:40:03.755061-04:00",
       "last_status": "ok",
       "last_error": null,
       "last_delivery_error": null,
@@ -2824,7 +2851,8 @@
       "origin": null,
       "enabled_toolsets": null,
       "workdir": null,
-      "fire_claim": null
+      "fire_claim": null,
+      "failure_streak": 0
     },
     {
       "id": "1d3e9c503bb0",
@@ -2846,17 +2874,17 @@
       "schedule_display": "5 6 * * *",
       "repeat": {
         "times": null,
-        "completed": 17
+        "completed": 18
       },
       "enabled": true,
       "state": "scheduled",
       "paused_at": null,
       "paused_reason": null,
       "created_at": "2026-08-07T18:32:45.646414+00:00",
-      "next_run_at": "2026-08-24T06:05:00-04:00",
-      "last_run_at": "2026-08-23T06:05:09.028227-04:00",
-      "last_status": "ok",
-      "last_error": null,
+      "next_run_at": "2026-08-25T06:05:00-04:00",
+      "last_run_at": "2026-08-24T06:05:31.684483-04:00",
+      "last_status": "error",
+      "last_error": "Script exited with code 1\nstderr:\nTraceback (most recent call last):\n  File \"/Users/ted/.hermes/profiles/substrate-hermes/scripts/codex_review_generator.py\", line 9, in <module>\n    TARGET = resolve_substrate_path('Operations/scripts/generate_codex_review.py')\n             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n  File \"/Users/ted/.hermes/profiles/substrate-hermes/scripts/substrate_root.py\", line 32, in resolve_substrate_path\n    return substrate_root() / relative_path\n           ^^^^^^^^^^^^^^^^\n  File \"/Users/ted/.hermes/profiles/substrate-hermes/scripts/substrate_root.py\", line 18, in substrate_root\n    raise SubstrateRootNotConfigured(\nsubstrate_root.SubstrateRootNotConfigured: SUBSTRATE_ROOT is not set; Hermes paths must be configured per runtime rather than guessed from cwd or a compatibility alias.",
       "last_delivery_error": null,
       "deliver": "local",
       "origin": null,
@@ -2864,7 +2892,7 @@
       "workdir": null,
       "profile": null,
       "fire_claim": null,
-      "failure_streak": 0
+      "failure_streak": 1
     },
     {
       "id": "68222deaba3e",
@@ -3046,15 +3074,15 @@
       "schedule_display": "45 7 * * *",
       "repeat": {
         "times": null,
-        "completed": 16
+        "completed": 17
       },
       "enabled": true,
       "state": "scheduled",
       "paused_at": null,
       "paused_reason": null,
       "created_at": "2026-08-07T18:32:45.646414+00:00",
-      "next_run_at": "2026-08-24T07:45:00-04:00",
-      "last_run_at": "2026-08-23T07:45:28.496412-04:00",
+      "next_run_at": "2026-08-25T07:45:00-04:00",
+      "last_run_at": "2026-08-24T07:45:24.874739-04:00",
       "last_status": "ok",
       "last_error": null,
       "last_delivery_error": null,
@@ -3092,7 +3120,7 @@
       "paused_at": null,
       "paused_reason": null,
       "created_at": "2026-08-07T18:32:45.646414+00:00",
-      "next_run_at": "2026-08-24T08:00:00-04:00",
+      "next_run_at": "2026-08-25T08:00:00-04:00",
       "last_run_at": "2026-08-23T08:00:50.654779-04:00",
       "last_status": "ok",
       "last_error": null,
@@ -3101,7 +3129,10 @@
       "origin": null,
       "enabled_toolsets": null,
       "workdir": null,
-      "fire_claim": null,
+      "fire_claim": {
+        "at": "2026-08-24T08:00:38.468047-04:00",
+        "by": "theos-mini.local:19594:e48c43ea3543434585509436a44250fa"
+      },
       "failure_streak": 0
     },
     {
@@ -3131,7 +3162,7 @@
       "paused_at": null,
       "paused_reason": null,
       "created_at": "2026-08-07T18:32:45.646414+00:00",
-      "next_run_at": "2026-08-24T08:00:00-04:00",
+      "next_run_at": "2026-08-25T08:00:00-04:00",
       "last_run_at": "2026-08-22T08:03:55.763104-04:00",
       "last_status": "ok",
       "last_error": null,
@@ -3290,15 +3321,15 @@
       "schedule_display": "0 7 * * *",
       "repeat": {
         "times": null,
-        "completed": 18
+        "completed": 19
       },
       "enabled": true,
       "state": "scheduled",
       "paused_at": null,
       "paused_reason": null,
       "created_at": "2026-08-07T18:32:45.646414+00:00",
-      "next_run_at": "2026-08-24T07:00:00-04:00",
-      "last_run_at": "2026-08-23T07:00:23.658448-04:00",
+      "next_run_at": "2026-08-25T07:00:00-04:00",
+      "last_run_at": "2026-08-24T07:00:16.087864-04:00",
       "last_status": "ok",
       "last_error": null,
       "last_delivery_error": null,
@@ -3329,15 +3360,15 @@
       "schedule_display": "30 7 * * *",
       "repeat": {
         "times": null,
-        "completed": 18
+        "completed": 19
       },
       "enabled": true,
       "state": "scheduled",
       "paused_at": null,
       "paused_reason": null,
       "created_at": "2026-08-07T18:32:45.646414+00:00",
-      "next_run_at": "2026-08-24T07:30:00-04:00",
-      "last_run_at": "2026-08-23T07:40:27.523762-04:00",
+      "next_run_at": "2026-08-25T07:30:00-04:00",
+      "last_run_at": "2026-08-24T07:35:08.089116-04:00",
       "last_status": "ok",
       "last_error": null,
       "last_delivery_error": null,
@@ -3377,7 +3408,7 @@
       "paused_at": null,
       "paused_reason": null,
       "created_at": "2026-08-07T18:32:45.646414+00:00",
-      "next_run_at": "2026-08-24T08:00:00-04:00",
+      "next_run_at": "2026-08-25T08:00:00-04:00",
       "last_run_at": "2026-08-23T08:00:50.798743-04:00",
       "last_status": "ok",
       "last_error": null,
@@ -3450,7 +3481,7 @@
       "schedule_display": "0 4 * * *",
       "repeat": {
         "times": null,
-        "completed": 16
+        "completed": 17
       },
       "enabled": true,
       "state": "scheduled",
@@ -3458,7 +3489,7 @@
       "paused_reason": null,
       "created_at": "2026-08-07T18:32:45.646414+00:00",
       "next_run_at": "2026-08-25T04:00:00-04:00",
-      "last_run_at": "2026-08-23T04:00:45.546315-04:00",
+      "last_run_at": "2026-08-24T04:00:30.622900-04:00",
       "last_status": "ok",
       "last_error": null,
       "last_delivery_error": null,
@@ -3472,10 +3503,7 @@
       },
       "enabled_toolsets": null,
       "workdir": null,
-      "fire_claim": {
-        "at": "2026-08-24T04:00:28.668708-04:00",
-        "by": "theos-mini.local:19594:647827ad1e2c42579d850be1815b0fec"
-      },
+      "fire_claim": null,
       "failure_streak": 0
     },
     {
@@ -3498,15 +3526,15 @@
       "schedule_display": "0 7 * * 1",
       "repeat": {
         "times": null,
-        "completed": 2
+        "completed": 3
       },
       "enabled": true,
       "state": "scheduled",
       "paused_at": null,
       "paused_reason": null,
       "created_at": "2026-08-07T18:32:45.646414+00:00",
-      "next_run_at": "2026-08-24T07:00:00-04:00",
-      "last_run_at": "2026-08-17T07:00:36.173612-04:00",
+      "next_run_at": "2026-08-31T07:00:00-04:00",
+      "last_run_at": "2026-08-24T07:00:46.738015-04:00",
       "last_status": "ok",
       "last_error": null,
       "last_delivery_error": null,
@@ -3514,7 +3542,8 @@
       "origin": null,
       "enabled_toolsets": null,
       "workdir": null,
-      "fire_claim": null
+      "fire_claim": null,
+      "failure_streak": 0
     },
     {
       "id": "defd6924cfc6",
@@ -3545,7 +3574,7 @@
       "paused_at": null,
       "paused_reason": null,
       "created_at": "2026-08-07T18:32:45.646414+00:00",
-      "next_run_at": "2026-08-24T08:00:00-04:00",
+      "next_run_at": "2026-08-31T08:00:00-04:00",
       "last_run_at": "2026-08-17T08:00:44.438133-04:00",
       "last_status": "ok",
       "last_error": null,
@@ -3589,7 +3618,7 @@
       "paused_at": null,
       "paused_reason": null,
       "created_at": "2026-08-07T18:32:45.646414+00:00",
-      "next_run_at": "2026-08-24T08:00:00-04:00",
+      "next_run_at": "2026-08-26T08:00:00-04:00",
       "last_run_at": "2026-08-21T08:03:06.001458-04:00",
       "last_status": "ok",
       "last_error": null,
@@ -3623,23 +3652,24 @@
       "schedule_display": "0 6 * * 1",
       "repeat": {
         "times": null,
-        "completed": 2
+        "completed": 3
       },
       "enabled": true,
       "state": "scheduled",
       "paused_at": null,
       "paused_reason": null,
       "created_at": "2026-08-07T18:32:45.646414+00:00",
-      "next_run_at": "2026-08-24T06:00:00-04:00",
-      "last_run_at": "2026-08-17T06:00:15.494612-04:00",
-      "last_status": "ok",
-      "last_error": null,
+      "next_run_at": "2026-08-31T06:00:00-04:00",
+      "last_run_at": "2026-08-24T06:00:31.988558-04:00",
+      "last_status": "error",
+      "last_error": "Script exited with code 1\nstderr:\nTraceback (most recent call last):\n  File \"/Users/ted/.hermes/profiles/substrate-hermes/scripts/yield_refresh.py\", line 19, in <module>\n    YIELD_SCRIPT = resolve_substrate_path('Operations/scripts/audit_topic_yield.py')\n                   ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n  File \"/Users/ted/.hermes/profiles/substrate-hermes/scripts/substrate_root.py\", line 32, in resolve_substrate_path\n    return substrate_root() / relative_path\n           ^^^^^^^^^^^^^^^^\n  File \"/Users/ted/.hermes/profiles/substrate-hermes/scripts/substrate_root.py\", line 18, in substrate_root\n    raise SubstrateRootNotConfigured(\nsubstrate_root.SubstrateRootNotConfigured: SUBSTRATE_ROOT is not set; Hermes paths must be configured per runtime rather than guessed from cwd or a compatibility alias.",
       "last_delivery_error": null,
       "deliver": "local",
       "origin": null,
       "enabled_toolsets": null,
       "workdir": null,
-      "fire_claim": null
+      "fire_claim": null,
+      "failure_streak": 1
     },
     {
       "id": "c87eaa109817",
@@ -3785,15 +3815,15 @@
       "schedule_display": "0 7 * * *",
       "repeat": {
         "times": null,
-        "completed": 11
+        "completed": 12
       },
       "enabled": true,
       "state": "scheduled",
       "paused_at": null,
       "paused_reason": null,
       "created_at": "2026-08-14T21:02:03.784672-04:00",
-      "next_run_at": "2026-08-24T07:00:00-04:00",
-      "last_run_at": "2026-08-23T07:00:22.293599-04:00",
+      "next_run_at": "2026-08-25T07:00:00-04:00",
+      "last_run_at": "2026-08-24T07:00:14.037352-04:00",
       "last_status": "ok",
       "last_error": null,
       "last_delivery_error": null,
@@ -3833,7 +3863,7 @@
       "paused_at": null,
       "paused_reason": null,
       "created_at": "2026-08-14T21:02:44.836249-04:00",
-      "next_run_at": "2026-08-24T08:00:00-04:00",
+      "next_run_at": "2026-08-31T08:00:00-04:00",
       "last_run_at": "2026-08-17T08:03:27.647194-04:00",
       "last_status": "ok",
       "last_error": null,
@@ -3892,5 +3922,5 @@
       "fire_claim": null
     }
   ],
-  "updated_at": "2026-08-24T04:00:28.671797-04:00"
+  "updated_at": "2026-08-24T08:00:39.316755-04:00"
 }

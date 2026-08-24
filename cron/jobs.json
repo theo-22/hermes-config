@@ -365,15 +365,15 @@
       "schedule_display": "0 10 * * 1",
       "repeat": {
         "times": null,
-        "completed": 9
+        "completed": 10
       },
       "enabled": true,
       "state": "scheduled",
       "paused_at": null,
       "paused_reason": null,
       "created_at": "2026-06-29T21:34:53.687592-04:00",
-      "next_run_at": "2026-08-24T10:00:00-04:00",
-      "last_run_at": "2026-08-17T10:01:37.788322-04:00",
+      "next_run_at": "2026-08-31T10:00:00-04:00",
+      "last_run_at": "2026-08-24T10:00:52.727799-04:00",
       "last_status": "ok",
       "last_error": null,
       "last_delivery_error": null,
@@ -381,7 +381,8 @@
       "origin": null,
       "enabled_toolsets": null,
       "workdir": null,
-      "fire_claim": null
+      "fire_claim": null,
+      "failure_streak": 0
     },
     {
       "id": "8696f134a086",
@@ -452,7 +453,7 @@
       "schedule_display": "0 20 * * 3",
       "repeat": {
         "times": null,
-        "completed": 11
+        "completed": 12
       },
       "enabled": true,
       "state": "scheduled",
@@ -460,9 +461,9 @@
       "paused_reason": null,
       "created_at": "2026-06-29T22:56:56.493258-04:00",
       "next_run_at": "2026-08-26T20:00:00-04:00",
-      "last_run_at": "2026-08-19T20:00:24.369999-04:00",
-      "last_status": "error",
-      "last_error": "RuntimeError: HTTP 403: Budget limit exceeded (weekly limit). Contact your org admin.",
+      "last_run_at": "2026-08-24T11:33:35.191371-04:00",
+      "last_status": "ok",
+      "last_error": null,
       "last_delivery_error": null,
       "deliver": "local",
       "origin": {
@@ -475,7 +476,7 @@
       "enabled_toolsets": null,
       "workdir": null,
       "fire_claim": null,
-      "failure_streak": 1
+      "failure_streak": 0
     },
     {
       "id": "42f2a4a94448",
@@ -499,15 +500,15 @@
       "schedule_display": "15 */4 * * *",
       "repeat": {
         "times": null,
-        "completed": 315
+        "completed": 316
       },
       "enabled": true,
       "state": "scheduled",
       "paused_at": null,
       "paused_reason": null,
       "created_at": "2026-07-03T00:57:54.447668-04:00",
-      "next_run_at": "2026-08-24T08:15:00-04:00",
-      "last_run_at": "2026-08-24T04:15:28.318144-04:00",
+      "next_run_at": "2026-08-24T12:15:00-04:00",
+      "last_run_at": "2026-08-24T08:15:45.233382-04:00",
       "last_status": "error",
       "last_error": "Script exited with code 1\nstderr:\nTraceback (most recent call last):\n  File \"/Users/ted/.hermes/profiles/substrate-hermes/scripts/hermes_coordination_health.py\", line 11, in <module>\n    SCRIPT = resolve_substrate_path('Operations/scripts/hermes_coordination_health.py')\n             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n  File \"/Users/ted/.hermes/profiles/substrate-hermes/scripts/substrate_root.py\", line 32, in resolve_substrate_path\n    return substrate_root() / relative_path\n           ^^^^^^^^^^^^^^^^\n  File \"/Users/ted/.hermes/profiles/substrate-hermes/scripts/substrate_root.py\", line 18, in substrate_root\n    raise SubstrateRootNotConfigured(\nsubstrate_root.SubstrateRootNotConfigured: SUBSTRATE_ROOT is not set; Hermes paths must be configured per runtime rather than guessed from cwd or a compatibility alias.",
       "last_delivery_error": null,
@@ -516,7 +517,7 @@
       "enabled_toolsets": null,
       "workdir": null,
       "fire_claim": null,
-      "failure_streak": 2
+      "failure_streak": 3
     },
     {
       "id": "742f6bb2d68b",
@@ -704,15 +705,15 @@
       "schedule_display": "0 */4 * * *",
       "repeat": {
         "times": null,
-        "completed": 298
+        "completed": 299
       },
       "enabled": true,
       "state": "scheduled",
       "paused_at": null,
       "paused_reason": null,
       "created_at": "2026-07-05T18:09:46.374910-04:00",
-      "next_run_at": "2026-08-24T12:00:00-04:00",
-      "last_run_at": "2026-08-24T04:00:29.255537-04:00",
+      "next_run_at": "2026-08-24T16:00:00-04:00",
+      "last_run_at": "2026-08-24T08:01:01.429749-04:00",
       "last_status": "ok",
       "last_error": null,
       "last_delivery_error": null,
@@ -721,8 +722,8 @@
       "enabled_toolsets": null,
       "workdir": null,
       "fire_claim": {
-        "at": "2026-08-24T08:00:38.013588-04:00",
-        "by": "theos-mini.local:19594:3e2018f0d40c4d22b7c5afe7bc1c181a"
+        "at": "2026-08-24T12:00:42.274852-04:00",
+        "by": "theos-mini.local:19594:ac42b46560564d6da3961392de5cc060"
       },
       "failure_streak": 0
     },
@@ -928,15 +929,15 @@
       "schedule_display": "0 */2 * * *",
       "repeat": {
         "times": null,
-        "completed": 567
+        "completed": 569
       },
       "enabled": true,
       "state": "scheduled",
       "paused_at": null,
       "paused_reason": null,
       "created_at": "2026-07-07T21:42:44.416472-04:00",
-      "next_run_at": "2026-08-24T10:00:00-04:00",
-      "last_run_at": "2026-08-24T06:00:32.035976-04:00",
+      "next_run_at": "2026-08-24T14:00:00-04:00",
+      "last_run_at": "2026-08-24T10:00:06.215477-04:00",
       "last_status": "ok",
       "last_error": null,
       "last_delivery_error": null,
@@ -945,8 +946,8 @@
       "enabled_toolsets": null,
       "workdir": null,
       "fire_claim": {
-        "at": "2026-08-24T08:00:38.023082-04:00",
-        "by": "theos-mini.local:19594:7937f483c6694bb4a1506507aff0eabf"
+        "at": "2026-08-24T12:00:42.325252-04:00",
+        "by": "theos-mini.local:19594:774fe01dced24bf38eac1f01ffadbd2a"
       },
       "failure_streak": 0
     },
@@ -972,15 +973,15 @@
       "schedule_display": "15 */4 * * *",
       "repeat": {
         "times": null,
-        "completed": 284
+        "completed": 285
       },
       "enabled": true,
       "state": "scheduled",
       "paused_at": null,
       "paused_reason": null,
       "created_at": "2026-07-07T21:42:50.012014-04:00",
-      "next_run_at": "2026-08-24T08:15:00-04:00",
-      "last_run_at": "2026-08-24T04:15:28.392431-04:00",
+      "next_run_at": "2026-08-24T12:15:00-04:00",
+      "last_run_at": "2026-08-24T08:15:45.312656-04:00",
       "last_status": "ok",
       "last_error": null,
       "last_delivery_error": null,
@@ -1013,24 +1014,24 @@
       "schedule_display": "0 9 * * *",
       "repeat": {
         "times": null,
-        "completed": 50
+        "completed": 51
       },
       "enabled": true,
       "state": "scheduled",
       "paused_at": null,
       "paused_reason": null,
       "created_at": "2026-07-07T21:43:18.689990-04:00",
-      "next_run_at": "2026-08-24T09:00:00-04:00",
-      "last_run_at": "2026-08-23T09:00:54.470438-04:00",
-      "last_status": "ok",
-      "last_error": null,
+      "next_run_at": "2026-08-25T09:00:00-04:00",
+      "last_run_at": "2026-08-24T09:00:06.687948-04:00",
+      "last_status": "error",
+      "last_error": "Script exited with code 1\nstdout:\n⚠️  AI cost dashboard readings need refresh:\n  anthropic/dashboard_manual: 4d stale (last 2026-08-20T11:25:24.137929Z)\nVisit https://platform.deepseek.com/usage and https://platform.claude.com/dashboard",
       "last_delivery_error": null,
       "deliver": "local",
       "origin": null,
       "enabled_toolsets": null,
       "workdir": null,
       "fire_claim": null,
-      "failure_streak": 0
+      "failure_streak": 1
     },
     {
       "id": "52adc580fbe1",
@@ -1259,24 +1260,24 @@
       "schedule_display": "30 8 * * *",
       "repeat": {
         "times": null,
-        "completed": 45
+        "completed": 46
       },
       "enabled": true,
       "state": "scheduled",
       "paused_at": null,
       "paused_reason": null,
       "created_at": "2026-07-09T09:53:46.240993-04:00",
-      "next_run_at": "2026-08-24T08:30:00-04:00",
-      "last_run_at": "2026-08-23T08:30:48.655167-04:00",
-      "last_status": "ok",
-      "last_error": null,
+      "next_run_at": "2026-08-25T08:30:00-04:00",
+      "last_run_at": "2026-08-24T08:30:46.806635-04:00",
+      "last_status": "error",
+      "last_error": "Script exited with code 1\nstderr:\nTraceback (most recent call last):\n  File \"/Users/ted/.hermes/profiles/substrate-hermes/scripts/morning_digest.py\", line 25, in <module>\n    OUTPUT = resolve_substrate_path('Operations/Substrate_Morning.md')\n             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n  File \"/Users/ted/.hermes/profiles/substrate-hermes/scripts/substrate_root.py\", line 32, in resolve_substrate_path\n    return substrate_root() / relative_path\n           ^^^^^^^^^^^^^^^^\n  File \"/Users/ted/.hermes/profiles/substrate-hermes/scripts/substrate_root.py\", line 18, in substrate_root\n    raise SubstrateRootNotConfigured(\nsubstrate_root.SubstrateRootNotConfigured: SUBSTRATE_ROOT is not set; Hermes paths must be configured per runtime rather than guessed from cwd or a compatibility alias.",
       "last_delivery_error": null,
       "deliver": "origin",
       "origin": null,
       "enabled_toolsets": null,
       "workdir": null,
       "fire_claim": null,
-      "failure_streak": 0
+      "failure_streak": 1
     },
     {
       "id": "ad2b6a13c7bb",
@@ -1300,15 +1301,15 @@
       "schedule_display": "0 */4 * * *",
       "repeat": {
         "times": null,
-        "completed": 275
+        "completed": 277
       },
       "enabled": true,
       "state": "scheduled",
       "paused_at": null,
       "paused_reason": null,
       "created_at": "2026-07-09T09:53:47.258465-04:00",
-      "next_run_at": "2026-08-24T12:00:00-04:00",
-      "last_run_at": "2026-08-24T04:00:28.617012-04:00",
+      "next_run_at": "2026-08-24T16:00:00-04:00",
+      "last_run_at": "2026-08-24T12:00:42.623091-04:00",
       "last_status": "ok",
       "last_error": null,
       "last_delivery_error": null,
@@ -1316,10 +1317,7 @@
       "origin": null,
       "enabled_toolsets": null,
       "workdir": null,
-      "fire_claim": {
-        "at": "2026-08-24T08:00:38.427036-04:00",
-        "by": "theos-mini.local:19594:1f87e99d535a4145b8b6501fecb87404"
-      },
+      "fire_claim": null,
       "failure_streak": 0
     },
     {
@@ -1385,7 +1383,7 @@
       "schedule_display": "0 8 * * 1",
       "repeat": {
         "times": null,
-        "completed": 6
+        "completed": 7
       },
       "enabled": true,
       "state": "scheduled",
@@ -1393,7 +1391,7 @@
       "paused_reason": null,
       "created_at": "2026-07-09T09:53:49.294384-04:00",
       "next_run_at": "2026-08-31T08:00:00-04:00",
-      "last_run_at": "2026-08-17T08:00:31.288558-04:00",
+      "last_run_at": "2026-08-24T08:01:03.369569-04:00",
       "last_status": "ok",
       "last_error": null,
       "last_delivery_error": null,
@@ -1401,10 +1399,8 @@
       "origin": null,
       "enabled_toolsets": null,
       "workdir": null,
-      "fire_claim": {
-        "at": "2026-08-24T08:00:38.519713-04:00",
-        "by": "theos-mini.local:19594:84da05554b8241bc8fbfa7dc77f9f9fe"
-      }
+      "fire_claim": null,
+      "failure_streak": 0
     },
     {
       "id": "e423a8cf433d",
@@ -1469,15 +1465,15 @@
       "schedule_display": "0 9 * * 1,3,5",
       "repeat": {
         "times": null,
-        "completed": 19
+        "completed": 20
       },
       "enabled": true,
       "state": "scheduled",
       "paused_at": null,
       "paused_reason": null,
       "created_at": "2026-07-09T09:53:57.648816-04:00",
-      "next_run_at": "2026-08-24T09:00:00-04:00",
-      "last_run_at": "2026-08-21T09:00:54.094131-04:00",
+      "next_run_at": "2026-08-26T09:00:00-04:00",
+      "last_run_at": "2026-08-24T09:00:17.571684-04:00",
       "last_status": "ok",
       "last_error": null,
       "last_delivery_error": null,
@@ -1510,15 +1506,15 @@
       "schedule_display": "0 */4 * * *",
       "repeat": {
         "times": null,
-        "completed": 275
+        "completed": 276
       },
       "enabled": true,
       "state": "scheduled",
       "paused_at": null,
       "paused_reason": null,
       "created_at": "2026-07-09T09:53:58.682054-04:00",
-      "next_run_at": "2026-08-24T12:00:00-04:00",
-      "last_run_at": "2026-08-24T04:00:37.405599-04:00",
+      "next_run_at": "2026-08-24T16:00:00-04:00",
+      "last_run_at": "2026-08-24T08:01:04.071920-04:00",
       "last_status": "ok",
       "last_error": null,
       "last_delivery_error": null,
@@ -1527,8 +1523,8 @@
       "enabled_toolsets": null,
       "workdir": null,
       "fire_claim": {
-        "at": "2026-08-24T08:00:36.039417-04:00",
-        "by": "theos-mini.local:19594:92d1b5d52b75446cbde1dfa26e65adb3"
+        "at": "2026-08-24T12:00:42.427433-04:00",
+        "by": "theos-mini.local:19594:4411661ded0243f1877abe95402d0247"
       },
       "failure_streak": 0
     },
@@ -1554,15 +1550,15 @@
       "schedule_display": "*/20 * * * *",
       "repeat": {
         "times": null,
-        "completed": 3271
+        "completed": 3284
       },
       "enabled": true,
       "state": "scheduled",
       "paused_at": null,
       "paused_reason": null,
       "created_at": "2026-07-09T09:53:59.696632-04:00",
-      "next_run_at": "2026-08-24T08:20:00-04:00",
-      "last_run_at": "2026-08-24T07:40:21.023271-04:00",
+      "next_run_at": "2026-08-24T12:20:00-04:00",
+      "last_run_at": "2026-08-24T12:00:42.615306-04:00",
       "last_status": "ok",
       "last_error": null,
       "last_delivery_error": null,
@@ -1570,10 +1566,7 @@
       "origin": null,
       "enabled_toolsets": null,
       "workdir": null,
-      "fire_claim": {
-        "at": "2026-08-24T08:00:39.310605-04:00",
-        "by": "theos-mini.local:19594:1aeda176c94848538effe69887c27c1e"
-      },
+      "fire_claim": null,
       "failure_streak": 0
     },
     {
@@ -1598,7 +1591,7 @@
       "schedule_display": "0 8 * * 1",
       "repeat": {
         "times": null,
-        "completed": 6
+        "completed": 7
       },
       "enabled": true,
       "state": "scheduled",
@@ -1606,7 +1599,7 @@
       "paused_reason": null,
       "created_at": "2026-07-09T09:54:00.727611-04:00",
       "next_run_at": "2026-08-31T08:00:00-04:00",
-      "last_run_at": "2026-08-17T08:00:39.914396-04:00",
+      "last_run_at": "2026-08-24T08:01:54.790768-04:00",
       "last_status": "ok",
       "last_error": null,
       "last_delivery_error": null,
@@ -1614,10 +1607,8 @@
       "origin": null,
       "enabled_toolsets": null,
       "workdir": null,
-      "fire_claim": {
-        "at": "2026-08-24T08:00:36.427753-04:00",
-        "by": "theos-mini.local:19594:544d5e6f34a24c19adf9e7f9b593c24d"
-      }
+      "fire_claim": null,
+      "failure_streak": 0
     },
     {
       "id": "7ebe8d47b4cd",
@@ -1682,7 +1673,7 @@
       "schedule_display": "0 8 * * *",
       "repeat": {
         "times": null,
-        "completed": 46
+        "completed": 47
       },
       "enabled": true,
       "state": "scheduled",
@@ -1690,7 +1681,7 @@
       "paused_reason": null,
       "created_at": "2026-07-09T10:29:13.186624-04:00",
       "next_run_at": "2026-08-25T08:00:00-04:00",
-      "last_run_at": "2026-08-23T08:00:34.323862-04:00",
+      "last_run_at": "2026-08-24T08:01:07.833023-04:00",
       "last_status": "ok",
       "last_error": null,
       "last_delivery_error": null,
@@ -1698,10 +1689,7 @@
       "origin": null,
       "enabled_toolsets": null,
       "workdir": null,
-      "fire_claim": {
-        "at": "2026-08-24T08:00:36.539393-04:00",
-        "by": "theos-mini.local:19594:b3b8c77bbacd4fa1ae89153d64e863ce"
-      },
+      "fire_claim": null,
       "failure_streak": 0
     },
     {
@@ -1767,15 +1755,15 @@
       "schedule_display": "0 */4 * * *",
       "repeat": {
         "times": null,
-        "completed": 263
+        "completed": 264
       },
       "enabled": true,
       "state": "scheduled",
       "paused_at": null,
       "paused_reason": null,
       "created_at": "2026-07-11T16:29:55.461353-04:00",
-      "next_run_at": "2026-08-24T12:00:00-04:00",
-      "last_run_at": "2026-08-24T04:00:40.270476-04:00",
+      "next_run_at": "2026-08-24T16:00:00-04:00",
+      "last_run_at": "2026-08-24T08:01:57.140909-04:00",
       "last_status": "ok",
       "last_error": null,
       "last_delivery_error": null,
@@ -1784,8 +1772,8 @@
       "enabled_toolsets": null,
       "workdir": null,
       "fire_claim": {
-        "at": "2026-08-24T08:00:37.514428-04:00",
-        "by": "theos-mini.local:19594:3b2583175d154efd99c24be580305574"
+        "at": "2026-08-24T12:00:42.459290-04:00",
+        "by": "theos-mini.local:19594:7e0fece759424c3b8c7e2c173e7ff4e3"
       },
       "failure_streak": 0
     },
@@ -1933,15 +1921,15 @@
       "schedule_display": "every 10m",
       "repeat": {
         "times": null,
-        "completed": 4965
+        "completed": 4989
       },
       "enabled": true,
       "state": "scheduled",
       "paused_at": null,
       "paused_reason": null,
       "created_at": "2026-07-20T16:54:21.440840-04:00",
-      "next_run_at": "2026-08-24T08:02:26.327420-04:00",
-      "last_run_at": "2026-08-24T07:52:26.327420-04:00",
+      "next_run_at": "2026-08-24T12:09:42.171895-04:00",
+      "last_run_at": "2026-08-24T11:59:42.171895-04:00",
       "last_status": "ok",
       "last_error": null,
       "last_delivery_error": null,
@@ -2056,7 +2044,7 @@
       "schedule_display": "0 8 * * 1",
       "repeat": {
         "times": null,
-        "completed": 5
+        "completed": 6
       },
       "enabled": true,
       "state": "scheduled",
@@ -2064,7 +2052,7 @@
       "paused_reason": null,
       "created_at": "2026-07-22T14:22:44.896384-04:00",
       "next_run_at": "2026-08-31T08:00:00-04:00",
-      "last_run_at": "2026-08-17T08:00:54.693386-04:00",
+      "last_run_at": "2026-08-24T08:01:54.602333-04:00",
       "last_status": "ok",
       "last_error": null,
       "last_delivery_error": null,
@@ -2072,10 +2060,8 @@
       "origin": null,
       "enabled_toolsets": null,
       "workdir": null,
-      "fire_claim": {
-        "at": "2026-08-24T08:00:37.550102-04:00",
-        "by": "theos-mini.local:19594:d332bf37977b4373bc32def8f7656607"
-      }
+      "fire_claim": null,
+      "failure_streak": 0
     },
     {
       "id": "2c714ac7329b",
@@ -2140,15 +2126,15 @@
       "schedule_display": "0 8,11,14,17,20 * * *",
       "repeat": {
         "times": null,
-        "completed": 146
+        "completed": 148
       },
       "enabled": true,
       "state": "scheduled",
       "paused_at": null,
       "paused_reason": null,
       "created_at": "2026-07-25T17:16:54.732748-04:00",
-      "next_run_at": "2026-08-24T11:00:00-04:00",
-      "last_run_at": "2026-08-23T20:04:29.333771-04:00",
+      "next_run_at": "2026-08-24T14:00:00-04:00",
+      "last_run_at": "2026-08-24T11:11:26.789202-04:00",
       "last_status": "ok",
       "last_error": null,
       "last_delivery_error": null,
@@ -2156,10 +2142,7 @@
       "origin": null,
       "enabled_toolsets": null,
       "workdir": null,
-      "fire_claim": {
-        "at": "2026-08-24T08:00:37.893554-04:00",
-        "by": "theos-mini.local:19594:bebbde5e351c4fc398c50ee0c77f3bad"
-      },
+      "fire_claim": null,
       "failure_streak": 0
     },
     {
@@ -2184,15 +2167,15 @@
       "schedule_display": "0 9 * * 1",
       "repeat": {
         "times": null,
-        "completed": 5
+        "completed": 6
       },
       "enabled": true,
       "state": "scheduled",
       "paused_at": null,
       "paused_reason": null,
       "created_at": "2026-07-25T18:21:47.087110-04:00",
-      "next_run_at": "2026-08-24T09:00:00-04:00",
-      "last_run_at": "2026-08-17T09:01:10.882483-04:00",
+      "next_run_at": "2026-08-31T09:00:00-04:00",
+      "last_run_at": "2026-08-24T09:00:19.551946-04:00",
       "last_status": "ok",
       "last_error": null,
       "last_delivery_error": null,
@@ -2200,7 +2183,8 @@
       "origin": null,
       "enabled_toolsets": null,
       "workdir": null,
-      "fire_claim": null
+      "fire_claim": null,
+      "failure_streak": 0
     },
     {
       "id": "38c9d719d781",
@@ -2347,15 +2331,15 @@
       "schedule_display": "23 * * * *",
       "repeat": {
         "times": null,
-        "completed": 168
+        "completed": 172
       },
       "enabled": true,
       "state": "scheduled",
       "paused_at": null,
       "paused_reason": null,
       "created_at": "2026-08-02T11:04:27.256761-04:00",
-      "next_run_at": "2026-08-24T08:23:00-04:00",
-      "last_run_at": "2026-08-24T07:23:18.097087-04:00",
+      "next_run_at": "2026-08-24T12:23:00-04:00",
+      "last_run_at": "2026-08-24T11:23:38.692145-04:00",
       "last_status": "ok",
       "last_error": null,
       "last_delivery_error": null,
@@ -2433,7 +2417,7 @@
       "schedule_display": "0 8 * * *",
       "repeat": {
         "times": null,
-        "completed": 16
+        "completed": 17
       },
       "enabled": true,
       "state": "scheduled",
@@ -2441,7 +2425,7 @@
       "paused_reason": null,
       "created_at": "2026-08-07T18:32:45.646414+00:00",
       "next_run_at": "2026-08-25T08:00:00-04:00",
-      "last_run_at": "2026-08-23T08:00:50.752186-04:00",
+      "last_run_at": "2026-08-24T08:01:49.109832-04:00",
       "last_status": "ok",
       "last_error": null,
       "last_delivery_error": null,
@@ -2449,10 +2433,7 @@
       "origin": null,
       "enabled_toolsets": null,
       "workdir": null,
-      "fire_claim": {
-        "at": "2026-08-24T08:00:37.933148-04:00",
-        "by": "theos-mini.local:19594:9c9cb7ba09c94a37be30dfc6d1f21242"
-      },
+      "fire_claim": null,
       "failure_streak": 0
     },
     {
@@ -2635,15 +2616,15 @@
       "schedule_display": "0 9 * * *",
       "repeat": {
         "times": null,
-        "completed": 16
+        "completed": 17
       },
       "enabled": true,
       "state": "scheduled",
       "paused_at": null,
       "paused_reason": null,
       "created_at": "2026-08-07T18:32:45.646414+00:00",
-      "next_run_at": "2026-08-24T09:00:00-04:00",
-      "last_run_at": "2026-08-23T09:00:55.221639-04:00",
+      "next_run_at": "2026-08-25T09:00:00-04:00",
+      "last_run_at": "2026-08-24T09:00:07.510292-04:00",
       "last_status": "ok",
       "last_error": null,
       "last_delivery_error": null,
@@ -2674,15 +2655,15 @@
       "schedule_display": "0 * * * *",
       "repeat": {
         "times": null,
-        "completed": 401
+        "completed": 405
       },
       "enabled": true,
       "state": "scheduled",
       "paused_at": null,
       "paused_reason": null,
       "created_at": "2026-08-07T18:32:45.646414+00:00",
-      "next_run_at": "2026-08-24T09:00:00-04:00",
-      "last_run_at": "2026-08-24T07:00:11.626821-04:00",
+      "next_run_at": "2026-08-24T13:00:00-04:00",
+      "last_run_at": "2026-08-24T11:00:36.092716-04:00",
       "last_status": "ok",
       "last_error": null,
       "last_delivery_error": null,
@@ -2691,8 +2672,8 @@
       "enabled_toolsets": null,
       "workdir": null,
       "fire_claim": {
-        "at": "2026-08-24T08:00:37.975164-04:00",
-        "by": "theos-mini.local:19594:c823d47bdbaa4fb2951e6ec4f6cb7339"
+        "at": "2026-08-24T12:00:42.463781-04:00",
+        "by": "theos-mini.local:19594:c4c2a4ae09a7475cb20359427cfc8333"
       },
       "failure_streak": 0
     },
@@ -2955,15 +2936,15 @@
       "schedule_display": "0 9 * * *",
       "repeat": {
         "times": null,
-        "completed": 16
+        "completed": 17
       },
       "enabled": true,
       "state": "scheduled",
       "paused_at": null,
       "paused_reason": null,
       "created_at": "2026-08-07T18:32:45.646414+00:00",
-      "next_run_at": "2026-08-24T09:00:00-04:00",
-      "last_run_at": "2026-08-23T09:00:54.649544-04:00",
+      "next_run_at": "2026-08-25T09:00:00-04:00",
+      "last_run_at": "2026-08-24T09:00:06.934736-04:00",
       "last_status": "ok",
       "last_error": null,
       "last_delivery_error": null,
@@ -3033,15 +3014,15 @@
       "schedule_display": "30 9 * * *",
       "repeat": {
         "times": null,
-        "completed": 16
+        "completed": 17
       },
       "enabled": true,
       "state": "scheduled",
       "paused_at": null,
       "paused_reason": null,
       "created_at": "2026-08-07T18:32:45.646414+00:00",
-      "next_run_at": "2026-08-24T09:30:00-04:00",
-      "last_run_at": "2026-08-23T09:31:00.667729-04:00",
+      "next_run_at": "2026-08-25T09:30:00-04:00",
+      "last_run_at": "2026-08-24T09:30:14.190991-04:00",
       "last_status": "ok",
       "last_error": null,
       "last_delivery_error": null,
@@ -3113,7 +3094,7 @@
       "schedule_display": "0 8 * * *",
       "repeat": {
         "times": null,
-        "completed": 17
+        "completed": 18
       },
       "enabled": true,
       "state": "scheduled",
@@ -3121,7 +3102,7 @@
       "paused_reason": null,
       "created_at": "2026-08-07T18:32:45.646414+00:00",
       "next_run_at": "2026-08-25T08:00:00-04:00",
-      "last_run_at": "2026-08-23T08:00:50.654779-04:00",
+      "last_run_at": "2026-08-24T08:01:48.054686-04:00",
       "last_status": "ok",
       "last_error": null,
       "last_delivery_error": null,
@@ -3129,10 +3110,7 @@
       "origin": null,
       "enabled_toolsets": null,
       "workdir": null,
-      "fire_claim": {
-        "at": "2026-08-24T08:00:38.468047-04:00",
-        "by": "theos-mini.local:19594:e48c43ea3543434585509436a44250fa"
-      },
+      "fire_claim": null,
       "failure_streak": 0
     },
     {
@@ -3155,7 +3133,7 @@
       "schedule_display": "0 8 * * *",
       "repeat": {
         "times": null,
-        "completed": 17
+        "completed": 18
       },
       "enabled": true,
       "state": "scheduled",
@@ -3163,7 +3141,7 @@
       "paused_reason": null,
       "created_at": "2026-08-07T18:32:45.646414+00:00",
       "next_run_at": "2026-08-25T08:00:00-04:00",
-      "last_run_at": "2026-08-22T08:03:55.763104-04:00",
+      "last_run_at": "2026-08-24T08:09:52.759056-04:00",
       "last_status": "ok",
       "last_error": null,
       "last_delivery_error": null,
@@ -3171,10 +3149,7 @@
       "origin": null,
       "enabled_toolsets": null,
       "workdir": null,
-      "fire_claim": {
-        "at": "2026-08-23T08:00:33.319418-04:00",
-        "by": "theos-mini.local:90051:75ae1a65598244758fbc7e619d9544b7"
-      },
+      "fire_claim": null,
       "provider_snapshot": null,
       "model_snapshot": null,
       "failure_streak": 0
@@ -3401,7 +3376,7 @@
       "schedule_display": "0 8 * * *",
       "repeat": {
         "times": null,
-        "completed": 16
+        "completed": 17
       },
       "enabled": true,
       "state": "scheduled",
@@ -3409,7 +3384,7 @@
       "paused_reason": null,
       "created_at": "2026-08-07T18:32:45.646414+00:00",
       "next_run_at": "2026-08-25T08:00:00-04:00",
-      "last_run_at": "2026-08-23T08:00:50.798743-04:00",
+      "last_run_at": "2026-08-24T08:01:53.923835-04:00",
       "last_status": "ok",
       "last_error": null,
       "last_delivery_error": null,
@@ -3440,24 +3415,24 @@
       "schedule_display": "30 8 * * *",
       "repeat": {
         "times": null,
-        "completed": 16
+        "completed": 17
       },
       "enabled": true,
       "state": "scheduled",
       "paused_at": null,
       "paused_reason": null,
       "created_at": "2026-08-07T18:32:45.646414+00:00",
-      "next_run_at": "2026-08-24T08:30:00-04:00",
-      "last_run_at": "2026-08-23T08:30:48.629323-04:00",
-      "last_status": "ok",
-      "last_error": null,
+      "next_run_at": "2026-08-25T08:30:00-04:00",
+      "last_run_at": "2026-08-24T08:30:46.758517-04:00",
+      "last_status": "error",
+      "last_error": "Script exited with code 1\nstderr:\nTraceback (most recent call last):\n  File \"/Users/ted/.hermes/profiles/substrate-hermes/scripts/proposal_lifecycle_check.py\", line 22, in <module>\n    PROPOSALS_DIR = resolve_substrate_path('_AI_Inbox/Proposals')\n                    ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n  File \"/Users/ted/.hermes/profiles/substrate-hermes/scripts/substrate_root.py\", line 32, in resolve_substrate_path\n    return substrate_root() / relative_path\n           ^^^^^^^^^^^^^^^^\n  File \"/Users/ted/.hermes/profiles/substrate-hermes/scripts/substrate_root.py\", line 18, in substrate_root\n    raise SubstrateRootNotConfigured(\nsubstrate_root.SubstrateRootNotConfigured: SUBSTRATE_ROOT is not set; Hermes paths must be configured per runtime rather than guessed from cwd or a compatibility alias.",
       "last_delivery_error": null,
       "deliver": "origin",
       "origin": null,
       "enabled_toolsets": null,
       "workdir": null,
       "fire_claim": null,
-      "failure_streak": 0
+      "failure_streak": 1
     },
     {
       "id": "951697499327",
@@ -3528,9 +3503,9 @@
         "times": null,
         "completed": 3
       },
-      "enabled": true,
-      "state": "scheduled",
-      "paused_at": null,
+      "enabled": false,
+      "state": "paused",
+      "paused_at": "2026-08-24T09:45:21.551072-04:00",
       "paused_reason": null,
       "created_at": "2026-08-07T18:32:45.646414+00:00",
       "next_run_at": "2026-08-31T07:00:00-04:00",
@@ -3567,7 +3542,7 @@
       "schedule_display": "0 8 * * 1",
       "repeat": {
         "times": null,
-        "completed": 3
+        "completed": 4
       },
       "enabled": true,
       "state": "scheduled",
@@ -3575,9 +3550,9 @@
       "paused_reason": null,
       "created_at": "2026-08-07T18:32:45.646414+00:00",
       "next_run_at": "2026-08-31T08:00:00-04:00",
-      "last_run_at": "2026-08-17T08:00:44.438133-04:00",
-      "last_status": "ok",
-      "last_error": null,
+      "last_run_at": "2026-08-24T08:02:03.390898-04:00",
+      "last_status": "error",
+      "last_error": "Script exited with code 1\nstdout:\n⚠  INCOMPLETE SCAN: timed out after 20s — 2110/16770 files scanned, 14660 not reached this run.\n\n⚠  69 stale path(s) in 61 file(s) (2110/16770 files, 20.0s)\n\n  ~/.hermes/profiles/advisor/.curator_backups/blobs/0dcfa6bc07bb582dc39627cefefc38d26afb1bf05717798be2986e8798250f8c\n    L23: SCAN_DIR = \"/Users/ted/_AI_Inbox\"\n\n  ~/.hermes/profiles/advisor/config.yaml\n    L460: - /Users/ted/Skills\n\n  ~/.hermes/profiles/advisor/cron/jobs_20260630_012215_pre_deliver_repair.json\n    L158: \"prompt\": \"The input above is JSON with two arrays: recent_changes_log_entries (substrate fixes from the last 7 days) an\n    L348: \"prompt\": \"The input above is JSON with current contents of Ted's four inbox surfaces: _AI_Inbox, Codex_Inbox, GPT_Archi\n    L462: \"prompt\": \"The input above is JSON with newest unindexed memory files (under /Users/ted/Control/claude/memory/). Each ha\n    L500: \"prompt\": \"The input above is JSON with: recent_changes_log (last 3 days of structural work claims), recent_decisions (D\n    L538: \"prompt\": \"The input above is JSON aggregating 7 days of substrate signals: findings_clusters (audit open + recent), cur\n    L690: \"prompt\": \"The input above is JSON describing all non-resolved threads in the substrate's thread system. Each thread has\n    L1268: \"prompt\": \"Run the local Codex factual review generator. It reads real Codex local session state and writes /Users/ted/O\n\n  ~/.hermes/profiles/advisor/scripts/ai_inbox_hygiene.py\n    L11: INBOX = \"/Users/ted/_AI_Inbox\"\n\n  ~/.hermes/profiles/advisor/scripts/coordinator_drift_detection.py\n    L56: out, _, code = run_cmd(\"find /Users/ted/Codex_Inbox -name '*.md' -not -path '*/Archived/*' 2>/dev/null | wc -l\")\n\n  ~/.hermes/profiles/advisor/scripts/coordinator_session_preflight.py\n    L51: codex_count = len(list(Path(\"/Users/ted/Codex_Inbox\").glob(\"*.md\"))) if Path(\"/Users/ted/Codex_Inbox\").exists() else 0\n\n  ~/.hermes/profiles/advisor/scripts/overnight_consolidated_morning.py\n    L19: PROJECTS = Path(\"/Users/ted/Projects\")\n\n  ~/.hermes/profiles/advisor/scripts/pieces_query.py\n    L8: /Users/ted/Operations/Team_Roles_Definition_Working.md (Pieces role: lead,\n\n  ~/.hermes/profiles/advisor/scripts/proactive_repair.py\n    L29: INBOX = Path(\"/Users/ted/_AI_Inbox\")\n\n  ~/.hermes/profiles/advisor/scripts/substrate_daily_report.py\n    L32: PROJECTS_DIR = Path(\"/Users/ted/Projects\")\n\n  ~/.hermes/profiles/advisor/sessions/request_dump_cron_3ac007215c31_20260804_080023_20260804_080058_415285.json\n    L21: \"content\": \"[IMPORTANT: You are running as a scheduled cron job. DELIVERY: Your final response will be automatically del\n\n  ~/.hermes/profiles/advisor/shared_config.yaml\n    L21: # 2. Run: python3 /Users/ted/Operations/scripts/hermes_sync_shared_config.py\n    L67: - /Users/ted/Skills\n\n  ~/.hermes/profiles/advisor/shell-hooks-allowlist.json\n    L11: \"command\": \"python3 /Users/ted/Operations/scripts/userprompt_behavior_authority_signal.py --actor hermes\",\n\n  ~/.hermes/profiles/audit-hermes/config.yaml\n    L460: - /Users/ted/Skills\n\n  ~/.hermes/profiles/brain-ingest-tracer/config.yaml\n    L448: - /Users/ted/Skills\n\n  ~/.hermes/profiles/brain-ingest-tracer/shell-hooks-allowlist.json\n    L11: \"command\": \"python3 /Users/ted/Operations/scripts/userprompt_behavior_authority_signal.py --actor hermes\",\n\n  ~/.hermes/profiles/claim-verifier/config.yaml\n    L437: - /Users/ted/Skills\n\n  ~/.hermes/profiles/claim-verifier/sessions/request_dump_20260818_210553_32f0f8_20260818_210606_349964.json\n    L17: \"content\": \"# claim-verifier — Ted's Bounded Worker (read-only)\\n\\n## Core Identity\\n\\nYou are **claim-verifier**. You r\n\n  ~/.hermes/profiles/claim-verifier/sessions/request_dump_20260818_210619_73352f_20260818_210635_120753.json\n    L17: \"content\": \"# claim-verifier — Ted's Bounded Worker (read-only)\\n\\n## Core Identity\\n\\nYou are **claim-verifier**. You r\n\n  ~/.hermes/profiles/claim-verifier/shell-hooks-allowlist.json\n    L11: \"command\": \"python3 /Users/ted/Operations/scripts/userprompt_behavior_authority_signal.py --actor hermes\",\n\n  ~/.hermes/profiles/cocm-absorption-worker/config.yaml\n    L448: - /Users/ted/Skills\n\n  ~/.hermes/profiles/cocm-absorption-worker/shell-hooks-allowlist.json\n    L11: \"command\": \"python3 /Users/ted/Operations/scripts/userprompt_behavior_authority_signal.py --actor hermes\",\n\n  ~/.hermes/profiles/cold-reviewer/config.yaml\n    L448: - /Users/ted/Skills\n\n  ~/.hermes/profiles/cold-reviewer/sessions/request_dump_20260728_222604_076319_20260728_222607_421780.json\n    L17: \"content\": \"# cold-reviewer — Ted's Bounded Worker (read-only)\\n\\n## Core Identity\\n\\nYou are **cold-reviewer**. You run\n\n  ~/.hermes/profiles/cold-reviewer/sessions/request_dump_20260728_222618_8dfb11_20260728_222623_147803.json\n    L17: \"content\": \"# cold-reviewer — Ted's Bounded Worker (read-only)\\n\\n## Core Identity\\n\\nYou are **cold-reviewer**. You run\n\n  ~/.hermes/profiles/cold-reviewer/sessions/request_dump_20260728_222633_f3043a_20260728_222636_651307.json\n    L17: \"content\": \"# cold-reviewer — Ted's Bounded Worker (read-only)\\n\\n## Core Identity\\n\\nYou are **cold-reviewer**. You run\n\n  ~/.hermes/profiles/cold-reviewer/sessions/request_dump_20260728_222649_a2bec2_20260728_222653_571400.json\n    L17: \"content\": \"# cold-reviewer — Ted's Bounded Worker (read-only)\\n\\n## Core Identity\\n\\nYou are **cold-reviewer**. You run\n\n  ~/.hermes/profiles/cold-reviewer/sessions/request_dump_20260728_222704_dd47b6_20260728_222707_704620.json\n    L17: \"content\": \"# cold-reviewer — Ted's Bounded Worker (read-only)\\n\\n## Core Identity\\n\\nYou are **cold-reviewer**. You run\n\n  ~/.hermes/profiles/cold-reviewer/sessions/request_dump_20260815_055229_1ec701_20260815_055231_226571.json\n    L17: \"content\": \"# cold-reviewer — Ted's Bounded Worker (read-only)\\n\\n## Core Identity\\n\\nYou are **cold-reviewer**. You run\n\n  ~/.hermes/profiles/cold-reviewer/shell-hooks-allowlist.json\n    L11: \"command\": \"python3 /Users/ted/Operations/scripts/userprompt_behavior_authority_signal.py --actor hermes\",\n\n  ~/.hermes/profiles/doc-reconciler/config.yaml\n    L437: - /Users/ted/Skills\n\n  ~/.hermes/profiles/doc-reconciler/shell-hooks-allowlist.json\n    L11: \"command\": \"python3 /Users/ted/Operations/scripts/userprompt_behavior_authority_signal.py --actor hermes\",\n\n  ~/.hermes/profiles/evidence-verifier/config.yaml\n    L448: - /Users/ted/Skills\n\n  ~/.hermes/profiles/evidence-verifier/sessions/request_dump_20260819_192615_7c9436_20260819_192735_016613.json\n    L17: \"content\": \"# evidence-verifier — Ted's Bounded Worker (read-only)\\n\\n## Core Identity\\n\\nYou are **evidence-verifier**.\n\n  ~/.hermes/profiles/evidence-verifier/sessions/request_dump_20260819_192828_315714_20260819_192832_126528.json\n    L17: \"content\": \"# evidence-verifier — Ted's Bounded Worker (read-only)\\n\\n## Core Identity\\n\\nYou are **evidence-verifier**.\n\n  ~/.hermes/profiles/evidence-verifier/shell-hooks-allowlist.json\n    L11: \"command\": \"python3 /Users/ted/Operations/scripts/userprompt_behavior_authority_signal.py --actor hermes\",\n\n  ~/.hermes/profiles/finance-model-evaluator/config.yaml\n    L73: - /Users/ted/Skills\n\n  ~/.hermes/profiles/finance-model-evaluator/shell-hooks-allowlist.json\n    L11: \"command\": \"python3 /Users/ted/Operations/scripts/userprompt_behavior_authority_signal.py --actor hermes\",\n\n  ~/.hermes/profiles/graph-nav-bench/config.yaml\n    L448: - /Users/ted/Skills\n\n  ~/.hermes/profiles/graph-nav-bench/shell-hooks-allowlist.json\n    L11: \"command\": \"python3 /Users/ted/Operations/scripts/userprompt_behavior_authority_signal.py --actor hermes\",\n\n  ~/.hermes/profiles/legacy-room-triager/config.yaml\n    L448: - /Users/ted/Skills\n\n  ~/.hermes/profiles/legacy-room-triager/shell-hooks-allowlist.json\n    L11: \"command\": \"python3 /Users/ted/Operations/scripts/userprompt_behavior_authority_signal.py --actor hermes\",\n\n  ~/.hermes/profiles/migrator/config.yaml\n    L448: - /Users/ted/Skills\n\n  ~/.hermes/profiles/migrator/shell-hooks-allowlist.json\n    L11: \"command\": \"python3 /Users/ted/Operations/scripts/userprompt_behavior_authority_signal.py --actor hermes\",\n\n  ~/.hermes/profiles/orchestrator-hermes/SOUL.md.backup-20260718-coordinator-hermes-inherited\n    L67: 7. Check inboxes: `ls -lt /Users/ted/Hermes/Inbox/ | head -5`, `ls -lt /Users/ted/Coordinator/Inbox/ | head -5`. Also do\n\n  ~/.hermes/profiles/orchestrator-hermes/config.yaml\n    L168: - /Users/ted/Skills\n\n  ~/.hermes/profiles/orchestrator-hermes/config.yaml.backup-20260718-coordinator-hermes-inherited\n    L473: - /Users/ted/Skills\n    L559: - command: python3 /Users/ted/Operations/scripts/userprompt_behavior_authority_signal.py\n\n  ~/.hermes/profiles/orchestrator-hermes/sessions/request_dump_20260718_030523_cf2aa9_20260718_030524_546937.json\n    L17: \"content\": \"# Orchestrator Clock — Temporal Scheduler Profile\\n\\n## Core Identity\\n\\nYou are the **Orchestrator Clock**.\n\n  ~/.hermes/profiles/orchestrator-hermes/sessions/request_dump_20260718_031308_90329b_20260718_031309_945980.json\n    L17: \"content\": \"# Orchestrator Clock — Temporal Scheduler Profile\\n\\n## Core Identity\\n\\nYou are the **Orchestrator Clock**.\n\n  ~/.hermes/profiles/orchestrator-hermes/sessions/request_dump_20260718_071427_a3a2f7_20260718_071428_630924.json\n    L17: \"content\": \"# Orchestrator Clock — Temporal Scheduler Profile\\n\\n## Core Identity\\n\\nYou are the **Orchestrator Clock**.\n\n  ~/.hermes/profiles/orchestrator-hermes/sessions/request_dump_20260718_071651_80e328_20260718_071653_030498.json\n    L17: \"content\": \"# Orchestrator Clock — Temporal Scheduler Profile\\n\\n## Core Identity\\n\\nYou are the **Orchestrator Clock**.\n\n  ~/.hermes/profiles/orchestrator-hermes/sessions/request_dump_20260718_074227_5d1c92_20260718_074228_726045.json\n    L17: \"content\": \"# Orchestrator Clock — Temporal Scheduler Profile\\n\\n## Core Identity\\n\\nYou are the **Orchestrator Clock**.\n\n  ~/.hermes/profiles/orchestrator-hermes/sessions/request_dump_20260718_074229_f76f38_20260718_074231_080919.json\n    L17: \"content\": \"# Orchestrator Clock — Temporal Scheduler Profile\\n\\n## Core Identity\\n\\nYou are the **Orchestrator Clock**.\n\n  ~/.hermes/profiles/path-root-wirer/config.yaml\n    L448: - /Users/ted/Skills\n\n  ~/.hermes/profiles/path-root-wirer/shell-hooks-allowlist.json\n    L11: \"command\": \"python3 /Users/ted/Operations/scripts/userprompt_behavior_authority_signal.py --actor hermes\",\n\n  ~/.hermes/profiles/refiner/config.yaml\n    L448: - /Users/ted/Skills\n\n  ~/.hermes/profiles/refiner/shell-hooks-allowlist.json\n    L11: \"command\": \"python3 /Users/ted/Operations/scripts/userprompt_behavior_authority_signal.py --actor hermes\",\n\n  ~/.hermes/profiles/runtime-path-repairer/config.yaml\n    L448: - /Users/ted/Skills\n\n  ~/.hermes/profiles/runtime-path-repairer/shell-hooks-allowlist.json\n    L11: \"command\": \"python3 /Users/ted/Operations/scripts/userprompt_behavior_authority_signal.py --actor hermes\",\n\n  ~/.hermes/profiles/verifier/config.yaml\n    L437: - /Users/ted/Skills\n\n  ~/.hermes/profiles/verifier/shell-hooks-allowlist.json\n    L11: \"command\": \"python3 /Users/ted/Operations/scripts/userprompt_behavior_authority_signal.py --actor hermes\",",
       "last_delivery_error": null,
       "deliver": "origin",
       "origin": {
@@ -3589,7 +3564,8 @@
       },
       "enabled_toolsets": null,
       "workdir": null,
-      "fire_claim": null
+      "fire_claim": null,
+      "failure_streak": 1
     },
     {
       "id": "ffde6b82adcd",
@@ -3611,7 +3587,7 @@
       "schedule_display": "0 8 * * 1,3,5",
       "repeat": {
         "times": null,
-        "completed": 8
+        "completed": 9
       },
       "enabled": true,
       "state": "scheduled",
@@ -3619,7 +3595,7 @@
       "paused_reason": null,
       "created_at": "2026-08-07T18:32:45.646414+00:00",
       "next_run_at": "2026-08-26T08:00:00-04:00",
-      "last_run_at": "2026-08-21T08:03:06.001458-04:00",
+      "last_run_at": "2026-08-24T08:03:36.082625-04:00",
       "last_status": "ok",
       "last_error": null,
       "last_delivery_error": null,
@@ -3693,15 +3669,15 @@
       "schedule_display": "0 9 * * *",
       "repeat": {
         "times": null,
-        "completed": 15
+        "completed": 16
       },
       "enabled": true,
       "state": "scheduled",
       "paused_at": null,
       "paused_reason": null,
       "created_at": "2026-08-11T06:16:08.277349-04:00",
-      "next_run_at": "2026-08-24T09:00:00-04:00",
-      "last_run_at": "2026-08-23T09:00:56.965504-04:00",
+      "next_run_at": "2026-08-25T09:00:00-04:00",
+      "last_run_at": "2026-08-24T09:00:11.540495-04:00",
       "last_status": "ok",
       "last_error": null,
       "last_delivery_error": null,
@@ -3734,15 +3710,15 @@
       "schedule_display": "0 9 * * *",
       "repeat": {
         "times": null,
-        "completed": 13
+        "completed": 14
       },
       "enabled": true,
       "state": "scheduled",
       "paused_at": null,
       "paused_reason": null,
       "created_at": "2026-08-11T14:40:51.607263-04:00",
-      "next_run_at": "2026-08-24T09:00:00-04:00",
-      "last_run_at": "2026-08-23T09:00:54.836183-04:00",
+      "next_run_at": "2026-08-25T09:00:00-04:00",
+      "last_run_at": "2026-08-24T09:00:07.521496-04:00",
       "last_status": "ok",
       "last_error": null,
       "last_delivery_error": null,
@@ -3775,23 +3751,24 @@
       "schedule_display": "15 8 * * 1",
       "repeat": {
         "times": null,
-        "completed": 2
+        "completed": 3
       },
       "enabled": true,
       "state": "scheduled",
       "paused_at": null,
       "paused_reason": null,
       "created_at": "2026-08-13T12:45:56.445488-04:00",
-      "next_run_at": "2026-08-24T08:15:00-04:00",
-      "last_run_at": "2026-08-17T08:15:53.160774-04:00",
-      "last_status": "ok",
-      "last_error": null,
+      "next_run_at": "2026-08-31T08:15:00-04:00",
+      "last_run_at": "2026-08-24T08:15:45.224416-04:00",
+      "last_status": "error",
+      "last_error": "Script exited with code 1\nstderr:\n/Users/ted/.hermes/profiles/substrate-hermes/scripts/stray_db_scan.sh: line 3: SUBSTRATE_ROOT: SUBSTRATE_ROOT is required for Hermes path resolution",
       "last_delivery_error": null,
       "deliver": "local",
       "origin": null,
       "enabled_toolsets": null,
       "workdir": null,
-      "fire_claim": null
+      "fire_claim": null,
+      "failure_streak": 1
     },
     {
       "id": "57d91924e2f2",
@@ -3856,7 +3833,7 @@
       "schedule_display": "0 8 * * 1",
       "repeat": {
         "times": null,
-        "completed": 2
+        "completed": 3
       },
       "enabled": true,
       "state": "scheduled",
@@ -3864,7 +3841,7 @@
       "paused_reason": null,
       "created_at": "2026-08-14T21:02:44.836249-04:00",
       "next_run_at": "2026-08-31T08:00:00-04:00",
-      "last_run_at": "2026-08-17T08:03:27.647194-04:00",
+      "last_run_at": "2026-08-24T08:08:29.991104-04:00",
       "last_status": "ok",
       "last_error": null,
       "last_delivery_error": null,
@@ -3872,7 +3849,8 @@
       "origin": null,
       "enabled_toolsets": null,
       "workdir": null,
-      "fire_claim": null
+      "fire_claim": null,
+      "failure_streak": 0
     },
     {
       "id": "0334b0092139",
@@ -3922,5 +3900,5 @@
       "fire_claim": null
     }
   ],
-  "updated_at": "2026-08-24T08:00:39.316755-04:00"
+  "updated_at": "2026-08-24T12:00:42.629896-04:00"
 }

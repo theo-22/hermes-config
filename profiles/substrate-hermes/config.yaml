@@ -2,6 +2,7 @@ model:
   base_url: https://api.deepseek.com
   default: ~deepseek/deepseek-v4-flash-latest
   provider: openrouter
+  max_tokens: 16000
 providers:
   anthropic:
     api_key: [REDACTED]

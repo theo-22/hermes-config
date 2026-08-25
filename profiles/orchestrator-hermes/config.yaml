@@ -290,3 +290,5 @@ mcp_servers:
     transport: http
     url: "https://wgaigjtcwobmanjwerei.supabase.co/functions/v1/open-brain-mcp?key=SeZa4B78mJhf7jej0dQnANby6fX_rPm8a9ePo3A0wyE"
 fallback_providers: '[{"model": "nvidia/nemotron-3-ultra-550b-a55b:free", "provider": "openrouter"}]'
+hooks:
+

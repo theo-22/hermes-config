@@ -524,6 +524,7 @@ hooks:
     timeout: 10
   - command: python3 /Volumes/Extra/Substrate/Operations/scripts/userprompt_behavior_authority_signal.py --actor hermes
     timeout: 10
+
 hooks_auto_accept: true
 security:
   allow_private_urls: true

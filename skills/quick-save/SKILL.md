@@ -22,6 +22,12 @@ Use this simple user-facing split:
 
 Ted should not need to choose among actor-local closeout files. In a Codex window, full session-end means `/Volumes/Extra/Substrate/Operations/Codex_Handoff/SESSION_END.md`. In a Claude Code window, full session-end means `/Volumes/Extra/Substrate/Operations/SESSION_END.md`. Legacy routers are fallback mechanics, not the normal decision surface.
 
+**Ted's stated goal (2026-08-24): capture happens as work occurs, not batched at close.** Ideally a session ends with almost nothing left to save, because durable surfaces (`CHANGES_LOG.md`, work-item/DB state, memory files, `ROLE_INSTRUCTIONS.md`-class governing docs) were already updated the moment each piece of work landed — not deferred to a closeout pass. QuickSave and full session-end both exist to *verify* that happened and catch what didn't, not to be the first and only place capture occurs. This is the same principle behind the 2026-08-23 redesign below: shift work from batched-at-close to triggered-at-write.
+
+**Session-end's own scope shrank on 2026-08-23.** Four checks that used to run only at full session-end (Brain-capture nudge, memory-index check, sole-path-write tally, plan-shaped capture scan) are now live per-turn Stop hooks — confirmed wired 2026-08-24. Full session-end's real remaining job is smaller than the "Escalate To Full Session-End" list below might suggest on its own: verify those hooks actually fired, handle the point-in-time-only operations that structurally can't happen mid-session (final commit/push, final DB reconciliation), and prep next-session continuity. Don't over-escalate to full session-end just because the list below matches — check whether the matched reason is actually still unhandled, or whether a write-time hook already covered it.
+
+**This skill is not the only closeout axis.** QuickSave and full session-end close a *session*. [persist] (and [lens-assembly-pass], which ends with persist) close an *idea* — durable concept work written to Brain, memory, and a buoyancy touch, independent of whether the session is ending. If what's actually unsaved is a piece of understanding/synthesis rather than a bounded task's file state, the right tool is `persist`, not QuickSave — running QuickSave won't write to Brain or leave a touch. The two axes can both apply in the same close: QuickSave the task, persist the idea.
+
 ## Use When
 
 - Ted says `quick-save`, `save work`, `save this`, `checkpoint`, or asks for `CHANGES_LOG etc.`

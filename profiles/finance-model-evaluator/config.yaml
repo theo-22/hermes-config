@@ -70,7 +70,7 @@ delegation:
   subagent_auto_approve: false
 skills:
   external_dirs:
-  - /Users/ted/Skills
+  - /Volumes/Extra/Substrate/Skills
 
   template_vars: true
   write_approval: false

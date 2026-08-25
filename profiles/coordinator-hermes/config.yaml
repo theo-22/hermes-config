@@ -470,7 +470,7 @@ moa:
       enabled: true
 skills:
   external_dirs:
-  - /Users/ted/Skills
+  - /Volumes/Extra/Substrate/Skills
 
   template_vars: true
   inline_shell: false

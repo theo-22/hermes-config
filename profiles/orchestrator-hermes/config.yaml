@@ -291,4 +291,8 @@ mcp_servers:
     url: "https://wgaigjtcwobmanjwerei.supabase.co/functions/v1/open-brain-mcp?key=SeZa4B78mJhf7jej0dQnANby6fX_rPm8a9ePo3A0wyE"
 fallback_providers: '[{"model": "nvidia/nemotron-3-ultra-550b-a55b:free", "provider": "openrouter"}]'
 hooks:
+  on_session_finalize:
+  - command: python3 /Volumes/Extra/Substrate/Operations/scripts/checkout_session_finalize.py --actor hermes
+    timeout: 5
+
 

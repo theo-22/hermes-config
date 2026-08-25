@@ -519,6 +519,10 @@ hooks:
   - command: python3 /Users/ted/Control/claude/hooks/hermes_pre_llm_call_memory_recall.py
     timeout: 10
 
+  on_session_finalize:
+  - command: python3 /Volumes/Extra/Substrate/Operations/scripts/checkout_session_finalize.py --actor hermes
+    timeout: 5
+
 hooks_auto_accept: true
 security:
   allow_private_urls: true

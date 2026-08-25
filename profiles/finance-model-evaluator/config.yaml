@@ -4,10 +4,8 @@ model:
   base_url: https://api.deepseek.com
 providers:
   deepseek:
-    api_key: [REDACTED]
     base_url: https://api.deepseek.com
   zai:
-    api_key: [REDACTED]
     base_url: https://api.z.ai
 fallback_providers: '[{"model": "nvidia/nemotron-3-ultra-550b-a55b:free", "provider": "openrouter"}]'
 toolsets:
@@ -112,12 +110,12 @@ _config_version: 33
 group_sessions_per_user: true
 mcp_servers:
   open-brain:
+    command: /Users/ted/Control/mcp/.venv/bin/python
+    args:
+    - /Users/ted/Control/mcp/open_brain_mcp.py
     connect_timeout: 60
-    headers:
-      Content-Type: application/json
     timeout: 60
-    transport: http
-    url: "https://wgaigjtcwobmanjwerei.supabase.co/functions/v1/open-brain-mcp?key=SeZa4B78mJhf7jej0dQnANby6fX_rPm8a9ePo3A0wyE"
+    transport: stdio
 platform_toolsets:
   cli:
   - browser
@@ -157,3 +155,8 @@ hooks:
 
 hooks_auto_accept: true
 platforms: '{"telegram":{"enabled":true}}'
+secrets:
+  command:
+    enabled: true
+    command: /Volumes/Extra/Substrate/Operations/scripts/hermes_keychain_secrets.py
+    override_existing: true

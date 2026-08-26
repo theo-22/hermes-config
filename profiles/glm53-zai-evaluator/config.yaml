@@ -1,7 +1,6 @@
 model:
   default: glm-5.3
   provider: zai
-  base_url: https://openrouter.ai/api/v1
 providers:
   deepseek:
     base_url: https://api.deepseek.com

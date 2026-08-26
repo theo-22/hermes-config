@@ -1,6 +1,6 @@
 model:
-  base_url: https://api.deepseek.com
-  default: ~deepseek/deepseek-v4-flash-latest
+  base_url: https://openrouter.ai/api/v1
+  default: upstage/solar-pro4
   provider: openrouter
 providers:
   anthropic:
@@ -658,6 +658,7 @@ mcp_servers:
     command: /Users/ted/Control/mcp/.venv/bin/python
     args:
     - /Users/ted/Control/mcp/open_brain_mcp.py
+
     connect_timeout: 60
     timeout: 60
     transport: stdio

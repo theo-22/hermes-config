@@ -1,6 +1,6 @@
 model:
-  base_url: https://api.deepseek.com
-  default: ~deepseek/deepseek-v4-flash-latest
+  base_url: https://openrouter.ai/api/v1
+  default: google/gemini-3.7-flash
   provider: openrouter
 providers:
   anthropic:
@@ -625,10 +625,6 @@ x_search:
   timeout_seconds: 180
   retries: 2
 secrets:
-  command:
-    enabled: true
-    command: /Volumes/Extra/Substrate/Operations/scripts/hermes_keychain_secrets.py
-    override_existing: true
   command:
     enabled: true
     command: /Volumes/Extra/Substrate/Operations/scripts/hermes_keychain_secrets.py

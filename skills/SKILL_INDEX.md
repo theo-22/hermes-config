@@ -257,6 +257,7 @@ If the `/` menu is crowded, scan this card first, then search for the exact skil
 - `update-protected-generated-artifacts` = protect the generator and every output, regenerate once, prove parity and real consumer behavior
 - `repair-mcp-client-disconnects` = narrowly handle and live-prove normal MCP transport disconnects
 - `repair-hermes-update-continuity` = preserve and prove sessions across Hermes updates before repairing visibility or version skew
+- `repair-hermes-provider-transport` = isolate an exact-body SDK/httpx differential, contain the adapter to one profile, and stop before unauthorized provider spend
 - `repair-pieces-runtime` = prove Pieces runtime, producer jobs, and report consumers separately; repair only the failed layer
 - `cross-actor-incident-repair` = diagnose→handoff→repair→verify a fault across siloed actors, Ted conducting (proposed)
 - `live-multi-actor-negotiation` = live shared-thread dialogue between 2-3 standing actors, Ted present, every claim independently re-verified (proposed, tension with cross-actor-incident-repair unresolved)
@@ -468,6 +469,7 @@ If the main need is deciding whether a role may safely dispatch Hermes workers:
 - `repair-retired-path-recreation`
 - `repair-mcp-client-disconnects`
 - `repair-model-visible-token-transport`
+- `repair-hermes-provider-transport`
 - `repair-hermes-update-continuity`
 - `repair-pieces-runtime`
 - `verify-real-invocation-path`

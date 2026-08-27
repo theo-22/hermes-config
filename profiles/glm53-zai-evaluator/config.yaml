@@ -2,6 +2,8 @@ model:
   default: glm-5.3
   provider: zai
 providers:
+  zai:
+    transport: urllib_certifi
   deepseek:
     base_url: https://api.deepseek.com
 fallback_providers: []

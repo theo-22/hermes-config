@@ -1,0 +1,4 @@
+interface:
+  display_name: "Repair Hermes Provider Transport"
+  short_description: "Isolate and repair provider wire-path failures"
+  default_prompt: "Use $repair-hermes-provider-transport to diagnose this Hermes provider transport mismatch without spending an unauthorized request."

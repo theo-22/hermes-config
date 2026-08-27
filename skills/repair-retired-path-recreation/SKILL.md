@@ -134,3 +134,61 @@ Declare the repair complete only when all are true:
 - repair-owned changes are committed without absorbing unrelated work.
 
 If the root reappears after this gate, preserve it again and compare its new timestamps against scheduler/service activity. Treat that as evidence of an untraced writer, not as permission to delete it repeatedly.
+
+## How to read scanner output — actionable vs. noise
+
+Multi-scanner dead-path surfaces (stale-path-scanner, dead_path_scan_new_docs, dynamic_broken_paths, and grep passthroughs) routinely return large reference counts. Most of those counts are **not** actionable. Treat the raw number as a noise signal until you separate runtime-executable references from everything else.
+
+### Classify each reference class before counting
+
+| Class | Meaning | Action |
+|---|---|---|
+| **Runtime-executable** | Code, script, prompt, or config that resolves the dead path at run/module-load time and uses it for I/O, dispatch, or scope | **Actionable** — repoint or remove |
+| **Already handled** | Commented-out block, test asserting the path stays retired, intentional retirement record | Not actionable — confirm it stays disabled |
+| **Historical / documentation** | Logs, CHANGES_LOG, rollout summaries, memory files, migration plans, findings logs — records of what was | Not actionable — records are supposed to name old paths |
+| **Intentional guard** | Watchdog that deliberately references a dead path to detect resurrection (e.g. symlink_home_path_sweep watching `/Users/ted/Operations`); retirement backref resolution tool | Not actionable — the guard is doing its job |
+| **Query template / SQL string** | `LIKE 'file:/Users/ted/Projects/%'` inside a lens query — a string pattern, not a resolved path | Not actionable — the query is parameterized, not executing the path |
+| **Config state** | JSON/YAML settings file storing a dead path as evidence metadata (e.g. `source` field) | Check whether the code *opens* the path or only stores it; if only stored, not actionable |
+| **Text extraction / regex** | Pattern-matching README content for successor pointers — searches text, not disk | Not actionable — text processing, not path resolution |
+
+### Lead with the actionable headline
+
+When reporting scanner results to Ted, lead with the actionable count and the creation-rate trend, not the full taxonomy:
+
+```
+stale-path-scanner: 0 actionable, clean
+dead_path_scan_new_docs: 17 refs / 12 files actionable; 4 new today (the real signal)
+dynamic_broken_paths: 0 actionable; 36 unresolved (both-sides-missing, needs human call)
+```
+
+The **NEW TODAY** count from `dead_path_scan_new_docs` is the creation-rate metric — it answers "are we creating more dead paths than we're fixing." A week of ~200/day that drops to single digits is real improvement; report the trend, not the total.
+
+### What makes a reference actionable
+
+A reference is actionable only if all of these are true:
+- It appears in an executable surface (script, cron prompt, compiled applet, live code module, hook installer, runtime config that is opened at runtime).
+- The path does not resolve (locally or canonically).
+- The surface uses the path for something consequential: I/O, dispatch, scope allowlisting, or module-level resolution.
+
+A reference is **not** actionable if any of these are true:
+- It's in a record, log, memory, doc, or findings file.
+- It's inside a commented-out block.
+- It's an intentional guard or retirement tool reference.
+- It's a query string, regex, or text pattern.
+- The code only stores the path as metadata and never opens it.
+
+### Common false positives to discount immediately
+
+- `node_modules/`, build caches, worktree snapshots — never actionable.
+- Transition/AI_History export trees — frozen snapshots, never actionable.
+- `Control/.claude/hooks/check_*_dead_path_references.py` and similar guard scripts — these are the detectors, not the problem.
+- Files under `Operations/reports/` — historic reports, not live surfaces.
+- Dual-copy drift: tracked source vs. installed consumer. A reference in the tracked source is a lead; the installed copy is what runs. Prove which copy the scheduler/launcher actually reads before treating either as actionable.
+
+### Regression guard after repair
+
+After removing or repointing runtime-executable references, run the deterministic guard again and confirm the actionable count drops to zero (or to only the genuinely-unresolved human-call items). If the count did not drop, the wrong class was edited — re-check the classification.
+
+## Style note for this user
+
+Ted cuts through noise quickly. When reporting scanner output, lead with the actionable headline and the trend direction — not the full taxonomy. The detailed classification table above is for the agent doing the work; the report to the user should be the short version. If the user asks "which numbers matter," give the actionable count and the NEW TODAY count, then stop unless asked for more.

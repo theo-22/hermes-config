@@ -20,7 +20,7 @@ Use this simple user-facing split:
 - **QuickSave:** one contained task, already finished or intentionally paused, where the next actor only needs a clean saved state.
 - **Full session-end:** broad session, multiple workstreams, shared skills, Project Rooms, commits/pushes, cross-AI handoff, architecture/startup changes, or any situation where future continuity would be unclear without a sweep.
 
-Ted should not need to choose among actor-local closeout files. In a Codex window, full session-end means `/Volumes/Extra/Substrate/Operations/Codex_Handoff/SESSION_END.md`. In a Claude Code window, full session-end means `/Volumes/Extra/Substrate/Operations/SESSION_END.md`. Legacy routers are fallback mechanics, not the normal decision surface.
+Ted should not need to choose among actor-local closeout files. In a Codex window, full session-end means `/Volumes/Extra/Substrate/Operations/Codex_Handoff/SESSION_END.md`. In a Claude Code window, full session-end means `/Volumes/Extra/Substrate/Operations/SESSION_END.md`. In a Grok Bot window, full session-end means `/Volumes/Extra/Substrate/Operations/GROK_SESSION_END.md`. Legacy routers are fallback mechanics, not the normal decision surface.
 
 **Ted's stated goal (2026-08-24): capture happens as work occurs, not batched at close.** Ideally a session ends with almost nothing left to save, because durable surfaces (`CHANGES_LOG.md`, work-item/DB state, memory files, `ROLE_INSTRUCTIONS.md`-class governing docs) were already updated the moment each piece of work landed — not deferred to a closeout pass. QuickSave and full session-end both exist to *verify* that happened and catch what didn't, not to be the first and only place capture occurs. This is the same principle behind the 2026-08-23 redesign below: shift work from batched-at-close to triggered-at-write.
 
@@ -198,5 +198,6 @@ If session-end requirements, repo boundaries, or continuity surfaces change, upd
 
 - `/Volumes/Extra/Substrate/Operations/Codex_Handoff/SESSION_END.md`
 - `/Volumes/Extra/Substrate/Operations/SESSION_END.md` when CC parity matters
+- `/Volumes/Extra/Substrate/Operations/GROK_SESSION_END.md` when Grok Bot parity matters
 - `/Volumes/Extra/Substrate/Operations/Workspace_Orientation/REPO_WORKSPACE_MAP.md`
 - `/Volumes/Extra/Substrate/Operations/CHANGES_LOG.md` for current entry style

@@ -168,6 +168,12 @@ If the `/` menu is crowded, scan this card first, then search for the exact skil
 - `icon-relocation-audit`
   Use when a root has been relocated from ~/ to Extra and icon scripts need dual-path updates. Audit families, update scripts, backup, dry-run, apply, write receipt.
 
+- `icon-image-processor`
+  Icon System capability — generates/processes candidate icon images. Never applies them to Finder; that stays with `icon-apply-sort` under the Icon System ROLE_CONTRACT split.
+
+- `icon-apply-sort`
+  Icon System capability — sorts and applies processed icon images to their Finder targets. Paired with `icon-image-processor`, which only produces the images.
+
 - `ht-grocery`
   Use for Harris Teeter grocery site automation — My Specials, Weekly Ad, cart, checkout. CDP browser patterns for the site's React SPA, including the click-doesn't-fire workaround. Human in the loop on checkout; never auto-submits orders.
 
@@ -445,6 +451,8 @@ If the main need is deciding whether a role may safely dispatch Hermes workers:
 - `graph-edge-finding`
 - `ht-grocery`
 - `icon-relocation-audit`
+- `icon-image-processor`
+- `icon-apply-sort`
 - `image-factory-16x9-replacement-workflow`
 - `lens-assembly-pass`
 - `live-session-to-skill`

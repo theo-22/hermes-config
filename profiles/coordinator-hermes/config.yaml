@@ -693,7 +693,7 @@ mcp_servers:
     connect_timeout: 10
     timeout: 30
     transport: sse
-    url: https://theos-mini.tail19cc07.ts.net/sse
+    url: https://theos-mini.tail19cc07.ts.net/sse/coordinator
   open-brain:
     command: /Users/ted/Control/mcp/.venv/bin/python
     args:

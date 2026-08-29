@@ -74,6 +74,21 @@ Inspect the actual installed invocation using its owning working directory, inte
 
 Name current equivalents rather than assuming historical function names still own the live path.
 
+### 3a. Prove the telemetry observes the effective request client
+
+When a provider-shaped error and the usage receipt disagree about whether the wire ran, trace the evidence object through the complete request lifetime. Do not assume the client visible to an outer hook is the client that sent the request.
+
+Check all active call modes, including streaming paths used by quiet or one-shot invocations:
+
+1. identify the exact SDK client created for the attempt;
+2. follow its owned HTTP client and effective transport;
+3. record provenance before the per-request client or stream is closed, cleared, cached, or replaced by an abort handle; and
+4. prove the lifecycle/usage collector serializes that same request-local record.
+
+If cleanup runs before the outer error hook, carry a credential-free provenance record on the exception or another request-local object. Snapshot the transport's pre-request provenance and attach only a newly produced record; otherwise a reused client's older HTTP receipt can falsely prove that a later synthetic/local error reached the provider.
+
+Search both Hermes and installed dependencies for the exact error text plus every relevant exception constructor/translator. An SDK `RateLimitError` class alone is not proof: it may be constructed locally, while an SDK path that constructs it from an actual response status is evidence only when the effective transport and request-local receipt agree.
+
 ### 4. Choose the narrowest reversible adapter
 
 Prefer, in order:
@@ -94,7 +109,9 @@ Before any provider request, require all of the following:
 - Prove the configured outer-attempt count and the OpenAI SDK retry count separately.
 - Inspect credential-file existence and permissions only; do not print values or persist Authorization headers.
 - Exercise the actual SDK over a loopback capture server through the adapter.
+- Exercise every installed request mode that owns a distinct client lifetime. A one-shot or quiet command may still use the streaming implementation even when no token consumer is visible.
 - Assert request-body equality, intended path, permitted header shape, redirect policy, and removal or preservation of SDK metadata as required by the known-good replay.
+- Pair a genuine loopback HTTP error with a synthetic/local exception. The HTTP case must retain the response boundary after client cleanup; the synthetic case must remain null even if the client contains an older provenance record.
 - Prove a non-target provider/profile still uses the original client builder.
 - Compile/lint changed code and run focused neighboring retry/TLS tests.
 - State why no provider call could occur during verification; use a network guard when static inspection and loopback containment are insufficient.
@@ -121,6 +138,9 @@ Do not roll offline PASS into qualification PASS. If the user later authorizes o
 - Unit tests prove seams, not provider acceptance.
 - An exact replay proves a transport differential, not the precise causal header or TLS feature.
 - Wrapper exit, sentinel text, or `api_calls=1` do not alone prove one outbound attempt.
+- `provider=<name>`, an HTTP-shaped exception, and `api_calls=1` do not prove provider receipt. Require a request-local transport boundary such as `HTTP_RESPONSE_RECEIVED`.
+- `provider_received=false` or null provenance means local/pre-response failure unless the exact effective-client attachment and cleanup path has itself been tested and shown defective.
+- Console activity is corroborating account-side evidence, not a substitute for wire proof. A genuine HTTP response can coexist with no billable usage record, for example when account or plan eligibility rejects the request before inference.
 - A live qualification verdict requires the provider response plus Hermes lifecycle/usage evidence from the authorized invocation.
 
 ## Failure modes
@@ -131,15 +151,21 @@ Do not roll offline PASS into qualification PASS. If the user later authorizes o
 - Logging keys, Authorization headers, or provider error bodies into durable receipts.
 - Adding a fleet-wide header/TLS change because one isolated profile failed.
 - Allowing selector failure to revert silently to the failing path.
+- Reading provenance from a shared cache or outer client after the per-request streaming client has already been cleared.
+- Reusing a prior request's transport receipt to label a synthetic/local exception as provider-received.
 - Treating current provider unavailability as model-quality evidence.
 - Spending the final request during repair verification rather than stopping for authorization.
 
 ## Reference implementation
 
-The 2026-08-27 `glm53-zai-evaluator` repair is the worked instance:
+The 2026-08-27 through 2026-08-28 `glm53-zai-evaluator` repair is the worked instance:
 
 - receipt: `/Volumes/Extra/Substrate/Operations/reports/Orchestration_Receipts/cycle_glm53-zai-evaluator-urllib-transport-offline-pass-20260827.md`;
-- installed Hermes commit: `52bb602960`;
+- final provenance/qualification receipt: `/Volumes/Extra/Substrate/Operations/reports/Orchestration_Receipts/GLM53_ZAI_Coding_Plan_Qualification_Final_2026-08-28.md`;
+- transport adapter commit: `52bb602960`;
+- request-lifetime provenance commit: `e22ab9ec53`;
 - adapter: `/Users/ted/.hermes/hermes-agent/agent/zai_urllib_transport.py`.
+
+The final specimen proved a real Z.AI Coding Plan HTTP 429 with request-local `HTTP_RESPONSE_RECEIVED` provenance while the authenticated console showed no active Coding Plan subscription. That combination established correct routing plus account-plan rejection, not model failure and not a locally synthesized 429.
 
 These paths identify evidence, not permanent API. Re-resolve the installed Hermes source, active profile, and current constructor names on every use.

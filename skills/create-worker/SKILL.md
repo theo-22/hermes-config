@@ -35,15 +35,22 @@ The factory guarantees, for every caller, the same poka-yoke:
   model replacement scan (2026-08-15): `cheap` (ling-2.6-flash / openrouter for
   machine-parsed, mechanical, contract-clean output), `mid` (OR
   `~deepseek/deepseek-v4-flash-latest` / openrouter for judgment/contradiction/
-  verification/config-touching), `specialized` (caller-supplied model+provider,
-  e.g. finance GLM 5.2 / zai — only when the model IS the evaluation subject).
+  verification/config-touching), `specialized` (caller-supplied model; provider
+  may be explicit or inherited from a deterministically classified mold, e.g.
+  finance GLM 5.2 / zai — only when the model IS the evaluation subject). A
+  specialized model never silently defaults to OpenRouter.
   **Ask the five lane questions before minting:** (1) machine-parsed or
   human-read output? (2) mechanical or judgment work? (3) needs 1M context?
   (4) touches config/runtime surfaces? (5) frequent cron or rare dispatch?
   cheap earned, mid default, specialized explicit.
 - cloned from a mold profile (default `migrator`), config floor applied
   (`verify_on_stop`, memory, `max_turns` — the settings that were wrong on 9/10
-  hand-built profiles), refuses to clobber an existing profile;
+  hand-built profiles), refuses to clobber an existing profile. The mold must
+  have an explicit `profile.yaml` `worker_factory.mold_safety_class` declaration
+  or an exact established SOUL marker; genuinely ambiguous molds fail closed;
+- inherits the mold's provider, compatible base URL, fallback posture, and
+  whitelisted non-secret provider routing settings when the provider is not
+  explicitly changed. Credential values are never read into plans or receipts;
 - a SOUL carrying the **five non-negotiable disciplines**: HALT-don't-improvise ·
   reversible-only (never hard-delete) · evidence-not-assertion (grep + file:line) ·
   stay-in-scope (read-only assessments) · leads-not-authority (the hub verifies);
@@ -69,12 +76,16 @@ python3 /Volumes/Extra/Substrate/Operations/scripts/create_worker.py <name> --ro
 # specialized (the model IS the subject, e.g. a model being evaluated):
 python3 /Volumes/Extra/Substrate/Operations/scripts/create_worker.py <name> --role "..." \
     --lane specialized --model glm-5.2 --provider zai --apply
+# or inherit Z.AI routing identity from a deterministically classified Z.AI mold:
+python3 /Volumes/Extra/Substrate/Operations/scripts/create_worker.py <name> --role "..." \
+    --from glm53-zai-evaluator --lane specialized --model glm-5.3-flash --apply
 ```
 
 **Coordinator / GPT role (MCP tool, no shell):**
 Call the `create_worker` MCP tool with `name` and `role` (required), optional
-`kind`/`tasks`/`mold`/`model`. It runs the same factory in-process and returns the
-result. Then dispatch the new worker with the `dispatch_worker` tool.
+`kind`/`tasks`/`mold`/`lane`/`model`/`provider`. It runs the same factory
+in-process and returns the result. Then dispatch the new worker with the
+`dispatch_worker` tool.
 
 ## Then: dispatch and verify (the loop)
 

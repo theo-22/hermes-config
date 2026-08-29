@@ -2,19 +2,18 @@ model:
   default: glm-5.3
   provider: zai
 providers:
-  deepseek:
-    base_url: https://api.deepseek.com
   zai:
     transport: urllib_certifi
-fallback_providers: '[{"model": "nvidia/nemotron-3-ultra-550b-a55b:free", "provider":
-  "openrouter"}]'
+  deepseek:
+    base_url: https://api.deepseek.com
+fallback_providers: []
 toolsets:
   - hermes-cli
 max_live_sessions: 8
 agent:
   max_turns: 80
   gateway_timeout: 1200
-  api_max_retries: 3
+  api_max_retries: 1
   tool_use_enforcement: auto
   task_completion_guidance: false
   parallel_tool_call_guidance: false

@@ -1,14 +1,15 @@
 model:
-  default: deepseek-v4-pro
-  provider: deepseek
+  default: glm-5.3
+  provider: zai
 providers:
   deepseek:
     base_url: https://api.deepseek.com
   zai:
-    base_url: https://api.z.ai
-fallback_providers: '[{"model": "nvidia/nemotron-3-ultra-550b-a55b:free", "provider": "openrouter"}]'
+    base_url: https://api.z.ai/api/coding/paas/v4
+fallback_providers: '[{"model": "nvidia/nemotron-3-ultra-550b-a55b:free", "provider":
+  "openrouter"}]'
 toolsets:
-- hermes-cli
+  - hermes-cli
 max_live_sessions: 8
 agent:
   max_turns: 80
@@ -67,8 +68,7 @@ delegation:
   subagent_auto_approve: false
 skills:
   external_dirs:
-  - /Volumes/Extra/Substrate/Skills
-
+    - /Volumes/Extra/Substrate/Skills
   template_vars: true
   write_approval: false
   creation_nudge_interval: 15
@@ -86,19 +86,19 @@ approvals:
   cron_mode: auto
   destructive_slash_confirm: false
 command_allowlist:
-- execute_code
-- script execution via -e/-c flag
+  - execute_code
+  - script execution via -e/-c flag
 hooks:
   pre_llm_call:
-  - command: python3 /Users/ted/Control/claude/hooks/hermes_pre_llm_call_memory_recall.py
-    timeout: 10
-  - command: python3 /Volumes/Extra/Substrate/Operations/scripts/userprompt_behavior_authority_signal.py --actor hermes
-    timeout: 10
-
+    - command: python3 /Users/ted/Control/claude/hooks/hermes_pre_llm_call_memory_recall.py
+      timeout: 10
+    - command: python3 /Volumes/Extra/Substrate/Operations/scripts/userprompt_behavior_authority_signal.py
+        --actor hermes
+      timeout: 10
   on_session_finalize:
-  - command: python3 /Volumes/Extra/Substrate/Operations/scripts/checkout_session_finalize.py --actor hermes
-    timeout: 5
-
+    - command: python3 /Volumes/Extra/Substrate/Operations/scripts/checkout_session_finalize.py
+        --actor hermes
+      timeout: 5
 hooks_auto_accept: true
 cron:
   wrap_response: true
@@ -126,75 +126,37 @@ mcp_servers:
   open-brain:
     command: /Users/ted/Control/mcp/.venv/bin/python
     args:
-    - /Users/ted/Control/mcp/open_brain_mcp.py
+      - /Users/ted/Control/mcp/open_brain_mcp.py
     connect_timeout: 60
     timeout: 60
     transport: stdio
 platform_toolsets:
   cli:
-  - browser
-  - clarify
-  - code_execution
-  - computer_use
-  - cronjob
-  - delegation
-  - file
-  - image_gen
-  - kanban
-  - memory
-  - messaging
-  - session_search
-  - skills
-  - terminal
-  - todo
-  - tts
-  - vision
-  - web
+    - browser
+    - clarify
+    - code_execution
+    - computer_use
+    - cronjob
+    - delegation
+    - file
+    - image_gen
+    - kanban
+    - memory
+    - messaging
+    - session_search
+    - skills
+    - terminal
+    - todo
+    - tts
+    - vision
+    - web
   telegram:
-  - hermes-telegram
+    - hermes-telegram
 plugins:
   disabled: []
   enabled:
-  - openai
+    - openai
 platforms: '{"telegram":{"enabled":true}}'
-
-# ── Security ──────────────────────────────────────────────────────────
-# Secret redaction is ON by default — strings that look like API keys,
-# tokens, and passwords are masked in tool output, logs, and chat
-# responses before the model or user ever sees them. Set redact_secrets
-# to false to disable (e.g. when developing the redactor itself).
-# tirith pre-exec scanning is enabled by default when the tirith binary
-# is available. Configure via security.tirith_* keys or env vars
-# (TIRITH_ENABLED, TIRITH_BIN, TIRITH_TIMEOUT, TIRITH_FAIL_OPEN).
-#
-# security:
-#   redact_secrets: true
-#   tirith_enabled: true
-#   tirith_path: "tirith"
-#   tirith_timeout: 5
-#   tirith_fail_open: true
-
-# ── Fallback Model ────────────────────────────────────────────────────
-# Automatic provider failover when primary is unavailable.
-# Uncomment and configure to enable. Triggers on rate limits (429),
-# overload (529), service errors (503), or connection failures.
-#
-# Supported providers:
-#   openrouter   (OPENROUTER_API_KEY)  — routes to any model
-#   openai-codex (OAuth — hermes auth) — OpenAI Codex
-#   nous         (OAuth — hermes auth) — Nous Portal
-#   zai          (ZAI_API_KEY)         — Z.AI / GLM
-#   kimi-coding  (KIMI_API_KEY)        — Kimi / Moonshot
-#   kimi-coding-cn (KIMI_CN_API_KEY)   — Kimi / Moonshot (China)
-#   minimax      (MINIMAX_API_KEY)     — MiniMax
-#   minimax-cn   (MINIMAX_CN_API_KEY)  — MiniMax (China)
-#   bedrock      (AWS IAM / boto3)     — AWS Bedrock (Converse API)
-#
-# For custom OpenAI-compatible endpoints, add base_url and key_env.
-#
-# fallback_model:
-#   provider: openrouter
-#   model: anthropic/claude-sonnet-4
 secrets:
   command:
     enabled: true

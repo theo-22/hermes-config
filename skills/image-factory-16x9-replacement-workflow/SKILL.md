@@ -1,22 +1,23 @@
 ---
 name: image-factory-16x9-replacement-workflow
-description: Capture, verify, place, recover, and optionally export Ted-approved native-16:9 Image Factory keepers. Use for one keeper or a frozen batch when exact image identity, collision-safe placement, sidecar preservation, recoverable retries, and proof stronger than output counts are required.
+description: Queue atomic replacement subjects, capture Ted-approved raw keepers exactly, hand them to the deterministic Image Processor, and preserve separate downstream placement/retirement proof. Use when exact identity, resumable lifecycle, safe replay, and receipts stronger than output counts are required.
 category: meta
 write_mode: file
-one_line_use: capture exact keepers, finish placement recoverably, and verify optional All_Burn export
+one_line_use: queue atomic subjects, capture exact keepers, process deterministically, and keep placement separate
 fast_pick: "no"
 ---
 
 # Image Factory 16:9 Replacement Workflow
 
-One canonical cross-runtime procedure for moving approved replacement images from
-chat acceptance to verified Image Factory placement. Runtime tools may differ;
-the authority, identity checks, evidence, and failure rules do not.
+One canonical cross-runtime procedure for moving replacement subjects through
+durable queue, creative judgment, exact raw capture, deterministic processing,
+and a separate downstream placement boundary. Runtime tools may differ; the
+authority, identity checks, evidence, and failure rules do not.
 
 ## When to use
 
 - Ted accepts a generated native-16:9 image for Image Factory.
-- One accepted keeper needs exact capture and placement.
+- One accepted keeper needs exact capture and deterministic processing.
 - A keeper batch is collecting, frozen, awaiting retrieval, or ready to finish.
 - A previously interrupted placement needs evidence-based recovery.
 - Ted asks to refresh the derived `All_Burn` export after placement.
@@ -33,7 +34,7 @@ the authority, identity checks, evidence, and failure rules do not.
 
 1. Old images and filenames are subject seeds only. Generate fresh native-16:9
    compositions; do not recreate the old composition.
-2. Acceptance, exact-byte capture, placement, and export are separate state
+2. Generation, judgment, exact-byte capture, processing, placement, and export are separate state
    transitions. Never treat one as proof of another.
 3. Verify identity before any move. A filename, preview, count, or worker message
    is not image identity.
@@ -46,20 +47,24 @@ the authority, identity checks, evidence, and failure rules do not.
 
 1. Start Image Factory in Replacement Program mode.
 2. Audit the target category and choose one subject seed or coherent cluster.
-3. Generate one native-16:9 candidate at a time and show it to Ted.
-4. On rejection, do not capture, stage, or place it.
-5. On hold, preserve undecided state without counting it as accepted.
+3. Create or resume an `image_factory_work_queue` range tagged
+   `image_factory` and the program tag, with one atomic child per intended image.
+4. Generate one native-16:9 candidate per child and show it to Ted.
+5. On rejection or retry, record the durable side outcome/history; do not
+   capture, process, or place that candidate.
+6. On hold, preserve undecided state without counting it as accepted.
 
 ### B. Record acceptance and capture exact bytes
 
-1. Record the accepted title, intended filename, category, chat anchor, verdict,
-   and dimensions when known in the canonical keeper manifest.
+1. Record keep/reject judgment on the atomic work item. Historical keeper
+   manifests remain compatibility state; new lists use the tagged queue.
 2. If the exact full-resolution bytes are available in the current session,
    capture them immediately through `image_factory_capture_generated` using
-   exact base64 bytes or an allowlisted path visible to the server.
+   exact base64 bytes or an allowlisted path visible to the server, linked to
+   `work_item_id` and its expected typed revision.
 3. Reject thumbnails and previews by comparing dimensions and SHA-256 evidence.
-4. Treat capture as durable retrieval only. It does not authorize or prove
-   placement.
+4. Treat capture as durable raw-source preservation only. It does not authorize
+   or prove processing, placement, export, or retirement.
 5. If exact bytes are not available, leave the item accepted but uncaptured and
    use the frozen-batch retrieval route in section C.
 
@@ -83,45 +88,46 @@ For a batch whose exact bytes could not be captured at acceptance:
 
 Do not dispatch a worker per keeper when exact bytes are already available.
 
-### D. Finish placement
+### D. Hand off to Image Processor
 
-Use `image_factory_finish_keeper` for one item or an `items[]` batch.
+1. Require the captured source path, SHA-256, and dimensions on the typed child.
+2. Call `image_factory_work_queue(op=queue_processing)` explicitly. This is the
+   Image Factory → Image Processor handoff; end creative-role authority here.
+3. Start Image Processor and process only `processing_queued` items.
+4. Verify source identity before pixels change.
+5. Require a deterministic derivative, output SHA-256/dimensions, durable
+   receipt, and `processed` state.
+6. Replay must verify and reuse the same output/receipt. Conflicting or orphaned
+   output fails closed.
+7. Verify the receipt says generation, keeper judgment, placement, and retirement
+   did not occur.
 
-For every item:
+### E. Separate downstream placement
 
-1. Require identity-strength evidence: `known_host_sha256` or a prior exact-capture
-   retrieval SHA-256.
-2. Preview the exact source, final filename, target category, collision result,
-   sidecar, and any retirement proposal.
-3. Use dry-run first. Live placement must be no-overwrite and same-folder rename
-   semantics must remain recoverable.
-4. Preserve the approved title in the sidecar; do not replace it with a filename
-   stem or regenerated label.
-5. Read back the placed image and sidecar. Verify type, native aspect, dimensions,
-   bytes, SHA-256, and final path.
-6. Retire an older original recoverably only after the new placement is verified.
-7. Record a terminal manifest disposition and durable receipt.
+`processed` is a handoff state, not placement or completion. Placement,
+sidecars, export, and recoverable retirement require a separately explicit
+downstream capability and authority. Historical `image_factory_finish_keeper`
+and `image_factory_process_candidate` remain compatibility tools only; do not
+route new generation sessions through them as the canonical flow.
 
-Reject non-publishable targets such as `Rejects`, `assets`, underscore-prefixed,
-or dot-prefixed categories.
-
-### E. Recover interrupted operations
+### F. Recover interrupted operations
 
 Before retrying, inspect the live manifest, filesystem, sidecar, and receipts.
 
 - If capture completed but manifest mutation failed, recover from the durable
   capture evidence rather than downloading again.
-- If placement and sidecar completed but the final manifest/receipt write failed,
-  use receipt-only recovery after verifying the placed bytes and sidecar.
+- If processor output and receipt completed but state mutation failed, verify
+  both identities and use safe replay; do not generate or recapture again.
 - If identity evidence, target state, or provenance is ambiguous, stop and report
   the mismatch. Do not infer success or rerun the full operation.
 - Repair missing manifest state from verified durable evidence; never overwrite a
   conflicting live state.
 
-### F. Optional `All_Burn` export
+### G. Optional `All_Burn` export
 
-Use `image_factory_export_all_burn` only when Ted requests or the authorized
-workflow requires the derived export.
+Use the legacy `image_factory_export_all_burn` only when Ted requests or a
+separately authorized downstream workflow requires the derived export. It is
+never implied by keeper acceptance, capture, or processing.
 
 1. Preview by default.
 2. On confirmed execution, use the fixed refresh implementation rather than an
@@ -132,12 +138,14 @@ workflow requires the derived export.
    dimensions, byte count, and SHA-256.
 5. Never accept output count alone as export proof.
 
-### G. Close
+### H. Close
 
-Complete only when every accepted item in scope has an explicit terminal state
-and all placements, sidecars, retirements, receipts, and requested exports are
-verified. Fresh-client ChatGPT acceptance is a separate evidence layer from local
-implementation tests or installed-connector proof.
+Close Image Factory once every accepted item in its scope is captured or has an
+explicit side outcome and every processor handoff is recorded. Close Image
+Processor once every item it accepted is processed or explicitly blocked. Do
+not claim whole replacement completion until the separately authorized
+downstream placement/retirement states are verified. Fresh-client ChatGPT
+acceptance is distinct from local or installed-connector proof.
 
 ## Capsule handling
 
@@ -152,8 +160,9 @@ For composite operations that require a current capability capsule:
 
 - Acceptance wording and intended filename are preserved in canonical state.
 - Captured bytes have verified image type, dimensions, byte count, and SHA-256.
-- Placement requires identity-strength evidence and is dry-run/no-overwrite safe.
-- Sidecar title and placed image are read back before any retirement.
+- Processor input requires identity-strength evidence and output receipts.
+- Image Factory stops at raw source; Image Processor stops at processed derivative.
+- Placement and retirement remain separate downstream evidence.
 - Recovery resumes from verified partial state without duplicating work.
 - Export verification proves exact names and each file's validity, not just count.
 - Local tests, installed-consumer proof, and fresh-client acceptance are reported
@@ -176,11 +185,14 @@ For composite operations that require a current capability capsule:
 
 ### Image Factory MCP
 
-- `image_factory_keeper_manifest`: keeper and batch lifecycle authority.
+- `image_factory_work_queue`: prospective range/atomic-child lifecycle authority.
+- `image_factory_keeper_manifest`: historical keeper-batch compatibility lane.
 - `image_factory_capture_generated`: exact-byte capture when current-session bytes
   are available.
-- `image_factory_finish_keeper`: dry-run and live one/batch placement, plus bounded
-  evidence-based recovery.
+- `image_processor_start`, `image_processor_work_queue`, and
+  `image_processor_process`: separate deterministic pixels-only capability.
+- `image_factory_finish_keeper`: historical placement compatibility, not the
+  canonical new-list flow.
 - `image_factory_export_all_burn`: dry-run by default; confirmed refresh uses the
   fixed `refresh_all_burn.sh --force` implementation and verifies all outputs.
 - `dispatch_worker`: fallback for one frozen retrieval pass when exact bytes are
@@ -188,9 +200,9 @@ For composite operations that require a current capability capsule:
 
 ### Filesystem runtimes
 
-Treat `Image_Factory/ChatGPT/manifests/` as canonical role state and preserve the
-same identity, revision, recovery, and evidence rules. Do not hand-edit a live
-manifest when the composite tool can perform or recover the transition.
+Treat `work_items` plus the typed `image_work_*` companion as canonical
+prospective queue state. Preserve historical `Image_Factory/ChatGPT/manifests/`
+without rewriting old semantics. Do not hand-edit either ledger.
 
 ## Update-surfacing backstop
 

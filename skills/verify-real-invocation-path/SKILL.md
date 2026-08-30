@@ -86,6 +86,24 @@ For executable or hook claims, compare proxy and real invocations explicitly. Ex
 
 A proxy may remain a useful unit test. It does not prove the installed path.
 
+#### Provider API contract drift
+
+When a live provider rejects a request field or response shape, place one regression at
+the final serialization boundary immediately before network transmission. Capture the
+value-safe outbound body and assert the exact effective field set for the selected model
+or endpoint. Mocking the higher-level transport helper can prove downstream handling while
+silently preserving the malformed request that caused the incident.
+
+Verify the current contract against primary provider documentation, then keep the layers
+separate: serialized-body proof, a real provider canary, installed service deployment, and
+fresh affected-client acceptance. A successful direct function canary does not prove a
+long-running daemon loaded the new source.
+
+For concurrent fan-out tests, bind simulated results and assertions to stable request
+identity (job ID, prompt, correlation ID), not call index or thread arrival order. Scheduler
+order is not a behavioral contract; order-dependent fixtures create intermittent failures
+and can attribute a failure to the wrong job.
+
 #### Installed UI actions
 
 When the claim concerns visible pending, success, or error feedback, read

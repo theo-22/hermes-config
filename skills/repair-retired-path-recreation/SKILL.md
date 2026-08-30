@@ -146,8 +146,8 @@ Multi-scanner dead-path surfaces (stale-path-scanner, dead_path_scan_new_docs, d
 | **Runtime-executable** | Code, script, prompt, or config that resolves the dead path at run/module-load time and uses it for I/O, dispatch, or scope | **Actionable** — repoint or remove |
 | **Already handled** | Commented-out block, test asserting the path stays retired, intentional retirement record | Not actionable — confirm it stays disabled |
 | **Historical / documentation** | Logs, CHANGES_LOG, rollout summaries, memory files, migration plans, findings logs — records of what was | Not actionable — records are supposed to name old paths |
-| **Intentional guard** | Watchdog that deliberately references a dead path to detect resurrection (e.g. symlink_home_path_sweep watching `/Users/ted/Operations`); retirement backref resolution tool | Not actionable — the guard is doing its job |
-| **Query template / SQL string** | `LIKE 'file:/Users/ted/Projects/%'` inside a lens query — a string pattern, not a resolved path | Not actionable — the query is parameterized, not executing the path |
+| **Intentional guard** | Watchdog that deliberately references a formerly-live home-root path to detect its resurrection (e.g. symlink_home_path_sweep watching for a retired root reappearing); retirement backref resolution tool | Not actionable — the guard is doing its job |
+| **Query template / SQL string** | A `LIKE 'file:...%'` pattern inside a lens query matching an old retired path prefix — a string pattern, not a resolved path | Not actionable — the query is parameterized, not executing the path |
 | **Config state** | JSON/YAML settings file storing a dead path as evidence metadata (e.g. `source` field) | Check whether the code *opens* the path or only stores it; if only stored, not actionable |
 | **Text extraction / regex** | Pattern-matching README content for successor pointers — searches text, not disk | Not actionable — text processing, not path resolution |
 

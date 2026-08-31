@@ -113,6 +113,22 @@ stopping a healthy service or otherwise disrupting production, control the
 browser response instead and label the result as rendered-client proof—not
 backend or end-to-end proof.
 
+#### Transaction and checkout closeout
+
+When a helper writes receipts while releasing task resources, read
+[references/transaction-closeout.md](references/transaction-closeout.md).
+Verify the real API's counting scope, source format, failure ordering, and
+terminal resource state; a mock returning zero remaining resources is not proof.
+
+#### Semantic indexes and derived-source freshness
+
+When recent embeddings, equal counts, or a `current` label are offered as proof
+that a changing source is discoverable, read
+[references/semantic-index-freshness.md](references/semantic-index-freshness.md).
+Verify exact source coverage, content and consumer-model embeddings, then probe
+real semantic retrieval separately from exact-ID lookup. Include concurrent
+source edits and overlapping refreshes when testing freshness publication.
+
 ### 5. Check the result, not only the command
 
 Require the observable consequence named in the contract:

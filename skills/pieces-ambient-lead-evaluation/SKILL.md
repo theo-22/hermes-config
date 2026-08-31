@@ -1,10 +1,11 @@
 ---
 name: pieces-ambient-lead-evaluation
-description: Evaluate and use Pieces or another ambient-memory tool as a lead finder for Codex, Claude, Hermes, Coordinator, or another runtime. Use when Ted asks how Pieces can serve the system, how it can serve Codex, what useful information is in Pieces, whether Pieces is worth keeping, or when a Pieces/Pieces-MCP lead should be turned into verified local work. Treat Pieces as overview and perspective, not authority: read nearby sessions and suggestions, classify common threads, verify actionable claims against live owner files, and score usefulness using the Pieces trial dimensions.
-category: judgment-only
-write_mode: none
-one_line_use: turn ambient memory into verified system leads
-fast_pick: "yes"
+description: "Evaluate and use Pieces or another ambient-memory tool as a lead finder for Codex, Claude, Hermes, Coordinator, or another runtime. Use when Ted asks how Pieces can serve the system, how it can serve Codex, what useful information is in Pieces, whether Pieces is worth keeping, or when a Pieces/Pieces-MCP lead should be turned into verified local work. Treat Pieces as overview and perspective, not authority: read nearby sessions and suggestions, classify common threads, verify actionable claims against live owner files, and score usefulness using the Pieces trial dimensions."
+metadata:
+  category: judgment-only
+  write_mode: none
+  one_line_use: turn ambient memory into verified system leads
+  fast_pick: "yes"
 ---
 
 # Pieces Ambient Lead Evaluation

@@ -1,11 +1,12 @@
 ---
 name: repair-pieces-runtime
-status: active
 description: Diagnose and repair Pieces when PiecesOS, ambient/LTM queries, scheduled ingestion, continuity digests, or downstream reporting appear broken. Use this before restarting the Mac, letting Pieces clean its database, changing a model pin, or accepting an ambient answer as current runtime truth. Distinguishes the PiecesOS runtime from Hermes producer jobs and their report consumers. Do not use for Pieces MCP client-config questions (Pieces writes those itself; see Notes) or for deciding whether Pieces is worth keeping (that's `pieces-ambient-lead-evaluation`).
-category: meta
-write_mode: file
-one_line_use: prove runtime, producer jobs, and report consumers separately; repair only the failed layer
-fast_pick: "yes"
+metadata:
+  status: active
+  category: meta
+  write_mode: file
+  one_line_use: prove runtime, producer jobs, and report consumers separately; repair only the failed layer
+  fast_pick: "yes"
 ---
 
 # Repair Pieces Runtime

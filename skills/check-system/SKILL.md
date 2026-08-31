@@ -1,10 +1,11 @@
 ---
 name: check-system
 description: Quick database pulse check — system stats, signal clusters, pending work items, and concept bridge status. Use on demand before coordination decisions, after database-affecting work, or any time you need a fast read of operational state. Replaces reading scattered markdown status files.
-category: database-integrated
-write_mode: none
-one_line_use: read the system pulse
-fast_pick: "yes"
+metadata:
+  category: database-integrated
+  write_mode: none
+  one_line_use: read the system pulse
+  fast_pick: "yes"
 ---
 
 # Check System

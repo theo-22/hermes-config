@@ -1,13 +1,14 @@
 ---
 name: ht-grocery
 description: Harris Teeter grocery shopping patterns — site navigation, Shop Deal modals, cart management, checkout flow. For any Hermes profile or Claude Code actor that needs to interact with HT.
-category: meta
-write_mode: file
-one_line_use: navigate/scrape Harris Teeter site for grocery deals and purchase data
-fast_pick: "no"
-version: 1.0.0
-platforms: [macos]
-tags: [grocery, harris-teeter, shopping, scraping]
+metadata:
+  category: meta
+  write_mode: file
+  one_line_use: navigate/scrape Harris Teeter site for grocery deals and purchase data
+  fast_pick: "no"
+  version: 1.0.0
+  platforms: [macos]
+  tags: [grocery, harris-teeter, shopping, scraping]
 ---
 
 # Harris Teeter Grocery Patterns

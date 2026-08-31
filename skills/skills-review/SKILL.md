@@ -1,10 +1,11 @@
 ---
 name: skills-review
 description: Review the shared skills in ~/Skills/ for fit, overlap, gaps, adoption, and CLiP connection, then propose specific changes instead of just observations. Use when a new skill is proposed, when the set feels stale or crowded, or during a periodic cleanup pass. Always read live files — never evaluate from memory. Do not use for app-specific skills unless explicitly asked.
-category: meta
-write_mode: none
-one_line_use: review the skill set itself
-fast_pick: "yes"
+metadata:
+  category: meta
+  write_mode: none
+  one_line_use: review the skill set itself
+  fast_pick: "yes"
 ---
 
 # Skills Review
@@ -83,6 +84,8 @@ Keep the output compact. Proposals over observations.
 Use this skill for judgment-heavy evaluation of the skill set.
 
 A script could automate listing skills and checking for structural issues (missing frontmatter, broken symlinks). If that becomes a recurring need, add a small validator script alongside this skill rather than growing this file into a checklist.
+
+For missing Codex skills or shared metadata/catalog drift, read [Codex discovery verification](references/codex-discovery-verification.md). It separates the existing shared checker, canonical exposure links, and a fresh runtime discovery check; use only the named targets, without running their workflows.
 
 ## Update-Surfacing Backstop
 

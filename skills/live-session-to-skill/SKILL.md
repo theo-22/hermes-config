@@ -1,13 +1,14 @@
 ---
 name: live-session-to-skill
 description: Build an automation from a live session — do the thing, learn, capture as a shared skill, improve plans, hand off buildout. Proven pattern from the Shopping Guru 2026-07-12 session.
-category: meta
-write_mode: file
-one_line_use: capture a proven live-session automation pattern as a durable shared skill
-fast_pick: "no"
-version: 1.0.0
-platforms: [all]
-tags: [workflow, meta, skill-building, automation, human-in-the-loop]
+metadata:
+  category: meta
+  write_mode: file
+  one_line_use: capture a proven live-session automation pattern as a durable shared skill
+  fast_pick: "no"
+  version: 1.0.0
+  platforms: [all]
+  tags: [workflow, meta, skill-building, automation, human-in-the-loop]
 ---
 
 # Live Session → Skill Pipeline

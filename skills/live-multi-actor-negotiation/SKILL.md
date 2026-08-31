@@ -1,11 +1,12 @@
 ---
 name: live-multi-actor-negotiation
-status: active
 description: Run a live, synchronous conversation where two or more standing AI actors (a ChatGPT role-runtime, Claude Code, Orchestrator, etc.) read and respond to each other's actual messages in a shared thread — with Ted present and participating but not relaying — to negotiate a boundary or working agreement between the actors who will be bound by it, verify a claim across tool surfaces, or jointly review a shared artifact (e.g. a concept-map node). Use when the parties to a constraint should be the ones stating it, and the actors have complementary, non-overlapping access (one has DB/filesystem reach, one has graph-tool reach, one has a different verification boundary). Do not use for parallel task execution, for anything one actor can fully own end-to-end, or as a way to avoid Ted's sign-off on meaning/authority changes — the actors negotiate the terms; Ted settles them.
-category: meta
-write_mode: file
-one_line_use: three-plus actors, one live thread, real-time cross-verification
-fast_pick: "no"
+metadata:
+  status: active
+  category: meta
+  write_mode: file
+  one_line_use: three-plus actors, one live thread, real-time cross-verification
+  fast_pick: "no"
 ---
 
 # Live Multi-Actor Negotiation

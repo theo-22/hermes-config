@@ -1,10 +1,11 @@
 ---
 name: model-switch-surfacing
 description: Surface uncertainty about whether Flash can handle a task well, and ask Ted if he wants Pro. Not a rubric for deciding alone — it's a mechanism for knowing when to ask.
-category: judgment-only
-write_mode: none
-one_line_use: when uncertain whether Flash is enough, ask Ted
-fast_pick: "yes"
+metadata:
+  category: judgment-only
+  write_mode: none
+  one_line_use: when uncertain whether Flash is enough, ask Ted
+  fast_pick: "yes"
 ---
 
 # Model Switch Surfacing

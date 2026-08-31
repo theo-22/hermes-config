@@ -1,10 +1,11 @@
 ---
 name: audit-yield-stamp
 description: Read, verify, and stamp completed audit case files with a yield verdict. Use when case files lack a ## CC yield rating section or have a Pending rating that needs recheck. Do not stamp without citing a verifiable evidence surface. Do not use for new audit runs — that's Audit GPT's job.
-category: judgment-only
-write_mode: file
-one_line_use: verify and stamp audit case files
-fast_pick: "yes"
+metadata:
+  category: judgment-only
+  write_mode: file
+  one_line_use: verify and stamp audit case files
+  fast_pick: "yes"
 ---
 
 # Audit Yield Stamp

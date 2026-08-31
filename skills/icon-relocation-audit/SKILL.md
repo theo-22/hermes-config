@@ -4,13 +4,14 @@ description: >
   When a root has been relocated from /Users/ted to /Volumes/Extra/Substrate,
   audit all icon family apply scripts for stale single-path entries and update
   them to target both the ~/ symlink/alias surface and the Extra real path.
-trigger: >
-  Ted says "icons need relocation audit," a new root has been relocated to
-  Extra, or Icon System hands off a relocation-aware request.
-category: meta
-write_mode: file
-one_line_use: audit icon families for relocated roots, update apply scripts for dual-path
-fast_pick: "no"
+metadata:
+  trigger: >
+    Ted says "icons need relocation audit," a new root has been relocated to
+    Extra, or Icon System hands off a relocation-aware request.
+  category: meta
+  write_mode: file
+  one_line_use: audit icon families for relocated roots, update apply scripts for dual-path
+  fast_pick: "no"
 ---
 
 # Icon Relocation Audit

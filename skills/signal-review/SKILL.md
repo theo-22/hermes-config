@@ -1,10 +1,11 @@
 ---
 name: signal-review
 description: Pressure-test an input for signal worth preserving, then write accepted evidence units to the system database with tags and destination. Use when external signal, digest material, or weak internal patterns need vetting before they enter the evidence base. Do not use for completed findings ready for synthesis (use synthesis-review) or for live coordination (use coordinate mode directly).
-category: database-integrated
-write_mode: db
-one_line_use: pressure-test and save evidence
-fast_pick: "yes"
+metadata:
+  category: database-integrated
+  write_mode: db
+  one_line_use: pressure-test and save evidence
+  fast_pick: "yes"
 ---
 
 # Signal Review

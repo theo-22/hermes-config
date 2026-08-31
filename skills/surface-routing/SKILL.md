@@ -1,10 +1,11 @@
 ---
 name: surface-routing
 description: Route an observation, finding, proposal, or artifact onto the correct authoritative local file and the right AI-visible resurfacing surfaces. Use when there are multiple candidate surfaces and the right one is non-obvious, when AI-visible resurfacing (Coordinator, manifests, Seeds) needs updating alongside file placement, or when the local-vs-mirror distinction must be explicitly maintained. Do not use when routing is obvious and only one surface is in play — just do it inline.
-category: database-integrated
-write_mode: file
-one_line_use: place it where the system will see it
-fast_pick: "yes"
+metadata:
+  category: database-integrated
+  write_mode: file
+  one_line_use: place it where the system will see it
+  fast_pick: "yes"
 ---
 
 # Surface Routing

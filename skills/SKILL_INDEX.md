@@ -96,6 +96,9 @@ If the `/` menu is crowded, scan this card first, then search for the exact skil
 - `register-concept-map-viewer-layer`
   Use when an already-curated Concept Graph domain needs its human-visible filter button. Adds one registry row only, claims every builder output, regenerates through the installed path, proves exact isolated and Merged behavior in a real browser, and receipts zero node/road mutation.
 
+- `calibrate-advisory-hook`
+  Use for one recurring advisory work item: classify genuine catches, false positives, and uncertain evidence; tune only the supported class; distinguish fixture from real runtime proof; preserve recurrence visibility and verify closeout.
+
 - `verify-real-invocation-path`
   Use when a fix, hook, script, service, launcher, or integration is called verified but the evidence may have exercised a proxy, stale path, interpreter shortcut, wrong cwd/environment, health-only surface, or warmed client instead of the exact installed consumer path—or when an independent real-client probe contradicts green local tests. Requires paired real-path probes, observable consequences, an evidence-led contradiction-repair loop, and independent/fresh-client/human gates when applicable.
 
@@ -130,7 +133,7 @@ If the `/` menu is crowded, scan this card first, then search for the exact skil
   Use when Canon files, batches, specimens, or mixed doctrine/current-state documents need an independent Keep / Keep-trim / Move / Extract verdict. Reads the live criterion and current file bodies, preserves reviewer independence, requires failed-test evidence for non-Keep verdicts, routes a comparison-ready return, and stops before Ted-authorized mutation.
 
 - `builder-batch`
-  Use when GPT Builder changes have accumulated and Ted is ready for a fleet pass. Reads `/api/gpt-status` work queue + `Builder_Update_Batch.md`, executes the four-step checklist per pending GPT, requires proof receipts before marking complete. Composes `gpt-instructions-discipline` and `gpt-environment-build`.
+  Use when GPT Builder changes have accumulated and Ted is ready for a fleet pass. Reads `/api/gpt-status` work queue + `Builder_Update_Batch.md`, executes the four-step checklist per pending GPT, requires proof receipts before marking complete. Composes `gpt-environment-build`.
 
 - `workspace-orchestration-coordination`
   Use when multiple AI actors (Hermes, ga-hermes, CC, Codex) need to edit the same shared GPT source files without lost-update overwrites. Extends `SURFACE_RESERVATIONS.md` + `CONDUCTOR.md` check-in/check-out to GPT source files.
@@ -152,6 +155,9 @@ If the `/` menu is crowded, scan this card first, then search for the exact skil
 
 - `image-factory-16x9-replacement-workflow`
   Use when Ted asks Image Factory to generate, capture, place, recover, or export native-16:9 replacement keepers. Preserves exact-byte identity, dry-run/no-overwrite placement, sidecar titles, durable partial-state recovery, globally collision-safe `All_Burn` output names, and evidence stronger than counts or worker text.
+
+- `image-factory-mixed-replacement-batch-generation`
+  Use when Image Factory needs mixed-subject native-16:9 generation briefs. Describe each image independently without image counts or exhibit/replacement/workflow language; use `image-factory-16x9-replacement-workflow` for capture, placement, recovery, and export.
 
 - `profile-birthday-proof`
   Use when a new AI profile, Hermes profile, role runtime, agent, or major operating surface needs first-wake/birthday proof. Requires live path verification, session-start artifact, proof note, correction handling, honest BORN status, and CHANGES_LOG when durable state changes.
@@ -206,9 +212,6 @@ If the `/` menu is crowded, scan this card first, then search for the exact skil
 - `clip-cycle-closer`
   Use when a session appears to have completed a CLiP arc (Canon-level, domain-level, bridge adoption, adversarial review) and you need a concise evidence-backed closure record. Does not promote, log silently, or mutate state.
 
-- `gpt-instructions-discipline`
-  Use when GPT Custom Instructions are near the 8000-char limit or OpenAPI action descriptions are near the 300-char limit and need principled trimming that preserves behavior. Not for ordinary prompt polish.
-
 - `gpt-environment-build`
   Use when a Custom GPT needs full environment work across instructions, knowledge files, action schema, backend or proxy alignment, Builder updates, and live verification. Not just prompt trimming.
 
@@ -243,7 +246,6 @@ If the `/` menu is crowded, scan this card first, then search for the exact skil
 - `skills-review` = review the skill set itself
 - `surface-routing` = place it where the system will see it
 - `clip-cycle-closer` = name the cycle as closed and draft the record
-- `gpt-instructions-discipline` = trim GPT instructions under hard platform limits
 - `gpt-environment-build` = build or repair the whole Custom GPT environment
 - `affected-gpt-hearing` = hear the GPT whose operating surface would change
 - `digest-topic-refresh` = compare digest deltas against a living topic
@@ -352,9 +354,6 @@ If the main need is getting an observation onto the right live and resurfacing s
 If the main need is closing out a CLiP arc with a small durable record:
 - use `clip-cycle-closer`
 
-If the main need is trimming GPT instructions under platform character limits:
-- use `gpt-instructions-discipline`
-
 If the main need is making the whole Custom GPT environment work across Builder, schema, backend, proxy, and live verification:
 - use `gpt-environment-build`
 
@@ -431,6 +430,7 @@ If the main need is deciding whether a role may safely dispatch Hermes workers:
 - `build-inhabitable-role`
 - `affected-gpt-hearing`
 - `audit-yield-stamp`
+- `calibrate-advisory-hook`
 - `builder-batch`
 - `check-system`
 - `claude-validator`
@@ -447,13 +447,13 @@ If the main need is deciding whether a role may safely dispatch Hermes workers:
 - `dashboard-api`
 - `digest-topic-refresh`
 - `gpt-environment-build`
-- `gpt-instructions-discipline`
 - `graph-edge-finding`
 - `ht-grocery`
 - `icon-relocation-audit`
 - `icon-image-processor`
 - `icon-apply-sort`
 - `image-factory-16x9-replacement-workflow`
+- `image-factory-mixed-replacement-batch-generation`
 - `lens-assembly-pass`
 - `live-session-to-skill`
 - `live-surface-verification`

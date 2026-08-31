@@ -1,10 +1,11 @@
 ---
 name: proposal-packet
 description: Turn an already-formed idea, recommendation, system change, or handoff into a compact proposal packet with clear scope, boundaries, destination, and self-critique. Use when the goal is durable evaluation or handoff, not just noticing proposal territory. Do not use when the job is only to detect that a discussion may have become a proposal candidate; use `proposal-candidate-surfacing` for that threshold call.
-category: database-integrated
-write_mode: file
-one_line_use: write the actual proposal packet
-fast_pick: "yes"
+metadata:
+  category: database-integrated
+  write_mode: file
+  one_line_use: write the actual proposal packet
+  fast_pick: "yes"
 ---
 
 # Proposal Packet

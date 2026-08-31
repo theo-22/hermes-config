@@ -1,10 +1,11 @@
 ---
 name: manager-handoff-contract
 description: Shape an idea, observation, mismatch, suggestion, or cheap-model/Hermes finding into a manager-ready handoff for Ted, Codex, and Claude. Use when a lower-cost worker, overnight monitor, project Home, dashboard report, conversation, or quick planning pass has produced something that might become a decision, Home update, room, work order, proposal, implementation task, or discard. The skill defines required handoff outcomes without prescribing how the worker must think. Do not use to approve, implement, promote to Canon, or preserve every thought.
-category: judgment-only
-write_mode: none
-one_line_use: shape manager-ready handoffs from lower-cost worker output
-fast_pick: "yes"
+metadata:
+  category: judgment-only
+  write_mode: none
+  one_line_use: shape manager-ready handoffs from lower-cost worker output
+  fast_pick: "yes"
 ---
 
 # Manager Handoff Contract

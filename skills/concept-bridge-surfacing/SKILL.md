@@ -1,10 +1,11 @@
 ---
 name: concept-bridge-surfacing
 description: Map Ted's local term, recurring idea, or document passage to the closest useful established concept so the right standard name can be adopted without losing the original meaning. Use in live conversation or document review when naming would improve orientation, search, retrieval, or the next decision. Do not use when the main question is layer classification, when the concept match is weak, or when Ted already wants a full taxonomy or formal write-up.
-category: database-integrated
-write_mode: db
-one_line_use: name the idea
-fast_pick: "yes"
+metadata:
+  category: database-integrated
+  write_mode: db
+  one_line_use: name the idea
+  fast_pick: "yes"
 ---
 
 # Concept Bridge Surfacing

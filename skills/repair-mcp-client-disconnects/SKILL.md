@@ -1,10 +1,11 @@
 ---
 name: repair-mcp-client-disconnects
 description: Diagnose, implement, and live-verify narrow MCP server handling for normal SSE or streamable-HTTP client disconnects. Use when an MCP bridge logs AnyIO ClosedResourceError, EndOfStream, BrokenPipeError, ConnectionResetError, ExceptionGroup failures, unhandled ASGI disconnect errors, intermittent bridge restarts, or post-disconnect hangs.
-category: meta
-write_mode: file
-one_line_use: narrowly repair and live-prove normal MCP client disconnect handling
-fast_pick: "no"
+metadata:
+  category: meta
+  write_mode: file
+  one_line_use: narrowly repair and live-prove normal MCP client disconnect handling
+  fast_pick: "no"
 ---
 
 # Repair MCP Client Disconnects

@@ -1,10 +1,11 @@
 ---
 name: cold-probe-refine
 description: Test whether an assembled concept or projected environment is reconstructable by sending a question to a cheap cold reader first, then using a stronger reviewer to classify semantic recovery and projection failures before any refinement. Use when a surface is load-bearing, newly refined, intended for delegation to cheap models, or explicitly being measured for reconstructability. Do not use for trivial assemblies, private chain-of-thought requests, automatic graph mutation, or one-run worker-selection conclusions.
-category: database-integrated
-write_mode: file
-one_line_use: cold-probe a projected inference surface, diagnose failures, and preserve comparable Lab evidence
-fast_pick: "yes"
+metadata:
+  category: database-integrated
+  write_mode: file
+  one_line_use: cold-probe a projected inference surface, diagnose failures, and preserve comparable Lab evidence
+  fast_pick: "yes"
 ---
 
 # Cold Probe Refine

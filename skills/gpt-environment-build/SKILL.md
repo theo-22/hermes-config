@@ -1,10 +1,11 @@
 ---
 name: gpt-environment-build
 description: Build or repair the full environment around a ChatGPT Custom GPT when the work spans instructions, knowledge files, action schema, backend or proxy alignment, Builder updates, and live verification. Use when the work starts sounding like "the GPT is close but still fighting us," "the action exists but fails in live use," "should we re-import the schema or update Builder?," or "this works locally but not through the proxy," and the capability must be carried through from runtime to Builder and proven end to end. Do not use for isolated instruction trimming, pure proposal writing, or routine routing.
-category: gpt
-write_mode: file
-one_line_use: build or repair the whole Custom GPT environment
-fast_pick: "yes"
+metadata:
+  category: gpt
+  write_mode: file
+  one_line_use: build or repair the whole Custom GPT environment
+  fast_pick: "yes"
 ---
 
 # GPT Environment Build

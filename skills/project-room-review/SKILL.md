@@ -1,10 +1,11 @@
 ---
 name: project-room-review
 description: Review a Project Room from live room-local state, summarize current standing and next action, check v1-readiness, and prepare bounded save or QuickSave-chain handoffs without changing Control, LayoutSnapper, Builder GPTs, plugins, macOS settings, or unrelated rooms unless explicitly routed.
-category: meta
-write_mode: file
-one_line_use: review a Project Room from live room-local state
-fast_pick: "yes"
+metadata:
+  category: meta
+  write_mode: file
+  one_line_use: review a Project Room from live room-local state
+  fast_pick: "yes"
 ---
 
 # Project Room Review

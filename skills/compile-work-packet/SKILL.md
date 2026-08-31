@@ -1,10 +1,11 @@
 ---
 name: compile-work-packet
 description: Compile externally authorized intent into a versioned, linted, cold-readable execution packet before consequential asynchronous or cross-actor dispatch. Use after a proposal or decision has explicit authority and the receiving worker needs a bounded objective, scope, choices, stopping forks, acceptance, return contract, and separated proof gates. Do not use this skill to create authority, settle an unresolved proposal, approve work, or treat cold readability as correctness.
-category: meta
-write_mode: file
-one_line_use: compile externally authorized intent into a linted and cold-probed work packet
-fast_pick: "yes"
+metadata:
+  category: meta
+  write_mode: file
+  one_line_use: compile externally authorized intent into a linted and cold-probed work packet
+  fast_pick: "yes"
 ---
 
 # Compile Work Packet

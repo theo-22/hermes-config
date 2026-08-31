@@ -1,10 +1,11 @@
 ---
 name: codex-usage-audit
 description: Audit Codex usage efficiency and reliability on Ted's machine or a local repo. Use when Ted asks to reduce Codex context, token, tool, MCP, subagent, slash-command, review, or correction-loop waste; inspect AGENTS files, config, hooks, MCP/plugins, statusline, repeated workflows, paste-heavy workflows, and review wiring before proposing small patches.
-category: meta
-write_mode: none
-one_line_use: audit Codex context/tool/reliability overhead before patching
-fast_pick: "yes"
+metadata:
+  category: meta
+  write_mode: none
+  one_line_use: audit Codex context/tool/reliability overhead before patching
+  fast_pick: "yes"
 ---
 
 # Codex Usage Audit

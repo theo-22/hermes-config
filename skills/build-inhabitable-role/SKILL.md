@@ -1,10 +1,11 @@
 ---
 name: build-inhabitable-role
 description: Build or retrofit a portable AI role that an authorized assistant can enter from ChatGPT, Codex, Claude, Hermes, or another runtime, operate through shared Home state and continuity, and exit without role bleed. Use when a role is emerging from conversation, specifying its own workspace, being made runtime-neutral, gaining entry/exit protocols, or moving from inhabitability proof to a real operability specimen and then runtime adapters.
-category: gpt
-write_mode: shared
-one_line_use: build a portable role through inhabitation, real use, runtime adapters, and clean exit
-fast_pick: "yes"
+metadata:
+  category: gpt
+  write_mode: shared
+  one_line_use: build a portable role through inhabitation, real use, runtime adapters, and clean exit
+  fast_pick: "yes"
 ---
 
 # Build an Inhabitable Role

@@ -1,10 +1,11 @@
 ---
 name: relocate-role-from-projects-gpt
-description: "Move a converted role's doctrine/reference files out of a legacy Projects_GPT/<role>/ directory into the role's own Home directory, and repoint every live reader. Use for the two remaining roles (AI_Monitoring_Digest/Digest, Audit) still reading role-layer files out of Projects_GPT/. Do not use for roles already migrated (Coordinator, Image Factory, System Icons) or for moving production data (case files, inboxes, ledgers) — Audit's move is doctrine-files-only, its live workspace (Runs/, Inbox/, disposition ledger) stays put."
-category: meta
-write_mode: file
-one_line_use: relocate a role's doctrine files out of Projects_GPT/ and repoint readers
-fast_pick: "no"
+description: "Move a converted role's doctrine/reference files out of a legacy Projects_GPT/{role}/ directory into the role's own Home directory, and repoint every live reader. Use for the two remaining roles (AI_Monitoring_Digest/Digest, Audit) still reading role-layer files out of Projects_GPT/. Do not use for roles already migrated (Coordinator, Image Factory, System Icons) or for moving production data (case files, inboxes, ledgers) — Audit's move is doctrine-files-only, its live workspace (Runs/, Inbox/, disposition ledger) stays put."
+metadata:
+  category: meta
+  write_mode: file
+  one_line_use: relocate a role's doctrine files out of Projects_GPT/ and repoint readers
+  fast_pick: "no"
 ---
 
 # Relocate a Role Out of `Projects_GPT/`

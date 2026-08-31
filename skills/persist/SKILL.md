@@ -1,10 +1,11 @@
 ---
 name: persist
 description: Write concept work to the three durable surfaces — Brain, memory file, and a buoyancy touch — so an idea developed in conversation survives the session that produced it. Use as the never-skipped closing step of any concept-map assembly, node minting, edge wiring, or synthesis pass, and any time a session produced understanding that is not yet on disk. Do not use for routine file edits already saved, or as a substitute for quick-save/session-end (those close a session; this closes an idea).
-category: database-integrated
-write_mode: db
-one_line_use: write concept work to Brain, memory, and a touch
-fast_pick: "yes"
+metadata:
+  category: database-integrated
+  write_mode: db
+  one_line_use: write concept work to Brain, memory, and a touch
+  fast_pick: "yes"
 ---
 
 # Persist

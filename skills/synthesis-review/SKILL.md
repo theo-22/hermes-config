@@ -1,10 +1,11 @@
 ---
 name: synthesis-review
 description: Synthesize accumulated findings and planning artifacts into a higher-signal memo or bounded proposal card by separating repeated signals from novelty and recommending what should happen next. Use when the material is mature enough for cross-pass sensemaking rather than another raw review round.
-category: database-integrated
-write_mode: none
-one_line_use: synthesize accumulated evidence
-fast_pick: "yes"
+metadata:
+  category: database-integrated
+  write_mode: none
+  one_line_use: synthesize accumulated evidence
+  fast_pick: "yes"
 ---
 
 # Synthesis Review

@@ -1,10 +1,11 @@
 ---
 name: affected-gpt-hearing
 description: Decide whether a proposed GPT/system change affects another GPT's startup behavior, runtime path, handoff expectation, continuity surface, authority boundary, or action/tool shape; draft the exact paste prompt for Ted to run in the affected GPT; and specify how the response becomes settlement evidence. Use before settling GPT changes that alter how another GPT starts, acts, remembers, hands off, reads/writes, or uses tools. Do not use for behavior-neutral polish or ordinary internal prose cleanup.
-category: judgment-only
-write_mode: none
-one_line_use: hear the GPT whose operating surface would change
-fast_pick: "yes"
+metadata:
+  category: judgment-only
+  write_mode: none
+  one_line_use: hear the GPT whose operating surface would change
+  fast_pick: "yes"
 ---
 
 # Affected GPT Hearing

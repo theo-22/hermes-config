@@ -1,10 +1,11 @@
 ---
 name: image-factory-16x9-replacement-workflow
 description: Queue atomic replacement subjects, capture Ted-approved raw keepers exactly, hand them to the deterministic Image Processor, and preserve separate downstream placement/retirement proof. Use when exact identity, resumable lifecycle, safe replay, and receipts stronger than output counts are required.
-category: meta
-write_mode: file
-one_line_use: queue atomic subjects, capture exact keepers, process deterministically, and keep placement separate
-fast_pick: "no"
+metadata:
+  category: meta
+  write_mode: file
+  one_line_use: queue atomic subjects, capture exact keepers, process deterministically, and keep placement separate
+  fast_pick: "no"
 ---
 
 # Image Factory 16:9 Replacement Workflow

@@ -1,10 +1,11 @@
 ---
 name: contradiction-sweep
 description: Hand a session's own artifacts to a different, uncommitted model and ask it to find contradictions between them — the ones the author resolved without noticing. Use before a session close, a handoff, or any packet built from several documents written in one sitting, and whenever a run of doctrine/plan/code artifacts share assumptions. Do not use to review a single file, to get quality feedback on ideas, or as a substitute for testing code.
-category: judgment-only
-write_mode: none
-one_line_use: cold model finds the contradictions you smoothed over
-fast_pick: "yes"
+metadata:
+  category: judgment-only
+  write_mode: none
+  one_line_use: cold model finds the contradictions you smoothed over
+  fast_pick: "yes"
 ---
 
 # Contradiction Sweep

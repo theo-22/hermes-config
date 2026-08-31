@@ -1,10 +1,11 @@
 ---
 name: live-surface-verification
 description: Verify disputed live state by asking the actual runtime surface before trusting local docs. Use when schemas, env files, Builder inventory, backend code, logs, or memory disagree about what is true for a GPT Action, browser/Builder configuration, proxy route, bearer scope, uploaded Knowledge, or other live integration. Prefer a harmless live probe from the real GPT, Chrome/Builder inspection, or backend audit evidence over inference from intended-state files. If direct verification is unavailable, ask Ted for a bounded exact live test instead of guessing.
-category: judgment-only
-write_mode: none
-one_line_use: prove the live surface
-fast_pick: "yes"
+metadata:
+  category: judgment-only
+  write_mode: none
+  one_line_use: prove the live surface
+  fast_pick: "yes"
 ---
 
 # Live Surface Verification

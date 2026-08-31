@@ -1,10 +1,11 @@
 ---
 name: builder-batch
 description: Run the accumulated GPT Builder update queue — read /api/gpt-status for pending items, execute the batch from Builder_Update_Batch.md, require proof receipts before marking complete. Composes gpt-instructions-discipline and gpt-environment-build for fleet-level batch execution. Use when Builder changes have accumulated and Ted is ready for a Builder pass. Do not use for single-GPT ad hoc updates — use gpt-instructions-discipline and gpt-environment-build directly for those.
-category: gpt
-write_mode: file
-one_line_use: run the Builder update queue across the fleet
-fast_pick: "no"
+metadata:
+  category: gpt
+  write_mode: file
+  one_line_use: run the Builder update queue across the fleet
+  fast_pick: "no"
 ---
 
 # Builder Batch

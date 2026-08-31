@@ -4,13 +4,14 @@ description: >
   Update the System 14 release plan with current work — chapter-first, then
   thread upward into the spine and home files. No parallel plans, no chat-only
   summaries.
-trigger: >
-  Ted says "update System 14", or work has landed in a chapter room and the
-  plan needs re-threading.
-category: knowledge-capture
-write_mode: file
-one_line_use: update System 14 plan — chapter-first, then thread upward
-fast_pick: "no"
+metadata:
+  trigger: >
+    Ted says "update System 14", or work has landed in a chapter room and the
+    plan needs re-threading.
+  category: knowledge-capture
+  write_mode: file
+  one_line_use: update System 14 plan — chapter-first, then thread upward
+  fast_pick: "no"
 ---
 
 # System 14 Update

@@ -1,10 +1,11 @@
 ---
 name: proposal-candidate-surfacing
 description: Recognize when a discussion is becoming proposal-shaped, then help shape the candidate through conversation until it is ready for `/proposal-packet` to write. Use when the work is substantial enough that building without alignment would create rework. Do NOT use when the work is bounded and clear — just build it. Do not use when Ted already wants the packet written, when the task is routine note capture, or when implementation readiness is already settled.
-category: judgment-only
-write_mode: none
-one_line_use: surface and shape the proposal candidate (only for substantial work)
-fast_pick: "yes"
+metadata:
+  category: judgment-only
+  write_mode: none
+  one_line_use: surface and shape the proposal candidate (only for substantial work)
+  fast_pick: "yes"
 ---
 
 # Proposal Candidate Surfacing

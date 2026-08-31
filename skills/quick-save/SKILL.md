@@ -1,10 +1,11 @@
 ---
 name: quick-save
 description: Save the current bounded task without running full session-end. Use when Ted asks to save work, quick-save, checkpoint, update CHANGES_LOG, or wrap a short one-task session where the work is already done and no full closeout is needed. Updates the correct durable continuity surfaces, verifies touched repo state, names any uncommitted/unpushed work, and decides whether full session-end is required instead. Do not use for sprawling multi-workstream sessions, unresolved advisory closeout, cross-AI handoff, architecture drift, or when Ted explicitly asks for /session-end.
-category: meta
-write_mode: file
-one_line_use: save a bounded task without full session-end
-fast_pick: "yes"
+metadata:
+  category: meta
+  write_mode: file
+  one_line_use: save a bounded task without full session-end
+  fast_pick: "yes"
 ---
 
 # Quick Save

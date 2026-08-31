@@ -1,10 +1,11 @@
 ---
 name: 00-shared-skills-card
 description: Quick picker for Ted's shared skills. Use when Ted wants help choosing between the shared skills, wants a reminder of the exact skill names, says the slash menu is crowded, or references the shared skills index, skill card, or `/00`.
-category: meta
-write_mode: none
-one_line_use: quick picker for the shared skills
-fast_pick: "no"
+metadata:
+  category: meta
+  write_mode: none
+  one_line_use: quick picker for the shared skills
+  fast_pick: "no"
 ---
 
 # Shared Skills Index

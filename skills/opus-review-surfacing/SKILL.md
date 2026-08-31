@@ -1,10 +1,11 @@
 ---
 name: opus-review-surfacing
 description: Recognize when a real chunk of structural work has landed in a session, then proactively package it and dispatch an uncommitted Opus reviewer to find what the working session may have settled without real scrutiny — blind spots, premature actions, unverified claims presented as confirmed, tensions narrated as resolved rather than actually resolved. Use after a substantial, structurally real chunk of work (not busywork) and before continuing further or closing out. Do not use for a single contradiction check between a few documents — that's `contradiction-sweep`. Do not use for shaping an unclear proposal before it's built — that's `proposal-candidate-surfacing`. Do not use on trivial or purely mechanical work.
-category: judgment-only
-write_mode: none
-one_line_use: uncommitted Opus pass finds what the session settled without scrutiny
-fast_pick: "yes"
+metadata:
+  category: judgment-only
+  write_mode: none
+  one_line_use: uncommitted Opus pass finds what the session settled without scrutiny
+  fast_pick: "yes"
 ---
 
 # Opus Review Surfacing

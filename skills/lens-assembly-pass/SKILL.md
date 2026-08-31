@@ -1,10 +1,11 @@
 ---
 name: lens-assembly-pass
 description: The full working loop for turning a live topic into wired, durable structure — assemble the topic's nodes, optionally cold-probe and refine a load-bearing or delegation-facing inference surface, check what the spine says, then persist the result to Brain, memory, and a touch. Use when a topic has deepened enough to be worth laying down or when understanding would otherwise evaporate. Do not use to mint one node (concept-bridge-surfacing) or connect one stranded node (graph-edge-finding).
-category: database-integrated
-write_mode: db
-one_line_use: assemble a topic, gauge the spine, persist it
-fast_pick: "yes"
+metadata:
+  category: database-integrated
+  write_mode: db
+  one_line_use: assemble a topic, gauge the spine, persist it
+  fast_pick: "yes"
 ---
 
 # Lens Assembly Pass

@@ -1,10 +1,11 @@
 ---
 name: graph-edge-finding
 description: Given a thin or stranded node in a concept/knowledge graph, find its real missing edges to other nodes — the connections that are honest (a true instance/mechanism/dependency/tension), not merely same-topic. Use when a graph has orphan or rim nodes, when zooming into a region to enrich its links, or when a node "feels" disconnected from things it should touch. Do not use to invent nodes (use concept-bridge-surfacing) or to force similar-looking nodes together.
-category: database-integrated
-write_mode: db
-one_line_use: connect a stranded node
-fast_pick: "yes"
+metadata:
+  category: database-integrated
+  write_mode: db
+  one_line_use: connect a stranded node
+  fast_pick: "yes"
 ---
 
 # Graph Edge-Finding

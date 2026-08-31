@@ -1,10 +1,11 @@
 ---
 name: review-canon-membership
 description: Independently classify current Canon files as Keep, Keep-trim, Move, or Extract by applying the live Canon Membership Criterion with file-backed evidence. Use for Canon admission, relocation, subtraction, consolidation, dual-review gates, anti-pattern specimens, mixed doctrine/current-state files, or when a previously edited Canon batch needs a second-vendor verdict before Ted decides execution.
-category: judgment-only
-write_mode: file
-one_line_use: independently classify Canon membership without mutating Canon
-fast_pick: "no"
+metadata:
+  category: judgment-only
+  write_mode: file
+  one_line_use: independently classify Canon membership without mutating Canon
+  fast_pick: "no"
 ---
 
 # Review Canon Membership

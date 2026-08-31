@@ -1,10 +1,11 @@
 ---
 name: share-learning
 description: Save a reusable pattern, technique, repeated correction, or operational finding to _shared/ so all substrate actors can benefit from it. Use when a pattern has been established through repeated use, when Ted has had to re-explain or re-correct the same behavior, when CC output contains "pattern is established for future", "the pattern for X", "worth saving to _shared", or when Ted says "save to _shared", "make this a pattern", "should this be in _shared", "add to shared". Writes to _shared/ and updates _shared/README.md; updates SKILL_INDEX.md only when a real shared skill is added or its index wording changes.
-category: knowledge-capture
-write_mode: shared
-one_line_use: capture a reusable pattern or technique to _shared/
-fast_pick: "yes"
+metadata:
+  category: knowledge-capture
+  write_mode: shared
+  one_line_use: capture a reusable pattern or technique to _shared/
+  fast_pick: "yes"
 ---
 
 # Share Learning

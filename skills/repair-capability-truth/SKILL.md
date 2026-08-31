@@ -1,10 +1,11 @@
 ---
 name: repair-capability-truth
 description: Reconcile an AI role or runtime's live callable capability, enforced access, static scope declarations, current documentation, and typed operational-query mappings. Use when fresh-session proof contradicts first-rung or stale capability docs, when status or receipts project an access mode that may not be enforced, when connected apps or cached tool schemas are conflated with actual calls, or when typed SQLite queries fail against a live schema. Preserve existing capability and role-mobility boundaries; do not use this skill to authorize permission expansion, database migration, or adjacent feature stages.
-category: meta
-write_mode: file
-one_line_use: reconcile live role capability, enforced access, current docs, and typed operational queries
-fast_pick: "yes"
+metadata:
+  category: meta
+  write_mode: file
+  one_line_use: reconcile live role capability, enforced access, current docs, and typed operational queries
+  fast_pick: "yes"
 ---
 
 # Repair Capability Truth

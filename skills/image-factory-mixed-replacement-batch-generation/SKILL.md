@@ -1,8 +1,13 @@
 ---
-name: Image Factory Mixed Replacement Batch Generation
+name: image-factory-mixed-replacement-batch-generation
 description: Generate clean mixed-subject native-16:9 replacement candidates as separately described images without contaminating the image prompt with batch counts, exhibit language, replacement language, or workflow metadata.
-owner: Image Factory
-status: active
+metadata:
+  category: gpt
+  write_mode: none
+  one_line_use: compose independent mixed-subject native-16:9 image briefs
+  fast_pick: "yes"
+  owner: Image Factory
+  status: active
 ---
 
 # Mixed Replacement Batch Generation

@@ -1,10 +1,11 @@
 ---
 name: workspace-orchestration-coordination
 description: RETIRED 2026-07-12. Multi-actor file check-in/check-out is now the DB-backed claim/lease in claims.py (System 14 Ch15). This skill was a build spec for an Operations/gpt_coord/ system that was never built, targeting the retired GPT-Builder-file domain. Use claims.py surface-grain claims instead.
-category: gpt
-write_mode: none
-one_line_use: retired — use claims.py surface-grain claims to check out a file
-fast_pick: "no"
+metadata:
+  category: gpt
+  write_mode: none
+  one_line_use: retired — use claims.py surface-grain claims to check out a file
+  fast_pick: "no"
 ---
 
 # Workspace Orchestration — GPT File Coordination — RETIRED 2026-07-12

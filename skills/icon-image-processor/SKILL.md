@@ -1,10 +1,11 @@
 ---
 name: icon-image-processor
 description: Turn accepted or generated folder-icon pixels into canonical 1024x1024 RGBA keepers with a transparent exterior, mapped, hashed, and receipted. Use after Ted keeps an icon, after a host-generated PNG lands, or when IconDownloads has a keeper to process. Stop before Finder. Do not use this skill to apply icons, run apply_registry, or call complete_keeper for a batch.
-category: file-write
-write_mode: file
-one_line_use: cut out and land icon keepers, then write a ready_for_apply receipt
-fast_pick: "yes"
+metadata:
+  category: meta
+  write_mode: file
+  one_line_use: cut out and land icon keepers, then write a ready_for_apply receipt
+  fast_pick: "yes"
 ---
 
 # Icon Image Processor

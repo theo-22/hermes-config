@@ -1,11 +1,12 @@
 ---
 name: coordinator-hermes-work-loop
-title: Coordinator-Hermes Work Loop
 description: Use when Ted and Coordinator are discussing, designing, or deciding something that should become durable work, a file placement, a scan, a report, or a cleanup task. Coordinator shapes the intent into a bounded Hermes handoff, Hermes evaluates, and executes.
-category: meta
-write_mode: file
-one_line_use: shape a Ted+Coordinator discussion into a bounded Hermes handoff
-fast_pick: "no"
+metadata:
+  title: Coordinator-Hermes Work Loop
+  category: meta
+  write_mode: file
+  one_line_use: shape a Ted+Coordinator discussion into a bounded Hermes handoff
+  fast_pick: "no"
 ---
 
 # Coordinator-Hermes Work Loop

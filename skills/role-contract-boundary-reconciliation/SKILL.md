@@ -1,10 +1,11 @@
 ---
 name: role-contract-boundary-reconciliation
 description: Reconcile a durable role runtime whose job, neighboring-role boundaries, Home ownership, continuity authority, static access, live documentation, or lifecycle identity disagree. Use after a role migration or enough review, when root state mixes a ChatGPT role with a Hermes profile, when multiple files claim to be the live edge, when generic write roots exceed the proven job, or when Coordinator/Orchestrator/helper ownership must be made explicit without adding capabilities or rolling changes across the fleet.
-category: gpt
-write_mode: file
-one_line_use: reconcile a role runtime's contract, ownership, continuity, access, and lifecycle identity
-fast_pick: "yes"
+metadata:
+  category: gpt
+  write_mode: file
+  one_line_use: reconcile a role runtime's contract, ownership, continuity, access, and lifecycle identity
+  fast_pick: "yes"
 ---
 
 # Role Contract Boundary Reconciliation

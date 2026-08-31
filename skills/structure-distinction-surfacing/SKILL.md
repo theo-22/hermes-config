@@ -1,10 +1,11 @@
 ---
 name: structure-distinction-surfacing
-description: Clarify what kind of thing something is by briefly distinguishing between environment, skill, script, procedure, guardrail, source of truth, and nearby system layers. Use when a live discussion blurs these layers together, or when the AI notices one of these specific confusion moments: (1) script vs. skill — should this make judgments or execute fixed logic? (2) procedure vs. environment — is this a way of doing something or a surrounding structure? (3) source vs. mirror — which copy is authoritative? Do not use when the user already wants a full framework, documentation rewrite, or taxonomy expansion.
-category: judgment-only
-write_mode: none
-one_line_use: classify the layer
-fast_pick: "yes"
+description: "Clarify what kind of thing something is by briefly distinguishing between environment, skill, script, procedure, guardrail, source of truth, and nearby system layers. Use when a live discussion blurs these layers together, or when the AI notices one of these specific confusion moments: (1) script vs. skill — should this make judgments or execute fixed logic? (2) procedure vs. environment — is this a way of doing something or a surrounding structure? (3) source vs. mirror — which copy is authoritative? Do not use when the user already wants a full framework, documentation rewrite, or taxonomy expansion."
+metadata:
+  category: judgment-only
+  write_mode: none
+  one_line_use: classify the layer
+  fast_pick: "yes"
 ---
 
 # Structure Distinction Surfacing

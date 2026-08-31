@@ -1,10 +1,11 @@
 ---
 name: context-extension-surfacing
 description: Recognize when work in the primary conversation is ready to leave the main chat as a bounded agent briefing. Use when execution, triage, read-only synthesis, verification, or drafting would spend low-value primary-chat context but the work is determinate, bounded, decision-free, and externally checkable. Surface partial readiness when one criterion is missing. Do not use for live Ted judgment, unsettled scope/authority, exploratory work, or protected write-side actions that belong in the primary actor lane.
-category: judgment-only
-write_mode: none
-one_line_use: surface and shape agent-ready work before dispatch
-fast_pick: "yes"
+metadata:
+  category: judgment-only
+  write_mode: none
+  one_line_use: surface and shape agent-ready work before dispatch
+  fast_pick: "yes"
 ---
 
 # Context Extension Surfacing

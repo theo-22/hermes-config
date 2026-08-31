@@ -1,10 +1,11 @@
 ---
 name: profile-birthday-proof
 description: Run a clean birth, promotion, or first-wake proof for a new AI profile, role runtime, agent, or major operating surface. Use when a profile is created, re-homed, given new memory/session-start rules, or promoted from staged/mirror state to live use. Requires live path verification, start artifact, proof note, correction handling, and CHANGES_LOG when durable state changes.
-category: meta
-write_mode: file
-one_line_use: birth a profile with proof and log
-fast_pick: "yes"
+metadata:
+  category: meta
+  write_mode: file
+  one_line_use: birth a profile with proof and log
+  fast_pick: "yes"
 ---
 
 # Profile Birthday Proof

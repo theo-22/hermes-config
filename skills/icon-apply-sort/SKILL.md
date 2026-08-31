@@ -1,10 +1,11 @@
 ---
 name: icon-apply-sort
 description: After Icon Image Processor writes a ready_for_apply receipt, confirm mappings and run one family apply_registry so Finder icons match the landed canonicals. Use when a processor batch receipt is ready, or when Ted says apply now. Do not use this skill to cut out, crop, generate, or replace PNG bytes.
-category: file-write
-write_mode: file
-one_line_use: run one family apply from a processor receipt
-fast_pick: "yes"
+metadata:
+  category: meta
+  write_mode: file
+  one_line_use: run one family apply from a processor receipt
+  fast_pick: "yes"
 ---
 
 # Icon Apply / Sort

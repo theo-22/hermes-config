@@ -1,11 +1,12 @@
 ---
 name: coordinator-consolidation-synthesis
-title: Coordinator Consolidation Synthesis
 description: Use when Ted has completed per-profile consolidation evaluations and needs Coordinator to synthesize them into a final recommendation. Covers reading 10 evaluation files, revising the original plan, responding to recommendations, and handing off to GPT Role Runtime review.
-category: meta
-write_mode: file
-one_line_use: synthesize per-profile consolidation evaluations into a final recommendation
-fast_pick: "no"
+metadata:
+  title: Coordinator Consolidation Synthesis
+  category: meta
+  write_mode: file
+  one_line_use: synthesize per-profile consolidation evaluations into a final recommendation
+  fast_pick: "no"
 ---
 
 # Coordinator Consolidation Synthesis

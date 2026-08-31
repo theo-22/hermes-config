@@ -1,10 +1,11 @@
 ---
 name: scope-comparison
 description: Before committing to scope on any non-trivial response or build, write the explicit comparison surface (Asked / Proposing / Gap / Gap-reason) and shape-check the gap-reason against known curtailment shapes. Use when Ted's prompt contains scope-implying language (action verbs, scope-totality framings, named-work references) or when sizing a response/build at decision points. Do not use for purely conversational answers, single-line bug fixes, or tasks where scope is unambiguous from the ask. The full protocol lives at `_shared/Scope_Comparison_Protocol.md`; this skill is the entry point.
-category: judgment-only
-write_mode: none
-one_line_use: write the comparison surface before committing scope
-fast_pick: "yes"
+metadata:
+  category: judgment-only
+  write_mode: none
+  one_line_use: write the comparison surface before committing scope
+  fast_pick: "yes"
 ---
 
 # Scope Comparison

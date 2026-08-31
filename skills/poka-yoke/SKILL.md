@@ -1,10 +1,11 @@
 ---
 name: poka-yoke
-description: Recognize when a process depends on memory, discipline, or convention rather than structure, then name the failure mode and choose a contained sufficient mechanism that prevents it. Use when recurring mistakes, manual sync, stale accumulation, duplicate-on-rename risk, or "someone has to remember" processes appear. Boundary with andon: poka-yoke prevents; andon surfaces what prevention cannot cover.
-category: judgment-only
-write_mode: none
-one_line_use: choose structural prevention
-fast_pick: "yes"
+description: "Recognize when a process depends on memory, discipline, or convention rather than structure, then name the failure mode and choose a contained sufficient mechanism that prevents it. Use when recurring mistakes, manual sync, stale accumulation, duplicate-on-rename risk, or \"someone has to remember\" processes appear. Boundary with andon: poka-yoke prevents; andon surfaces what prevention cannot cover."
+metadata:
+  category: judgment-only
+  write_mode: none
+  one_line_use: choose structural prevention
+  fast_pick: "yes"
 ---
 
 # Poka-Yoke

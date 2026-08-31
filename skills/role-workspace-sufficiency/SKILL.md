@@ -1,10 +1,11 @@
 ---
 name: role-workspace-sufficiency
-description: Use when creating, converting, reviewing, or repairing a role-runtime role and the question is whether it has enough workspace: continuity, scratch, staged output, receipts, telemetry, persistence, sandbox folders, or anti-curtailment room to function well without broad write access.
-category: gpt
-write_mode: file
-one_line_use: check and add enough owned workspace for a role-runtime role
-fast_pick: "yes"
+description: "Use when creating, converting, reviewing, or repairing a role-runtime role and the question is whether it has enough workspace: continuity, scratch, staged output, receipts, telemetry, persistence, sandbox folders, or anti-curtailment room to function well without broad write access."
+metadata:
+  category: gpt
+  write_mode: file
+  one_line_use: check and add enough owned workspace for a role-runtime role
+  fast_pick: "yes"
 ---
 
 # Role Workspace Sufficiency

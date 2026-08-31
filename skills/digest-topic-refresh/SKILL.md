@@ -1,10 +1,11 @@
 ---
 name: digest-topic-refresh
 description: Read the newest digest material, compare it against an existing living topic and index state, then decide whether to leave unchanged, update the topic, or create a new topic. Use when fresh digest items may materially affect an existing research artifact in a research-memory workflow. Do not use for first-pass source ingestion with no existing topic context, or when the task is only to summarize a digest without comparison.
-category: judgment-only
-write_mode: file
-one_line_use: compare digest deltas against a living topic
-fast_pick: "yes"
+metadata:
+  category: judgment-only
+  write_mode: file
+  one_line_use: compare digest deltas against a living topic
+  fast_pick: "yes"
 ---
 
 # Digest Topic Refresh

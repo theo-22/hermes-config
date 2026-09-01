@@ -35,6 +35,20 @@ The verifier is only useful if it reports raw state, not a verdict. Mirror that 
 
 5. **Catch the claims it corrected in prose, not just the structural ones.** A verifier can correct a *relation type* (easy to spot — it's a diff) or correct something CC *asserted in a note* (easy to skim past — it's a sentence, not a diff). In the worked instance the verifier twice corrected prose claims CC had written: that a rising catch-rate implies a falling claims-gap, and that a metric depended on buoyancy. Prose corrections are worth more than relation corrections and are the ones most likely to get missed — read every sentence the verifier disagreed with, not just every edge it relabeled.
 
+## When an earlier verifier timed out
+
+A timeout is not FAIL and must not be rounded up to PASS. Preserve each timed-out attempt and its `UNKNOWN` verdict as historical evidence. If the implementation and live specimen already exist, do not rerun implementation merely to obtain a verdict; a later independent actor may instead inspect the current implementation, tests, original E2E receipts, and live claim rows, then issue a new explicit terminal PASS or FAIL.
+
+Treat the later verdict as a separate event:
+
+- read the new receipt and its claimed live rows rather than accepting its summary;
+- require evidence for every still-open acceptance condition and confirm the verifier did not silently broaden scope or rerun implementation;
+- link the new receipt without rewriting the timed-out attempts;
+- advance `verification_pending → verified → accepted` only for a concrete PASS through the authoritative lifecycle; and
+- close the work item and archive its intake separately through their canonical lifecycle, with read-back and zero item-specific exceptions.
+
+Work item #1347 is the bounded example: automatic verifier claims `5333` and `5334` remained `worker_timeout / UNKNOWN`; a later Audit direct inspection supplied a distinct terminal PASS, after which the orchestration and work item closed without another implementation run or any change to predecessor #957.
+
 ## Also encode
 
 - **If the verifier reports a defect in a tool CC owns, fix it before the next round** rather than working around it in the current one. A verifier that has to route around the same bug twice is doing CC's job for it.
@@ -43,7 +57,7 @@ The verifier is only useful if it reports raw state, not a verdict. Mirror that 
 ## Evidence / success criteria
 
 - Every accepted/rejected/corrected item from the report has been checked against the live row it refers to, not just read as a sentence.
-- At least one item where the verifier's finding changed a CC-authored artifact (edge, claim, prose note) — if the verifier only ever confirms, this discipline isn't being tested.
+- For a correction review, at least one verifier finding changes a CC-authored artifact (edge, claim, prose note). For a timeout-resolution return, do not invent a correction: the legitimate effect may instead be a separately evidenced lifecycle settlement.
 - Attribution corrections are appended, not destructive edits.
 - A short list exists of what the verifier flagged that CC still owes a fix for, separate from what's already resolved.
 
@@ -54,6 +68,7 @@ The verifier is only useful if it reports raw state, not a verdict. Mirror that 
 - **Overwriting instead of appending.** Rewriting a verifier's original event to fix attribution destroys the record it asked to keep.
 - **Marking a finding "fixed" because the verifier named it.** The verifier's tools may not reach the actual repair layer — confirm CC did the fix, not that the verifier did the diagnosis.
 - **Scanning for edge/relation corrections only.** Missing the prose corrections is the highest-cost failure mode observed so far — it's the one that happened twice in three runs.
+- **Rewriting an unresolved attempt.** A later PASS does not convert an earlier timeout or `UNKNOWN` into PASS; preserve both records and link the new verdict separately.
 
 ## Cross-references
 

@@ -87,6 +87,26 @@ For a batch whose exact bytes could not be captured at acceptance:
 6. Record the worker reference only when the manifest hash and frozen digest
    match.
 
+For a completed six-image turn already visible in the one existing Image Factory
+ChatGPT tab, the installed Mac worker has a capture-only recovery mode:
+
+```bash
+python3 /Users/ted/Control/backend/scripts/chatgpt_role_runtime_16x9_hop.py \
+  --capture-only \
+  --range-id EXACT_TYPED_RANGE_ID
+```
+
+This mode requires one exact open uncaptured 16:9 range with six atomic children
+and exactly six native images in the latest idle assistant turn. The turn must be
+immediately attributable to that range's exact generated prompt, or to the one
+standard individual-image cue directly following that prompt. It sends no new
+prompt, opens no tab, downloads serially, binds each file to queue sequence, and
+reports path, byte count, dimensions, and SHA-256. It fails closed on a busy,
+ambiguous, or unbound turn, a changed tab count, a previously captured child, or
+a range with anything other than six children. Its manifest is retrieval evidence
+only; exact capture, processing, placement, and retirement remain the separate
+transitions defined below.
+
 Do not dispatch a worker per keeper when exact bytes are already available.
 
 ### D. Hand off to Image Processor

@@ -222,8 +222,10 @@ boundary.
 Coordinator Stage 1, 2026-07-25:
 
 - authority: `orch_20260725_coordinator_stage1`;
-- canonical return:
-  `/Volumes/Extra/Substrate/_AI_Inbox/_archive/2026-07-25_codex_return_coordinator_stage1.md`;
+- canonical return: not resolvable — the cited archive path no longer exists;
+  nearest surviving evidence is the work order at
+  `/Volumes/Extra/Substrate/Codex_Inbox/Archived/2026-07-25_coordinator_stage1/COORDINATOR_STAGE1_ROLE_CONTRACT_HOME_ACCESS_RECONCILIATION_WORK_ORDER_2026-07-25.md`
+  and verifier claims 735/737 below;
 - canonical role contract:
   `/Volumes/Extra/Substrate/Coordinator/ROLE_CONTRACT.md`;
 - independent verifier claims: `735` and `737`;

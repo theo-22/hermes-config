@@ -60,6 +60,9 @@ If the `/` menu is crowded, scan this card first, then search for the exact skil
 - `route-work-item-ownership`
   Use after Coordinator or Ted has already settled a queue-routing decision and the canonical work-item owner must change, or obsolete framing must be superseded with a linked successor. Preserves history and draft authority, stale-checks the live row, proves receiving-role visibility, and closes with audited readback and released claims.
 
+- `repair-claim-effect-truth`
+  Use when a claim or retry unexpectedly changes canonical work-item ownership, a composite coordination label is parsed as one item, or a blocked response hides effects already produced by the held claim. Separates coordination identity from routing authority, restores state through audited control-plane paths, preserves legitimate single-item behavior, and requires installed-path audit proof.
+
 - `workflow-orchestration`
   Use when Ted says "Let's get some work done" or asks to advance Operations session-chain work from the conductor board. Runs one routed chain through completion report, validation, QuickSave receipt, and stop.
 
@@ -255,6 +258,7 @@ If the `/` menu is crowded, scan this card first, then search for the exact skil
 - `shape-work-item-sessions` = turn live queue rows and current decisions into bounded future-session contracts
 - `reconcile-promoted-findings-work-items` = withdraw an invalid findings-to-work bulk promotion without losing unresolved findings
 - `route-work-item-ownership` = land an authorized canonical retarget or linked supersession without widening execution authority
+- `repair-claim-effect-truth` = stop coordination claims from becoming silent owner changes and make held-claim effects visible
 - `workflow-orchestration` = run one conductor-routed work lane
 - `project-room-review` = review a Project Room from live room-local state
 - `contradiction-sweep` = a cold model finds the contradictions you smoothed over
@@ -471,6 +475,7 @@ If the main need is deciding whether a role may safely dispatch Hermes workers:
 - `quick-save`
 - `register-concept-map-viewer-layer`
 - `repair-capability-truth`
+- `repair-claim-effect-truth`
 - `reconcile-inbox-work-items`
 - `reconcile-promoted-findings-work-items`
 - `reconcile-runtime-authority`

@@ -14,11 +14,34 @@ metadata:
 
 Use this when Ted asks Image Factory for another mixed batch of replacement candidates and wants the reliable generation technique proven on 2026-08-15.
 
+## Operator order versus generator request
+
+The operator-level work order may contain the numbered subjects together so
+Image Factory can execute them in one bounded run. It must explicitly require
+one independent image-generation request per subject. The count and workflow
+instruction stay at this operator layer; they do not pass into any individual
+generator request.
+
+Approved operator frame after the 2026-09-01 affected Image Factory hearing:
+
+> Generate six images by making exactly six independent native 16:9 image-generation requests, one for each numbered subject, in numbered order. Each request must contain only that subject's literal visual description and must produce one standalone image. Do not combine subjects into one generation request or create a collage, contact sheet, grid, or composite. Present all six outputs separately, in numbered order, so each can be downloaded independently.
+
+Disposition: `incorporated`. Image Factory classified the original “generate
+exactly six separate images” wording as materially ambiguous and required this
+amendment to preserve the established isolation boundary.
+
+The installed worker may recognize the prior operator frame only when recovering
+an already-completed, exact-subject browser turn. It must never use that legacy
+frame for a new generation send.
+
 ## Core prompt shape
 
 Describe every requested image independently and concretely, in sequence: “Make [subject A] …”, then “Make [subject B] …”, then “Make [subject C] …”. Each image description must stand alone as a complete photographic brief.
 
-Do **not** mention the number of images anywhere in the generation prompt. Do not say “batch of four,” “four images,” “set,” “grid,” “collection,” or similar.
+Do **not** mention the number of images anywhere in an individual generator
+request. Do not say “batch of four,” “four images,” “set,” “grid,” “collection,”
+or similar. A count is allowed only in the operator-level work order that tells
+Image Factory how many independent requests to execute.
 
 Do **not** mention exhibits, Image Factory, Museum, replacements, source assets, target filenames, categories, or workflow mechanics in the image-generation prompt. Those belong outside the visual request and can cause the generator to interpret the task as a composite presentation or UI/document layout.
 

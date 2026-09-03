@@ -1,6 +1,6 @@
 ---
 name: image-factory-mixed-replacement-batch-generation
-description: Generate clean mixed-subject native-16:9 replacement candidates as separately described images without contaminating the image prompt with batch counts, exhibit language, replacement language, or workflow metadata.
+description: Generate clean mixed-subject native-16:9 collection or replacement candidates from one operator request while keeping every image-generation request isolated from batch counts, neighboring subjects, exhibit language, replacement language, and workflow metadata.
 metadata:
   category: gpt
   write_mode: none
@@ -10,9 +10,11 @@ metadata:
   status: active
 ---
 
-# Mixed Replacement Batch Generation
+# Mixed Collection Batch Generation
 
-Use this when Ted asks Image Factory for another mixed batch of replacement candidates and wants the reliable generation technique proven on 2026-08-15.
+Use this when Ted asks Image Factory for a mixed batch of up to ten new images,
+including the older replacement use case. New collection generation is the
+default; use replacement framing only when Ted explicitly names predecessors.
 
 ## Operator order versus generator request
 
@@ -22,13 +24,13 @@ one independent image-generation request per subject. The count and workflow
 instruction stay at this operator layer; they do not pass into any individual
 generator request.
 
-Approved operator frame after the 2026-09-01 affected Image Factory hearing:
+Ten-image operator frame proposed 2026-09-03, extending the six-image frame
+incorporated after the 2026-09-01 affected Image Factory hearing:
 
-> Generate six images by making exactly six independent native 16:9 image-generation requests, one for each numbered subject, in numbered order. Each request must contain only that subject's literal visual description and must produce one standalone image. Do not combine subjects into one generation request or create a collage, contact sheet, grid, or composite. Present all six outputs separately, in numbered order, so each can be downloaded independently.
+> Generate ten images by making exactly ten independent native 16:9 image-generation requests, one for each numbered subject, in numbered order. Each request must contain only that subject's literal visual description and must produce one standalone image. Do not combine subjects into one generation request or create a collage, contact sheet, grid, or composite. Present all ten outputs separately, in numbered order, so each can be downloaded independently.
 
-Disposition: `incorporated`. Image Factory classified the original “generate
-exactly six separate images” wording as materially ambiguous and required this
-amendment to preserve the established isolation boundary.
+Disposition: `pending affected-GPT hearing` for the count increase and new
+Collection Generation mode. The isolation boundary itself remains incorporated.
 
 The installed worker may recognize the prior operator frame only when recovering
 an already-completed, exact-subject browser turn. It must never use that legacy
@@ -58,10 +60,14 @@ Do **not** mention exhibits, Image Factory, Museum, replacements, source assets,
 
 ## Variation
 
-Choose subjects from different visual families when making a mixed run: for example wildlife, mineral/material, botanical/food, underwater, landscape, or macro natural history. Avoid repeatedly choosing near-duplicates from the immediately prior run.
+Choose subjects from different visual families when making a mixed run. For a
+ten-image delegated roster, use no more than two subjects from one broad family,
+avoid exact repeats from the prior 30 images, and cap the predictable defaults:
+at most one marine/kelp/reef/bioluminescent subject and at most one common
+produce macro such as red onion. Maintain this roster outside the generator.
 
 ## Proven interaction pattern
 
 Ted’s successful instruction: describe the requested images separately—“make X, and then make Y, and then make Z”—with no stated image count and no exhibit/workflow framing. Two consecutive native-16:9 runs produced individually rendered images that Ted accepted and saved in full.
 
-Treat this as the preferred generation technique for mixed 16:9 replacement work unless a later test supersedes it.
+Treat this as the preferred generation technique for mixed 16:9 collection work unless a later test supersedes it.

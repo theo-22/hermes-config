@@ -219,6 +219,7 @@ A `PASS` requires:
 - **warmed-client acceptance** — the implementation session is presented as a genuinely fresh client
 - **success-code fixation** — exit status passes while stdout, durable state, or user-visible consequence is wrong
 - **telemetry ambiguity** — no observations is treated as no defects without proving the detector ran
+- **stale self-test roster** — paired fixtures stay green against retired or unregistered targets while the live configured consumer is untested; derive the exercised target set from current configuration and fail on any configured target without a contract fixture
 - **self-acceptance** — the author defines, runs, and accepts the proof without an independent layer where one is required
 - **mock-overclaim** — a controlled browser response proves client rendering, but is reported as proof that the backend or service performed the action
 

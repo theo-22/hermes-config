@@ -24,6 +24,7 @@ Use it to name the failure mode, decide whether prevention is possible, and pick
 - Identity is tied to a mutable attribute like path, position, or timestamp
 - A manual sync step is treated as normal operating procedure
 - A "we should remember to check" rule is standing in for enforcement
+- A test, fixture, dry run, or rehearsal can write into production evidence or ranking surfaces
 - The right move may be prevention, but the system only has surfacing
 
 Fire proactively when a task requires a remembered follow-up step — especially sync, cleanup, or duplicate-prevention work. Do not wait for the pattern to recur before naming it.
@@ -39,6 +40,7 @@ Fire proactively when a task requires a remembered follow-up step — especially
 - `convention-creep` - the documented habit and the real operating pattern diverge
 - `articulation-lag` - a stable principle is articulated in conversation but durable capture (memory, Planning doc, doctrine) lags by one or more sessions; re-articulation continues until someone captures it. Distinct from `reinvention` (the principle isn't rebuilt, it's just absent from durable surfaces) and `forgotten-deferral` (no task was ever opened). Common when capture decisions are gated on present-tense usefulness; counter-example to the deferred-value collection principle.
 - `reinvention` - existing infrastructure is missed and rebuilt in parallel
+- `evidence-contamination` - a test, fixture, dry run, or rehearsal writes into the production evidence surface, causing synthetic activity to be ranked or interpreted as real system behavior. Distinct from `stale-surface`: the surface may clean up correctly but contains evidence that never belonged there.
 - `context-fade` - explicit doctrine loaded at session/task start loses behavioral force as context grows; behavior reverts to training defaults despite the doctrine still being present in context. Distinct from convention-creep (the doctrine is correct, not divergent) and reminder-rot (the doctrine has not outlived its purpose). The failure is that an active, correct doctrine becomes inactive without anyone changing it. Common in long-running AI sessions and in any process where attention to a standing rule decays under operational pressure.
 
 Coin a new term when none of these fits better than a vague description.
@@ -54,6 +56,7 @@ Coin a new term when none of these fits better than a vague description.
 - `import-not-copy` - the live source is referenced directly
 - `structural read-only` - projection surfaces omit write paths
 - `boundary validation` - required fields or shape are enforced at the schema or handler boundary, so malformed writes are rejected up front
+- `side-effect isolation` - test or rehearsal mode is explicit at the operation boundary and suppresses production evidence writes while preserving the exercised behavior. Verify both directions: the fixture produces no production side effect, and the equivalent non-test path still emits normally. Clean existing contamination through the surface's supported recoverable lifecycle rather than deleting evidence ad hoc.
 - `examine-before-build` - check for existing infrastructure before authoring new structure
 - `output-pattern-intercept` - a check at the output boundary that scans for known failure-mode language or structure and either blocks the output or annotates it before it reaches the receiver. Survives the cognitive drift it is checking for because it does not depend on the producer being calibrated. Fits AI-output drift, output-shape violations, or any case where the producer cannot be trusted to detect its own pattern in real time. Real-time interception is the strong form; post-process scanning is weaker (closer to andon).
 - `articulation-as-capture-trigger` - listener-side intercept: when stated input matches stance/principle/repetition language patterns ("again", "before", "many times", "I've said", "what drives me is", "my view is", "the real question"), fire a capture step (write feedback memory, log signal evidence, draft a Planning doc) before continuing the conversation. A specific application of `output-pattern-intercept` operating on inputs rather than outputs. Implemented 2026-05-03 as `~/.claude/hooks/userprompt_ted_signal_recognition.py` with catalog at `~/.claude/hooks/ted_trigger_phrases.txt`; that implementation surfaces routing to relevant calibration file + concept_key + skill suggestion when Ted's signal phrases hit. The hook is one realization; the mechanism generalizes (could also be implemented as a skill that GPTs read, or as a pre-prompt classifier). The principle is structural recognition of stated-input patterns instead of relying on the listener's judgment to notice in real time.

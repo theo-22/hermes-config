@@ -191,6 +191,9 @@ If the `/` menu is crowded, scan this card first, then search for the exact skil
 
 ### Judgment-Only (no database writes)
 
+- `support-response-drafting`
+  Use when a vendor-support case remains unresolved and the latest reply needs a concise, case-linked escalation. Distinguishes troubleshooting, documentation, or an internal tool limitation from resolution; preserves exact targets and protected neighboring objects; drafts only unless sending is explicitly authorized.
+
 - `trace-claim-evidence`
   Use when a concrete AI assertion must be checked against the exact tool evidence available before it was stated, when replaying known wrong claims, or when deciding whether a watch-only detector has earned promotion. Preserves intermediate text and event order, separates relevance from support, allows `not_established`, and keeps machine status distinct from human calibration.
 
@@ -247,6 +250,7 @@ If the `/` menu is crowded, scan this card first, then search for the exact skil
 - `compile-work-packet` = compile externally authorized intent for bounded dispatch
 - `synthesis-review` = synthesize accumulated evidence
 - `skills-review` = review the skill set itself
+- `support-response-drafting` = turn the latest vendor-support reply into a bounded, outcome-driven escalation
 - `surface-routing` = place it where the system will see it
 - `clip-cycle-closer` = name the cycle as closed and draft the record
 - `gpt-environment-build` = build or repair the whole Custom GPT environment
@@ -428,6 +432,7 @@ If the main need is deciding whether a role may safely dispatch Hermes workers:
 - If disputed live state has already proved stale capability docs or typed-query mappings and the authorized job is to repair and verify them, use `repair-capability-truth`; use `live-surface-verification` when the job is still proof-only.
 - If the issue is one Project Room's current standing, next action, v1-readiness, or chain handoff, use `project-room-review`, not broad workspace discovery.
 - If the issue is not yet proposal or implementation work but a worker output needs to be handed to Ted/Codex/Claude in a usable shape, use `manager-handoff-contract`.
+- If vendor support has explained a limitation or repeated troubleshooting without completing the requested outcome, use `support-response-drafting`; keep the existing case linkage and exact scope boundary.
 
 ## Exact Skill Names
 
@@ -501,6 +506,7 @@ If the main need is deciding whether a role may safely dispatch Hermes workers:
 - `signal-review`
 - `skills-review`
 - `structure-distinction-surfacing`
+- `support-response-drafting`
 - `surface-routing`
 - `synthesis-review`
 - `system-14-update`

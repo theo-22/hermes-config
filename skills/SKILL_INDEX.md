@@ -60,6 +60,9 @@ If the `/` menu is crowded, scan this card first, then search for the exact skil
 - `route-work-item-ownership`
   Use after Coordinator or Ted has already settled a queue-routing decision and the canonical work-item owner must change, or obsolete framing must be superseded with a linked successor. Preserves history and draft authority, stale-checks the live row, proves receiving-role visibility, and closes with audited readback and released claims.
 
+- `reconcile-stale-decision-work-item`
+  Use when a live decision row or consumer says a question is open but primary authority and audit history may show it was already settled. Proves the authority chain, guards owner-attributed relay, reconciles only stale canonical or projected surfaces, and requires persisted terminal readback plus released claims.
+
 - `repair-claim-effect-truth`
   Use when a claim or retry unexpectedly changes canonical work-item ownership, a composite coordination label is parsed as one item, or a blocked response hides effects already produced by the held claim. Separates coordination identity from routing authority, restores state through audited control-plane paths, preserves legitimate single-item behavior, and requires installed-path audit proof.
 
@@ -262,6 +265,7 @@ If the `/` menu is crowded, scan this card first, then search for the exact skil
 - `shape-work-item-sessions` = turn live queue rows and current decisions into bounded future-session contracts
 - `reconcile-promoted-findings-work-items` = withdraw an invalid findings-to-work bulk promotion without losing unresolved findings
 - `route-work-item-ownership` = land an authorized canonical retarget or linked supersession without widening execution authority
+- `reconcile-stale-decision-work-item` = prove whether a decision is truly open and reconcile stale surfaces to settled authority without re-deciding it
 - `repair-claim-effect-truth` = stop coordination claims from becoming silent owner changes and make held-claim effects visible
 - `workflow-orchestration` = run one conductor-routed work lane
 - `project-room-review` = review a Project Room from live room-local state
@@ -310,6 +314,7 @@ Use this as orientation only; the individual skill trigger still decides whether
 | `shape-work-item-sessions` | Work intake: reconcile live queue rows with current decisions and make future sessions cold-readable before stronger orchestration or dispatch |
 | `reconcile-promoted-findings-work-items` | Queue repair: withdraw an invalid findings promotion, preserve unresolved evidence, and prove the corrected live survivor set |
 | `route-work-item-ownership` | Queue transition: atomically land a settled owner retarget or linked supersession while preserving authority and history |
+| `reconcile-stale-decision-work-item` | Decision reconciliation: prove the authority chain, preserve genuine gates, and close stale open-decision rows without manufacturing judgment |
 | `synthesis-review` | Cross-pass sensemaking: synthesize accumulated findings or artifacts |
 | `clip-cycle-closer` | Closure: name a completed or near-complete CLiP arc and draft the record |
 | `surface-routing` | Routing/placement: land accepted material where the system will see it |
@@ -484,6 +489,7 @@ If the main need is deciding whether a role may safely dispatch Hermes workers:
 - `reconcile-inbox-work-items`
 - `reconcile-promoted-findings-work-items`
 - `reconcile-runtime-authority`
+- `reconcile-stale-decision-work-item`
 - `repair-retired-path-recreation`
 - `repair-mcp-client-disconnects`
 - `repair-model-visible-token-transport`

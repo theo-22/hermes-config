@@ -1,0 +1,4 @@
+interface:
+  display_name: "Reconcile Stale Decision Work Item"
+  short_description: "Prove and close stale decision rows safely"
+  default_prompt: "Use $reconcile-stale-decision-work-item to determine whether this decision is truly open, reconcile stale surfaces to settled authority, and verify terminal work-item state."

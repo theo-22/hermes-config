@@ -458,15 +458,15 @@
       "schedule_display": "15 */4 * * *",
       "repeat": {
         "times": null,
-        "completed": 384
+        "completed": 385
       },
       "enabled": true,
       "state": "scheduled",
       "paused_at": null,
       "paused_reason": null,
       "created_at": "2026-07-03T00:57:54.447668-04:00",
-      "next_run_at": "2026-09-04T20:15:00-04:00",
-      "last_run_at": "2026-09-04T16:15:10.826556-04:00",
+      "next_run_at": "2026-09-05T00:15:00-04:00",
+      "last_run_at": "2026-09-04T20:15:29.521225-04:00",
       "last_status": "ok",
       "last_error": null,
       "last_delivery_error": null,
@@ -663,15 +663,15 @@
       "schedule_display": "0 */4 * * *",
       "repeat": {
         "times": null,
-        "completed": 367
+        "completed": 368
       },
       "enabled": true,
       "state": "scheduled",
       "paused_at": null,
       "paused_reason": null,
       "created_at": "2026-07-05T18:09:46.374910-04:00",
-      "next_run_at": "2026-09-05T00:00:00-04:00",
-      "last_run_at": "2026-09-04T16:00:08.079926-04:00",
+      "next_run_at": "2026-09-05T04:00:00-04:00",
+      "last_run_at": "2026-09-04T20:00:25.737704-04:00",
       "last_status": "ok",
       "last_error": null,
       "last_delivery_error": null,
@@ -680,8 +680,8 @@
       "enabled_toolsets": null,
       "workdir": null,
       "fire_claim": {
-        "at": "2026-09-04T20:00:22.963890-04:00",
-        "by": "theos-mini.local:99896:8ca16efa4807447f8355448b5be51a50"
+        "at": "2026-09-05T00:00:00.250775-04:00",
+        "by": "theos-mini.local:67436:26aad14a2cfc4c26aa038f627d2bf9ba"
       },
       "failure_streak": 0
     },
@@ -896,7 +896,7 @@
       "paused_at": null,
       "paused_reason": null,
       "created_at": "2026-07-07T21:42:44.416472-04:00",
-      "next_run_at": "2026-09-05T00:00:00-04:00",
+      "next_run_at": "2026-09-05T06:00:00-04:00",
       "last_run_at": "2026-09-04T18:00:01.804916-04:00",
       "last_status": "ok",
       "last_error": null,
@@ -905,7 +905,10 @@
       "origin": null,
       "enabled_toolsets": null,
       "workdir": null,
-      "fire_claim": null,
+      "fire_claim": {
+        "at": "2026-09-05T00:00:00.256176-04:00",
+        "by": "theos-mini.local:67436:2ed2855b9f824b9d80c856ed64effd73"
+      },
       "failure_streak": 0
     },
     {
@@ -930,15 +933,15 @@
       "schedule_display": "15 */4 * * *",
       "repeat": {
         "times": null,
-        "completed": 353
+        "completed": 354
       },
       "enabled": true,
       "state": "scheduled",
       "paused_at": null,
       "paused_reason": null,
       "created_at": "2026-07-07T21:42:50.012014-04:00",
-      "next_run_at": "2026-09-04T20:15:00-04:00",
-      "last_run_at": "2026-09-04T16:15:08.687143-04:00",
+      "next_run_at": "2026-09-05T00:15:00-04:00",
+      "last_run_at": "2026-09-04T20:15:25.394457-04:00",
       "last_status": "ok",
       "last_error": null,
       "last_delivery_error": null,
@@ -1258,15 +1261,15 @@
       "schedule_display": "0 */4 * * *",
       "repeat": {
         "times": null,
-        "completed": 345
+        "completed": 346
       },
       "enabled": true,
       "state": "scheduled",
       "paused_at": null,
       "paused_reason": null,
       "created_at": "2026-07-09T09:53:47.258465-04:00",
-      "next_run_at": "2026-09-05T00:00:00-04:00",
-      "last_run_at": "2026-09-04T20:00:24.415071-04:00",
+      "next_run_at": "2026-09-05T04:00:00-04:00",
+      "last_run_at": "2026-09-05T00:00:00.948210-04:00",
       "last_status": "ok",
       "last_error": null,
       "last_delivery_error": null,
@@ -1463,15 +1466,15 @@
       "schedule_display": "0 */4 * * *",
       "repeat": {
         "times": null,
-        "completed": 344
+        "completed": 345
       },
       "enabled": true,
       "state": "scheduled",
       "paused_at": null,
       "paused_reason": null,
       "created_at": "2026-07-09T09:53:58.682054-04:00",
-      "next_run_at": "2026-09-05T00:00:00-04:00",
-      "last_run_at": "2026-09-04T16:00:14.714567-04:00",
+      "next_run_at": "2026-09-05T04:00:00-04:00",
+      "last_run_at": "2026-09-04T20:00:32.128158-04:00",
       "last_status": "ok",
       "last_error": null,
       "last_delivery_error": null,
@@ -1480,8 +1483,8 @@
       "enabled_toolsets": null,
       "workdir": null,
       "fire_claim": {
-        "at": "2026-09-04T20:00:23.072538-04:00",
-        "by": "theos-mini.local:99896:17eb88265fda4c79906a610b5380ee42"
+        "at": "2026-09-05T00:00:00.262165-04:00",
+        "by": "theos-mini.local:67436:df53ef5be37a456fa5baf2eb36aa81bd"
       },
       "failure_streak": 0
     },
@@ -1507,15 +1510,15 @@
       "schedule_display": "*/20 * * * *",
       "repeat": {
         "times": null,
-        "completed": 4099
+        "completed": 4112
       },
       "enabled": true,
       "state": "scheduled",
       "paused_at": null,
       "paused_reason": null,
       "created_at": "2026-07-09T09:53:59.696632-04:00",
-      "next_run_at": "2026-09-04T20:20:00-04:00",
-      "last_run_at": "2026-09-04T19:40:21.403864-04:00",
+      "next_run_at": "2026-09-05T00:20:00-04:00",
+      "last_run_at": "2026-09-05T00:00:00.807359-04:00",
       "last_status": "ok",
       "last_error": null,
       "last_delivery_error": null,
@@ -1523,10 +1526,7 @@
       "origin": null,
       "enabled_toolsets": null,
       "workdir": null,
-      "fire_claim": {
-        "at": "2026-09-04T20:00:24.300375-04:00",
-        "by": "theos-mini.local:99896:ba725f2d34eb4d1fb90472c35cefa1a2"
-      },
+      "fire_claim": null,
       "failure_streak": 0
     },
     {
@@ -1633,7 +1633,7 @@
       "schedule_display": "0 20 * * *",
       "repeat": {
         "times": null,
-        "completed": 56
+        "completed": 57
       },
       "enabled": true,
       "state": "scheduled",
@@ -1641,18 +1641,15 @@
       "paused_reason": null,
       "created_at": "2026-07-11T08:48:23.391149-04:00",
       "next_run_at": "2026-09-05T20:00:00-04:00",
-      "last_run_at": "2026-09-03T20:01:36.408884-04:00",
+      "last_run_at": "2026-09-04T20:01:55.790934-04:00",
       "last_status": "ok",
       "last_error": null,
-      "last_delivery_error": "platform 'telegram' not configured/enabled",
+      "last_delivery_error": "delivery error: Telegram send failed: You must pass the token you received from https://t.me/Botfather! (target telegram:8547176321)",
       "deliver": "origin",
       "origin": null,
       "enabled_toolsets": null,
       "workdir": null,
-      "fire_claim": {
-        "at": "2026-09-04T20:00:23.143970-04:00",
-        "by": "theos-mini.local:99896:e97909c57e414936a0515fbb56879598"
-      },
+      "fire_claim": null,
       "failure_streak": 0
     },
     {
@@ -1677,15 +1674,15 @@
       "schedule_display": "0 */4 * * *",
       "repeat": {
         "times": null,
-        "completed": 332
+        "completed": 333
       },
       "enabled": true,
       "state": "scheduled",
       "paused_at": null,
       "paused_reason": null,
       "created_at": "2026-07-11T16:29:55.461353-04:00",
-      "next_run_at": "2026-09-05T00:00:00-04:00",
-      "last_run_at": "2026-09-04T16:00:11.298828-04:00",
+      "next_run_at": "2026-09-05T04:00:00-04:00",
+      "last_run_at": "2026-09-04T20:00:29.145208-04:00",
       "last_status": "ok",
       "last_error": null,
       "last_delivery_error": null,
@@ -1694,8 +1691,8 @@
       "enabled_toolsets": null,
       "workdir": null,
       "fire_claim": {
-        "at": "2026-09-04T20:00:23.315996-04:00",
-        "by": "theos-mini.local:99896:e730ed1c4c1e415ea4084727a3ee2a19"
+        "at": "2026-09-05T00:00:00.267926-04:00",
+        "by": "theos-mini.local:67436:f375e670a9904f71bb8b2a0d0220e751"
       },
       "failure_streak": 0
     },
@@ -2002,7 +1999,7 @@
       "schedule_display": "0 8,11,14,17,20 * * *",
       "repeat": {
         "times": null,
-        "completed": 206
+        "completed": 207
       },
       "enabled": true,
       "state": "scheduled",
@@ -2010,19 +2007,17 @@
       "paused_reason": null,
       "created_at": "2026-07-25T17:16:54.732748-04:00",
       "next_run_at": "2026-09-05T08:00:00-04:00",
-      "last_run_at": "2026-09-04T17:42:12.880532-04:00",
-      "last_status": "ok",
-      "last_error": null,
-      "last_delivery_error": null,
+      "last_run_at": "2026-09-04T20:00:25.618201-04:00",
+      "last_status": "blocked_config",
+      "last_error": "[blocked_config] delivery platform 'telegram' has no gateway credentials configured (not connected). Configure it via `hermes setup` or change the job's `deliver` target.",
+      "last_delivery_error": "delivery error: Telegram send failed: You must pass the token you received from https://t.me/Botfather! (target telegram:8547176321)",
       "deliver": "telegram:8547176321",
       "origin": null,
       "enabled_toolsets": null,
       "workdir": null,
-      "fire_claim": {
-        "at": "2026-09-04T20:00:23.259121-04:00",
-        "by": "theos-mini.local:99896:2f8454c059854ccb9bddbb07b7866ae4"
-      },
-      "failure_streak": 0
+      "fire_claim": null,
+      "failure_streak": 1,
+      "preflight_alerted": true
     },
     {
       "id": "c8a51628393e",
@@ -2169,18 +2164,18 @@
       "schedule_display": "23 * * * *",
       "repeat": {
         "times": null,
-        "completed": 444
+        "completed": 448
       },
       "enabled": true,
       "state": "scheduled",
       "paused_at": null,
       "paused_reason": null,
       "created_at": "2026-08-02T11:04:27.256761-04:00",
-      "next_run_at": "2026-09-04T20:23:00-04:00",
-      "last_run_at": "2026-09-04T19:23:21.218085-04:00",
+      "next_run_at": "2026-09-05T00:23:00-04:00",
+      "last_run_at": "2026-09-04T23:23:15.452295-04:00",
       "last_status": "error",
-      "last_error": "Script exited with code 1\nstdout:\nsymlink_home_path_sweep: BANNED HOME DIR present (/Users/ted/Operations) — alert at /Volumes/Extra/Substrate/_AI_Inbox/banned_home_dir_2026-09-04T232320Z.md",
-      "last_delivery_error": "delivery error: Telegram send failed: You must pass the token you received from https://t.me/Botfather! (target telegram:8547176321)",
+      "last_error": "Script exited with code 1\nstdout:\nsymlink_home_path_sweep: BANNED HOME DIR present (/Users/ted/Operations) — alert at /Volumes/Extra/Substrate/_AI_Inbox/banned_home_dir_2026-09-05T032314Z.md",
+      "last_delivery_error": null,
       "deliver": "origin",
       "origin": {
         "platform": "telegram",
@@ -2192,7 +2187,7 @@
       "enabled_toolsets": null,
       "workdir": null,
       "fire_claim": null,
-      "failure_streak": 1
+      "failure_streak": 5
     },
     {
       "id": "937c76b0513b",
@@ -2297,7 +2292,7 @@
       "schedule_display": "0 20 * * *",
       "repeat": {
         "times": null,
-        "completed": 29
+        "completed": 30
       },
       "enabled": true,
       "state": "scheduled",
@@ -2305,7 +2300,7 @@
       "paused_reason": null,
       "created_at": "2026-08-07T18:32:45.646414+00:00",
       "next_run_at": "2026-09-05T20:00:00-04:00",
-      "last_run_at": "2026-09-03T20:05:49.685655-04:00",
+      "last_run_at": "2026-09-04T20:03:07.419386-04:00",
       "last_status": "ok",
       "last_error": null,
       "last_delivery_error": null,
@@ -2313,10 +2308,7 @@
       "origin": null,
       "enabled_toolsets": null,
       "workdir": null,
-      "fire_claim": {
-        "at": "2026-09-04T20:00:24.237118-04:00",
-        "by": "theos-mini.local:99896:327045149a074692b633df394c531aaf"
-      },
+      "fire_claim": null,
       "provider_snapshot": null,
       "model_snapshot": null,
       "failure_streak": 0
@@ -2499,15 +2491,15 @@
       "schedule_display": "0 * * * *",
       "repeat": {
         "times": null,
-        "completed": 677
+        "completed": 681
       },
       "enabled": true,
       "state": "scheduled",
       "paused_at": null,
       "paused_reason": null,
       "created_at": "2026-08-07T18:32:45.646414+00:00",
-      "next_run_at": "2026-09-04T21:00:00-04:00",
-      "last_run_at": "2026-09-04T19:00:18.008353-04:00",
+      "next_run_at": "2026-09-05T01:00:00-04:00",
+      "last_run_at": "2026-09-04T23:00:12.020188-04:00",
       "last_status": "ok",
       "last_error": null,
       "last_delivery_error": null,
@@ -2516,8 +2508,8 @@
       "enabled_toolsets": null,
       "workdir": null,
       "fire_claim": {
-        "at": "2026-09-04T20:00:24.164074-04:00",
-        "by": "theos-mini.local:99896:5148029b512f4e418bc97e7120cc4e69"
+        "at": "2026-09-05T00:00:00.273192-04:00",
+        "by": "theos-mini.local:67436:84046cdf70954933a3de3ac2306bfc72"
       },
       "failure_streak": 0
     },
@@ -2619,15 +2611,15 @@
       "schedule_display": "0 22 * * *",
       "repeat": {
         "times": null,
-        "completed": 29
+        "completed": 30
       },
       "enabled": true,
       "state": "scheduled",
       "paused_at": null,
       "paused_reason": null,
       "created_at": "2026-08-07T18:32:45.646414+00:00",
-      "next_run_at": "2026-09-04T22:00:00-04:00",
-      "last_run_at": "2026-09-03T22:06:02.586042-04:00",
+      "next_run_at": "2026-09-05T22:00:00-04:00",
+      "last_run_at": "2026-09-04T22:12:38.674409-04:00",
       "last_status": "ok",
       "last_error": null,
       "last_delivery_error": null,
@@ -2739,7 +2731,7 @@
       "schedule_display": "0 20 * * *",
       "repeat": {
         "times": null,
-        "completed": 28
+        "completed": 29
       },
       "enabled": true,
       "state": "scheduled",
@@ -2747,18 +2739,15 @@
       "paused_reason": null,
       "created_at": "2026-08-07T18:32:45.646414+00:00",
       "next_run_at": "2026-09-05T20:00:00-04:00",
-      "last_run_at": "2026-09-03T20:00:12.448820-04:00",
+      "last_run_at": "2026-09-04T20:00:25.611730-04:00",
       "last_status": "ok",
       "last_error": null,
-      "last_delivery_error": "platform 'telegram' not configured/enabled",
+      "last_delivery_error": "delivery error: Telegram send failed: You must pass the token you received from https://t.me/Botfather! (target telegram:8547176321)",
       "deliver": "origin",
       "origin": null,
       "enabled_toolsets": null,
       "workdir": null,
-      "fire_claim": {
-        "at": "2026-09-04T20:00:24.201120-04:00",
-        "by": "theos-mini.local:99896:2d647619d9c84aad918a9ad32be79c6f"
-      },
+      "fire_claim": null,
       "failure_streak": 0
     },
     {
@@ -3637,8 +3626,8 @@
       "prompt": "",
       "skills": [],
       "skill": null,
-      "model": "glm-5.3",
-      "provider": "zai",
+      "model": "deepseek-v4-flash",
+      "provider": "deepseek",
       "provider_snapshot": null,
       "model_snapshot": null,
       "base_url": null,
@@ -3788,15 +3777,15 @@
       "schedule_display": "every 10m",
       "repeat": {
         "times": null,
-        "completed": 802
+        "completed": 826
       },
       "enabled": true,
       "state": "scheduled",
       "paused_at": null,
       "paused_reason": null,
       "created_at": "2026-08-30T05:35:42.939777-04:00",
-      "next_run_at": "2026-09-04T20:02:44.413588-04:00",
-      "last_run_at": "2026-09-04T19:52:44.413588-04:00",
+      "next_run_at": "2026-09-05T00:03:16.864040-04:00",
+      "last_run_at": "2026-09-04T23:53:16.864040-04:00",
       "last_status": "ok",
       "last_error": null,
       "last_delivery_error": null,
@@ -3852,5 +3841,5 @@
       "fire_claim": null
     }
   ],
-  "updated_at": "2026-09-04T20:00:24.417365-04:00"
+  "updated_at": "2026-09-05T00:00:00.948677-04:00"
 }

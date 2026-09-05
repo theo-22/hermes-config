@@ -1,6 +1,6 @@
 ---
 name: share-learning
-description: "Save a reusable pattern or repeated correction to _shared/ so all substrate actors get it. Use when Ted says \"save to _shared\" / \"make this a pattern\", or when the same behavior has been re-corrected. Updates _shared/README.md."
+description: "Save a reusable pattern or repeated correction to the shared substrate area so all actors get it. Use when Ted says to make something a pattern or add it to the shared area, or when the same behavior has been re-corrected. Writes under /Volumes/Extra/Substrate/_shared/ and updates its README."
 metadata:
   category: knowledge-capture
   write_mode: shared

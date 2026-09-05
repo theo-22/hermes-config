@@ -1,6 +1,6 @@
 ---
 name: repair-model-visible-token-transport
-description: Diagnose and repair tool calls blocked before server receipt because JWTs, API keys, signed capsules, or other credential-shaped values appear in model-authored arguments. Use when a client, host, moderation, schema preflight, or tool-call safety layer rejects a call before the connector logs it; when raw bearer values should move behind short server-resolved handles; or when a fresh raw-protocol client is needed to distinguish client validation from live server enforcement while preserving expiry, role and scope checks, restart invalidation, refresh behavior, and fresh-client proof.
+description: "Repair tool calls blocked before server receipt because JWTs, API keys, or signed capsules appear in model-authored arguments. Use when a client or safety layer rejects a call before the connector logs it, or raw bearer values should move behind server-resolved handles."
 metadata:
   category: meta
   write_mode: file

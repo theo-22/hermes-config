@@ -1,6 +1,6 @@
 ---
 name: workflow-orchestration
-description: Start, complete, stage, or revise one bounded Operations session-chain lane from the conductor board. Use when Ted says "Let's get some work done", asks to work through session chains, start from the conductor, pick a work lane, turn current work into a chain, create/stage/revise a chain, or advance Operations chain work. Reads startup, presents the chain menu when no lane is named, reads CONDUCTOR.md, selects/confirms exactly one routed chain, stages exactly one new chain, or revises exactly one prior chain plan when context requires it, executes only the selected lane when running existing work, writes the completion report, validates it, appends and checks a QuickSave receipt, and stops. Do not use for broad priority review, unrelated project work, runtime/security/clinical/finance/Builder/schema/automation changes, or full session-end unless the selected chain explicitly authorizes that work.
+description: "Run one bounded Operations session-chain lane from the conductor board — start, complete, stage, or revise exactly one. Use when Ted says \"let's get some work done\", asks for the chain menu, or names a lane. Not for broad priority review or full session-end."
 metadata:
   category: meta
   write_mode: file

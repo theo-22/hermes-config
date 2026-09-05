@@ -1,6 +1,6 @@
 ---
 name: create-worker
-description: "Mint a new bounded, dispatchable Hermes worker on the proven migrator/verifier mold — correct by construction (config floor + five disciplines baked in). Use when a SHAPE of bounded, externally-checkable work recurs and no existing worker owns it, and you want callable capacity a hub can dispatch and verify. Works for any actor: Claude Code and Codex run the factory via shell; Coordinator (and other GPT roles with scope) call the create_worker MCP tool. Do not use for one-off work (just dispatch the closest worker with a precise packet) or for anything needing live judgment (that stays with a hub)."
+description: "Mint a bounded, dispatchable Hermes worker on the migrator/verifier mold, correct by construction. Use when a SHAPE of externally-checkable work recurs and no worker owns it. Not for one-off work or anything needing live judgment."
 metadata:
   category: meta
   write_mode: file

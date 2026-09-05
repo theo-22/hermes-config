@@ -1,6 +1,6 @@
 ---
 name: topic-assembly
-description: Given a topic under live discussion, go find its nodes in the concept map yourself (do the pointing Ted has been doing by hand), check whether the connected ideas flow into a coherent through-line, then harvest the missing connecting nodes — from the rest of the map and from Pieces (cross-session / other-app mentions) — and lay the topic down as a connected multidimensional structure with tails for re-entry. Invoke when a topic is deepening in conversation and would benefit from being assembled and connected, not just discussed. Do not use to invent a single node (concept-bridge-surfacing) or to enrich one already-placed node (graph-edge-finding) — this is the whole-topic composition of those.
+description: "Find a live topic's nodes in the concept map yourself, check the through-line, harvest missing connecting nodes, and lay the topic down as connected structure with re-entry tails. Use when a topic is deepening. Not for minting one node (concept-bridge-surfacing) or enriching one (graph-edge-finding)."
 metadata:
   category: database-integrated
   write_mode: db

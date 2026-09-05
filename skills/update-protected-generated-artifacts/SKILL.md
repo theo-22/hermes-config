@@ -1,6 +1,6 @@
 ---
 name: update-protected-generated-artifacts
-description: Safely change a source generator or builder that rewrites shared generated artifacts, mirrors, published copies, compiled outputs, or dashboard/frontend projections. Use when one bounded source edit must acquire live file checkouts for the generator and every output, run the sanctioned regeneration path, prove output parity and preserved meaning/data, verify the exact consumer-visible behavior, release all protection, and leave a receipt. Do not use for ordinary single-file edits, generated files with no shared writer risk, graph/data meaning changes, or designing a new lock authority.
+description: "Safely change a generator that rewrites shared generated artifacts, mirrors, or dashboard projections — check out the generator and every output, regenerate via the sanctioned path, prove parity, verify consumer-visible behavior, release, leave a receipt. Not for ordinary single-file edits."
 metadata:
   category: meta
   write_mode: file

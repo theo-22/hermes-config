@@ -6,7 +6,9 @@ providers:
     base_url: https://api.deepseek.com
   zai:
     base_url: https://api.z.ai/api/coding/paas/v4
-fallback_providers: '[{"model": "deepseek-v4-flash", "provider": "deepseek"}]'
+fallback_providers:
+  - model: z-ai/glm-5.3
+    provider: openrouter
 toolsets:
 - hermes-cli
 max_live_sessions: 8

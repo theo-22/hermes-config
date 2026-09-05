@@ -1,6 +1,6 @@
 ---
 name: cross-actor-incident-repair
-description: Diagnose and repair a live system fault across siloed AI actors without crossing streams. Use when a role/GPT or service hits real friction (hangs, timeouts, "unhealthy", stale state, wrong results) and the fix needs a different actor than the one that surfaced it — e.g. a ChatGPT role reports a symptom, the filesystem-access actor must diagnose root cause, and the code-owning actor must repair inside its fence. Ted conducts across the walled-off lanes (no direct AI-to-AI comms), carrying the symptom, the corrected diagnosis, and the fix confirmation between actors. Do not use for single-actor bugs one actor can fully own end-to-end, for design/build work with no live fault, or as a substitute for the owner simply fixing its own code when no cross-actor seam exists.
+description: "Diagnose and repair a live fault spanning siloed AI actors, where the actor that surfaced the symptom cannot make the fix. Ted carries symptom, diagnosis, and confirmation between lanes. Not for single-actor bugs or design work with no live fault."
 metadata:
   status: proposed
   category: meta

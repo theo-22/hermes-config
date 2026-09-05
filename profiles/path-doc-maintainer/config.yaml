@@ -7,7 +7,9 @@ providers:
   openai:
   openrouter:
   deepseek:
-fallback_providers: '[{"model": "deepseek-v4-flash", "provider": "deepseek"}]'
+fallback_providers:
+  - model: z-ai/glm-5.3-flash
+    provider: openrouter
 toolsets:
 - hermes-cli
 max_live_sessions: 16
@@ -657,7 +659,7 @@ mcp_servers:
     connect_timeout: 10
     timeout: 30
     transport: sse
-    url: https://theos-mini.tail19cc07.ts.net/sse
+    url: https://mcp.tedsmac.me/sse
   open-brain:
     command: /Users/ted/Control/mcp/.venv/bin/python
     args:

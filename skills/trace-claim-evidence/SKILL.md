@@ -1,6 +1,6 @@
 ---
 name: trace-claim-evidence
-description: Trace and independently challenge a concrete state, count, completion, implementation, or capability assertion against the evidence boundary that existed when it was stated. Use when designing or reviewing claim detectors, running an external check of another actor's fix or measurement, replaying known wrong assertions, auditing AI reports against tool transcripts, separating a real core defect from an inaccurate submitted count or explanation, deciding whether evidence supports a claim, or evaluating whether a watch-only detector has earned promotion. Do not use it to repair the reviewed implementation unless repair is separately authorized.
+description: "Independently challenge a state, count, completion, or capability assertion against the evidence boundary that existed when it was stated. Use when auditing AI reports against tool transcripts, or externally checking another actor's fix. Not for repairing what you reviewed."
 metadata:
   category: judgment-only
   write_mode: none

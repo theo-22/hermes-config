@@ -3,7 +3,9 @@ model:
   default: glm-5.3-flash
   provider: zai
   max_tokens: 16000
-fallback_providers: '[{"model": "deepseek-v4-flash", "provider": "deepseek"}]'
+fallback_providers:
+  - model: z-ai/glm-5.3-flash
+    provider: openrouter
 toolsets:
   - hermes-cli
 max_live_sessions: 16
@@ -172,12 +174,6 @@ auxiliary:
     api_key: ''
     timeout: 120
     download_timeout: 30
-  web_extract:
-    provider: auto
-    model: ''
-    base_url: ''
-    api_key: ''
-    timeout: 360
   compression:
     provider: auto
     model: ''
@@ -263,6 +259,12 @@ auxiliary:
     base_url: ''
     api_key: ''
     timeout: 600
+  web_extract:
+    provider: auto
+    model: ''
+    base_url: ''
+    api_key: ''
+    timeout: 360
 display:
   compact: false
   personality: helpful
@@ -535,6 +537,13 @@ command_allowlist:
   - overwrite system file via redirection
   - script execution via heredoc
   - stop/restart hermes gateway (kills running agents)
+plugins:
+  disabled: []
+  enabled:
+    - disk-cleanup
+    - fal
+    - minimax-provider
+    - openai
 hooks:
   pre_llm_call:
     - command: python3 /Users/ted/Control/claude/hooks/hermes_pre_llm_call_memory_recall.py
@@ -669,7 +678,7 @@ mcp_servers:
     connect_timeout: 10
     timeout: 30
     transport: sse
-    url: https://theos-mini.tail19cc07.ts.net/sse
+    url: https://mcp.tedsmac.me/sse
   open-brain:
     command: /Users/ted/Control/mcp/.venv/bin/python
     args:
@@ -728,13 +737,6 @@ platform_toolsets:
     - hermes-whatsapp
   yuanbao:
     - hermes-yuanbao
-plugins:
-  disabled: []
-  enabled:
-    - disk-cleanup
-    - fal
-    - minimax-provider
-    - openai
 session_reset:
   at_hour: 4
   idle_minutes: 1440
@@ -746,3 +748,25 @@ platforms:
   telegram:
     enabled: true
 TELEGRAM_HOME_CHANNEL: 8547176321
+
+# ── Fallback Model ────────────────────────────────────────────────────
+# Automatic provider failover when primary is unavailable.
+# Uncomment and configure to enable. Triggers on rate limits (429),
+# overload (529), service errors (503), or connection failures.
+#
+# Supported providers:
+#   openrouter   (OPENROUTER_API_KEY)  — routes to any model
+#   openai-codex (OAuth — hermes auth) — OpenAI Codex
+#   nous         (OAuth — hermes auth) — Nous Portal
+#   zai          (ZAI_API_KEY)         — Z.AI / GLM
+#   kimi-coding  (KIMI_API_KEY)        — Kimi / Moonshot
+#   kimi-coding-cn (KIMI_CN_API_KEY)   — Kimi / Moonshot (China)
+#   minimax      (MINIMAX_API_KEY)     — MiniMax
+#   minimax-cn   (MINIMAX_CN_API_KEY)  — MiniMax (China)
+#   bedrock      (AWS IAM / boto3)     — AWS Bedrock (Converse API)
+#
+# For custom OpenAI-compatible endpoints, add base_url and key_env.
+#
+# fallback_model:
+#   provider: openrouter
+#   model: anthropic/claude-sonnet-4

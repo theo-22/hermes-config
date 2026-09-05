@@ -1,6 +1,6 @@
 ---
 name: clip-cycle-closer
-description: Recognize when a coherent CLiP arc has completed or crossed a meaningful threshold, then draft a concise evidence-backed closure record for logging, routing, or adoption follow-up. Use when a session starts sounding like "this looks like a CLiP arc," "we should log this," "this session produced something durable," or "this is probably a methodology capture event," and the evidence already shows a Canon-level cycle, domain-level cycle, bridge adoption event, adversarial review step, or synthesis-ready partial cycle. Fire proactively — do not wait to be invoked — when a session produces a confirmed finding that has gone through a full observe → capture → validate arc. Do not use for raw capture, routine proposal drafting, or promotion decisions.
+description: "Draft an evidence-backed closure record when a CLiP arc completes. Fire proactively when a session produces a confirmed finding that went through a full observe → capture → validate arc, or when it starts sounding like \"we should log this\". Not for raw capture or promotion decisions."
 metadata:
   category: judgment-only
   write_mode: none

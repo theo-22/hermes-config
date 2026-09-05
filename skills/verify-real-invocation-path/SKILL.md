@@ -1,6 +1,6 @@
 ---
 name: verify-real-invocation-path
-description: Verify a claimed fix, hook, script, service, launcher, integration, installed UI action, or runtime behavior through the exact path the real consumer uses. Use when tests may have bypassed executable permissions, symlinks, launchers, settings wiring, payload contracts, working-directory or environment selection, service boundaries, installed artifacts, visible pending/success/error feedback, or fresh-client state; when an independent real-client acceptance probe contradicts the implementer's green tests; when a proxy test such as `python script.py`, an in-process call, a health 200, or a warmed session is being offered as proof that production behavior works; or before accepting confident `verified`, `confirmed`, `tested`, `done`, `complete`, or `working correctly` claims.
+description: "Verify a claimed fix, hook, script, service, launcher, or integration through the exact path the real consumer uses. Use when a proxy test (in-process call, health 200, warmed session) is offered as proof, or before accepting \"verified\" / \"done\" / \"working correctly\" claims."
 metadata:
   category: judgment-only
   write_mode: none

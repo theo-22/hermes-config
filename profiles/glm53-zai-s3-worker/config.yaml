@@ -7,7 +7,9 @@ providers:
     transport: urllib_certifi
   deepseek:
     base_url: https://api.deepseek.com
-fallback_providers: '[{"model": "deepseek-v4-flash", "provider": "deepseek"}]'
+fallback_providers:
+  - model: z-ai/glm-5.3-flash
+    provider: openrouter
 toolsets:
 - hermes-cli
 max_live_sessions: 8

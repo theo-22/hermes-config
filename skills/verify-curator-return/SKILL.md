@@ -1,6 +1,6 @@
 ---
 name: verify-curator-return
-description: Process what comes back from a live verifying actor (Map Curator or any actor with reach CC doesn't have) after a live-multi-actor-negotiation or live-surface-verification exchange — read raw state instead of the verdict, apply corrections including ones that reject CC's own work, append attribution fixes without rewriting the verifier's original events, separate what the verifier fixed from what only CC can reach, and catch claims it corrected in prose, not just relation/edge types. Use immediately after any live exchange where another actor reported back findings, corrections, or a verdict on CC-authored work. Do not use to run the live exchange itself (that's `live-multi-actor-negotiation` or `live-surface-verification`) — this is what happens with the report once it lands.
+description: "Process what a live verifying actor (Map Curator, or any actor with reach CC lacks) reports back — read raw state not the verdict, apply corrections including ones rejecting CC's own work, separate what they fixed from what only CC can reach. Use right after such an exchange. Not for running the exchange itself."
 metadata:
   status: active
   category: judgment-only

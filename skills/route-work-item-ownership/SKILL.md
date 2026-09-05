@@ -1,6 +1,6 @@
 ---
 name: route-work-item-ownership
-description: Apply an already-authorized Coordinator routing decision to canonical Control `work_items` by retargeting a live item to Orchestrator or Map Curator, or superseding an obsolete item with a linked prepared successor. Use when queue ownership is stale after a routing decision, a specialist cannot see work because `work_items.owner` still names the old role, or obsolete framing must become terminal without losing history. Requires live-state readback, an existing authority file, a Coordinator-origin successor orchestration, task claims, atomic audited mutation, receiving-role proof, and released claims. Do not use for backlog/session shaping, direct implementation authorization, arbitrary owner changes, required-owner rows, terminal-item reopening, or role redesign.
+description: "Apply an authorized Coordinator routing decision to Control work_items — retarget a live item to Orchestrator or Map Curator, or supersede an obsolete item with a linked successor. Use when queue ownership is stale. Not for backlog shaping, arbitrary owner changes, or reopening terminal items."
 metadata:
   category: database-integrated
   write_mode: db

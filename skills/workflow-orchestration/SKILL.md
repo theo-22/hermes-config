@@ -66,7 +66,7 @@ Stop and ask Ted to choose one lane unless exactly one lane is clearly routed by
 8. Write the required completion report under `/Volumes/Extra/Substrate/Operations/reports/TODO_Session_Completions/`.
 9. Run `/Volumes/Extra/Substrate/Operations/scripts/todo_session_completion_check.py <completion-report-path>` when the chain is TODO/session-chain derived.
 10. If this lane opened typed checkouts, pass every owned claim id plus the actor/session/chain reference to QuickSave so the set closes atomically as `released`, `parked`, or `coordinator_handoff`. Do not close another chain's checkout.
-11. Append and validate a QuickSave receipt with `/Volumes/Extra/Substrate/Operations/scripts/quicksave_closeout_receipt.py append...` and `check`; the append itself uses a guarded ledger checkout and records the task-checkout terminal states.
+11. Append and validate a QuickSave receipt with `/Volumes/Extra/Substrate/Operations/scripts/quicksave_closeout_receipt.py append ...` and `check`; the append itself uses a guarded ledger checkout and records the task-checkout terminal states.
 12. Stop after reporting:
    - `QuickSave: done|not done`;
    - saved surfaces;

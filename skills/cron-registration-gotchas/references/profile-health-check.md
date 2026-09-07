@@ -124,14 +124,14 @@ ls -la ~/.hermes/state-snapshots
 ls -la ~/.hermes/decommissioned_profiles
 ```
 
-Both should resolve to `/Volumes/Extra/Substrate/.hermes/...`.
+Both are real directories under the local home now — the `/Volumes/Extra/Substrate/.hermes/` volume home was RETIRED (2026-09-07); symlink-back checks against it are obsolete.
 
 ### 7. Internal vs Extra profile parity
 
 After migration, internal and Extra profile dirs should match:
 
 ```bash
-diff <(ls /Volumes/Extra/Substrate/.hermes/profiles/ | sort) <(ls ~/.hermes/profiles/ | sort)
+diff <(ls /Volumes/Extra/Substrate/Hermes/profiles/ 2>/dev/null | sort) <(ls ~/.hermes/profiles/ | sort)  # volume home retired — profile dirs live in the local home only
 ```
 
 No output = clean. Any output lists profiles missing from one side.

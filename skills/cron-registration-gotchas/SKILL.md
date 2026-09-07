@@ -283,7 +283,7 @@ grep -n '"script": "substrate_daily_report.py"' ~/.hermes/profiles/substrate-her
 
 **Remove after safety period (Ted's preference, 2026-07-15):** Migrated crons should be **removed, not left paused indefinitely.**
 1. Wait 1-2 full schedule cycles to confirm the target-profile replacement runs successfully (check `last_status`, read output)
-2. Remove: for named profiles, use `cronjob(action='remove', job_id='...')`. For **system-level entries** (default profile), the `cronjob` tool cannot reach them from a named profile — edit `/Volumes/Extra/Substrate/.hermes/cron/jobs.json` directly: remove the job's dict from the `jobs` array entirely
+2. Remove: for named profiles, use `cronjob(action='remove', job_id='...')`. For **system-level entries** (default profile), the `cronjob` tool cannot reach them from a named profile — edit `/Users/ted/.hermes/cron/jobs.json` directly: remove the job's dict from the `jobs` array entirely. (The old `/Volumes/Extra/Substrate/.hermes/` volume home is RETIRED — that path no longer exists; the system-level registry lives under the local home.)
 3. Verify the job count dropped; check `updated_at` field bumped
 
 **First real pass (2026-07-15):** Removed 8 orphaned crons from system-level registry — `drift_deltas`, `substrate_status`, `bridge_health_check`, `manifest_phase1_audit`, `substrate_rollup`, `silent_failure_detector`, `substrate-daily-report`, `weekly_answer_shoring_review`. All had verified replacements in substrate-hermes profile.
@@ -620,7 +620,7 @@ This does not work in a cron context — there is no user to respond.
 
 ## Gotcha 14 — Script copied to volume path but cron resolves against LOCAL home (2026-08-02)
 
-**Problem:** On this Mac there are TWO home paths: the local home `/Users/ted/.hermes/` and the substrate volume `/Volumes/Extra/Substrate/.hermes/`. When you `cp` a script to the **volume** profile scripts dir (`/Volumes/Extra/Substrate/.hermes/profiles/<profile>/scripts/`) but the cron gateway resolves `script` filenames against the **local** home (`/Users/ted/.hermes/profiles/<profile>/scripts/`), the cron fails with:
+**Problem (historical form):** On this Mac there were TWO home paths: the local home `/Users/ted/.hermes/` and the substrate volume `/Volumes/Extra/Substrate/.hermes/` (now RETIRED — that path no longer exists). The gotcha survives in a new form: a script authored in a canonical source dir (e.g. `/Volumes/Extra/Substrate/Operations/scripts/`) but never copied into the **profile execution dir** (`/Users/ted/.hermes/profiles/<profile>/scripts/`) fails identically — see the 2026-09-07 addendum below. Historical statement: copying a script to the volume profile dir while the gateway resolved against the local home caused:
 
 > `Script not found: /Users/ted/.hermes/profiles/substrate-hermes/scripts/mcp_bridge_watchdog.py`
 
@@ -630,8 +630,9 @@ even though the file exists on the volume.
 
 **Fix:**
 ```bash
-# Sync BOTH locations after creating/editing a no-agent cron script:
-cp /Volumes/Extra/Substrate/.hermes/profiles/substrate-hermes/scripts/<script>.py \
+# After writing/editing a no-agent cron script in its canonical source dir,
+# ALWAYS copy it into the profile execution dir the cron gateway resolves against:
+cp /Volumes/Extra/Substrate/Operations/scripts/<script>.py \
    /Users/ted/.hermes/profiles/substrate-hermes/scripts/<script>.py
 # Then re-run the cron and confirm execution_success
 ```
@@ -640,21 +641,24 @@ cp /Volumes/Extra/Substrate/.hermes/profiles/substrate-hermes/scripts/<script>.p
 
 **Related:** this is the cron-side variant of the same two-home confusion that breaks script sync (see Gotcha 4 — always sync both locations after editing).
 
+**Addendum (2026-09-07, two-home era over, failure mode alive):** the identical `Script not found: /Users/ted/.hermes/profiles/substrate-hermes/scripts/<name>.py` error recurred twice in one dead-path scan: `worker-ttl-reaper` (d26792493d6b, created 09-06 after the worker-TTL ruling) and `project-room-needs-action-autopickup` (0334b0092139, created 08-21) had both been erroring every tick because their scripts were authored in `/Volumes/Extra/Substrate/Operations/scripts/` and never copied into the profile execution dir. Fix: `cp` into `/Users/ted/.hermes/profiles/substrate-hermes/scripts/` + smoke-run; both verified exit 0. Rule: **a cron script is not registered until it exists in the profile scripts dir — writing it in the source repo is not registration.**
+
 ## Gotcha 13 — `cronjob` tool is profile-scoped; system-level entries invisible (2026-07-15)
 
 **Problem:** The `cronjob(action='list')` and `cronjob(action='remove')` Hermes tools operate ONLY on the **current profile's** cron data. They do NOT see entries in the **system-level** registry or other profiles' stores. Calling `cronjob(action='remove', job_id='...')` on a job that lives in the system-level registry returns `"Job with ID '...' not found."` — even though the job exists and is visible in the raw JSON.
 
 **Three cron registries on disk:**
-- **System-level (default profile):** `/Volumes/Extra/Substrate/.hermes/cron/jobs.json`
-- **Profile-specific:** `/Volumes/Extra/Substrate/.hermes/profiles/<profile>/cron/jobs.json`
+- **System-level (default profile):** `/Users/ted/.hermes/cron/jobs.json`
+- **Profile-specific:** `/Users/ted/.hermes/profiles/<profile>/cron/jobs.json`
+- (Volume home `/Volumes/Extra/Substrate/.hermes/` retired — do not reference it.)
 - The `cronjob` tool only queries the latter from the currently loaded profile.
 
 **How to detect orphaned system-level entries:**
 ```bash
 # Profile-level (what cronjob list shows you)
-python3 -c "import json; d=json.load(open('/Volumes/Extra/Substrate/.hermes/profiles/substrate-hermes/cron/jobs.json')); print(len(d['jobs']))"
+python3 -c "import json; d=json.load(open('/Users/ted/.hermes/profiles/substrate-hermes/cron/jobs.json')); print(len(d['jobs']))"
 # System-level (invisible from cronjob list)
-python3 -c "import json; d=json.load(open('/Volumes/Extra/Substrate/.hermes/cron/jobs.json')); print(len(d['jobs']))"
+python3 -c "import json; d=json.load(open('/Users/ted/.hermes/cron/jobs.json')); print(len(d['jobs']))"
 ```
 
 If system-level count > profile-level count, you have orphaned/disabled entries in the system-level registry that `cronjob` can't see or manage.
@@ -662,14 +666,14 @@ If system-level count > profile-level count, you have orphaned/disabled entries 
 **Fix — remove system-level entries directly:**
 ```python
 import json
-data = json.load(open('/Volumes/Extra/Substrate/.hermes/cron/jobs.json'))
+data = json.load(open('/Users/ted/.hermes/cron/jobs.json'))
 data['jobs'] = [j for j in data['jobs'] if j.get('id') not in remove_ids]
-json.dump(data, open('/Volumes/Extra/Substrate/.hermes/cron/jobs.json', 'w'), indent=2, default=str)
+json.dump(data, open('/Users/ted/.hermes/cron/jobs.json', 'w'), indent=2, default=str)
 ```
 
 **Verify:**
 ```python
-d = json.load(open('/Volumes/Extra/Substrate/.hermes/cron/jobs.json'))
+d = json.load(open('/Users/ted/.hermes/cron/jobs.json'))
 print(f'Total: {len(d[\"jobs\"])}, Disabled: {sum(1 for j in d[\"jobs\"] if not j.get(\"enabled\"))}')
 ```
 
@@ -694,6 +698,30 @@ HERMES_HOME=/Users/ted/.hermes ~/.hermes/hermes-agent/venv/bin/hermes cron run <
 **Real example (2026-08-29):** Reboot 12:46 → app restored 12:48:45 before setenv ran → serve pid 2971 env-less → `hermes_profile_name_backfill_check` (hourly) + `system_db_contention_monitor` (2-hourly) failed `SubstrateRootNotConfigured`; 3 more substrate_root wrappers (ai-inbox-hygiene, expire_routine_hook_notes, mac-studio-price-alert) latent. Fix: `SUBSTRATE_ROOT=/Volumes/Extra/Substrate` appended to `~/.hermes/.env` (backup `.env.bak-substrateroot-20260829`); contention monitor re-run → `ok`; backfill-check then surfaced its previously-masked REAL finding (desktop-source empty `profile_name`, 5 distinct days). Side find: `~/bin/hermes` stale — real binary `~/.hermes/hermes-agent/venv/bin/hermes`.
 
 ---
+
+## Gotcha 23 — Locating a job's output when the layout has changed: legacy dated files vs `<job-id>/` dated dirs (2026-09-07)
+
+**Problem:** Older guidance says output lives at `~/.hermes/cron/output/<job-id>/*.md` (default profile) or
+`~/.hermes/profiles/<profile>/cron/output/<job-id>/<timestamp>.md`. In practice the SAME job can have BOTH
+shapes on disk at once: legacy flat files `output/<job-id>_YYYYMMDD_HHMMSS.txt` (some jobs stopped writing
+those months ago) alongside a CURRENT `<job-id>/` directory holding `<YYYY-MM-DD_HH-MM-SS>.md` files.
+If you glob only the legacy flat pattern you conclude "stopped running Aug 13" — false. The job has been
+writing into the directory layout the whole time.
+
+**How to check (default profile):**
+```bash
+ls -lt ~/.hermes/cron/output/ | grep <job-id-prefix>     # both flat files AND the dir show up
+ls -lt ~/.hermes/cron/output/<job-id>/                    # dated .md runs inside
+```
+For named profiles: `~/.hermes/profiles/<profile>/cron/output/<job-id>/`.
+A bare hash entry with NO extension may be the live run directory, not a file — always `ls -lt` it.
+
+**Lesson:** when a cron's output looks stale, list the output root with `-t` and check BOTH the flat
+`<job-id>*` pattern and the `<job-id>/` directory before declaring the job dead. This bit a live session
+2026-09-07: `substrate-morning-briefing` (531b6e8e5f51, substrate-hermes) had flat .txt files ending 2026-08-13
+but fresh dated .md runs inside `531b6e8e5f51/` — the "latest" bare-hash file was empty and the dated dir
+held today's briefing.
+
 
 ## Annex — gotchas consolidated from the other profile copies (2026-09-04)
 
@@ -786,8 +814,8 @@ A well-designed no_agent watchdog script follows this structure:
 import os
 from datetime import datetime, timezone
 
-INBOX = "/Users/ted/_AI_Inbox"
-REPORT = "/Users/ted/Operations/reports/<Name>_LATEST.md"
+INBOX = "/Volumes/Extra/Substrate/_AI_Inbox"
+REPORT = "/Volumes/Extra/Substrate/Operations/reports/<Name>_LATEST.md"
 STALE_DAYS = 14
 
 def build_report():

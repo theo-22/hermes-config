@@ -236,6 +236,9 @@ If the `/` menu is crowded, scan this card first, then search for the exact skil
 - `live-surface-verification`
   Use when docs, schemas, env vars, Builder inventory, backend code, or memory disagree about live GPT/Builder/proxy state. Prove the real surface first: ask the GPT for a harmless raw action result, inspect Builder with Chrome, or use backend logs before patching.
 
+- `probe-chatgpt-host-artifact-binding`
+  Use before building a host-to-local receiver for native ChatGPT-generated artifacts. Runs a fresh-client no-side-effect probe, separates host identity/retrieval from connector transport, and returns PASS, PARTIAL, or FAIL with exact schema evidence.
+
 - `claude-validator`
   Use when a Hermes profile wants outside assessment of work quality and blind spots. Sends self-assessment + work samples to Claude Code, Claude returns Quality Assessment, Self-Assessment Review, Blind Spots, Recommendations, and Summary Verdict. 3 clean assessments → spot-check.
 
@@ -260,6 +263,7 @@ If the `/` menu is crowded, scan this card first, then search for the exact skil
 - `affected-gpt-hearing` = hear the GPT whose operating surface would change
 - `digest-topic-refresh` = compare digest deltas against a living topic
 - `live-surface-verification` = prove the live surface before trusting docs
+- `probe-chatgpt-host-artifact-binding` = prove exact native artifact transport before receiver work
 - `trace-claim-evidence` = match each assertion to prior evidence before judging or promoting a detector
 - `quick-save` = save a bounded task without full session-end
 - `shape-work-item-sessions` = turn live queue rows and current decisions into bounded future-session contracts
@@ -471,6 +475,7 @@ If the main need is deciding whether a role may safely dispatch Hermes workers:
 - `lens-assembly-pass`
 - `live-session-to-skill`
 - `live-surface-verification`
+- `probe-chatgpt-host-artifact-binding`
 - `manager-handoff-contract`
 - `migrate-mcp-secret-to-keychain`
 - `model-switch-surfacing`

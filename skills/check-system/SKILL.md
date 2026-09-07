@@ -23,6 +23,24 @@ print(f'Pending work items: {d.get(\"pending_work_items\", \"?\")}')
 print(f'Total events: {d.get(\"total_events\", \"?\")}')
 " 2>/dev/null || echo "(backend not responding — check if app.py is running on :5555)"`
 
+## Ted Decisions Waiting
+
+!`curl -s "http://localhost:5555/api/ted-decisions" 2>/dev/null | python3 -c "
+import sys,json
+d = json.load(sys.stdin)
+items = d.get('items', [])
+deliverable = [i for i in items if i.get('deliverable')]
+blocked = [i for i in items if i.get('blocked_on_ai')]
+if not items:
+    print('  None open')
+for i in deliverable:
+    print(f'  #{i[\"id\"]} [{i.get(\"priority\",\"normal\")}] {i[\"title\"]}')
+if blocked:
+    print(f'  ({len(blocked)} more blocked_on_ai — contract incomplete, not askable yet, see contract_gaps)')
+" 2>/dev/null || echo "(backend not responding)"`
+
+This is the dedicated Ted-decision surface (#1409/#1545) — every open item whose disposition is reserved to Ted, ranked deliverable-first. **Read this before asking Ted anything new.** A `deliverable` item here is one already fully prepared (in plain words, no bare node numbers or unglossed shorthand) — check it before drafting a fresh question, since the same decision may already be queued and waiting. `blocked_on_ai` items are not Ted's to answer yet — the contract itself is incomplete (see `contract_gaps` in the raw response); finishing the contract is AI work, not something to hand him half-built. This surface exists precisely because #1545 found nothing was consuming it — treat a check-system run as one of the consumers.
+
 ## Signal Clusters (elevation threshold: 3+)
 
 !`curl -s "http://localhost:5555/api/signal-evidence/clusters?min_count=3" 2>/dev/null | python3 -c "

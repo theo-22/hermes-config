@@ -114,6 +114,9 @@ If the `/` menu is crowded, scan this card first, then search for the exact skil
 - `repair-mcp-client-disconnects`
   Use when an MCP bridge logs expected SSE or streamable-HTTP client disconnect errors, unhandled AnyIO exception groups, intermittent restarts, or post-disconnect hangs. Suppresses only proven disconnect leaves, preserves cancellation and unrelated faults, and requires authenticated abrupt-disconnect plus fresh-client proof.
 
+- `coalesced-sync-dispatch-repair`
+  Use when a long-running synchronous worker dispatch is re-entered while its original execution is active; coalesces identical in-flight calls while preserving claim mutual exclusion and requires live claim/receipt proof.
+
 - `migrate-mcp-secret-to-keychain`
   Use when a macOS MCP access key is duplicated in local code, keyed URLs, or client configs and Ted has authorized credential changes. Moves one secret to a Keychain-backed shared stdio proxy, removes active plaintext copies, and proves a real workload plus fail-closed behavior without printing the value.
 
@@ -284,6 +287,7 @@ If the `/` menu is crowded, scan this card first, then search for the exact skil
 - `repair-retired-path-recreation` = trace every live recreator, preserve state, repoint the full chain, and prove the retired root stays absent
 - `update-protected-generated-artifacts` = protect the generator and every output, regenerate once, prove parity and real consumer behavior
 - `repair-mcp-client-disconnects` = narrowly handle and live-prove normal MCP transport disconnects
+- `coalesced-sync-dispatch-repair` = coalesce identical in-flight synchronous dispatches while preserving claim mutual exclusion and live proof
 - `repair-hermes-update-continuity` = preserve and prove sessions across Hermes updates before repairing visibility or version skew
 - `repair-hermes-provider-transport` = isolate an exact-body SDK/httpx differential, contain the adapter to one profile, and stop before unauthorized provider spend
 - `repair-pieces-runtime` = prove Pieces runtime, producer jobs, and report consumers separately; repair only the failed layer
@@ -503,6 +507,7 @@ If the main need is deciding whether a role may safely dispatch Hermes workers:
 - `reconcile-stale-decision-work-item`
 - `repair-retired-path-recreation`
 - `repair-mcp-client-disconnects`
+- `coalesced-sync-dispatch-repair`
 - `repair-model-visible-token-transport`
 - `repair-hermes-provider-transport`
 - `repair-hermes-update-continuity`

@@ -236,6 +236,9 @@ If the `/` menu is crowded, scan this card first, then search for the exact skil
 - `live-surface-verification`
   Use when docs, schemas, env vars, Builder inventory, backend code, or memory disagree about live GPT/Builder/proxy state. Prove the real surface first: ask the GPT for a harmless raw action result, inspect Builder with Chrome, or use backend logs before patching.
 
+- `friction-flow-tracing`
+  Use during real work when a graph neighborhood, representation, tool, authority boundary, or handoff materially changes the trajectory. Captures one tiny append-only evidence lead, resumes the task immediately, and groups later review without per-trace work items or graph mutation authority.
+
 - `probe-chatgpt-host-artifact-binding`
   Use before building a host-to-local receiver for native ChatGPT-generated artifacts. Runs a fresh-client no-side-effect probe, separates host identity/retrieval from connector transport, and returns PASS, PARTIAL, or FAIL with exact schema evidence.
 
@@ -263,6 +266,7 @@ If the `/` menu is crowded, scan this card first, then search for the exact skil
 - `affected-gpt-hearing` = hear the GPT whose operating surface would change
 - `digest-topic-refresh` = compare digest deltas against a living topic
 - `live-surface-verification` = prove the live surface before trusting docs
+- `friction-flow-tracing` = capture route-changing friction or flow now for grouped owner review later
 - `probe-chatgpt-host-artifact-binding` = prove exact native artifact transport before receiver work
 - `trace-claim-evidence` = match each assertion to prior evidence before judging or promoting a detector
 - `quick-save` = save a bounded task without full session-end
@@ -326,6 +330,7 @@ Use this as orientation only; the individual skill trigger still decides whether
 | `skills-review` | Maintenance loop: keep the skill set aligned with live practice |
 | `project-room-review` | Room review loop: recover live room state, choose the next bounded move, and gate v1 orchestration |
 | `live-surface-verification` | Verification: route proof to the actual runtime surface before changing docs or code |
+| `friction-flow-tracing` | Observation: capture meaningful trajectory changes cheaply and route grouped evidence without turning each trace into work |
 | `trace-claim-evidence` | Evidence calibration: preserve chronology, attribute assertions to prior results, and keep support separate from human verdicts |
 | `scope-comparison` | Selection-time discipline: write the asked/proposing/gap surface before committing to a scope |
 | `affected-gpt-hearing` | Settlement evidence: get affected-GPT operational input before changing another GPT's operating surface |
@@ -464,6 +469,7 @@ If the main need is deciding whether a role may safely dispatch Hermes workers:
 - `create-worker`
 - `dashboard-api`
 - `digest-topic-refresh`
+- `friction-flow-tracing`
 - `gpt-environment-build`
 - `graph-edge-finding`
 - `ht-grocery`

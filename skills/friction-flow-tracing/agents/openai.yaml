@@ -1,0 +1,4 @@
+interface:
+  display_name: "Friction-Flow Tracing"
+  short_description: "Capture meaningful route-changing friction or flow"
+  default_prompt: "Use $friction-flow-tracing to record a meaningful friction or flow event without interrupting the main work."

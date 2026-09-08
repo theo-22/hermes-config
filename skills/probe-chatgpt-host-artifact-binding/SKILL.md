@@ -2,7 +2,7 @@
 name: probe-chatgpt-host-artifact-binding
 description: Run a fresh-client, no-side-effect probe to determine whether a native ChatGPT-generated artifact can reach a connector as a bound file or bytes, or exposes only a stable ID with an official exact-content retrieval path. Use before building any host-to-local artifact receiver.
 metadata:
-  category: verification
+  category: gpt
   write_mode: file
   one_line_use: classify native ChatGPT artifact binding as PASS, PARTIAL, or FAIL before receiver work
   fast_pick: "yes"

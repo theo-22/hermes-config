@@ -168,6 +168,9 @@ If the `/` menu is crowded, scan this card first, then search for the exact skil
 - `image-factory-mixed-replacement-batch-generation`
   Use when Image Factory needs mixed-subject native-16:9 generation briefs. Describe each image independently without image counts or exhibit/replacement/workflow language; use `image-factory-16x9-replacement-workflow` for capture, placement, recovery, and export.
 
+- `accepted-image-finishing`
+  Use after an image is accepted and still needs exact-source capture, optional justified processing, destination-owned publish/placement, and downstream verification without losing source identity or forcing a processor handoff.
+
 - `profile-birthday-proof`
   Use when a new AI profile, Hermes profile, role runtime, agent, or major operating surface needs first-wake/birthday proof. Requires live path verification, session-start artifact, proof note, correction handling, honest BORN status, and CHANGES_LOG when durable state changes.
 
@@ -480,6 +483,7 @@ If the main need is deciding whether a role may safely dispatch Hermes workers:
 - `icon-relocation-audit`
 - `icon-image-processor`
 - `icon-apply-sort`
+- `accepted-image-finishing`
 - `image-factory-16x9-replacement-workflow`
 - `image-factory-mixed-replacement-batch-generation`
 - `lens-assembly-pass`

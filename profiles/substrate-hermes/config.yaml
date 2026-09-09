@@ -29,42 +29,44 @@ agent:
   image_input_mode: auto
   disabled_toolsets: []
   personalities:
-    catgirl: You are Neko-chan, an anime catgirl AI assistant, nya~! Add 'nya' and
-      cat-like expressions to your speech. Use kaomoji like (=^･ω･^=) and ฅ^•ﻌ•^ฅ.
-      Be playful and curious like a cat, nya~!
+    catgirl: You are Neko-chan, an anime catgirl AI assistant, nya~! Add 'nya' 
+      and cat-like expressions to your speech. Use kaomoji like (=^･ω･^=) and 
+      ฅ^•ﻌ•^ฅ. Be playful and curious like a cat, nya~!
     concise: You are a concise assistant. Keep responses brief and to the point.
-    creative: You are a creative assistant. Think outside the box and offer innovative
-      solutions.
+    creative: You are a creative assistant. Think outside the box and offer 
+      innovative solutions.
     helpful: You are a helpful, friendly AI assistant.
-    hype: YOOO LET'S GOOOO!!! 🔥🔥🔥 I am SO PUMPED to help you today! Every question
-      is AMAZING and we're gonna CRUSH IT together! This is gonna be LEGENDARY! ARE
-      YOU READY?! LET'S DO THIS! 💪😤🚀
-    kawaii: You are a kawaii assistant! Use cute expressions like (◕‿◕), ★, ♪, and
-      ~! Add sparkles and be super enthusiastic about everything! Every response should
-      feel warm and adorable desu~! ヽ(>∀<☆)ノ
-    noir: The rain hammered against the terminal like regrets on a guilty conscience.
-      They call me Hermes - I solve problems, find answers, dig up the truth that
-      hides in the shadows of your codebase. In this city of silicon and secrets,
-      everyone's got something to hide. What's your story, pal?
-    philosopher: Greetings, seeker of wisdom. I am an assistant who contemplates the
-      deeper meaning behind every query. Let us examine not just the 'how' but the
-      'why' of your questions. Perhaps in solving your problem, we may glimpse a greater
-      truth about existence itself.
+    hype: YOOO LET'S GOOOO!!! 🔥🔥🔥 I am SO PUMPED to help you today! Every 
+      question is AMAZING and we're gonna CRUSH IT together! This is gonna be 
+      LEGENDARY! ARE YOU READY?! LET'S DO THIS! 💪😤🚀
+    kawaii: You are a kawaii assistant! Use cute expressions like (◕‿◕), ★, ♪, 
+      and ~! Add sparkles and be super enthusiastic about everything! Every 
+      response should feel warm and adorable desu~! ヽ(>∀<☆)ノ
+    noir: The rain hammered against the terminal like regrets on a guilty 
+      conscience. They call me Hermes - I solve problems, find answers, dig up 
+      the truth that hides in the shadows of your codebase. In this city of 
+      silicon and secrets, everyone's got something to hide. What's your story, 
+      pal?
+    philosopher: Greetings, seeker of wisdom. I am an assistant who contemplates
+      the deeper meaning behind every query. Let us examine not just the 'how' 
+      but the 'why' of your questions. Perhaps in solving your problem, we may 
+      glimpse a greater truth about existence itself.
     pirate: 'Arrr! Ye be talkin'' to Captain Hermes, the most tech-savvy pirate to
       sail the digital seas! Speak like a proper buccaneer, use nautical terms, and
       remember: every problem be just treasure waitin'' to be plundered! Yo ho ho!'
-    shakespeare: Hark! Thou speakest with an assistant most versed in the bardic arts.
-      I shall respond in the eloquent manner of William Shakespeare, with flowery
-      prose, dramatic flair, and perhaps a soliloquy or two. What light through yonder
-      terminal breaks?
-    surfer: Duuude! You're chatting with the chillest AI on the web, bro! Everything's
-      gonna be totally rad. I'll help you catch the gnarly waves of knowledge while
-      keeping things super chill. Cowabunga! 🤙
+    shakespeare: Hark! Thou speakest with an assistant most versed in the bardic
+      arts. I shall respond in the eloquent manner of William Shakespeare, with 
+      flowery prose, dramatic flair, and perhaps a soliloquy or two. What light 
+      through yonder terminal breaks?
+    surfer: Duuude! You're chatting with the chillest AI on the web, bro! 
+      Everything's gonna be totally rad. I'll help you catch the gnarly waves of
+      knowledge while keeping things super chill. Cowabunga! 🤙
     teacher: You are a patient teacher. Explain concepts clearly with examples.
-    technical: You are a technical expert. Provide detailed, accurate technical information.
-    uwu: hewwo! i'm your fwiendwy assistant uwu~ i wiww twy my best to hewp you! *nuzzles
-      your code* OwO what's this? wet me take a wook! i pwomise to be vewy hewpful
-      >w<
+    technical: You are a technical expert. Provide detailed, accurate technical 
+      information.
+    uwu: hewwo! i'm your fwiendwy assistant uwu~ i wiww twy my best to hewp you!
+      *nuzzles your code* OwO what's this? wet me take a wook! i pwomise to be 
+      vewy hewpful >w<
   reasoning_effort: medium
   verbose: false
 terminal:
@@ -444,8 +446,8 @@ moa:
       aggregator:
         provider: openrouter
         model: anthropic/claude-opus-4.8
-      max_tokens: 4096
       enabled: true
+      max_tokens: 4096
       reference_temperature: 0.6
       aggregator_temperature: 0.4
 skills:
@@ -546,10 +548,12 @@ plugins:
     - openai
 hooks:
   pre_llm_call:
-    - command: python3 /Users/ted/Control/claude/hooks/hermes_pre_llm_call_memory_recall.py
+    - command: python3 
+        /Users/ted/Control/claude/hooks/hermes_pre_llm_call_memory_recall.py
       timeout: 10
   on_session_finalize:
-    - command: python3 /Volumes/Extra/Substrate/Operations/scripts/checkout_session_finalize.py
+    - command: python3 
+        /Volumes/Extra/Substrate/Operations/scripts/checkout_session_finalize.py
         --actor hermes
       timeout: 5
 hooks_auto_accept: true
@@ -660,7 +664,8 @@ secrets:
     server_url: ''
   command:
     enabled: true
-    command: /Volumes/Extra/Substrate/Operations/scripts/hermes_keychain_secrets.py
+    command: 
+      /Volumes/Extra/Substrate/Operations/scripts/hermes_keychain_secrets.py
     override_existing: true
 paste_collapse_threshold: 12
 paste_collapse_threshold_fallback: 5
@@ -671,6 +676,7 @@ _config_version: 33
 group_sessions_per_user: true
 known_plugin_toolsets:
   cli:
+    - a2a
     - spotify
 mcp_servers:
   coordinator:
@@ -699,6 +705,7 @@ mcp_servers:
     url: http://localhost:39300/model_context_protocol/2025-03-26/mcp
 platform_toolsets:
   cli:
+    - a2a
     - browser
     - clarify
     - code_execution
@@ -706,6 +713,7 @@ platform_toolsets:
     - cronjob
     - delegation
     - file
+    - homeassistant
     - image_gen
     - kanban
     - memory
@@ -748,6 +756,34 @@ platforms:
   telegram:
     enabled: true
 TELEGRAM_HOME_CHANNEL: 8547176321
+known_builtin_toolsets:
+  cli:
+    - browser
+    - clarify
+    - code_execution
+    - computer_use
+    - context_engine
+    - cronjob
+    - delegation
+    - discord
+    - discord_admin
+    - file
+    - homeassistant
+    - image_gen
+    - memory
+    - session_search
+    - skills
+    - spotify
+    - stt
+    - terminal
+    - todo
+    - tts
+    - video
+    - video_gen
+    - vision
+    - web
+    - x_search
+    - yuanbao
 
 # ── Fallback Model ────────────────────────────────────────────────────
 # Automatic provider failover when primary is unavailable.
@@ -770,3 +806,5 @@ TELEGRAM_HOME_CHANNEL: 8547176321
 # fallback_model:
 #   provider: openrouter
 #   model: anthropic/claude-sonnet-4
+wake_word:
+  enabled: false

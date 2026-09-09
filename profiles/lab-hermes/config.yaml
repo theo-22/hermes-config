@@ -9,10 +9,10 @@ providers:
   longcat:
     base_url: https://api.longcat.chat/openai
 fallback_providers:
-- model: z-ai/glm-5.3-flash
-  provider: openrouter
+  - model: z-ai/glm-5.3-flash
+    provider: openrouter
 toolsets:
-- hermes-cli
+  - hermes-cli
 max_concurrent_sessions: 0
 max_live_sessions: 16
 agent:
@@ -35,45 +35,44 @@ agent:
   image_input_mode: auto
   disabled_toolsets: []
   personalities:
-    catgirl: "You are Neko-chan, an anime catgirl AI assistant, nya~! Add 'nya' and\
-      \ cat-like expressions to your speech. Use kaomoji like (=^\uFF65\u03C9\uFF65\
-      ^=) and \u0E05^\u2022\uFECC\u2022^\u0E05. Be playful and curious like a cat,\
-      \ nya~!"
+    catgirl: You are Neko-chan, an anime catgirl AI assistant, nya~! Add 'nya' 
+      and cat-like expressions to your speech. Use kaomoji like (=^･ω･^=) and 
+      ฅ^•ﻌ•^ฅ. Be playful and curious like a cat, nya~!
     concise: You are a concise assistant. Keep responses brief and to the point.
-    creative: You are a creative assistant. Think outside the box and offer innovative
-      solutions.
+    creative: You are a creative assistant. Think outside the box and offer 
+      innovative solutions.
     helpful: You are a helpful, friendly AI assistant.
-    hype: "YOOO LET'S GOOOO!!! \U0001F525\U0001F525\U0001F525 I am SO PUMPED to help\
-      \ you today! Every question is AMAZING and we're gonna CRUSH IT together! This\
-      \ is gonna be LEGENDARY! ARE YOU READY?! LET'S DO THIS! \U0001F4AA\U0001F624\
-      \U0001F680"
-    kawaii: "You are a kawaii assistant! Use cute expressions like (\u25D5\u203F\u25D5\
-      ), \u2605, \u266A, and ~! Add sparkles and be super enthusiastic about everything!\
-      \ Every response should feel warm and adorable desu~! \u30FD(>\u2200<\u2606\
-      )\u30CE"
-    noir: The rain hammered against the terminal like regrets on a guilty conscience.
-      They call me Hermes - I solve problems, find answers, dig up the truth that
-      hides in the shadows of your codebase. In this city of silicon and secrets,
-      everyone's got something to hide. What's your story, pal?
-    philosopher: Greetings, seeker of wisdom. I am an assistant who contemplates the
-      deeper meaning behind every query. Let us examine not just the 'how' but the
-      'why' of your questions. Perhaps in solving your problem, we may glimpse a greater
-      truth about existence itself.
+    hype: YOOO LET'S GOOOO!!! 🔥🔥🔥 I am SO PUMPED to help you today! Every 
+      question is AMAZING and we're gonna CRUSH IT together! This is gonna be 
+      LEGENDARY! ARE YOU READY?! LET'S DO THIS! 💪😤🚀
+    kawaii: You are a kawaii assistant! Use cute expressions like (◕‿◕), ★, ♪, 
+      and ~! Add sparkles and be super enthusiastic about everything! Every 
+      response should feel warm and adorable desu~! ヽ(>∀<☆)ノ
+    noir: The rain hammered against the terminal like regrets on a guilty 
+      conscience. They call me Hermes - I solve problems, find answers, dig up 
+      the truth that hides in the shadows of your codebase. In this city of 
+      silicon and secrets, everyone's got something to hide. What's your story, 
+      pal?
+    philosopher: Greetings, seeker of wisdom. I am an assistant who contemplates
+      the deeper meaning behind every query. Let us examine not just the 'how' 
+      but the 'why' of your questions. Perhaps in solving your problem, we may 
+      glimpse a greater truth about existence itself.
     pirate: 'Arrr! Ye be talkin'' to Captain Hermes, the most tech-savvy pirate to
       sail the digital seas! Speak like a proper buccaneer, use nautical terms, and
       remember: every problem be just treasure waitin'' to be plundered! Yo ho ho!'
-    shakespeare: Hark! Thou speakest with an assistant most versed in the bardic arts.
-      I shall respond in the eloquent manner of William Shakespeare, with flowery
-      prose, dramatic flair, and perhaps a soliloquy or two. What light through yonder
-      terminal breaks?
-    surfer: "Duuude! You're chatting with the chillest AI on the web, bro! Everything's\
-      \ gonna be totally rad. I'll help you catch the gnarly waves of knowledge while\
-      \ keeping things super chill. Cowabunga! \U0001F919"
+    shakespeare: Hark! Thou speakest with an assistant most versed in the bardic
+      arts. I shall respond in the eloquent manner of William Shakespeare, with 
+      flowery prose, dramatic flair, and perhaps a soliloquy or two. What light 
+      through yonder terminal breaks?
+    surfer: Duuude! You're chatting with the chillest AI on the web, bro! 
+      Everything's gonna be totally rad. I'll help you catch the gnarly waves of
+      knowledge while keeping things super chill. Cowabunga! 🤙
     teacher: You are a patient teacher. Explain concepts clearly with examples.
-    technical: You are a technical expert. Provide detailed, accurate technical information.
-    uwu: hewwo! i'm your fwiendwy assistant uwu~ i wiww twy my best to hewp you! *nuzzles
-      your code* OwO what's this? wet me take a wook! i pwomise to be vewy hewpful
-      >w<
+    technical: You are a technical expert. Provide detailed, accurate technical 
+      information.
+    uwu: hewwo! i'm your fwiendwy assistant uwu~ i wiww twy my best to hewp you!
+      *nuzzles your code* OwO what's this? wet me take a wook! i pwomise to be 
+      vewy hewpful >w<
   reasoning_effort: medium
   verbose: false
 terminal:
@@ -326,9 +325,9 @@ display:
   runtime_footer:
     enabled: false
     fields:
-    - model
-    - context_pct
-    - cwd
+      - model
+      - context_pct
+      - cwd
   copy_shortcut: auto
   pet:
     enabled: false
@@ -406,7 +405,7 @@ stt:
 voice:
   record_key: ctrl+b
   max_recording_seconds: 120
-  auto_tts: false
+  auto_tts: true
   beep_enabled: true
   silence_threshold: 200
   silence_duration: 3
@@ -449,10 +448,10 @@ moa:
   presets:
     default:
       reference_models:
-      - provider: openai-codex
-        model: gpt-5.5
-      - provider: openrouter
-        model: deepseek/deepseek-v4-pro
+        - provider: openai-codex
+          model: gpt-5.5
+        - provider: openrouter
+          model: deepseek/deepseek-v4-pro
       aggregator:
         provider: openrouter
         model: anthropic/claude-opus-4.8
@@ -462,7 +461,7 @@ moa:
       aggregator_temperature: 0.4
 skills:
   external_dirs:
-  - /Volumes/Extra/Substrate/Skills
+    - /Volumes/Extra/Substrate/Skills
   template_vars: true
   inline_shell: false
   inline_shell_timeout: 10
@@ -470,8 +469,8 @@ skills:
   write_approval: false
   creation_nudge_interval: 15
   disabled:
-  - ai-music
-  - airtable
+    - ai-music
+    - airtable
 curator:
   enabled: true
   interval_hours: 168
@@ -510,15 +509,15 @@ discord:
     speech_gain: 1
     ack_enabled: true
     ack_phrases:
-    - Let me look into that.
-    - One moment.
-    - Checking on that now.
-    - Give me a sec.
-    - On it.
+      - Let me look into that.
+      - One moment.
+      - Checking on that now.
+      - Give me a sec.
+      - On it.
 telegram:
   reactions: false
   allowed_chats:
-  - '-5183620298'
+    - '-5183620298'
   extra:
     rich_messages: true
     rich_drafts: false
@@ -537,29 +536,31 @@ approvals:
   mcp_reload_confirm: true
   destructive_slash_confirm: false
 command_allowlist:
-- overwrite project env/config via redirection
-- script execution via heredoc
-- overwrite project env/config file
-- execute_code
-- hermes update (restarts gateway, kills running agents)
-- delete in root path
-- script execution via -e/-c flag
-- overwrite system file via redirection
+  - overwrite project env/config via redirection
+  - script execution via heredoc
+  - overwrite project env/config file
+  - execute_code
+  - hermes update (restarts gateway, kills running agents)
+  - delete in root path
+  - script execution via -e/-c flag
+  - overwrite system file via redirection
 plugins:
   disabled: []
   enabled:
-  - disk-cleanup
-  - fal
-  - minimax-provider
-  - openai
+    - disk-cleanup
+    - fal
+    - minimax-provider
+    - openai
 hooks:
   pre_llm_call:
-  - command: python3 /Users/ted/Control/claude/hooks/hermes_pre_llm_call_memory_recall.py
-    timeout: 10
+    - command: python3 
+        /Users/ted/Control/claude/hooks/hermes_pre_llm_call_memory_recall.py
+      timeout: 10
   on_session_finalize:
-  - command: python3 /Volumes/Extra/Substrate/Operations/scripts/checkout_session_finalize.py
-      --actor hermes
-    timeout: 5
+    - command: python3 
+        /Volumes/Extra/Substrate/Operations/scripts/checkout_session_finalize.py
+        --actor hermes
+      timeout: 5
 hooks_auto_accept: true
 security:
   allow_private_urls: true
@@ -632,7 +633,7 @@ streaming:
   transport: auto
   edit_interval: 0.8
   buffer_threshold: 24
-  cursor: " \u2589"
+  cursor: ' ▉'
   fresh_final_after_seconds: 60
 sessions:
   auto_prune: false
@@ -668,7 +669,8 @@ secrets:
     server_url: ''
   command:
     enabled: true
-    command: /Volumes/Extra/Substrate/Operations/scripts/hermes_keychain_secrets.py
+    command: 
+      /Volumes/Extra/Substrate/Operations/scripts/hermes_keychain_secrets.py
     override_existing: true
 paste_collapse_threshold: 12
 paste_collapse_threshold_fallback: 5
@@ -681,7 +683,7 @@ image_gen:
   use_gateway: true
 known_plugin_toolsets:
   cli:
-  - spotify
+    - spotify
 mcp_servers:
   coordinator:
     auth: oauth
@@ -692,50 +694,50 @@ mcp_servers:
   open-brain:
     command: /Users/ted/Control/mcp/.venv/bin/python
     args:
-    - /Users/ted/Control/mcp/open_brain_mcp.py
+      - /Users/ted/Control/mcp/open_brain_mcp.py
     connect_timeout: 60
     timeout: 60
     transport: stdio
 platform_toolsets:
   cli:
-  - browser
-  - clarify
-  - code_execution
-  - computer_use
-  - cronjob
-  - delegation
-  - file
-  - image_gen
-  - kanban
-  - memory
-  - messaging
-  - session_search
-  - skills
-  - terminal
-  - todo
-  - tts
-  - vision
-  - web
+    - browser
+    - clarify
+    - code_execution
+    - computer_use
+    - cronjob
+    - delegation
+    - file
+    - image_gen
+    - kanban
+    - memory
+    - messaging
+    - session_search
+    - skills
+    - terminal
+    - todo
+    - tts
+    - vision
+    - web
   discord:
-  - hermes-discord
+    - hermes-discord
   google_chat:
-  - hermes-google_chat
+    - hermes-google_chat
   homeassistant:
-  - hermes-homeassistant
+    - hermes-homeassistant
   qqbot:
-  - hermes-qqbot
+    - hermes-qqbot
   signal:
-  - hermes-signal
+    - hermes-signal
   slack:
-  - hermes-slack
+    - hermes-slack
   teams:
-  - hermes-teams
+    - hermes-teams
   telegram:
-  - hermes-telegram
+    - hermes-telegram
   whatsapp:
-  - hermes-whatsapp
+    - hermes-whatsapp
   yuanbao:
-  - hermes-yuanbao
+    - hermes-yuanbao
 session_reset:
   at_hour: 4
   idle_minutes: 1440
@@ -746,3 +748,27 @@ platforms:
   telegram:
     enabled: true
     streaming: true
+
+# ── Fallback Model ────────────────────────────────────────────────────
+# Automatic provider failover when primary is unavailable.
+# Uncomment and configure to enable. Triggers on rate limits (429),
+# overload (529), service errors (503), or connection failures.
+#
+# Supported providers:
+#   openrouter   (OPENROUTER_API_KEY)  — routes to any model
+#   openai-codex (OAuth — hermes auth) — OpenAI Codex
+#   nous         (OAuth — hermes auth) — Nous Portal
+#   zai          (ZAI_API_KEY)         — Z.AI / GLM
+#   kimi-coding  (KIMI_API_KEY)        — Kimi / Moonshot
+#   kimi-coding-cn (KIMI_CN_API_KEY)   — Kimi / Moonshot (China)
+#   minimax      (MINIMAX_API_KEY)     — MiniMax
+#   minimax-cn   (MINIMAX_CN_API_KEY)  — MiniMax (China)
+#   bedrock      (AWS IAM / boto3)     — AWS Bedrock (Converse API)
+#
+# For custom OpenAI-compatible endpoints, add base_url and key_env.
+#
+# fallback_model:
+#   provider: openrouter
+#   model: anthropic/claude-sonnet-4
+wake_word:
+  enabled: true

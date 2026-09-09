@@ -1,6 +1,6 @@
 model:
-  default: z-ai/glm-5.3-flash
-  provider: openrouter
+  default: glm-5.3-flash
+  provider: zai
   base_url: https://api.z.ai/api/coding/paas/v4
 providers:
   anthropic: null
@@ -8,8 +8,8 @@ providers:
   openrouter: null
   deepseek: null
 fallback_providers:
-  - model: deepseek-v4-flash
-    provider: deepseek
+  - model: z-ai/glm-5.3-flash
+    provider: openrouter
 credential_pool_strategies: {}
 toolsets:
   - hermes-cli

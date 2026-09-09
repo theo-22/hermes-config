@@ -9,7 +9,7 @@ providers:
   longcat:
     base_url: https://api.longcat.chat/openai
 fallback_providers:
-- model: z-ai/glm-5.3
+- model: z-ai/glm-5.3-flash
   provider: openrouter
 toolsets:
 - hermes-cli
@@ -743,3 +743,6 @@ session_reset:
 platforms:
   api_server:
     enabled: false
+  telegram:
+    enabled: true
+    streaming: true

@@ -1597,3 +1597,15 @@ The `silent_failure_detector.py` script catches both gotchas via its missing-scr
 - `pieces-capture-review` (`40a314f01095`, advisor profile) — Gotcha 6 (cross-profile variant, Fixed 2026-07-16)
 
 The `silent_failure_detector.py` script catches both gotchas via its missing-scripts check, but only runs weekly (Monday 06:30). For one-off fixes, do this manually.
+
+## Gotcha 23 — Attic/orphan sweeps orphan ENABLED cron jobs' scripts (2026-09-09)
+
+**Problem:** Script-cleanup passes that move "orphaned" scripts into `scripts/_attic*/` only verify PAUSED/removed jobs before sweeping — they don't cross-check whether an ENABLED cron job's `script` field references each file. Two incidents in one week from the same pattern: `worker-ttl-reaper`'s monitor copy swept 09-06, and `ht_weekly_sales_fetcher.py` (referenced by enabled `shopping-guru-weekly-crossref`, `6d5ba1077d61`) swept 09-06/07. Both jobs kept firing with "Script not found" until the cron health pulse flagged them.
+
+**Root cause:** "No job references this script" was checked against paused/removed job lists, not against every enabled job's registry entry across ALL profiles. A script can be live-referenced by an enabled job whose name shares no tokens with the script filename (job `shopping-guru-weekly-crossref` → script `shopping_guru_weekly.sh` → calls `ht_weekly_sales_fetcher.py` two hops away — a shell wrapper's children are invisible to a job-name/script-field grep).
+
+**Sweep-time rule:** before attic-ing any script, verify against ALL of: (1) every profile's `cron/jobs.json` `script` field, (2) any `.sh` wrapper in the profile scripts dir (grep wrapper bodies for the filename — wrappers ARE jobs), (3) `grep -r <filename>` across all profile `scripts/` dirs. If any enabled job resolves to it within two hops, it is not orphaned.
+
+**Repair pattern (proven 2026-09-09):** `cp _attic/<script> scripts/<script>`, smoke-run the parent chain exactly as the cron would (`bash <wrapper>.sh` if the job calls a wrapper, not just the swept file), then `hermes --profile <p> cron run <job>` to clear the recorded error. Both restored scripts ran exit 0.
+
+**Detection:** the cron health pulse (step 3 of the session sidecar) already catches these — a `Script not found` error on an ENABLED job whose script sits in `_attic*/` is this gotcha, not a registration mistake. Don't re-register; restore from the attic.

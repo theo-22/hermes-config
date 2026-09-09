@@ -72,6 +72,9 @@ If the `/` menu is crowded, scan this card first, then search for the exact skil
 - `reconcile-inbox-work-items`
   Use when an `_AI_Inbox` packet represents actionable work or evidence, a stale packet must be proven open/closed, or a work item with an originating packet is completing. Classifies intake, preserves N:M provenance, closes the packet through terminal work state, and verifies reconciliation.
 
+- `reconcile-work-system-truth`
+  Use when lifecycle drift spans inbox rows, canonical work items, orchestration runs, staged packets, generated projections, Planning documents, or project identity. Reconciles a bounded cohort from live database truth through recoverable archive, current projections, and verified closeout.
+
 - `reconcile-promoted-findings-work-items`
   Use when an audit/findings sweep has inflated the live queue by treating undispositioned findings as authorized current work. Identifies the exact promotion cohort, preserves unresolved findings as `known_backlog`, closes only evidence-proven exceptions, applies through a guarded transaction with rollback, retires stale projections, and proves the survivor queue.
 
@@ -278,6 +281,7 @@ If the `/` menu is crowded, scan this card first, then search for the exact skil
 - `quick-save` = save a bounded task without full session-end
 - `shape-work-item-sessions` = turn live queue rows and current decisions into bounded future-session contracts
 - `reconcile-promoted-findings-work-items` = withdraw an invalid findings-to-work bulk promotion without losing unresolved findings
+- `reconcile-work-system-truth` = restore one coherent lifecycle across canonical work, orchestration, archives, projections, Planning, and project identity
 - `route-work-item-ownership` = land an authorized canonical retarget or linked supersession without widening execution authority
 - `reconcile-stale-decision-work-item` = prove whether a decision is truly open and reconcile stale surfaces to settled authority without re-deciding it
 - `repair-claim-effect-truth` = stop coordination claims from becoming silent owner changes and make held-claim effects visible
@@ -509,6 +513,7 @@ If the main need is deciding whether a role may safely dispatch Hermes workers:
 - `reconcile-promoted-findings-work-items`
 - `reconcile-runtime-authority`
 - `reconcile-stale-decision-work-item`
+- `reconcile-work-system-truth`
 - `repair-retired-path-recreation`
 - `repair-mcp-client-disconnects`
 - `coalesced-sync-dispatch-repair`

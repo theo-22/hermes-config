@@ -3,7 +3,7 @@
     {
       "id": "e1a2b8242f8d",
       "name": "meta-agent-sweep",
-      "prompt": "Run the meta-agent sweep to check all Project Rooms for staleness and health. The sweep script has ALREADY been executed for you by this job's `script` field -- do NOT run meta_agent_sweep.py yourself and do NOT invoke it by any path. Read the generated report under /Volumes/Extra/Substrate/Operations/reports/, and return only its actionable findings. This job is report-only. Do NOT create or update any Substrate_Daily_YYYY-MM-DD.md file and do NOT update Substrate_Monitor/CHAT.md; the separate no-agent substrate-daily-report job at 07:00 is the sole daily-report writer.",
+      "prompt": "Run the meta-agent sweep to check all Project Rooms for staleness and health. The sweep script has ALREADY been executed for you by this job's `script` field -- do NOT run meta_agent_sweep.py yourself and do NOT invoke it by any path. Read the generated report under /Volumes/Extra/Substrate/Operations/reports/. If zero rooms need action, respond with EXACTLY [SILENT] and nothing else. If any room needs action, return only those actionable findings, each with its room name and one clear next step. This job is report-only. Do NOT create or update any Substrate_Daily_YYYY-MM-DD.md file and do NOT update Substrate_Monitor/CHAT.md; the separate no-agent substrate-daily-report job at 07:00 is the sole daily-report writer.",
       "skills": [
         "meta-agent-pattern"
       ],
@@ -95,7 +95,7 @@
     {
       "id": "5ddd651c1772",
       "name": "audit-request-daily-triage",
-      "prompt": "Run the audit request daily triage to process pending audit requests, deduplicate, run mechanical checks, and generate a morning summary report.",
+      "prompt": "Run the audit request daily triage to process pending audit requests, deduplicate, run mechanical checks, and generate the morning summary report. Final response (delivered automatically): if the queue was empty or everything processed clean with nothing anomalous, respond with EXACTLY [SILENT] and nothing else. Only respond normally if a request failed processing, dedup found something unusual, or a request needs Ted's decision.",
       "skills": [
         "meta-agent-pattern"
       ],
@@ -429,7 +429,7 @@
       "schedule_display": "0 20 * * 3",
       "repeat": {
         "times": null,
-        "completed": 14
+        "completed": 15
       },
       "enabled": true,
       "state": "scheduled",
@@ -437,7 +437,7 @@
       "paused_reason": null,
       "created_at": "2026-06-29T22:56:56.493258-04:00",
       "next_run_at": "2026-09-16T20:00:00-04:00",
-      "last_run_at": "2026-09-02T20:14:20.481306-04:00",
+      "last_run_at": "2026-09-09T20:14:24.510631-04:00",
       "last_status": "ok",
       "last_error": null,
       "last_delivery_error": null,
@@ -451,10 +451,7 @@
       },
       "enabled_toolsets": null,
       "workdir": null,
-      "fire_claim": {
-        "at": "2026-09-09T20:00:39.382966-04:00",
-        "by": "theos-mini.local:3281:0d3df7c350c3460f971daf06ea93ef88"
-      },
+      "fire_claim": null,
       "failure_streak": 0,
       "last_dispatch": {
         "scheduled_at": "2026-09-09T20:00:00-04:00",
@@ -485,15 +482,15 @@
       "schedule_display": "15 */4 * * *",
       "repeat": {
         "times": null,
-        "completed": 414
+        "completed": 415
       },
       "enabled": true,
       "state": "scheduled",
       "paused_at": null,
       "paused_reason": null,
       "created_at": "2026-07-03T00:57:54.447668-04:00",
-      "next_run_at": "2026-09-09T20:15:00-04:00",
-      "last_run_at": "2026-09-09T16:15:22.005143-04:00",
+      "next_run_at": "2026-09-10T00:15:00-04:00",
+      "last_run_at": "2026-09-09T20:15:45.604022-04:00",
       "last_status": "ok",
       "last_error": null,
       "last_delivery_error": null,
@@ -504,9 +501,9 @@
       "fire_claim": null,
       "failure_streak": 0,
       "last_dispatch": {
-        "scheduled_at": "2026-09-09T16:15:00-04:00",
-        "dispatched_at": "2026-09-09T16:15:15.917262-04:00",
-        "lateness_seconds": 15.9,
+        "scheduled_at": "2026-09-09T20:15:00-04:00",
+        "dispatched_at": "2026-09-09T20:15:42.274421-04:00",
+        "lateness_seconds": 42.3,
         "kind": "on_time"
       }
     },
@@ -714,15 +711,15 @@
       "schedule_display": "0 */4 * * *",
       "repeat": {
         "times": null,
-        "completed": 398
+        "completed": 399
       },
       "enabled": true,
       "state": "scheduled",
       "paused_at": null,
       "paused_reason": null,
       "created_at": "2026-07-05T18:09:46.374910-04:00",
-      "next_run_at": "2026-09-10T00:00:00-04:00",
-      "last_run_at": "2026-09-09T20:00:39.954716-04:00",
+      "next_run_at": "2026-09-10T04:00:00-04:00",
+      "last_run_at": "2026-09-10T00:00:16.975015-04:00",
       "last_status": "ok",
       "last_error": null,
       "last_delivery_error": null,
@@ -733,9 +730,9 @@
       "fire_claim": null,
       "failure_streak": 0,
       "last_dispatch": {
-        "scheduled_at": "2026-09-09T20:00:00-04:00",
-        "dispatched_at": "2026-09-09T20:00:39.225500-04:00",
-        "lateness_seconds": 39.2,
+        "scheduled_at": "2026-09-10T00:00:00-04:00",
+        "dispatched_at": "2026-09-10T00:00:16.538855-04:00",
+        "lateness_seconds": 16.5,
         "kind": "on_time"
       }
     },
@@ -956,7 +953,7 @@
       "paused_at": null,
       "paused_reason": null,
       "created_at": "2026-07-07T21:42:44.416472-04:00",
-      "next_run_at": "2026-09-10T00:00:00-04:00",
+      "next_run_at": "2026-09-10T06:00:00-04:00",
       "last_run_at": "2026-09-09T18:00:22.588535-04:00",
       "last_status": "ok",
       "last_error": null,
@@ -965,12 +962,15 @@
       "origin": null,
       "enabled_toolsets": null,
       "workdir": null,
-      "fire_claim": null,
+      "fire_claim": {
+        "at": "2026-09-10T00:00:16.705338-04:00",
+        "by": "theos-mini.local:3281:dc98901916364d5c81433d54bc856c1f"
+      },
       "failure_streak": 0,
       "last_dispatch": {
-        "scheduled_at": "2026-09-09T18:00:00-04:00",
-        "dispatched_at": "2026-09-09T18:00:21.508897-04:00",
-        "lateness_seconds": 21.5,
+        "scheduled_at": "2026-09-10T00:00:00-04:00",
+        "dispatched_at": "2026-09-10T00:00:16.538855-04:00",
+        "lateness_seconds": 16.5,
         "kind": "on_time"
       }
     },
@@ -996,15 +996,15 @@
       "schedule_display": "15 */4 * * *",
       "repeat": {
         "times": null,
-        "completed": 383
+        "completed": 384
       },
       "enabled": true,
       "state": "scheduled",
       "paused_at": null,
       "paused_reason": null,
       "created_at": "2026-07-07T21:42:50.012014-04:00",
-      "next_run_at": "2026-09-09T20:15:00-04:00",
-      "last_run_at": "2026-09-09T16:16:00.385423-04:00",
+      "next_run_at": "2026-09-10T00:15:00-04:00",
+      "last_run_at": "2026-09-09T20:15:42.586026-04:00",
       "last_status": "ok",
       "last_error": null,
       "last_delivery_error": null,
@@ -1015,9 +1015,9 @@
       "fire_claim": null,
       "failure_streak": 0,
       "last_dispatch": {
-        "scheduled_at": "2026-09-09T16:15:00-04:00",
-        "dispatched_at": "2026-09-09T16:15:15.917262-04:00",
-        "lateness_seconds": 15.9,
+        "scheduled_at": "2026-09-09T20:15:00-04:00",
+        "dispatched_at": "2026-09-09T20:15:42.274421-04:00",
+        "lateness_seconds": 42.3,
         "kind": "on_time"
       }
     },
@@ -1360,15 +1360,15 @@
       "schedule_display": "0 */4 * * *",
       "repeat": {
         "times": null,
-        "completed": 375
+        "completed": 376
       },
       "enabled": true,
       "state": "scheduled",
       "paused_at": null,
       "paused_reason": null,
       "created_at": "2026-07-09T09:53:47.258465-04:00",
-      "next_run_at": "2026-09-10T00:00:00-04:00",
-      "last_run_at": "2026-09-09T20:00:39.944522-04:00",
+      "next_run_at": "2026-09-10T04:00:00-04:00",
+      "last_run_at": "2026-09-10T00:00:17.021585-04:00",
       "last_status": "ok",
       "last_error": null,
       "last_delivery_error": null,
@@ -1379,9 +1379,9 @@
       "fire_claim": null,
       "failure_streak": 0,
       "last_dispatch": {
-        "scheduled_at": "2026-09-09T20:00:00-04:00",
-        "dispatched_at": "2026-09-09T20:00:39.225500-04:00",
-        "lateness_seconds": 39.2,
+        "scheduled_at": "2026-09-10T00:00:00-04:00",
+        "dispatched_at": "2026-09-10T00:00:16.538855-04:00",
+        "lateness_seconds": 16.5,
         "kind": "on_time"
       }
     },
@@ -1583,15 +1583,15 @@
       "schedule_display": "0 */4 * * *",
       "repeat": {
         "times": null,
-        "completed": 374
+        "completed": 375
       },
       "enabled": true,
       "state": "scheduled",
       "paused_at": null,
       "paused_reason": null,
       "created_at": "2026-07-09T09:53:58.682054-04:00",
-      "next_run_at": "2026-09-10T00:00:00-04:00",
-      "last_run_at": "2026-09-09T16:00:21.437885-04:00",
+      "next_run_at": "2026-09-10T04:00:00-04:00",
+      "last_run_at": "2026-09-09T20:00:46.548894-04:00",
       "last_status": "ok",
       "last_error": null,
       "last_delivery_error": null,
@@ -1600,14 +1600,14 @@
       "enabled_toolsets": null,
       "workdir": null,
       "fire_claim": {
-        "at": "2026-09-09T20:00:39.596451-04:00",
-        "by": "theos-mini.local:3281:29e6fd32f49c41ca9951785be0f0c280"
+        "at": "2026-09-10T00:00:16.811205-04:00",
+        "by": "theos-mini.local:3281:d9618d0077a042d0bee4c4837cdfa523"
       },
       "failure_streak": 0,
       "last_dispatch": {
-        "scheduled_at": "2026-09-09T20:00:00-04:00",
-        "dispatched_at": "2026-09-09T20:00:39.225500-04:00",
-        "lateness_seconds": 39.2,
+        "scheduled_at": "2026-09-10T00:00:00-04:00",
+        "dispatched_at": "2026-09-10T00:00:16.538855-04:00",
+        "lateness_seconds": 16.5,
         "kind": "on_time"
       }
     },
@@ -1633,15 +1633,15 @@
       "schedule_display": "*/20 * * * *",
       "repeat": {
         "times": null,
-        "completed": 4460
+        "completed": 4472
       },
       "enabled": true,
       "state": "scheduled",
       "paused_at": null,
       "paused_reason": null,
       "created_at": "2026-07-09T09:53:59.696632-04:00",
-      "next_run_at": "2026-09-09T20:20:00-04:00",
-      "last_run_at": "2026-09-09T20:00:39.937078-04:00",
+      "next_run_at": "2026-09-10T00:20:00-04:00",
+      "last_run_at": "2026-09-10T00:00:16.986431-04:00",
       "last_status": "ok",
       "last_error": null,
       "last_delivery_error": null,
@@ -1652,9 +1652,9 @@
       "fire_claim": null,
       "failure_streak": 0,
       "last_dispatch": {
-        "scheduled_at": "2026-09-09T20:00:00-04:00",
-        "dispatched_at": "2026-09-09T20:00:39.225500-04:00",
-        "lateness_seconds": 39.2,
+        "scheduled_at": "2026-09-10T00:00:00-04:00",
+        "dispatched_at": "2026-09-10T00:00:16.538855-04:00",
+        "lateness_seconds": 16.5,
         "kind": "on_time"
       }
     },
@@ -1749,7 +1749,7 @@
     {
       "id": "e1e39e714337",
       "name": "pieces-capture-review",
-      "prompt": "You are the daily Pieces capture lane. Pieces long-term memory sees what session-transcript scans cannot: ChatGPT role conversations, browser research, and all-app activity. Your job is to pull the genuinely durable knowledge from the last day and file only that into Brain.\n\nSTEPS:\n1. Call ask_pieces_ltm with: \"In the last 24 hours, what did I decide, discover, diagnose, or conclude across ChatGPT and the browser that is durable, reusable knowledge worth remembering later — insights, decisions, rules, boundaries, lessons? List each distinct item concisely.\" Focus on ChatGPT role conversations and browser research; substrate/coding work is already captured by the session harvest, so deprioritize it.\n2. For EACH candidate, FIRST call brain_search with the candidate's core idea. If a close match already exists in Brain, SKIP it — do not duplicate what is already captured.\n3. JUDGE each remaining candidate. KEEP only if it is a reusable pattern or anti-pattern, a concrete decision with lasting effect, a rule or boundary, a problem diagnosis with a root cause, or a framing/distinction that clarifies thinking. SKIP one-off observations, routine operations, vague statements, or anything so context-bound it would not help a future session that never saw the source.\n4. For each KEEP, write it to Brain via capture_thought with source='pieces_capture'. Phrase it trigger-anchored: begin with the concept a searcher would actually type, state the insight in 3-5 sentences, add a short \"Signal:\" line where useful, and note it was captured from Pieces/off-substrate with today's date.\n5. Be selective — most of a day is not capture-worthy. Keeping 0 to 3 items is a normal, good outcome. Never loop-and-dump; judge each item on its own.\n\nProvenance note: Pieces is a lead-finder, not an authority. Only capture items that are clearly durable knowledge on their face; if a candidate would need live-file verification to trust, skip it rather than record a possibly-wrong claim.\n\nREPORT (this is your delivered output): \"Pieces capture: X kept, Y skipped-as-duplicate, Z skipped-as-not-durable.\" followed by one line per kept item. If nothing cleared the bar, respond with exactly [SILENT].",
+      "prompt": "You are the daily Pieces capture lane. Pieces long-term memory sees what session-transcript scans cannot: ChatGPT role conversations, browser research, and all-app activity. Your job is to pull the genuinely durable knowledge from the last day and file only that into Brain.\n\nSTEPS:\n1. Call ask_pieces_ltm with: \"In the last 24 hours, what did I decide, discover, diagnose, or conclude across ChatGPT and the browser that is durable, reusable knowledge worth remembering later — insights, decisions, rules, boundaries, lessons? List each distinct item concisely.\" Focus on ChatGPT role conversations and browser research; substrate/coding work is already captured by the session harvest, so deprioritize it.\n2. For EACH candidate, FIRST call brain_search with the candidate's core idea. If a close match already exists in Brain, SKIP it — do not duplicate what is already captured.\n3. JUDGE each remaining candidate. KEEP only if it is a reusable pattern or anti-pattern, a concrete decision with lasting effect, a rule or boundary, a problem diagnosis with a root cause, or a framing/distinction that clarifies thinking. SKIP one-off observations, routine operations, vague statements, or anything so context-bound it would not help a future session that never saw the source.\n4. For each KEEP, write it to Brain via capture_thought with source='pieces_capture'. Phrase it trigger-anchored: begin with the concept a searcher would actually type, state the insight in 3-5 sentences, add a short \"Signal:\" line where useful, and note it was captured from Pieces/off-substrate with today's date.\n5. Be selective — most of a day is not capture-worthy. Keeping 0 to 3 items is a normal, good outcome. Never loop-and-dump; judge each item on its own.\n\nProvenance note: Pieces is a lead-finder, not an authority. Only capture items that are clearly durable knowledge on their face; if a candidate would need live-file verification to trust, skip it rather than record a possibly-wrong claim.\n\nSILENCE RULE: Ted gets a twice-daily consolidated fleet digest now, so routine per-run counts are noise. If nothing cleared the bar, respond with exactly [SILENT]. If 1-3 items were kept, respond ONLY with the one-line-per-kept-item list (no kept/skipped counts preamble, no narration). Respond normally (full detail) only if something failed or a kept item is urgent.",
       "skills": [],
       "skill": null,
       "model": "z-ai/glm-5.3-flash",
@@ -1768,7 +1768,7 @@
       "schedule_display": "0 20 * * *",
       "repeat": {
         "times": null,
-        "completed": 61
+        "completed": 62
       },
       "enabled": true,
       "state": "scheduled",
@@ -1776,7 +1776,7 @@
       "paused_reason": null,
       "created_at": "2026-07-11T08:48:23.391149-04:00",
       "next_run_at": "2026-09-10T20:00:00-04:00",
-      "last_run_at": "2026-09-08T20:07:45.239168-04:00",
+      "last_run_at": "2026-09-09T20:06:02.660022-04:00",
       "last_status": "ok",
       "last_error": null,
       "last_delivery_error": null,
@@ -1784,10 +1784,7 @@
       "origin": null,
       "enabled_toolsets": null,
       "workdir": null,
-      "fire_claim": {
-        "at": "2026-09-09T20:00:39.634258-04:00",
-        "by": "theos-mini.local:3281:04c6ff39737b45519b5d119b198bf108"
-      },
+      "fire_claim": null,
       "failure_streak": 0,
       "last_dispatch": {
         "scheduled_at": "2026-09-09T20:00:00-04:00",
@@ -1818,15 +1815,15 @@
       "schedule_display": "0 */4 * * *",
       "repeat": {
         "times": null,
-        "completed": 363
+        "completed": 364
       },
       "enabled": true,
       "state": "scheduled",
       "paused_at": null,
       "paused_reason": null,
       "created_at": "2026-07-11T16:29:55.461353-04:00",
-      "next_run_at": "2026-09-10T00:00:00-04:00",
-      "last_run_at": "2026-09-09T16:00:18.633397-04:00",
+      "next_run_at": "2026-09-10T04:00:00-04:00",
+      "last_run_at": "2026-09-09T20:00:45.341434-04:00",
       "last_status": "ok",
       "last_error": null,
       "last_delivery_error": null,
@@ -1835,14 +1832,14 @@
       "enabled_toolsets": null,
       "workdir": null,
       "fire_claim": {
-        "at": "2026-09-09T20:00:39.637529-04:00",
-        "by": "theos-mini.local:3281:307994dd1e694bf9a4e036c72e1705d2"
+        "at": "2026-09-10T00:00:16.826328-04:00",
+        "by": "theos-mini.local:3281:fc53b5581b9b4d06ad516b87ea8ed481"
       },
       "failure_streak": 0,
       "last_dispatch": {
-        "scheduled_at": "2026-09-09T20:00:00-04:00",
-        "dispatched_at": "2026-09-09T20:00:39.225500-04:00",
-        "lateness_seconds": 39.2,
+        "scheduled_at": "2026-09-10T00:00:00-04:00",
+        "dispatched_at": "2026-09-10T00:00:16.538855-04:00",
+        "lateness_seconds": 16.5,
         "kind": "on_time"
       }
     },
@@ -2167,7 +2164,7 @@
       "schedule_display": "0 8,11,14,17,20 * * *",
       "repeat": {
         "times": null,
-        "completed": 231
+        "completed": 232
       },
       "enabled": true,
       "state": "scheduled",
@@ -2175,7 +2172,7 @@
       "paused_reason": null,
       "created_at": "2026-07-25T17:16:54.732748-04:00",
       "next_run_at": "2026-09-10T08:00:00-04:00",
-      "last_run_at": "2026-09-09T17:01:49.015320-04:00",
+      "last_run_at": "2026-09-09T20:03:20.899706-04:00",
       "last_status": "ok",
       "last_error": null,
       "last_delivery_error": null,
@@ -2183,10 +2180,7 @@
       "origin": null,
       "enabled_toolsets": null,
       "workdir": null,
-      "fire_claim": {
-        "at": "2026-09-09T20:00:39.641728-04:00",
-        "by": "theos-mini.local:3281:d1fbccbccbe14d348378950b424aab5c"
-      },
+      "fire_claim": null,
       "failure_streak": 0,
       "last_dispatch": {
         "scheduled_at": "2026-09-09T20:00:00-04:00",
@@ -2346,15 +2340,15 @@
       "schedule_display": "23 * * * *",
       "repeat": {
         "times": null,
-        "completed": 564
+        "completed": 568
       },
       "enabled": true,
       "state": "scheduled",
       "paused_at": null,
       "paused_reason": null,
       "created_at": "2026-08-02T11:04:27.256761-04:00",
-      "next_run_at": "2026-09-09T20:23:00-04:00",
-      "last_run_at": "2026-09-09T19:23:33.717215-04:00",
+      "next_run_at": "2026-09-10T00:23:00-04:00",
+      "last_run_at": "2026-09-09T23:23:11.266443-04:00",
       "last_status": "ok",
       "last_error": null,
       "last_delivery_error": null,
@@ -2371,9 +2365,9 @@
       "fire_claim": null,
       "failure_streak": 0,
       "last_dispatch": {
-        "scheduled_at": "2026-09-09T19:23:00-04:00",
-        "dispatched_at": "2026-09-09T19:23:33.450927-04:00",
-        "lateness_seconds": 33.5,
+        "scheduled_at": "2026-09-09T23:23:00-04:00",
+        "dispatched_at": "2026-09-09T23:23:11.025928-04:00",
+        "lateness_seconds": 11.0,
         "kind": "on_time"
       }
     },
@@ -2483,7 +2477,7 @@
       "schedule_display": "0 20 * * *",
       "repeat": {
         "times": null,
-        "completed": 34
+        "completed": 35
       },
       "enabled": true,
       "state": "scheduled",
@@ -2491,7 +2485,7 @@
       "paused_reason": null,
       "created_at": "2026-08-07T18:32:45.646414+00:00",
       "next_run_at": "2026-09-10T20:00:00-04:00",
-      "last_run_at": "2026-09-08T20:04:30.069649-04:00",
+      "last_run_at": "2026-09-09T20:05:05.075301-04:00",
       "last_status": "ok",
       "last_error": null,
       "last_delivery_error": null,
@@ -2499,10 +2493,7 @@
       "origin": null,
       "enabled_toolsets": null,
       "workdir": null,
-      "fire_claim": {
-        "at": "2026-09-09T20:00:39.663392-04:00",
-        "by": "theos-mini.local:3281:c48b4b3618d54ea3be38cab766c8a46d"
-      },
+      "fire_claim": null,
       "provider_snapshot": null,
       "model_snapshot": null,
       "failure_streak": 0,
@@ -2709,15 +2700,15 @@
       "schedule_display": "0 * * * *",
       "repeat": {
         "times": null,
-        "completed": 798
+        "completed": 801
       },
       "enabled": true,
       "state": "scheduled",
       "paused_at": null,
       "paused_reason": null,
       "created_at": "2026-08-07T18:32:45.646414+00:00",
-      "next_run_at": "2026-09-09T21:00:00-04:00",
-      "last_run_at": "2026-09-09T20:00:40.015145-04:00",
+      "next_run_at": "2026-09-10T01:00:00-04:00",
+      "last_run_at": "2026-09-09T23:00:07.895679-04:00",
       "last_status": "ok",
       "last_error": null,
       "last_delivery_error": null,
@@ -2725,12 +2716,15 @@
       "origin": null,
       "enabled_toolsets": null,
       "workdir": null,
-      "fire_claim": null,
+      "fire_claim": {
+        "at": "2026-09-10T00:00:17.219674-04:00",
+        "by": "theos-mini.local:3281:1a1d19aff99b4555b38bc79cd8d70ee5"
+      },
       "failure_streak": 0,
       "last_dispatch": {
-        "scheduled_at": "2026-09-09T20:00:00-04:00",
-        "dispatched_at": "2026-09-09T20:00:39.225500-04:00",
-        "lateness_seconds": 39.2,
+        "scheduled_at": "2026-09-10T00:00:00-04:00",
+        "dispatched_at": "2026-09-10T00:00:16.538855-04:00",
+        "lateness_seconds": 16.5,
         "kind": "on_time"
       }
     },
@@ -2970,7 +2964,7 @@
       "schedule_display": "0 20 * * *",
       "repeat": {
         "times": null,
-        "completed": 33
+        "completed": 34
       },
       "enabled": true,
       "state": "scheduled",
@@ -2978,7 +2972,7 @@
       "paused_reason": null,
       "created_at": "2026-08-07T18:32:45.646414+00:00",
       "next_run_at": "2026-09-10T20:00:00-04:00",
-      "last_run_at": "2026-09-08T20:00:02.049107-04:00",
+      "last_run_at": "2026-09-09T20:00:42.198128-04:00",
       "last_status": "ok",
       "last_error": null,
       "last_delivery_error": null,
@@ -2986,10 +2980,7 @@
       "origin": null,
       "enabled_toolsets": null,
       "workdir": null,
-      "fire_claim": {
-        "at": "2026-09-09T20:00:39.688785-04:00",
-        "by": "theos-mini.local:3281:11796b0b25a149838ad2f303a519fabd"
-      },
+      "fire_claim": null,
       "failure_streak": 0,
       "last_dispatch": {
         "scheduled_at": "2026-09-09T20:00:00-04:00",
@@ -4126,15 +4117,15 @@
       "schedule_display": "every 10m",
       "repeat": {
         "times": null,
-        "completed": 1519
+        "completed": 1543
       },
       "enabled": true,
       "state": "scheduled",
       "paused_at": null,
       "paused_reason": null,
       "created_at": "2026-08-30T05:35:42.939777-04:00",
-      "next_run_at": "2026-09-09T20:09:39.270906-04:00",
-      "last_run_at": "2026-09-09T19:59:39.270906-04:00",
+      "next_run_at": "2026-09-10T00:10:17.124484-04:00",
+      "last_run_at": "2026-09-10T00:00:17.124484-04:00",
       "last_status": "ok",
       "last_error": null,
       "last_delivery_error": null,
@@ -4145,9 +4136,9 @@
       "workdir": null,
       "fire_claim": null,
       "last_dispatch": {
-        "scheduled_at": "2026-09-09T19:59:38.399046-04:00",
-        "dispatched_at": "2026-09-09T19:59:38.957001-04:00",
-        "lateness_seconds": 0.6,
+        "scheduled_at": "2026-09-10T00:00:15.418844-04:00",
+        "dispatched_at": "2026-09-10T00:00:16.538855-04:00",
+        "lateness_seconds": 1.1,
         "kind": "on_time"
       }
     },
@@ -4482,15 +4473,15 @@
       "schedule_display": "20 * * * *",
       "repeat": {
         "times": null,
-        "completed": 12
+        "completed": 16
       },
       "enabled": true,
       "state": "scheduled",
       "paused_at": null,
       "paused_reason": null,
       "created_at": "2026-09-09T08:01:01.588102-04:00",
-      "next_run_at": "2026-09-09T20:20:00-04:00",
-      "last_run_at": "2026-09-09T19:20:33.262911-04:00",
+      "next_run_at": "2026-09-10T00:20:00-04:00",
+      "last_run_at": "2026-09-09T23:20:10.887416-04:00",
       "last_status": "ok",
       "last_error": null,
       "last_delivery_error": null,
@@ -4503,12 +4494,159 @@
       "failure_deliver": "local",
       "fire_claim": null,
       "last_dispatch": {
-        "scheduled_at": "2026-09-09T19:20:00-04:00",
-        "dispatched_at": "2026-09-09T19:20:32.978041-04:00",
-        "lateness_seconds": 33.0,
+        "scheduled_at": "2026-09-09T23:20:00-04:00",
+        "dispatched_at": "2026-09-09T23:20:10.579667-04:00",
+        "lateness_seconds": 10.6,
         "kind": "on_time"
       }
+    },
+    {
+      "id": "e6ad6b2435f5",
+      "name": "fleet-digest-morning",
+      "prompt": "Consolidated fleet digest (no-agent). Runs scripts/fleet_digest.py; output auto-delivered.",
+      "skills": [],
+      "skill": null,
+      "model": null,
+      "provider": null,
+      "provider_snapshot": null,
+      "model_snapshot": null,
+      "base_url": null,
+      "script": "fleet_digest.py",
+      "no_agent": true,
+      "monitor_script": null,
+      "monitor_url": null,
+      "monitor_state": null,
+      "context_from": null,
+      "schedule": {
+        "kind": "cron",
+        "expr": "15 7 * * *",
+        "display": "15 7 * * *"
+      },
+      "schedule_display": "15 7 * * *",
+      "repeat": {
+        "times": null,
+        "completed": 0
+      },
+      "enabled": true,
+      "state": "scheduled",
+      "paused_at": null,
+      "paused_reason": null,
+      "created_at": "2026-09-09T22:05:37.498525-04:00",
+      "next_run_at": "2026-09-10T07:15:00-04:00",
+      "last_run_at": null,
+      "last_status": null,
+      "last_error": null,
+      "last_delivery_error": null,
+      "last_delivery_unverified": null,
+      "failure_streak": 0,
+      "deliver": "telegram",
+      "origin": {
+        "platform": "telegram",
+        "chat_id": "8547176321",
+        "chat_name": "Ted Hughes",
+        "thread_id": null,
+        "user_id": "8547176321",
+        "scope_id": null
+      },
+      "enabled_toolsets": null,
+      "workdir": null
+    },
+    {
+      "id": "5526e1d2c55c",
+      "name": "fleet-digest-evening",
+      "prompt": "Consolidated fleet digest (no-agent). Runs scripts/fleet_digest.py; output auto-delivered.",
+      "skills": [],
+      "skill": null,
+      "model": null,
+      "provider": null,
+      "provider_snapshot": null,
+      "model_snapshot": null,
+      "base_url": null,
+      "script": "fleet_digest.py",
+      "no_agent": true,
+      "monitor_script": null,
+      "monitor_url": null,
+      "monitor_state": null,
+      "context_from": null,
+      "schedule": {
+        "kind": "cron",
+        "expr": "0 18 * * *",
+        "display": "0 18 * * *"
+      },
+      "schedule_display": "0 18 * * *",
+      "repeat": {
+        "times": null,
+        "completed": 0
+      },
+      "enabled": true,
+      "state": "scheduled",
+      "paused_at": null,
+      "paused_reason": null,
+      "created_at": "2026-09-09T22:05:37.511759-04:00",
+      "next_run_at": "2026-09-10T18:00:00-04:00",
+      "last_run_at": null,
+      "last_status": null,
+      "last_error": null,
+      "last_delivery_error": null,
+      "last_delivery_unverified": null,
+      "failure_streak": 0,
+      "deliver": "telegram",
+      "origin": {
+        "platform": "telegram",
+        "chat_id": "8547176321",
+        "chat_name": "Ted Hughes",
+        "thread_id": null,
+        "user_id": "8547176321",
+        "scope_id": null
+      },
+      "enabled_toolsets": null,
+      "workdir": null
+    },
+    {
+      "id": "00adafbcd089",
+      "name": "apple-signal-scan-daily",
+      "prompt": "",
+      "skills": [],
+      "skill": null,
+      "model": null,
+      "provider": null,
+      "provider_snapshot": null,
+      "model_snapshot": null,
+      "base_url": null,
+      "script": "apple_signal_scan.py",
+      "no_agent": true,
+      "monitor_script": null,
+      "monitor_url": null,
+      "monitor_state": null,
+      "context_from": null,
+      "schedule": {
+        "kind": "cron",
+        "expr": "45 6 * * *",
+        "display": "45 6 * * *"
+      },
+      "schedule_display": "45 6 * * *",
+      "repeat": {
+        "times": null,
+        "completed": 1
+      },
+      "enabled": true,
+      "state": "scheduled",
+      "paused_at": null,
+      "paused_reason": null,
+      "created_at": "2026-09-09T23:02:36.441587-04:00",
+      "next_run_at": "2026-09-10T06:45:00-04:00",
+      "last_run_at": "2026-09-09T23:02:45.263126-04:00",
+      "last_status": "ok",
+      "last_error": null,
+      "last_delivery_error": null,
+      "last_delivery_unverified": null,
+      "failure_streak": 0,
+      "deliver": "local",
+      "origin": null,
+      "enabled_toolsets": null,
+      "workdir": null,
+      "fire_claim": null
     }
   ],
-  "updated_at": "2026-09-09T20:00:40.015411-04:00"
+  "updated_at": "2026-09-10T00:00:17.219887-04:00"
 }

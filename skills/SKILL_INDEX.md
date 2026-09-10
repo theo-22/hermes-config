@@ -111,6 +111,9 @@ If the `/` menu is crowded, scan this card first, then search for the exact skil
 - `verify-real-invocation-path`
   Use when a fix, hook, script, service, launcher, or integration is called verified but the evidence may have exercised a proxy, stale path, interpreter shortcut, wrong cwd/environment, health-only surface, or warmed client instead of the exact installed consumer path—or when an independent real-client probe contradicts green local tests. Requires paired real-path probes, observable consequences, an evidence-led contradiction-repair loop, and independent/fresh-client/human gates when applicable.
 
+- `diagnose-codex-hook-liveness`
+  Use when Codex hooks are configured but expected events or telemetry are absent. Traces the installed CLI and desktop consumers, inventories enabled/trust state, and uses paired ordinary and one-invocation controls to distinguish pre-launch gating from hook-script or heartbeat-recording failure without authorizing repair.
+
 - `repair-model-visible-token-transport`
   Use when a model, client, or safety layer blocks credential-shaped tool arguments before they reach the server. Replaces raw token transport with short server-resolved handles while preserving scope, expiry, restart invalidation, fail-closed checks, and layered live proof.
 
@@ -480,6 +483,7 @@ If the main need is deciding whether a role may safely dispatch Hermes workers:
 - `create-worker`
 - `dashboard-api`
 - `digest-topic-refresh`
+- `diagnose-codex-hook-liveness`
 - `friction-flow-tracing`
 - `gpt-environment-build`
 - `graph-edge-finding`

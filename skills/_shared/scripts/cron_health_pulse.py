@@ -3,7 +3,7 @@
 Outputs a summary line if any errors found, nothing if clean.
 Designed for session-start checks (quiet when healthy)."""
 
-import json, os, sys
+import json, os, re, sys
 from pathlib import Path
 
 # Live Hermes home moved to the Substrate drive in the 2026-07 flatten migration;
@@ -54,6 +54,9 @@ def classify(job):
     if job_id:
         seen_job_ids.add(job_id)
     err = job.get("last_error") or job.get("last_delivery_error") or ""
+    missing_match = re.search(r"Script not found:\s*([^\n]+)", err)
+    if missing_match and Path(missing_match.group(1).strip()).exists():
+        return  # cached scheduler error; the named script has since been restored
     err_lower = err.lower()
     has_stdout = "\nstdout:\n" in err
     has_stderr = "\nstderr:\n" in err

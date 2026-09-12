@@ -51,6 +51,9 @@ If the `/` menu is crowded, scan this card first, then search for the exact skil
 
 ### File-Write / Operational (reads system files, executes action sequences)
 
+- `macos-disk-cleanup`
+  Use when a Mac is low on space or Ted wants a cleanup. Measures physical versus apparent use, classifies disposable/active/personal/system-protected candidates, executes only the exact authorized batch, and separates live deletion from snapshot-retained recovery.
+
 - `quick-save`
   Use when a bounded one-task session needs durable save/checkpoint treatment without full `/session-end`. Updates earned continuity surfaces, verifies touched repo state, names uncommitted work, and escalates to full session-end when the session is too broad.
 
@@ -499,6 +502,7 @@ If the main need is deciding whether a role may safely dispatch Hermes workers:
 - `live-surface-verification`
 - `probe-chatgpt-host-artifact-binding`
 - `manager-handoff-contract`
+- `macos-disk-cleanup`
 - `migrate-mcp-secret-to-keychain`
 - `model-switch-surfacing`
 - `opus-review-surfacing`

@@ -2,10 +2,8 @@ model:
   base_url: https://api.z.ai/api/coding/paas/v4
   default: glm-5.3-flash
   provider: zai
-providers:
-  deepseek:
 toolsets:
-- hermes-cli
+  - hermes-cli
 max_live_sessions: 4
 agent:
   max_turns: 80
@@ -80,7 +78,7 @@ compression:
   in_place: false
 display:
   compact: false
-  personality: helpful
+  personality: ''
   resume_display: full
   resume_exchanges: 10
   resume_max_user_chars: 300
@@ -123,7 +121,7 @@ display:
     render_mode: auto
     scale: 0.33
     unicode_cols: 0
-  background_process_notifications: all
+  background_process_notifications: concise
   busy_ack_detail: true
   cleanup_progress: false
   long_running_notifications: true
@@ -152,10 +150,10 @@ delegation:
   api_key: ''
   api_mode: ''
   inherit_mcp_toolsets: true
-  max_iterations: 50
+  max_iterations: 250
   child_timeout_seconds: 600
   reasoning_effort: ''
-  max_concurrent_children: 3
+  max_concurrent_children: 10
   max_spawn_depth: 1
   orchestrator_enabled: true
   subagent_auto_approve: false
@@ -164,8 +162,7 @@ goals:
   max_turns: 20
 skills:
   external_dirs:
-  - /Volumes/Extra/Substrate/Skills
-
+    - /Volumes/Extra/Substrate/Skills
   template_vars: true
   inline_shell: false
   inline_shell_timeout: 10
@@ -186,7 +183,7 @@ curator:
     keep: 5
 timezone: America/New_York
 command_allowlist:
-- delete in root path
+  - delete in root path
 cron:
   provider: ''
   wrap_response: true
@@ -209,7 +206,6 @@ logging:
 model_catalog:
   enabled: true
   url: https://hermes-agent.nousresearch.com/docs/api/model-catalog.json
-  ttl_hours: 1
 network:
   force_ipv4: false
 gateway:
@@ -259,22 +255,22 @@ secrets:
 paste_collapse_threshold: 12
 paste_collapse_threshold_fallback: 5
 paste_collapse_char_threshold: 2000
-_config_version: 33
+_config_version: 42
 group_sessions_per_user: true
 platform_toolsets:
   cli:
-  - clarify
-  - code_execution
-  - cronjob
-  - delegation
-  - file
-  - memory
-  - session_search
-  - skills
-  - terminal
-  - todo
-  - vision
-  - web
+    - clarify
+    - code_execution
+    - cronjob
+    - delegation
+    - file
+    - memory
+    - session_search
+    - skills
+    - terminal
+    - todo
+    - vision
+    - web
 session_reset:
   at_hour: 4
   idle_minutes: 1440
@@ -286,8 +282,7 @@ mcp_servers:
   open-brain:
     command: /Users/ted/Control/mcp/.venv/bin/python
     args:
-    - /Users/ted/Control/mcp/open_brain_mcp.py
-
+      - /Users/ted/Control/mcp/open_brain_mcp.py
     connect_timeout: 60
     timeout: 60
     transport: stdio
@@ -296,11 +291,44 @@ fallback_providers:
     provider: openrouter
 hooks:
   on_session_finalize:
-  - command: python3 /Volumes/Extra/Substrate/Operations/scripts/checkout_session_finalize.py --actor hermes
-    timeout: 5
+    - command: python3 /Volumes/Extra/Substrate/Operations/scripts/checkout_session_finalize.py
+        --actor hermes
+      timeout: 5
 
-# CHANGED 2026-08-30, Ted: DeepSeek direct is the fallback (reliable, proven,
-# already keyed on every profile) while z.ai is unavailable/rate-limited.
-# Ted wants to revisit DeepSeek as the fallback choice later -- not settled
-# permanently, just the reliable pick for now. Was nvidia/nemotron-3-ultra
-# free-tier via OpenRouter.
+# ── Security ──────────────────────────────────────────────────────────
+# Secret redaction is ON by default — strings that look like API keys,
+# tokens, and passwords are masked in tool output, logs, and chat
+# responses before the model or user ever sees them. Set redact_secrets
+# to false to disable (e.g. when developing the redactor itself).
+# tirith pre-exec scanning is enabled by default when the tirith binary
+# is available. Configure via security.tirith_* keys or env vars
+# (TIRITH_ENABLED, TIRITH_BIN, TIRITH_TIMEOUT, TIRITH_FAIL_OPEN).
+#
+# security:
+#   redact_secrets: true
+#   tirith_enabled: true
+#   tirith_path: "tirith"
+#   tirith_timeout: 5
+#   tirith_fail_open: true
+
+# ── Fallback Model ────────────────────────────────────────────────────
+# Automatic provider failover when primary is unavailable.
+# Uncomment and configure to enable. Triggers on rate limits (429),
+# overload (529), service errors (503), or connection failures.
+#
+# Supported providers:
+#   openrouter   (OPENROUTER_API_KEY)  — routes to any model
+#   openai-codex (OAuth — hermes auth) — OpenAI Codex
+#   nous         (OAuth — hermes auth) — Nous Portal
+#   zai          (ZAI_API_KEY)         — Z.AI / GLM
+#   kimi-coding  (KIMI_API_KEY)        — Kimi / Moonshot
+#   kimi-coding-cn (KIMI_CN_API_KEY)   — Kimi / Moonshot (China)
+#   minimax      (MINIMAX_API_KEY)     — MiniMax
+#   minimax-cn   (MINIMAX_CN_API_KEY)  — MiniMax (China)
+#   bedrock      (AWS IAM / boto3)     — AWS Bedrock (Converse API)
+#
+# For custom OpenAI-compatible endpoints, add base_url and key_env.
+#
+# fallback_model:
+#   provider: openrouter
+#   model: anthropic/claude-sonnet-4

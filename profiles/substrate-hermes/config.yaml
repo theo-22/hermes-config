@@ -350,7 +350,7 @@ privacy:
 tts:
   provider: edge
   edge:
-    voice: en-US-AriaNeural
+    voice: en-US-JennyNeural
   elevenlabs:
     voice_id: pNInz6obpgDQGcFmaJgB
     model_id: eleven_multilingual_v2
@@ -400,7 +400,7 @@ voice:
   silence_threshold: 200
   silence_duration: 3
 wake_word:
-  enabled: false
+  enabled: true
 human_delay:
   mode: 'off'
   min_ms: 800

@@ -196,13 +196,11 @@ python3 ht_weekly_sales_fetcher.py --my-specials  # falls back to weekly ad
 
 **Output format:** JSON with `store`, `page`, `fetch_time`, `deal_count`, and a `deals` array — each deal has `name`, `price`, `price_value`, `deal_type`, `deal_category`, `multi_buy`, `bogo_text`, `savings`, `limit`, `image_alt`. Lands at `Commons/Substrate_Finance_Planning/Evidence/Grocery_Receipt_Staging/ht_deals_weeklyad_latest.json`.
 
-## Shopping Guru Integration — LIVE (2026-07-13)
+## Shopping Guru Integration — REVISED 2026-09-12
 
-Phases 1–3 built and running unattended:
-1. **Purchase history** — `grocery_receipt_fetcher.py` (HT + Sam's Club, weekly, no-agent)
-2. **Weekly deals** — `ht_weekly_sales_fetcher.py` (HT weekly ad DOM scrape, 43 deals/week typical)
-3. **Cross-reference** — `shopping_guru_crossref.py` (token-overlap match against purchase history; deliberately conservative — requires 2+ shared distinctive tokens after stripping store-brand/size noise words, to avoid false-positive matches like "Red Raspberries" vs "Harris Teeter Red Beans" on a single shared word)
+**Current design (Ted-approved):** the deal pipeline lives in the AGENTS, not in scripts.
+- **RETIRED:** `shopping_guru_weekly.sh` + `shopping_guru_crossref.py` (cron `shopping-guru-weekly-crossref`, paused 2026-09-12). The standalone weeklyad scraper silently produced `deal_count: 0` stubs most weeks (Kroger Citrus DOM churn), and the token-overlap crossref produced false-positive matches. Four consecutive weeks the check-in agents compensated with live CDP pulls — the agent method IS the proven tool.
+- **NOW:** the Wednesday `shopping-guru-wednesday-checkin` agent (substrate-hermes cron `399120b5127f`) does the deal pull itself as STEP 1 (live CDP, ht-grocery patterns, writes `ht_deals_weeklyad_latest.json` + dated copy, verifies `deal_count > 0`, never fabricates on failure), selects deals by Ted's priority: BOGO/B2G2 first, then half-price/multi-buy, then 30%+ markdowns, matched in-context against his purchase ledger.
+- **UNCHANGED:** receipt pulls (Sun/Wed 8pm), Saturday order finalizer (live price verification), Sunday preflight. Checkout stays human-only.
 
-All three chained into `shopping_guru_weekly.sh`, scheduled Wednesdays 9am (Hermes cron `shopping-guru-weekly-crossref`, substrate-hermes profile) — right after HT's price reset, ahead of Ted's usual weekend pickup. Output: `Commons/Substrate_Finance_Planning/Evidence/Grocery_Receipt_Staging/shopping_guru_crossref_latest.json`.
-
-**Not yet built (Phase 4):** the human-readable report itself (meal suggestions, pantry awareness, delivery to morning briefing). Checkout stays human-only by design — no automation touches cart/purchase.
+**If the agent pull fails 2 weeks running:** escalate to a Codex build of the first-party JSON API path below (order-list endpoint already proven; item-detail needs the `channel` header captured from real site traffic).

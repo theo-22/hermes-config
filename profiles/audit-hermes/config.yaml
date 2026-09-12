@@ -1,9 +1,13 @@
 model:
-  base_url: https://api.deepseek.com
-  default: deepseek-v4-pro
-  provider: deepseek
+  base_url: https://api.z.ai/api/coding/paas/v4
+  default: glm-5.3-flash
+  provider: zai
+  api_key: ''
+providers:
+  deepseek:
+    base_url: https://api.deepseek.com
 fallback_providers:
-  - model: z-ai/glm-5.3
+  - model: z-ai/glm-5.3-flash
     provider: openrouter
 toolsets:
   - hermes-cli

@@ -174,6 +174,25 @@ different serving provider, not script debugging. Spot the difference: same
 model failing in bursts with `provider_name: <host>`, `is_byok: False`, but
 succeeding off-peak = congestion, not a bug.
 
+**Verify which model actually served a session via `state.db`, never the
+model's self-report.** `session_model_usage` records every API call as
+`(session_id, model, billing_provider, billing_base_url, task)`. This
+disambiguates the two shapes that look identical from the outside:
+
+- Config resolution broken → the *primary* model string never appears; nothing
+  served.
+- Fallback engaged (working as designed) → `session_model_usage.model` shows
+  the fallback target with `billing_provider` set — the ONLY route to that
+  model when it isn't the primary, so its presence is proof the chain works.
+
+The model answering "I am X" is unreliable (it guesses from its context);
+rate-limit fallback mid-test can flip the answer between runs. Ground truth:
+the DB row. Verified live 2026-09-12 (lab-hermes → ling-3.0-flash-vl:free:
+run 1 served primary, runs 2–3 fell back to z-ai/glm-5.3-flash via openrouter
+after rapid-fire 429s). When verifying a new free-tier model, SPACE
+verification calls — back-to-back `-z` probes trip the per-key rate window
+and fail over, making a correct config look broken.
+
 ### B3 — `deliver:` target mismatch: output silently lost
 
 `deliver: "telegram"` fails when the registering profile has no Telegram

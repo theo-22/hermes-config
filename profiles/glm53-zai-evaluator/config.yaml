@@ -81,9 +81,9 @@ telegram:
     rich_messages: true
     rich_drafts: false
 approvals:
-  mode: auto
+  mode: smart
   timeout: 60
-  cron_mode: auto
+  cron_mode: approve
   destructive_slash_confirm: false
 cron:
   wrap_response: true

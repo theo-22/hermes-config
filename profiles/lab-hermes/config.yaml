@@ -1,7 +1,7 @@
 model:
-  base_url: https://api.z.ai/api/coding/paas/v4
-  default: glm-5.3-flash
-  provider: zai
+  base_url: https://openrouter.ai/api/v1
+  default: inclusionai/ling-3.0-flash-vl:free
+  provider: openrouter
   api_key: ''
 providers:
   ollama:
@@ -529,7 +529,7 @@ matrix:
 approvals:
   mode: smart
   timeout: 60
-  cron_mode: auto
+  cron_mode: approve
   mcp_reload_confirm: true
   destructive_slash_confirm: false
 command_allowlist:

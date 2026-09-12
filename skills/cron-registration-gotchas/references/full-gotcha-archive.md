@@ -507,7 +507,7 @@ Then run the real script end-to-end: `python3 hermes_launcher_home_guard.py` →
 **Fix — registry `no_push`, don't hardcode a skip in the script:**
 `BACKUP_TARGETS.txt` is the **one shared exclusions registry** read by all three scripts (auto-commit-watcher.sh, git_repo_health_check.py, auto_push_all.py). Add the exception there once, not in a script:
 ```
-no_push|/Users/ted/_Personal|Ted's personal files; git-inited with no origin remote. Local history only.
+no_push|/Volumes/Extra/Substrate/_Personal|Ted's personal files; git-inited with no origin remote. Local history only.
 ```
 - `no_push` = still git-commit locally, never push to GitHub. Same as `~/.hermes` (remote-less) and `Clinic` (policy).
 - `skip_entirely` = excluded from all git automation. Use `no_push` for a normalized local repo you still want version history on.

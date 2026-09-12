@@ -111,7 +111,8 @@ Delete only the obsolete payload the evidence supports. If macOS leaves a tiny `
 
 - Resolve every exact target again and refuse unexpected symlinks.
 - Avoid unresolved variables, broad globs, home-directory recursion, filesystem-root recursion, and combined targets that are hard to audit.
-- Prefer recoverable relocation for ambiguous/archive candidates.
+- Prefer recoverable relocation for ambiguous/archive candidates — but check the destination: a payload archived *inside* a git repo can be auto-committed by its drift watcher and then block every future push, because GitHub rejects files over 100 MB. Confirm the archive tree is gitignored before relocating into it.
+- If that already happened, unwinding is safe only while the offending commit is unpushed: `git log origin/main..main` to confirm, `git reset --soft HEAD~1`, unstage and gitignore the payload subtrees, re-commit the receipt alone, push. Never rewrite pushed history for this.
 - Permanent deletion is appropriate only for the exact pre-audited disposable material the user authorized.
 - Keep personal Trash items outside the selected set.
 - For a root-owned target, request administrator authorization for one exact operation. If the operation fails before mutation, prove the target is unchanged before retrying.
@@ -156,6 +157,7 @@ A cleanup is complete only when the record states:
 - Manually thinning snapshots to force the expected number instead of reporting snapshot retention.
 - Removing a system-protected 12 KiB wrapper after the multi-gigabyte payload is already gone.
 - Claiming reclaimed space from one volatile free-space reading while the system is writing concurrently.
+- Archiving multi-gigabyte payload material into a directory inside a git repo with an auto-commit watcher, silently breaking that repo's auto-push on the 100 MB file limit.
 
 ## Runtime Notes
 

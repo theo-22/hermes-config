@@ -700,6 +700,7 @@ mcp_servers:
     timeout: 30
     transport: streamable-http
     url: http://localhost:39300/model_context_protocol/2025-03-26/mcp
+    enabled: false
 platform_toolsets:
   cli:
     - a2a

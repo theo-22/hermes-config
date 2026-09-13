@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-09-13T15:20:58.889361+00:00",
+  "generated_at": "2026-09-13T19:20:35.456811+00:00",
   "files": {
     "2026-09-06_LANE3_STALE_FILE_CLEANUP_UNGATED.md": {
       "size": 1014,
@@ -8,6 +8,10 @@
     "2026-09-12_lane2_rec2_sidecar_reach_unscheduled.md": {
       "size": 1541,
       "mtime_ns": 1789211110557499985
+    },
+    "WORK_ITEM_1729_HERMES_CONFIG_DECISION_PREP_2026-09-13.md": {
+      "size": 1258,
+      "mtime_ns": 1789322819623482601
     },
     "weekly_answer_shoring_review_2026-09-12.md": {
       "size": 1228,

@@ -150,9 +150,9 @@ Detection: the session-start cron health pulse already catches these — a
 `Script not found` on an ENABLED job whose script sits in `_attic*/` is this
 gotcha. Restore, don't re-register.
 
-## B — Model config and delivery
+### B — Model config and delivery
 
-### B1 — Drift-skip: unpinned agent crons break when fleet config moves
+#### B1 — Drift-skip: unpinned agent crons break when fleet config moves
 
 Agent crons registered without `model`/`provider` inherit the global config at
 registration time. When the fleet default moves (it has twice: 08-14 and 09-08),

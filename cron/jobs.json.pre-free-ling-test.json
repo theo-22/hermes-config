@@ -142,6 +142,49 @@
       }
     },
     {
+      "id": "af1ec7ddb125",
+      "name": "overnight-consolidated-morning",
+      "prompt": "",
+      "skills": [
+        "meta-agent-pattern"
+      ],
+      "skill": "meta-agent-pattern",
+      "model": null,
+      "provider": null,
+      "provider_snapshot": null,
+      "model_snapshot": null,
+      "base_url": null,
+      "script": "overnight_consolidated_morning.py",
+      "no_agent": true,
+      "context_from": null,
+      "schedule": {
+        "kind": "cron",
+        "expr": "0 4 * * *",
+        "display": "0 4 * * *"
+      },
+      "schedule_display": "0 4 * * *",
+      "repeat": {
+        "times": null,
+        "completed": 75
+      },
+      "enabled": false,
+      "state": "paused",
+      "paused_at": null,
+      "paused_reason": "Disabled 2026-09-06 by claude_code per Cron Portfolio Audit #1587 item 1: output file (Substrate_Rollup_LATEST.md / Substrate_Morning_Consolidated.md) confirmed unread by any consumer (traced 2026-09-03). No dashboard, no cron, no LLM prompt reads it.",
+      "created_at": "2026-06-28T16:28:51.676442-04:00",
+      "next_run_at": "2026-09-07T04:00:00-04:00",
+      "last_run_at": "2026-09-06T04:00:12.412162-04:00",
+      "last_status": "ok",
+      "last_error": null,
+      "last_delivery_error": null,
+      "deliver": "origin",
+      "origin": null,
+      "enabled_toolsets": null,
+      "workdir": null,
+      "fire_claim": null,
+      "failure_streak": 0
+    },
+    {
       "id": "fda85e8353d1",
       "name": "project-room-health-check",
       "prompt": "",
@@ -282,7 +325,7 @@
       "prompt": "Check for updates to the Hermes Browser Extension at /Volumes/Extra/Substrate/Hermes/hermes-browser-extension/.\n\n1. Check the latest published version of the extension (store listing or GitHub releases if configured).\n2. Read the local manifest at /Volumes/Extra/Substrate/Hermes/hermes-browser-extension/manifest.json (or package.json) for the current local version.\n3. If a newer version exists, report the version delta and the upgrade path. If current, say so in one line.\n4. Do not modify any files — report only.",
       "skills": [],
       "skill": null,
-      "model": "inclusionai/ling-3.0-flash-sante:free",
+      "model": "z-ai/glm-5.3-flash",
       "provider": "openrouter",
       "provider_snapshot": null,
       "model_snapshot": null,
@@ -323,7 +366,7 @@
       "prompt": "Grocery Receipt Pull — Sunday Night\n\nYou need to pull grocery receipt data from Harris Teeter and Sam's Club for the past week.\n\nIMPORTANT: Send Ted a message first asking him to make sure the browser is active and logged in to both stores. Say: \"Sunday night grocery pull — make sure you're logged in to Harris Teeter and Sam's Club in the browser, then I'll extract new receipts.\"\n\nAfter notifying Ted, proceed if the session is active.\n\nREAD ONE RECEIPT, WRITE IT, THEN NEXT — never hold the week in your head or your output:\nFor EACH new order: extract that receipt's items, IMMEDIATELY append its rows to the ledger, then move to the next order. Keep every single response small — a few tool calls plus at most one receipt's worth of ledger rows. Never emit multiple receipts' rows in one go, and never emit rows for a receipt you have not yet appended. If a response is getting long, stop and append what you have before extracting more. A mid-run failure must cost at most one receipt, never the week.\n\nSteps for Harris Teeter:\n1. Navigate to https://www.harristeeter.com/mypurchases\n2. Check for orders since the last entry in /Volumes/Extra/Substrate/Commons/Substrate_Finance_Planning/27_Grocery_Item_Ledger.md\n3. For each new order: read its detail page, append that order's rows to the ledger, then open the next order\n\nSteps for Sam's Club (PRINT VIEW method - most reliable):\n1. Navigate to https://www.samsclub.com/orders\n2. Check for orders since the last Sam's Club entry in the ledger\n3. For each new order:\n   a. Click \"View details\" button\n   b. Click \"Print receipt\" button (print-optimized view, all items visible)\n   c. Extract items from DOM: select .print-items-list .flex.justify-between elements\n   d. Parse: name is text before \"Qty\", qty is from \"Qty N\" pattern, price is the last $XX.XX in the text\n   e. Append that order's rows to the ledger NOW, before opening the next order\n4. The print view also shows fees: .print-fees-item elements contain \"Pickup FREE\", \"Tax $X.XX\"\n\nLedger: /Volumes/Extra/Substrate/Commons/Substrate_Finance_Planning/27_Grocery_Item_Ledger.md\nRow format (existing):\n|| Date | Store | Receipt | Item raw | Item normalized | Group | Qty | Unit | Paid | Confidence | Notes |\n\nThe ledger's last entry is your resume point — only pull orders newer than it, so if a run dies partway, the next run picks up exactly where it left off.",
       "skills": [],
       "skill": null,
-      "model": "inclusionai/ling-3.0-flash-sante:free",
+      "model": "z-ai/glm-5.3-flash",
       "provider": "openrouter",
       "provider_snapshot": null,
       "model_snapshot": null,
@@ -370,7 +413,7 @@
       "prompt": "Grocery Receipt Pull — Wednesday Night (Mid-week check)\n\nCheck for new grocery receipts since the Sunday pull.\n\nIMPORTANT: Send Ted a message first: \"Wednesday grocery check — verify you're logged in to Harris Teeter and Sam's Club, then I'll check for new receipts since Sunday.\"\n\nREAD ONE RECEIPT, WRITE IT, THEN NEXT — never hold multiple receipts in your head or your output:\nFor EACH new order: extract that receipt's items, IMMEDIATELY append its rows to the ledger, then move to the next order. Keep every response small — a few tool calls plus at most one receipt's rows. Never emit rows for a receipt you have not yet appended. A mid-run failure must cost at most one receipt, never the batch.\n\nSteps for Harris Teeter:\n1. Navigate to https://www.harristeeter.com/mypurchases\n2. Check for orders since the last pull (check /Volumes/Extra/Substrate/Commons/Substrate_Finance_Planning/27_Grocery_Item_Ledger.md)\n3. For each new order: read its detail page, append that order's rows to the ledger, then open the next order\n\nSteps for Sam's Club (PRINT VIEW method):\n1. Navigate to https://www.samsclub.com/orders\n2. Check for new orders since last pull\n3. For each new order:\n   a. Click \"View details\" button\n   b. Click \"Print receipt\" button\n   c. Extract items from DOM: select `.print-items-list .flex.justify-between` elements\n   d. Parse: name is text before \"Qty\", qty from \"Qty N\", price is last $XX.XX\n   e. Append that order's rows to the ledger NOW, before opening the next order\n4. Fees are in `.print-fees-item` elements\n\nLedger: /Volumes/Extra/Substrate/Commons/Substrate_Finance_Planning/27_Grocery_Item_Ledger.md\nFormat: || Date | Store | Receipt | Item raw | Item normalized | Group | Qty | Unit | Paid | Confidence | Notes |\n\nThe ledger's last entry is your resume point — only pull orders newer than it. If no new receipts, send: \"No new receipts since Sunday.\"",
       "skills": [],
       "skill": null,
-      "model": "inclusionai/ling-3.0-flash-sante:free",
+      "model": "z-ai/glm-5.3-flash",
       "provider": "openrouter",
       "provider_snapshot": null,
       "model_snapshot": null,
@@ -470,7 +513,7 @@
       "prompt": "",
       "skills": [],
       "skill": null,
-      "model": "inclusionai/ling-3.0-flash-sante:free",
+      "model": null,
       "provider": null,
       "provider_snapshot": null,
       "model_snapshot": null,
@@ -486,7 +529,7 @@
       "schedule_display": "30 7 * * *",
       "repeat": {
         "times": null,
-        "completed": 73
+        "completed": 72
       },
       "enabled": true,
       "state": "scheduled",
@@ -494,7 +537,7 @@
       "paused_reason": null,
       "created_at": "2026-07-03T09:27:35.431740-04:00",
       "next_run_at": "2026-09-13T07:30:00-04:00",
-      "last_run_at": "2026-09-12T17:07:47.065235-04:00",
+      "last_run_at": "2026-09-12T07:30:17.786537-04:00",
       "last_status": "ok",
       "last_error": null,
       "last_delivery_error": null,
@@ -517,7 +560,7 @@
       "prompt": "",
       "skills": [],
       "skill": null,
-      "model": "inclusionai/ling-3.0-flash-sante:free",
+      "model": null,
       "provider": null,
       "provider_snapshot": null,
       "model_snapshot": null,
@@ -533,7 +576,7 @@
       "schedule_display": "45 6 * * *",
       "repeat": {
         "times": null,
-        "completed": 73
+        "completed": 72
       },
       "enabled": true,
       "state": "scheduled",
@@ -541,7 +584,7 @@
       "paused_reason": null,
       "created_at": "2026-07-03T13:45:53.381724-04:00",
       "next_run_at": "2026-09-13T06:45:00-04:00",
-      "last_run_at": "2026-09-12T17:07:47.834208-04:00",
+      "last_run_at": "2026-09-12T06:45:08.346492-04:00",
       "last_status": "ok",
       "last_error": null,
       "last_delivery_error": null,
@@ -611,7 +654,7 @@
       "prompt": "You are Substrate Monitor, Ted's system health operator. Run the morning briefing consolidation.\n\nYou will consolidate overnight signals into a structured briefing for Ted. Read in this order:\n0. /Volumes/Extra/Substrate/Substrate_Mgmt/AGENDA.md — standing agenda: open threads, owners, Ted's pending decisions. Read FIRST; let it orient everything you flag.\n1. /Volumes/Extra/Substrate/Operations/reports/meta_agent_*.md (latest)\n2. /Volumes/Extra/Substrate/Operations/Substrate_Monitor/CHAT.md (latest entries)\n3. /Volumes/Extra/Substrate/Operations/Substrate_Monitor/ACTIVE_INDEX.md\n4. /Volumes/Extra/Substrate/Operations/reports/Inbox_Outstanding_LATEST.md if present\n5. /Volumes/Extra/Substrate/_AI_Inbox/ presence scan (top-level count only)\n\nThen produce a briefing with exactly these sections:\n- System health (one line: GREEN/YELLOW/RED + why)\n- What needs Ted (max 3 items, each with one clear next step)\n- What was handled automatically (what changed overnight, no action needed)\n- Quiet items (no action, mentioned once)\n\nKeep it tight — Ted reads this fast. If nothing changed overnight, say so in one line. Do NOT modify any files.",
       "skills": [],
       "skill": null,
-      "model": "inclusionai/ling-3.0-flash-sante:free",
+      "model": "z-ai/glm-5.3-flash",
       "provider": "openrouter",
       "provider_snapshot": null,
       "model_snapshot": null,
@@ -627,7 +670,7 @@
       "schedule_display": "45 7 * * *",
       "repeat": {
         "times": null,
-        "completed": 74
+        "completed": 73
       },
       "enabled": true,
       "state": "scheduled",
@@ -635,7 +678,7 @@
       "paused_reason": null,
       "created_at": "2026-07-05T01:15:09.602937-04:00",
       "next_run_at": "2026-09-13T07:45:00-04:00",
-      "last_run_at": "2026-09-12T17:10:22.316880-04:00",
+      "last_run_at": "2026-09-12T07:45:35.292340-04:00",
       "last_status": "ok",
       "last_error": null,
       "last_delivery_error": null,
@@ -681,7 +724,7 @@
       "paused_at": null,
       "paused_reason": null,
       "created_at": "2026-07-05T18:09:46.374910-04:00",
-      "next_run_at": "2026-09-13T00:00:00-04:00",
+      "next_run_at": "2026-09-12T20:00:00-04:00",
       "last_run_at": "2026-09-12T16:00:46.599602-04:00",
       "last_status": "ok",
       "last_error": null,
@@ -690,15 +733,12 @@
       "origin": null,
       "enabled_toolsets": null,
       "workdir": null,
-      "fire_claim": {
-        "at": "2026-09-12T20:00:22.883076-04:00",
-        "by": "theos-mini.local:2988:33472377fd8b4b3bb4656e4b8ea9598c"
-      },
+      "fire_claim": null,
       "failure_streak": 0,
       "last_dispatch": {
-        "scheduled_at": "2026-09-12T20:00:00-04:00",
-        "dispatched_at": "2026-09-12T20:00:21.740565-04:00",
-        "lateness_seconds": 21.7,
+        "scheduled_at": "2026-09-12T16:00:00-04:00",
+        "dispatched_at": "2026-09-12T16:00:46.005918-04:00",
+        "lateness_seconds": 46.0,
         "kind": "on_time"
       }
     },
@@ -918,15 +958,15 @@
       "schedule_display": "0 */6 * * *",
       "repeat": {
         "times": null,
-        "completed": 730
+        "completed": 729
       },
       "enabled": true,
       "state": "scheduled",
       "paused_at": null,
       "paused_reason": null,
       "created_at": "2026-07-07T21:42:44.416472-04:00",
-      "next_run_at": "2026-09-13T00:00:00-04:00",
-      "last_run_at": "2026-09-12T18:00:05.095109-04:00",
+      "next_run_at": "2026-09-12T18:00:00-04:00",
+      "last_run_at": "2026-09-12T12:00:04.030674-04:00",
       "last_status": "ok",
       "last_error": null,
       "last_delivery_error": null,
@@ -937,9 +977,9 @@
       "fire_claim": null,
       "failure_streak": 0,
       "last_dispatch": {
-        "scheduled_at": "2026-09-12T18:00:00-04:00",
-        "dispatched_at": "2026-09-12T18:00:04.063335-04:00",
-        "lateness_seconds": 4.1,
+        "scheduled_at": "2026-09-12T12:00:00-04:00",
+        "dispatched_at": "2026-09-12T12:00:03.110728-04:00",
+        "lateness_seconds": 3.1,
         "kind": "on_time"
       }
     },
@@ -1043,7 +1083,7 @@
       "prompt": "",
       "skills": [],
       "skill": null,
-      "model": "inclusionai/ling-3.0-flash-sante:free",
+      "model": null,
       "provider": null,
       "provider_snapshot": null,
       "model_snapshot": null,
@@ -1085,12 +1125,53 @@
       }
     },
     {
+      "id": "fa80ef9ba0d4",
+      "name": "substrate-rollup",
+      "prompt": "",
+      "skills": [],
+      "skill": null,
+      "model": null,
+      "provider": null,
+      "provider_snapshot": null,
+      "model_snapshot": null,
+      "base_url": null,
+      "script": "substrate_rollup.py",
+      "no_agent": true,
+      "context_from": null,
+      "schedule": {
+        "kind": "cron",
+        "expr": "0 7 * * *",
+        "display": "0 7 * * *"
+      },
+      "schedule_display": "0 7 * * *",
+      "repeat": {
+        "times": null,
+        "completed": 59
+      },
+      "enabled": false,
+      "state": "paused",
+      "paused_at": null,
+      "paused_reason": "Disabled 2026-09-06 by claude_code per Cron Portfolio Audit #1587 item 1: output file (Substrate_Rollup_LATEST.md / Substrate_Morning_Consolidated.md) confirmed unread by any consumer (traced 2026-09-03). No dashboard, no cron, no LLM prompt reads it.",
+      "created_at": "2026-07-09T08:58:52.283971-04:00",
+      "next_run_at": "2026-09-07T07:00:00-04:00",
+      "last_run_at": "2026-09-06T07:00:02.878121-04:00",
+      "last_status": "ok",
+      "last_error": null,
+      "last_delivery_error": null,
+      "deliver": "origin",
+      "origin": null,
+      "enabled_toolsets": null,
+      "workdir": null,
+      "fire_claim": null,
+      "failure_streak": 0
+    },
+    {
       "id": "41346b39438b",
       "name": "substrate-status",
       "prompt": "",
       "skills": [],
       "skill": null,
-      "model": "inclusionai/ling-3.0-flash-sante:free",
+      "model": null,
       "provider": null,
       "provider_snapshot": null,
       "model_snapshot": null,
@@ -1137,7 +1218,7 @@
       "prompt": "",
       "skills": [],
       "skill": null,
-      "model": "inclusionai/ling-3.0-flash-sante:free",
+      "model": null,
       "provider": null,
       "provider_snapshot": null,
       "model_snapshot": null,
@@ -1231,7 +1312,7 @@
       "prompt": "",
       "skills": [],
       "skill": null,
-      "model": "inclusionai/ling-3.0-flash-sante:free",
+      "model": null,
       "provider": null,
       "provider_snapshot": null,
       "model_snapshot": null,
@@ -1294,15 +1375,15 @@
       "schedule_display": "0 */4 * * *",
       "repeat": {
         "times": null,
-        "completed": 393
+        "completed": 392
       },
       "enabled": true,
       "state": "scheduled",
       "paused_at": null,
       "paused_reason": null,
       "created_at": "2026-07-09T09:53:47.258465-04:00",
-      "next_run_at": "2026-09-13T00:00:00-04:00",
-      "last_run_at": "2026-09-12T20:00:22.705091-04:00",
+      "next_run_at": "2026-09-12T20:00:00-04:00",
+      "last_run_at": "2026-09-12T16:00:46.539164-04:00",
       "last_status": "ok",
       "last_error": null,
       "last_delivery_error": null,
@@ -1313,9 +1394,9 @@
       "fire_claim": null,
       "failure_streak": 0,
       "last_dispatch": {
-        "scheduled_at": "2026-09-12T20:00:00-04:00",
-        "dispatched_at": "2026-09-12T20:00:21.740565-04:00",
-        "lateness_seconds": 21.7,
+        "scheduled_at": "2026-09-12T16:00:00-04:00",
+        "dispatched_at": "2026-09-12T16:00:46.005918-04:00",
+        "lateness_seconds": 46.0,
         "kind": "on_time"
       }
     },
@@ -1407,7 +1488,7 @@
       "prompt": "",
       "skills": [],
       "skill": null,
-      "model": "inclusionai/ling-3.0-flash-sante:free",
+      "model": null,
       "provider": null,
       "provider_snapshot": null,
       "model_snapshot": null,
@@ -1524,7 +1605,7 @@
       "paused_at": null,
       "paused_reason": null,
       "created_at": "2026-07-09T09:53:58.682054-04:00",
-      "next_run_at": "2026-09-13T00:00:00-04:00",
+      "next_run_at": "2026-09-12T20:00:00-04:00",
       "last_run_at": "2026-09-12T16:00:52.300816-04:00",
       "last_status": "ok",
       "last_error": null,
@@ -1533,15 +1614,12 @@
       "origin": null,
       "enabled_toolsets": null,
       "workdir": null,
-      "fire_claim": {
-        "at": "2026-09-12T20:00:22.016946-04:00",
-        "by": "theos-mini.local:2988:053211fcb72248e4aa9f62e384cfec39"
-      },
+      "fire_claim": null,
       "failure_streak": 0,
       "last_dispatch": {
-        "scheduled_at": "2026-09-12T20:00:00-04:00",
-        "dispatched_at": "2026-09-12T20:00:21.740565-04:00",
-        "lateness_seconds": 21.7,
+        "scheduled_at": "2026-09-12T16:00:00-04:00",
+        "dispatched_at": "2026-09-12T16:00:46.005918-04:00",
+        "lateness_seconds": 46.0,
         "kind": "on_time"
       }
     },
@@ -1567,15 +1645,15 @@
       "schedule_display": "*/20 * * * *",
       "repeat": {
         "times": null,
-        "completed": 4676
+        "completed": 4667
       },
       "enabled": true,
       "state": "scheduled",
       "paused_at": null,
       "paused_reason": null,
       "created_at": "2026-07-09T09:53:59.696632-04:00",
-      "next_run_at": "2026-09-12T20:20:00-04:00",
-      "last_run_at": "2026-09-12T20:00:22.894829-04:00",
+      "next_run_at": "2026-09-12T17:20:00-04:00",
+      "last_run_at": "2026-09-12T17:00:55.325240-04:00",
       "last_status": "ok",
       "last_error": null,
       "last_delivery_error": null,
@@ -1586,9 +1664,9 @@
       "fire_claim": null,
       "failure_streak": 0,
       "last_dispatch": {
-        "scheduled_at": "2026-09-12T20:00:00-04:00",
-        "dispatched_at": "2026-09-12T20:00:21.740565-04:00",
-        "lateness_seconds": 21.7,
+        "scheduled_at": "2026-09-12T17:00:00-04:00",
+        "dispatched_at": "2026-09-12T17:00:55.054295-04:00",
+        "lateness_seconds": 55.1,
         "kind": "on_time"
       }
     },
@@ -1692,7 +1770,7 @@
       "prompt": "You are the daily Pieces capture lane. Pieces long-term memory sees what session-transcript scans cannot: ChatGPT role conversations, browser research, and all-app activity. Your job is to pull the genuinely durable knowledge from the last day and file only that into Brain.\n\nSTEPS:\n1. Call ask_pieces_ltm with: \"In the last 24 hours, what did I decide, discover, diagnose, or conclude across ChatGPT and the browser that is durable, reusable knowledge worth remembering later — insights, decisions, rules, boundaries, lessons? List each distinct item concisely.\" Focus on ChatGPT role conversations and browser research; substrate/coding work is already captured by the session harvest, so deprioritize it.\n2. For EACH candidate, FIRST call brain_search with the candidate's core idea. If a close match already exists in Brain, SKIP it — do not duplicate what is already captured.\n3. JUDGE each remaining candidate. KEEP only if it is a reusable pattern or anti-pattern, a concrete decision with lasting effect, a rule or boundary, a problem diagnosis with a root cause, or a framing/distinction that clarifies thinking. SKIP one-off observations, routine operations, vague statements, or anything so context-bound it would not help a future session that never saw the source.\n4. For each KEEP, write it to Brain via capture_thought with source='pieces_capture'. Phrase it trigger-anchored: begin with the concept a searcher would actually type, state the insight in 3-5 sentences, add a short \"Signal:\" line where useful, and note it was captured from Pieces/off-substrate with today's date.\n5. Be selective — most of a day is not capture-worthy. Keeping 0 to 3 items is a normal, good outcome. Never loop-and-dump; judge each item on its own.\n\nProvenance note: Pieces is a lead-finder, not an authority. Only capture items that are clearly durable knowledge on their face; if a candidate would need live-file verification to trust, skip it rather than record a possibly-wrong claim.\n\nSILENCE RULE: Ted gets a twice-daily consolidated fleet digest now, so routine per-run counts are noise. If nothing cleared the bar, respond with exactly [SILENT]. If 1-3 items were kept, respond ONLY with the one-line-per-kept-item list (no kept/skipped counts preamble, no narration). Respond normally (full detail) only if something failed or a kept item is urgent.",
       "skills": [],
       "skill": null,
-      "model": "inclusionai/ling-3.0-flash-sante:free",
+      "model": "z-ai/glm-5.3-flash",
       "provider": "openrouter",
       "provider_snapshot": null,
       "model_snapshot": null,
@@ -1708,15 +1786,15 @@
       "schedule_display": "0 20 * * *",
       "repeat": {
         "times": null,
-        "completed": 65
+        "completed": 64
       },
       "enabled": true,
       "state": "scheduled",
       "paused_at": null,
       "paused_reason": null,
       "created_at": "2026-07-11T08:48:23.391149-04:00",
-      "next_run_at": "2026-09-13T20:00:00-04:00",
-      "last_run_at": "2026-09-12T17:11:55.813867-04:00",
+      "next_run_at": "2026-09-12T20:00:00-04:00",
+      "last_run_at": "2026-09-11T20:01:11.664753-04:00",
       "last_status": "ok",
       "last_error": null,
       "last_delivery_error": null,
@@ -1724,15 +1802,12 @@
       "origin": null,
       "enabled_toolsets": null,
       "workdir": null,
-      "fire_claim": {
-        "at": "2026-09-12T20:00:22.113399-04:00",
-        "by": "theos-mini.local:2988:253b15a19dc043f1bf70ce2901dec5bd"
-      },
+      "fire_claim": null,
       "failure_streak": 0,
       "last_dispatch": {
-        "scheduled_at": "2026-09-12T20:00:00-04:00",
-        "dispatched_at": "2026-09-12T20:00:21.740565-04:00",
-        "lateness_seconds": 21.7,
+        "scheduled_at": "2026-09-11T20:00:00-04:00",
+        "dispatched_at": "2026-09-11T20:00:54.359070-04:00",
+        "lateness_seconds": 54.4,
         "kind": "on_time"
       }
     },
@@ -1765,7 +1840,7 @@
       "paused_at": null,
       "paused_reason": null,
       "created_at": "2026-07-11T16:29:55.461353-04:00",
-      "next_run_at": "2026-09-13T00:00:00-04:00",
+      "next_run_at": "2026-09-12T20:00:00-04:00",
       "last_run_at": "2026-09-12T16:00:50.999147-04:00",
       "last_status": "ok",
       "last_error": null,
@@ -1774,15 +1849,12 @@
       "origin": null,
       "enabled_toolsets": null,
       "workdir": null,
-      "fire_claim": {
-        "at": "2026-09-12T20:00:22.123066-04:00",
-        "by": "theos-mini.local:2988:ecc8e19990c240d5a7ab5c7f0cbbbd77"
-      },
+      "fire_claim": null,
       "failure_streak": 0,
       "last_dispatch": {
-        "scheduled_at": "2026-09-12T20:00:00-04:00",
-        "dispatched_at": "2026-09-12T20:00:21.740565-04:00",
-        "lateness_seconds": 21.7,
+        "scheduled_at": "2026-09-12T16:00:00-04:00",
+        "dispatched_at": "2026-09-12T16:00:46.005918-04:00",
+        "lateness_seconds": 46.0,
         "kind": "on_time"
       }
     },
@@ -1839,7 +1911,7 @@
       "prompt": "Weekly Shopping Guru check-in for Ted. This is a conversation, not a report — keep it brief and natural, like a text from a friend.\n\nTed's approach: flexible shopper who aims to get every item on sale. Will pivot based on what's on deal. Two hard no's: shrimp (severe allergy), mayo (won't eat it). Lives alone, so bulk awareness matters.\n\nSTEP 1 — LIVE DEAL PULL (do this FIRST, before writing anything):\n- Use the ht-grocery skill patterns. Ensure the CDP browser is up: Chrome at /Volumes/Extra/Apps/Google Chrome.app with --remote-debugging-port=9222 --user-data-dir=\"/Users/ted/Library/Application Support/Browser_Profiles/hermes-browser\" --remote-allow-origins='*' (Chrome 152+ needs the origins flag).\n- Pull the weekly ad live (nav to Save > Weekly Ad, or the /specials/weeklyad li-scan pattern from the skill).\n- Save the verified result to /Volumes/Extra/Substrate/Commons/Substrate_Finance_Planning/Evidence/Grocery_Receipt_Staging/ht_deals_weeklyad_latest.json (plus a dated copy). This replaces the retired scraper script.\n- Verify deal_count > 0 before continuing. If the pull fails after 2-3 pattern variations from the skill, STOP the pull, say so plainly in your message, and still send the check-in — do not fabricate deals.\n\nSTEP 2 — DEAL SELECTION (Ted's priority order):\n1. BOGO / Buy-One-Get-One and B2G2/B2G3 deals first — these are his favorite savings.\n2. Half-price and multi-buy (e.g. 5/$5) deals next.\n3. Substantial single-item markdowns (roughly 30%+ off or a striking price like sweet corn at 33c/ear).\nFocus on things Ted actually eats: chicken (wings, thighs — air fryer meal prep), salad fixings (spinach/spring mix, feta, olives, sundried tomatoes, kalamatas), pantry staples (heavy cream, chicken broth, canned fruit), gala apples, corn in season, bacon when on sale, Birds Eye frozen sides, dark chocolate.\n\nSTEP 3 — MATCH AGAINST PURCHASE HISTORY (in your head, not via script):\nRead Ted's recent purchases from the receipt ledger in the same Grocery_Receipt_Staging folder and cross-reference: which of this week's BOGO/sale items are things he actually buys? Those go first. Ignore one-off match noise; never recommend shrimp or mayo.\n\nSTEP 4 — MESSAGE:\nFlag the best 2-3 deals worth his attention, leading with BOGOs. Note fuel points coupons to clip. Mention bulk-too-big-for-one-person flags. Don't over-explain — a quick \"here's what I see this week\" is perfect.",
       "skills": [],
       "skill": null,
-      "model": "inclusionai/ling-3.0-flash-sante:free",
+      "model": "z-ai/glm-5.3-flash",
       "provider": "openrouter",
       "provider_snapshot": null,
       "model_snapshot": null,
@@ -2120,7 +2192,7 @@
       "paused_at": null,
       "paused_reason": null,
       "created_at": "2026-07-25T17:16:54.732748-04:00",
-      "next_run_at": "2026-09-13T08:00:00-04:00",
+      "next_run_at": "2026-09-12T20:00:00-04:00",
       "last_run_at": "2026-09-12T17:04:24.791549-04:00",
       "last_status": "ok",
       "last_error": null,
@@ -2129,15 +2201,12 @@
       "origin": null,
       "enabled_toolsets": null,
       "workdir": null,
-      "fire_claim": {
-        "at": "2026-09-12T20:00:22.164368-04:00",
-        "by": "theos-mini.local:2988:844c49dd04e740cdb7070963e5b0a2c1"
-      },
+      "fire_claim": null,
       "failure_streak": 0,
       "last_dispatch": {
-        "scheduled_at": "2026-09-12T20:00:00-04:00",
-        "dispatched_at": "2026-09-12T20:00:21.740565-04:00",
-        "lateness_seconds": 21.7,
+        "scheduled_at": "2026-09-12T17:00:00-04:00",
+        "dispatched_at": "2026-09-12T17:00:55.054295-04:00",
+        "lateness_seconds": 55.1,
         "kind": "on_time"
       }
     },
@@ -2147,7 +2216,7 @@
       "prompt": "Check the concept-map candidate-edge backlog: SELECT COUNT(*) FROM concept_bridge_relations WHERE promotion_status='candidate' against /Users/ted/Control/backend/system.db. If the count is 15 or fewer, respond with EXACTLY [SILENT] and nothing else. If it's over 15, respond with a short message (1-2 sentences) naming the count and suggesting Ted run a Map Curator session (?role=map_curator) to work it down -- this is a nudge, not an action, never touch the rows yourself.",
       "skills": [],
       "skill": null,
-      "model": "inclusionai/ling-3.0-flash-sante:free",
+      "model": "z-ai/glm-5.3-flash",
       "provider": "openrouter",
       "provider_snapshot": null,
       "model_snapshot": null,
@@ -2209,7 +2278,7 @@
       "enabled": false,
       "state": "paused",
       "paused_at": "2026-09-05T07:38:27.123579-04:00",
-      "paused_reason": "auto-disabled: enabled+paused contradiction",
+      "paused_reason": null,
       "created_at": "2026-07-26T18:23:19.847062-04:00",
       "next_run_at": "2026-09-06T05:00:00-04:00",
       "last_run_at": "2026-09-05T05:00:02.787471-04:00",
@@ -2292,15 +2361,15 @@
       "schedule_display": "23 * * * *",
       "repeat": {
         "times": null,
-        "completed": 636
+        "completed": 633
       },
       "enabled": true,
       "state": "scheduled",
       "paused_at": null,
       "paused_reason": null,
       "created_at": "2026-08-02T11:04:27.256761-04:00",
-      "next_run_at": "2026-09-12T20:23:00-04:00",
-      "last_run_at": "2026-09-12T19:23:17.738857-04:00",
+      "next_run_at": "2026-09-12T17:23:00-04:00",
+      "last_run_at": "2026-09-12T16:23:50.403513-04:00",
       "last_status": "error",
       "last_error": "Script exited with code 1\nstdout:\nsymlink_home_path_sweep: BANNED HOME DIR present (/Users/ted/Operations) — alert at /Volumes/Extra/Substrate/_AI_Inbox/banned_home_dir_ACTIVE.md",
       "last_delivery_error": null,
@@ -2315,11 +2384,11 @@
       "enabled_toolsets": null,
       "workdir": null,
       "fire_claim": null,
-      "failure_streak": 6,
+      "failure_streak": 3,
       "last_dispatch": {
-        "scheduled_at": "2026-09-12T19:23:00-04:00",
-        "dispatched_at": "2026-09-12T19:23:16.865251-04:00",
-        "lateness_seconds": 16.9,
+        "scheduled_at": "2026-09-12T16:23:00-04:00",
+        "dispatched_at": "2026-09-12T16:23:49.554232-04:00",
+        "lateness_seconds": 49.6,
         "kind": "on_time"
       }
     },
@@ -2329,7 +2398,7 @@
       "prompt": "Weekly work-item pass (repointed 2026-08-04 -- WORK_QUEUE.md is retired; work_items in system.db is now the one real record. Ted: \"hard to catch all the do it later stop now stuff\").\n\nQuery the live work queue: curl \"http://localhost:5555/api/work-items?state=pending&actor=substrate_hermes\" -- this returns everything pending that is NOT hard-gated away from you (owner is a soft \"likely best fit\" hint, only a required_owner match or blank means you're free to act; a required_owner set to someone else means skip it, it's not yours to force).\n\nFor each item returned where owner is \"claude_code\" or blank (this job's realistic buildable range, same scope as the old section A):\n1. Read enough surrounding context (linked files, referenced code -- follow source_surface) to understand exactly what it's asking for.\n2. Check LIVE STATE FIRST before building anything -- this codebase has a real, repeated pattern of items already being done and never marked closed. Grep/read the actual current file or run the actual current code before assuming the item is still open.\n3. If it's already done: verify it live (run it, curl it, read the actual current file), then close it out for real: curl -X POST \"http://localhost:5555/api/work-items/state\" -H \"Content-Type: application/json\" -d '{\"item_id\": <id>, \"state\": \"acted\", \"actor\": \"substrate_hermes\"}' -- and add a note of what you checked by first reading the row's current notes and PATCHing an updated notes field via a fresh POST /api/work-items with the same source_surface if the API doesn't support notes-append directly, or by appending to the row's notes column with a short SQL UPDATE against system.db (append, do not overwrite the original context).\n4. If it's genuinely open and buildable: build it, then LIVE-VERIFY the result (run the code, restart the relevant service if one exists e.g. `launchctl kickstart -k gui/$(id -u)/com.ted.control.mcp` for Control/mcp/server.py changes, test the actual behavior) before closing it via the same state-transition call. Never mark something closed on the basis of \"the code looks right\" alone.\n5. If while working an item you discover it actually needs Ted's judgment, is blocked (permissions, a contested fact, missing infrastructure), or turns out bigger than \"just build it\" -- do NOT force it through. Set its required_owner to \"ted\" via a raw SQL UPDATE against system.db's work_items table (or ask Ted directly if you have a live channel) with a clear note explaining why. Being honest about what's blocked is the job, not a failure of it.\n6. Commit each real code change with a clear message, in the correct git repo (each top-level Substrate directory -- Roles/, Planning/, Operations/, Concept_Graph/, etc. -- is its own repo; Control/ under /Users/ted is a separate repo from all of them).\n\nStop after working through what's realistically doable in one pass -- do not rush low-quality closures just to empty the list. If nothing returned is runnable this week (all genuinely blocked/ted-gated), say so plainly rather than inventing something to close.\n\nDo not touch items where required_owner is already set to someone other than you -- those need Ted's input, a different actor, or an external condition, not another automated pass.\n\nEnd with a short summary: how many items closed, how many reclassified (required_owner set), how many left untouched and why.",
       "skills": [],
       "skill": null,
-      "model": "inclusionai/ling-3.0-flash-sante:free",
+      "model": "z-ai/glm-5.3-flash",
       "provider": "openrouter",
       "provider_snapshot": null,
       "model_snapshot": null,
@@ -2436,7 +2505,7 @@
       "paused_at": null,
       "paused_reason": null,
       "created_at": "2026-08-07T18:32:45.646414+00:00",
-      "next_run_at": "2026-09-13T20:00:00-04:00",
+      "next_run_at": "2026-09-12T20:00:00-04:00",
       "last_run_at": "2026-09-11T20:13:06.203181-04:00",
       "last_status": "ok",
       "last_error": null,
@@ -2445,17 +2514,14 @@
       "origin": null,
       "enabled_toolsets": null,
       "workdir": null,
-      "fire_claim": {
-        "at": "2026-09-12T20:00:22.213045-04:00",
-        "by": "theos-mini.local:2988:1b7029cf09054bca82aea9ed5d7c9722"
-      },
+      "fire_claim": null,
       "provider_snapshot": null,
       "model_snapshot": null,
       "failure_streak": 0,
       "last_dispatch": {
-        "scheduled_at": "2026-09-12T20:00:00-04:00",
-        "dispatched_at": "2026-09-12T20:00:21.740565-04:00",
-        "lateness_seconds": 21.7,
+        "scheduled_at": "2026-09-11T20:00:00-04:00",
+        "dispatched_at": "2026-09-11T20:00:54.359070-04:00",
+        "lateness_seconds": 54.4,
         "kind": "on_time"
       }
     },
@@ -2655,15 +2721,15 @@
       "schedule_display": "0 * * * *",
       "repeat": {
         "times": null,
-        "completed": 869
+        "completed": 867
       },
       "enabled": true,
       "state": "scheduled",
       "paused_at": null,
       "paused_reason": null,
       "created_at": "2026-08-07T18:32:45.646414+00:00",
-      "next_run_at": "2026-09-12T21:00:00-04:00",
-      "last_run_at": "2026-09-12T19:00:14.256477-04:00",
+      "next_run_at": "2026-09-12T18:00:00-04:00",
+      "last_run_at": "2026-09-12T17:00:55.565713-04:00",
       "last_status": "ok",
       "last_error": null,
       "last_delivery_error": null,
@@ -2671,15 +2737,12 @@
       "origin": null,
       "enabled_toolsets": null,
       "workdir": null,
-      "fire_claim": {
-        "at": "2026-09-12T20:00:22.920615-04:00",
-        "by": "theos-mini.local:2988:b56904da1a1c41a8b59fba8e48e78c25"
-      },
+      "fire_claim": null,
       "failure_streak": 0,
       "last_dispatch": {
-        "scheduled_at": "2026-09-12T20:00:00-04:00",
-        "dispatched_at": "2026-09-12T20:00:21.740565-04:00",
-        "lateness_seconds": 21.7,
+        "scheduled_at": "2026-09-12T17:00:00-04:00",
+        "dispatched_at": "2026-09-12T17:00:55.054295-04:00",
+        "lateness_seconds": 55.1,
         "kind": "on_time"
       }
     },
@@ -2932,7 +2995,7 @@
       "paused_at": null,
       "paused_reason": null,
       "created_at": "2026-08-07T18:32:45.646414+00:00",
-      "next_run_at": "2026-09-13T20:00:00-04:00",
+      "next_run_at": "2026-09-12T20:00:00-04:00",
       "last_run_at": "2026-09-11T20:00:56.168631-04:00",
       "last_status": "ok",
       "last_error": null,
@@ -2941,15 +3004,12 @@
       "origin": null,
       "enabled_toolsets": null,
       "workdir": null,
-      "fire_claim": {
-        "at": "2026-09-12T20:00:22.749675-04:00",
-        "by": "theos-mini.local:2988:be66bf565cd5454a924338ed62819ec5"
-      },
+      "fire_claim": null,
       "failure_streak": 0,
       "last_dispatch": {
-        "scheduled_at": "2026-09-12T20:00:00-04:00",
-        "dispatched_at": "2026-09-12T20:00:21.740565-04:00",
-        "lateness_seconds": 21.7,
+        "scheduled_at": "2026-09-11T20:00:00-04:00",
+        "dispatched_at": "2026-09-11T20:00:54.359070-04:00",
+        "lateness_seconds": 54.4,
         "kind": "on_time"
       }
     },
@@ -3143,7 +3203,7 @@
       "prompt": "The input above is JSON with current contents of Ted's four inbox surfaces: _AI_Inbox, Codex_Inbox, GPT_Architect/Inbox, and Coordinator/Inbox. Each item has age_days, filename, and a snippet of the body.\n\nFor each item, classify it into one of:\n- ACTIONABLE-CC: needs Claude Code work (file edits, structural changes, code/script work, audit closures)\n- ACTIONABLE-CODEX: needs Codex work (analysis, design proposals, exploration that Codex shoud handle)\n- NEEDS-TED-DECISION: requires Ted to make a call before any AI can proceed\n- CONTEXT-ONLY: informational, no action implied (just FYI, briefings, reference material)\n- STALE-CANDIDATE: older than 14 days AND no clear pending action; safe-to-archive candidate\n- DUPLICATE: substantively duplicates another item in the inbox\n\nFor each item also note: where it should be routed (which AI should pick it up) and what the next concrete move would be.\n\nWrite the report to /Volumes/Extra/Substrate/Operations/Inbox_Triage_Report.md with structure:\n\n# Inbox Triage — {today}\n\nGenerated by Hermes inbox_triage_clerk. Classifications are candidates, not directives — Ted reviews and routes.\n\n## ACTIONABLE-CC ({count})\n(one per item: filename + age + suggested next move)\n\n## ACTIONABLE-CODEX ({count})\n\n## NEEDS-TED-DECISION ({count})\n\n## CONTEXT-ONLY ({count})\n\n## STALE-CANDIDATE ({count})\n\n## DUPLICATE ({count})\n\nBe conservative on STALE and DUPLICATE — default to keeping items unless the case is clear. Don't suggest deletion if there's any uncertainty about pending action. If the inbox is empty or has no items needing classification, write 'All inboxes clear — no items to triage today.' and exit.\n\nWrite to /Volumes/Extra/Substrate/Operations/ — never /Users/ted/Operations.",
       "skills": [],
       "skill": null,
-      "model": "inclusionai/ling-3.0-flash-sante:free",
+      "model": "z-ai/glm-5.3-flash",
       "provider": "openrouter",
       "base_url": null,
       "script": "inbox_triage_prep.py",
@@ -3157,7 +3217,7 @@
       "schedule_display": "0 8 * * *",
       "repeat": {
         "times": null,
-        "completed": 38
+        "completed": 37
       },
       "enabled": true,
       "state": "scheduled",
@@ -3165,7 +3225,7 @@
       "paused_reason": null,
       "created_at": "2026-08-07T18:32:45.646414+00:00",
       "next_run_at": "2026-09-13T08:00:00-04:00",
-      "last_run_at": "2026-09-12T17:07:36.359153-04:00",
+      "last_run_at": "2026-09-12T08:24:12.828030-04:00",
       "last_status": "ok",
       "last_error": null,
       "last_delivery_error": null,
@@ -3364,7 +3424,7 @@
       "prompt": "Read the latest Pieces continuity digest and route actionable items.\n\nSteps:\n1. Find the latest digest: `ls -t /Volumes/Extra/Substrate/Hermes/Working/pieces_continuity_*.md | head -1`\n2. Read the digest\n3. Extract:\n   a. New Copilot conversations — what topics did Ted discuss with Pieces?\n   b. Key file paths mentioned — what files was Ted working on?\n   c. Decisions captured — what decisions did Ted make?\n   d. Commands run — what was Ted doing?\n4. For each Copilot conversation about substrate topics (MRS, Canon, Hermes, Codex, hooks, cron, _shared, Pieces itself):\n   - Write a brief summary to `/Volumes/Extra/Substrate/Hermes/Working/pieces_copilot_summaries.md` (append)\n   - If the conversation suggests a new idea or problem, create an inbox item in `/Volumes/Extra/Substrate/_AI_Inbox/` (absolute path — the live cross-AI inbox; do not use the retired /Users/ted/_AI_Inbox/ or any relative `_AI_Inbox/` reference, which would create an orphaned inbox nobody reads)\n5. For decisions captured: append to `/Volumes/Extra/Substrate/Hermes/Working/pieces_decisions_log.md`\n6. Report what you routed and where\n\nBe conservative — only route genuinely new information. Skip routine file browsing and tool output.",
       "skills": [],
       "skill": null,
-      "model": "inclusionai/ling-3.0-flash-sante:free",
+      "model": "z-ai/glm-5.3-flash",
       "provider": "openrouter",
       "base_url": null,
       "script": null,
@@ -3378,7 +3438,7 @@
       "schedule_display": "30 7 * * *",
       "repeat": {
         "times": null,
-        "completed": 39
+        "completed": 38
       },
       "enabled": true,
       "state": "scheduled",
@@ -3386,7 +3446,7 @@
       "paused_reason": null,
       "created_at": "2026-08-07T18:32:45.646414+00:00",
       "next_run_at": "2026-09-13T07:30:00-04:00",
-      "last_run_at": "2026-09-12T17:12:14.028598-04:00",
+      "last_run_at": "2026-09-12T07:30:24.502944-04:00",
       "last_status": "ok",
       "last_error": null,
       "last_delivery_error": null,
@@ -3824,7 +3884,7 @@
       "prompt": "You are the model-intelligence reviewer for Ted's fleet. Weekly job. Scope: NEW interesting/specialized models, deals, and subscription/bundle economics — anything worth having or paying differently for.\n\n1. Fetch https://openrouter.ai/collections/discounted-models with web_extract (server-rendered — do NOT use browser tools; browser/CDP is unavailable). If empty, fall back to the OR models API https://openrouter.ai/api/v1/models via terminal curl; watch for the fleet lane in /Volumes/Extra/Substrate/Operations/state/model_pricing_snapshot.json and the reference doc /Volumes/Extra/Substrate/Roles/model_testbench/doc/Model_Watchlist.md.\n2. NEW/interesting models: look past discounts — new releases, free tiers, specialized value (long context, vision, high-TPS, cheap agentic) plausibly useful for cron-style fleet work. Flag free→paid flips on the fallback lane (nvidia/nemotron-3-ultra-550b-a55b:free, nemotron-3.5-lightning:free, glm-5.2:free).\n3. Deals: discounted OR models worth a testbench run; note OR id, in/out price, promo expiry if visible.\n4. Subscription/bundle economics: verify current z.ai GLM plan tier prices + the z.ai token-pack/bundle page (check https://z.ai/manage-apikey/billing for any wallet/pack offers — note that a \"10M tokens / 3 months / ~$20\" pack is NOT on the public subscribe page and its value is ~API price, NOT a deal vs the plan). Also spot-check OpenCode Go (~$10/mo), MiniMax Token Plan ($10/mo), Qwen/Bailian (~¥39/mo), and Kimi. Flag any price change worth knowing.\n5. Write the full review to /Volumes/Extra/Substrate/Operations/reports/Model_Discount_Review_LATEST.md (dated header, candidate table, \"worth testing\" column). Write with write_file (create parent dirs if needed).\n6. If any new candidate deserves a testbench run, append one line (model id + reason) to /Volumes/Extra/Substrate/Roles/model_testbench/NEXT_ACTION.md via patch with a unique anchor, and add/update the entry in /Volumes/Extra/Substrate/Roles/model_testbench/doc/Model_Watchlist.md (append a dated section or update the relevant row).\n7. Final response = compact telegram summary: only NEW or changed items worth Ted's attention (models, deals, subscription changes). If nothing new, say \"No new model-deal items worth flagging this week.\" Keep under 200 words.\n\nConstraints: do NOT use browser_navigate / browser_console / browser_snapshot. Do NOT use execute_code (blocked in cron mode). Terminal curl + web_extract + read_file + write_file + patch are fine. Keep the whole run under 20 tool calls. If a fetch fails twice, note it in the report and summary — do not retry indefinitely.",
       "skills": [],
       "skill": null,
-      "model": "inclusionai/ling-3.0-flash-sante:free",
+      "model": "z-ai/glm-5.3-flash",
       "provider": "openrouter",
       "provider_snapshot": null,
       "model_snapshot": null,
@@ -3840,7 +3900,7 @@
       "schedule_display": "0 8 * * 1",
       "repeat": {
         "times": null,
-        "completed": 6
+        "completed": 5
       },
       "enabled": true,
       "state": "scheduled",
@@ -3848,7 +3908,7 @@
       "paused_reason": null,
       "created_at": "2026-08-14T21:02:44.836249-04:00",
       "next_run_at": "2026-09-14T08:00:00-04:00",
-      "last_run_at": "2026-09-12T17:08:45.344219-04:00",
+      "last_run_at": "2026-09-07T08:03:28.948412-04:00",
       "last_status": "ok",
       "last_error": null,
       "last_delivery_error": null,
@@ -4031,15 +4091,15 @@
       "schedule_display": "15 */6 * * *",
       "repeat": {
         "times": null,
-        "completed": 57
+        "completed": 56
       },
       "enabled": true,
       "state": "scheduled",
       "paused_at": null,
       "paused_reason": null,
       "created_at": "2026-08-29T19:37:29.703309-04:00",
-      "next_run_at": "2026-09-13T00:15:00-04:00",
-      "last_run_at": "2026-09-12T18:15:08.063620-04:00",
+      "next_run_at": "2026-09-12T18:15:00-04:00",
+      "last_run_at": "2026-09-12T12:15:06.570076-04:00",
       "last_status": "ok",
       "last_error": null,
       "last_delivery_error": null,
@@ -4050,9 +4110,9 @@
       "workdir": null,
       "fire_claim": null,
       "last_dispatch": {
-        "scheduled_at": "2026-09-12T18:15:00-04:00",
-        "dispatched_at": "2026-09-12T18:15:06.753333-04:00",
-        "lateness_seconds": 6.8,
+        "scheduled_at": "2026-09-12T12:15:00-04:00",
+        "dispatched_at": "2026-09-12T12:15:05.293478-04:00",
+        "lateness_seconds": 5.3,
         "kind": "on_time"
       }
     },
@@ -4081,15 +4141,15 @@
       "schedule_display": "every 10m",
       "repeat": {
         "times": null,
-        "completed": 1949
+        "completed": 1931
       },
       "enabled": true,
       "state": "scheduled",
       "paused_at": null,
       "paused_reason": null,
       "created_at": "2026-08-30T05:35:42.939777-04:00",
-      "next_run_at": "2026-09-12T20:07:21.673950-04:00",
-      "last_run_at": "2026-09-12T19:57:21.673950-04:00",
+      "next_run_at": "2026-09-12T17:06:54.809667-04:00",
+      "last_run_at": "2026-09-12T16:56:54.809667-04:00",
       "last_status": "ok",
       "last_error": null,
       "last_delivery_error": null,
@@ -4100,9 +4160,9 @@
       "workdir": null,
       "fire_claim": null,
       "last_dispatch": {
-        "scheduled_at": "2026-09-12T19:57:20.370927-04:00",
-        "dispatched_at": "2026-09-12T19:57:21.372856-04:00",
-        "lateness_seconds": 1.0,
+        "scheduled_at": "2026-09-12T16:56:53.285519-04:00",
+        "dispatched_at": "2026-09-12T16:56:54.511416-04:00",
+        "lateness_seconds": 1.2,
         "kind": "on_time"
       }
     },
@@ -4400,15 +4460,15 @@
       "schedule_display": "20 * * * *",
       "repeat": {
         "times": null,
-        "completed": 84
+        "completed": 81
       },
       "enabled": true,
       "state": "scheduled",
       "paused_at": null,
       "paused_reason": null,
       "created_at": "2026-09-09T08:01:01.588102-04:00",
-      "next_run_at": "2026-09-12T20:20:00-04:00",
-      "last_run_at": "2026-09-12T19:20:16.297041-04:00",
+      "next_run_at": "2026-09-12T17:20:00-04:00",
+      "last_run_at": "2026-09-12T16:20:49.399097-04:00",
       "last_status": "ok",
       "last_error": null,
       "last_delivery_error": null,
@@ -4421,9 +4481,9 @@
       "failure_deliver": "local",
       "fire_claim": null,
       "last_dispatch": {
-        "scheduled_at": "2026-09-12T19:20:00-04:00",
-        "dispatched_at": "2026-09-12T19:20:16.098388-04:00",
-        "lateness_seconds": 16.1,
+        "scheduled_at": "2026-09-12T16:20:00-04:00",
+        "dispatched_at": "2026-09-12T16:20:49.100488-04:00",
+        "lateness_seconds": 49.1,
         "kind": "on_time"
       }
     },
@@ -4510,15 +4570,15 @@
       "schedule_display": "0 18 * * *",
       "repeat": {
         "times": null,
-        "completed": 3
+        "completed": 2
       },
       "enabled": true,
       "state": "scheduled",
       "paused_at": null,
       "paused_reason": null,
       "created_at": "2026-09-09T22:05:37.511759-04:00",
-      "next_run_at": "2026-09-13T18:00:00-04:00",
-      "last_run_at": "2026-09-12T18:00:05.253280-04:00",
+      "next_run_at": "2026-09-12T18:00:00-04:00",
+      "last_run_at": "2026-09-11T18:00:33.451993-04:00",
       "last_status": "ok",
       "last_error": null,
       "last_delivery_error": null,
@@ -4536,9 +4596,9 @@
       "enabled_toolsets": null,
       "workdir": null,
       "last_dispatch": {
-        "scheduled_at": "2026-09-12T18:00:00-04:00",
-        "dispatched_at": "2026-09-12T18:00:04.063335-04:00",
-        "lateness_seconds": 4.1,
+        "scheduled_at": "2026-09-11T18:00:00-04:00",
+        "dispatched_at": "2026-09-11T18:00:32.451150-04:00",
+        "lateness_seconds": 32.5,
         "kind": "on_time"
       },
       "fire_claim": null
@@ -4690,5 +4750,5 @@
       "workdir": null
     }
   ],
-  "updated_at": "2026-09-12T20:00:22.921383-04:00"
+  "updated_at": "2026-09-12T17:04:24.793036-04:00"
 }

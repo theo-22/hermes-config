@@ -1,4 +1,0 @@
-interface:
-  display_name: "Manager Handoff Contract"
-  short_description: "Shape ideas into manager-ready handoffs"
-  default_prompt: "Use $manager-handoff-contract to shape this idea into a manager-ready handoff without deciding or implementing it."

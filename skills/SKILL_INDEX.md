@@ -201,6 +201,9 @@ If the `/` menu is crowded, scan this card first, then search for the exact skil
 - `icon-apply-sort`
   Icon System capability — sorts and applies processed icon images to their Finder targets. Paired with `icon-image-processor`, which only produces the images.
 
+- `icon-visual-audit-capture`
+  Use for production-grade Icon System visual QA packages that preserve real Finder context, true canonical scale, normalized design detail, and deterministic measurements without modifying canonical icons.
+
 - `ht-grocery`
   Use for Harris Teeter grocery site automation — My Specials, Weekly Ad, cart, checkout. CDP browser patterns for the site's React SPA, including the click-doesn't-fire workaround. Human in the loop on checkout; never auto-submits orders.
 

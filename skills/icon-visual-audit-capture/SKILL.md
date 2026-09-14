@@ -2,7 +2,7 @@
 name: icon-visual-audit-capture
 description: Build a repeatable production-grade visual QA package for an Icon System family from a real Finder screenshot plus canonical PNGs. Use before cleanup, batch review, or family acceptance so apparent scale, real navigation salience, and artwork quality are judged separately instead of being collapsed into one normalized contact sheet.
 metadata:
-  category: icon-system
+  category: meta
   write_mode: shared
   one_line_use: capture real-use Finder truth, true-scale family comparison, normalized detail inspection, and measurements without touching canonical icons
   fast_pick: "yes"

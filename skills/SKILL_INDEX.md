@@ -51,6 +51,12 @@ If the `/` menu is crowded, scan this card first, then search for the exact skil
 
 ### File-Write / Operational (reads system files, executes action sequences)
 
+- `mimoud-episode-review`
+  Use when Ted publishes/updates a MiMOUD or /notes/ podcast episode on artisticlogistics.com. Handles Sources page + video/audio card publishing; runs an adversarial source-fidelity review only when the material is new/substantive, not by default.
+
+- `external-artifact-intake`
+  Use when an external generator, app, or AI runtime delivers an artifact into Downloads or another transient ingress and real work will use it. The first actor that substantively uses the artifact owns importing it into the durable project/Home location, verifying the landed copy, then clearing the transient copy. Exceptions: symlinked intake lanes, user-designated working areas, one-shot ephemeral reads, internal system outputs, domain-owned placement skills.
+
 - `macos-disk-cleanup`
   Use when a Mac is low on space or Ted wants a cleanup. Measures physical versus apparent use, classifies disposable/active/personal/system-protected candidates, executes only the exact authorized batch, and separates live deletion from snapshot-retained recovery.
 
@@ -286,6 +292,7 @@ If the `/` menu is crowded, scan this card first, then search for the exact skil
 - `live-surface-verification` = prove the live surface before trusting docs
 - `friction-flow-tracing` = capture route-changing friction or flow now for grouped owner review later
 - `probe-chatgpt-host-artifact-binding` = prove exact native artifact transport before receiver work
+- `external-artifact-intake` = import externally delivered artifacts from transient ingress to their durable home
 - `trace-claim-evidence` = match each assertion to prior evidence before judging or promoting a detector
 - `quick-save` = save a bounded task without full session-end
 - `shape-work-item-sessions` = turn live queue rows and current decisions into bounded future-session contracts
@@ -498,6 +505,7 @@ If the main need is deciding whether a role may safely dispatch Hermes workers:
 - `icon-image-processor`
 - `icon-apply-sort`
 - `accepted-image-finishing`
+- `external-artifact-intake`
 - `image-factory-16x9-replacement-workflow`
 - `image-factory-mixed-replacement-batch-generation`
 - `lens-assembly-pass`

@@ -1,1 +1,9 @@
-clear
+Agent_Continuity_State_Loss
+Clinical_CoCM_Development
+Clinical_GPT_Development
+Comparative_Systems_And_Long_Range
+Digest_Research_Monitoring_Calibration
+Hermes_Operator_Integration
+Orchestration
+Role_Library
+Work_Notes_Decision_Intake

@@ -1,0 +1,4 @@
+interface:
+  display_name: "Repair Model-Visible Token Transport"
+  short_description: "Move blocked token arguments behind opaque handles"
+  default_prompt: "Use $repair-model-visible-token-transport to replace this blocked credential-like tool argument with a server-resolved opaque handle while preserving its original controls."

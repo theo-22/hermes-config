@@ -1,0 +1,4 @@
+interface:
+  display_name: "Update Protected Generated Artifacts"
+  short_description: "Protect generator edits and prove every mirror"
+  default_prompt: "Use $update-protected-generated-artifacts to safely edit this generator, rebuild every output, and verify the real consumer path."

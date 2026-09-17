@@ -1,0 +1,35 @@
+Cronjob Response: audit-request-daily-triage
+(job_id: 5ddd651c1772)
+-------------
+
+All checks complete. Queue true-empty verified, candidate intact, cron pause holding, and one new health item (audit_preflight 2nd upstream error — packet still landed). CHAT.md updated.
+
+---
+
+# Audit Request Daily Triage — 2026-08-13 (06:45 cron)
+
+**Result: 0 requests processed — queue verified TRUE EMPTY.** `pending/` holds only `.DS_Store`; `Summary_Latest.md` regenerated 06:45 today. No passes, fails, candidates, or duplicates.
+
+## Candidate placement verified — the 08-12 fix holds
+- `audit-alert-control-mcp-server-20260806.json` **still in `dispatched/`** (mtime Aug 12 06:51 = `_restored_at` stamp; JSON parses OK; `status: audit_candidate`; 5 change_refs intact; dedupe_key display-mask known-good per prior byte-level check).
+- **audit-gpt-dispatch cron still PAUSED** (`enabled: False`) — no repeat of the undocumented move.
+- **Still awaiting Ted/Codex:** approve dispatch (v0 trial ends) or archive candidate + the Audit GPT inbox item. No change since 08-12.
+
+## New this run
+1. **audit_preflight (976d3e8fa25f, mine) — 2nd distinct upstream error in 3 runs, but the deliverable landed.** Aug 10 `ResourceExhausted` ❌ → Aug 11 ✅ → Aug 12 `HTTP 404` ❌. However `Operations/Audit_Preflight.md` **for 2026-08-13 exists** (written Aug 12 20:05; 4 well-formed candidates, including the 175-broken-refs drift + Projects_GPT retirement propagation seam). The run wrote the packet, then a later model call failed — job flagged, packet current, no immediate impact. Root context: still pinned to `nvidia/nemotron-3-ultra-550b-a55b:free` via **openrouter** (the pre-07-04 routing path; standard is deepseek-v4-flash direct). **Recommendation: re-pin on next Ted touch** (requires delete/recreate — model/provider aren't editable via `cron edit`). No urgency; noting for the fleet-routing standard.
+2. **symlink-home-path-sweep: 3 NEW violations — pattern growing again.** `~/.claude/skills/{cold-probe-refine, compile-work-packet, trace-claim-evidence}` → `~/Skills/*`. Canonical twins **all exist** (verified) → mechanically fixable, but CC's `.claude/skills/` surface → **route to CC/Ted, not auto-fixed**. Note: trace-claim-evidence was flagged 08-12 and still un-repointed; 2 are new. Trajectory: 08-08:1 → 08-09:2 → 08-10:3 → (CC repointed Aug 10) → 08-12:1 → **08-13:3**. CC repoint pass needed again.
+
+## Health (elsewhere)
+- **Preflight YELLOW** — sole yellow unchanged: no actor notifications in 24h (stop-hook→inbox mechanism silent; same watch item since 08-12 — now 2 days). Operations git 2 dirty (baseline).
+- **Cron pulse:** 1 error (audit_preflight above). By-design findings: ai-cost-dashboard anthropic manual 4d stale (known recurring); grocery HT parked on sign-in (known quirk); symlink sweep 3 new (above). Watchdog run-integrity: silent.
+- **AI Inbox:** 125 outstanding, 0 addressed to Substrate-Hermes by name. 6 new packets since 08-12 (map_curator_defects, plastic-inference probe, scribe refusals, concept-map fix, work-protection v2, capability/instrumentation proposal → Ted+Orchestrator). Open routing decisions unchanged: SYSTEM_ALERT 63c7511aeb (336 dead-path refs) + trace-claim-evidence symlink. No claude-validator response pending. Hermes/Inbox: nothing new since Aug 9.
+- **Meta-agent (00:30):** 18 need action, same parked set; 4 quiet-refresh candidates at 37d — quiet-refresh pass overdue since ~Aug 10, **needs Ted route**.
+- **Zulip:** no mentions. **System 14:** v0.38 (08-13) fresh.
+
+## Action items (for Ted)
+1. **Disposition the server.py audit candidate** — approve dispatch or archive (open 8 days).
+2. **Route the 3 CC skill symlinks** (canonical twins verified; mechanical repoint) + note the pattern is recurring.
+3. **Quiet-refresh pass** for the 4 quiet rooms at 37d (last done Jul 7) — needs your go.
+4. **audit_preflight re-pin to deepseek-v4-flash direct** on next touch (2nd upstream failure in 3 runs; packet still current so no urgency).
+
+To stop or manage this job, send me a new message (e.g. "stop reminder audit-request-daily-triage").

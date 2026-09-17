@@ -1,0 +1,4 @@
+interface:
+  display_name: "Reconcile Runtime Authority"
+  short_description: "Repair competing authority files and live wiring"
+  default_prompt: "Use $reconcile-runtime-authority to identify the real live authority, retire competing surfaces, and prove the corrected chain in a fresh runtime."

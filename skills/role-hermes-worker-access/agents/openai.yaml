@@ -1,0 +1,3 @@
+display_name: Role Hermes Worker Access
+short_description: Add safe, role-scoped Hermes worker dispatch to ChatGPT role runtimes.
+default_prompt: Use role-hermes-worker-access to design or review bounded Hermes worker access for this role.

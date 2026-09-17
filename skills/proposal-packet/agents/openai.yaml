@@ -1,0 +1,4 @@
+interface:
+  display_name: "Proposal Packet"
+  short_description: "Shape durable proposal handoffs"
+  default_prompt: "Use $proposal-packet to turn the current discussion into a compact proposal packet."

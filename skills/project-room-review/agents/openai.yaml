@@ -1,0 +1,4 @@
+interface:
+  display_name: "Project Room Review"
+  short_description: "Review project rooms from live state"
+  default_prompt: "Use $project-room-review to review this Project Room from live room-local state."

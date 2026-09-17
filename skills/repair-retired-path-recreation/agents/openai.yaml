@@ -1,0 +1,4 @@
+interface:
+  display_name: "Repair Retired Path Recreation"
+  short_description: "Stop retired paths from being rebuilt"
+  default_prompt: "Use $repair-retired-path-recreation to trace and stop the live writers recreating this retired path."

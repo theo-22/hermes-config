@@ -1,0 +1,4 @@
+interface:
+  display_name: "Verify Real Invocation Path"
+  short_description: "Prove the installed path, not a proxy test"
+  default_prompt: "Use $verify-real-invocation-path to test this completion claim through the exact installed consumer path and separate local proof from fresh-client acceptance."

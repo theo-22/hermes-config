@@ -1,0 +1,4 @@
+interface:
+  display_name: "Reconcile Promoted Findings"
+  short_description: "Repair accidental findings-to-work queue promotions"
+  default_prompt: "Use $reconcile-promoted-findings-work-items to reconcile a suspected bulk findings promotion against the live work-items queue."

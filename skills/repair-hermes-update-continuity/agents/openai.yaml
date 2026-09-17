@@ -1,0 +1,4 @@
+interface:
+  display_name: "Repair Hermes Update Continuity"
+  short_description: "Protect sessions across Hermes updates"
+  default_prompt: "Use $repair-hermes-update-continuity to verify and repair Hermes after an update without risking session data."

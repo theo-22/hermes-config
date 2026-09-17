@@ -1,0 +1,4 @@
+interface:
+  display_name: "Reconcile Work-System Truth"
+  short_description: "Repair lifecycle drift across work surfaces"
+  default_prompt: "Use $reconcile-work-system-truth to reconcile the bounded work-system cohort from canonical database truth through recoverable archive and regenerated projections."

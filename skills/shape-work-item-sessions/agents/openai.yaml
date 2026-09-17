@@ -1,0 +1,4 @@
+interface:
+  display_name: "Shape Work Item Sessions"
+  short_description: "Turn queue rows into runnable session contracts"
+  default_prompt: "Use $shape-work-item-sessions to reconcile these live work items and prepare each one as a bounded future session."

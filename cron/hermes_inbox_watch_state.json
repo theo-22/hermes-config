@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-09-19T11:20:44.902447+00:00",
+  "generated_at": "2026-09-19T15:20:30.203065+00:00",
   "files": {
     "2026-09-06_LANE3_STALE_FILE_CLEANUP_UNGATED.md": {
       "size": 1014,
@@ -8,6 +8,10 @@
     "2026-09-12_lane2_rec2_sidecar_reach_unscheduled.md": {
       "size": 2060,
       "mtime_ns": 1789815680949623023
+    },
+    "weekly_answer_shoring_review_2026-09-19.md": {
+      "size": 1228,
+      "mtime_ns": 1789830026586302581
     }
   }
 }

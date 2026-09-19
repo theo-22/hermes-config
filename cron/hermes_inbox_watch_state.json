@@ -1,13 +1,13 @@
 {
-  "generated_at": "2026-09-19T07:20:53.384982+00:00",
+  "generated_at": "2026-09-19T11:20:44.902447+00:00",
   "files": {
     "2026-09-06_LANE3_STALE_FILE_CLEANUP_UNGATED.md": {
       "size": 1014,
       "mtime_ns": 1788716400818350078
     },
     "2026-09-12_lane2_rec2_sidecar_reach_unscheduled.md": {
-      "size": 1541,
-      "mtime_ns": 1789211110557499985
+      "size": 2060,
+      "mtime_ns": 1789815680949623023
     }
   }
 }

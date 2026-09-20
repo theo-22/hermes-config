@@ -156,7 +156,7 @@ Do not roll offline PASS into qualification PASS. If the user later authorizes o
 - Treating current provider unavailability as model-quality evidence.
 - Spending the final request during repair verification rather than stopping for authorization.
 
-## Reference implementation
+## Historical reference implementation
 
 The 2026-08-27 through 2026-08-28 `glm53-zai-evaluator` repair is the worked instance:
 
@@ -164,8 +164,22 @@ The 2026-08-27 through 2026-08-28 `glm53-zai-evaluator` repair is the worked ins
 - final provenance/qualification receipt: `/Volumes/Extra/Substrate/Operations/reports/Orchestration_Receipts/GLM53_ZAI_Coding_Plan_Qualification_Final_2026-08-28.md`;
 - transport adapter commit: `52bb602960`;
 - request-lifetime provenance commit: `e22ab9ec53`;
-- adapter: `/Users/ted/.hermes/hermes-agent/agent/zai_urllib_transport.py`.
+- historical adapter: `agent/zai_urllib_transport.py` (absent from the installed checkout as of 2026-09-20; use the receipts and commit IDs above as historical evidence, not a current edit target).
 
 The final specimen proved a real Z.AI Coding Plan HTTP 429 with request-local `HTTP_RESPONSE_RECEIVED` provenance while the authenticated console showed no active Coding Plan subscription. That combination established correct routing plus account-plan rejection, not model failure and not a locally synthesized 429.
 
 These paths identify evidence, not permanent API. Re-resolve the installed Hermes source, active profile, and current constructor names on every use.
+
+### Installed source check (2026-09-20)
+
+The installed checkout currently constructs OpenAI-compatible clients in
+`/Users/ted/.hermes/hermes-agent/agent/agent_runtime_helpers.py`
+(`create_openai_client`) and shapes Chat Completions calls in
+`/Users/ted/.hermes/hermes-agent/agent/transports/chat_completions.py`
+(`ChatCompletionsTransport`). The latter's `urllib.parse.urlparse` import only
+parses URLs; it is not evidence that the removed urllib wire adapter was folded
+into this module. Do not claim migration or equivalent behavior from that match.
+
+Trace the active constructor and selected provider on every repair. An absent
+historical adapter is not a reason to restore it or change runtime transport;
+require the same-body differential and offline isolation proof described above.

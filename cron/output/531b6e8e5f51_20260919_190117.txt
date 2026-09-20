@@ -1,0 +1,50 @@
+Cronjob Response: substrate-morning-briefing
+(job_id: 531b6e8e5f51)
+-------------
+
+# Substrate Daily Briefing — 2026-09-18 19:00 → 2026-09-19 19:00 EDT
+
+**Overall: YELLOW.** No new system fault — the cron fleet itself ran clean (398 runs, 2 script failures, 0 agent failures). The yellow comes from two defects carried from earlier that nothing had escalated yet (a 5-day family-backup gap and 21 jobs sitting on a free tier that dies Oct 4), plus the Claude usage reading going unavailable today. Note one reconciled contradiction: the fleet digest lists 5 jobs "in error state" while preflight says none in 24h — the error state is sticky last-exit, preflight counts only today's runs. Both are correct.
+
+## What needs Ted (3)
+
+1. **Family backup has stopped producing.** Newest Reunion snapshot in iCloud is 2026-09-14 07:00 UTC (126h); the watchdog has alerted four mornings straight (09-16→09-19) and this has never appeared in a briefing. *Why it matters:* it's the only recurring copy of Mom's family files. *Next step:* one check of the Reunion→iCloud source (you own the logins) — if that pipeline is intentionally retired, say so and we retire the watchdog instead of alerting daily. `cron/output/03864c32dcf3/*`, `scripts/family_backup_watchdog.py`
+
+2. **Ling free tier is still carrying jobs the policy forbids — verified live, not from a report.** 20 enabled jobs pinned `ling-3.0-flash-sante:free` + 1 on `vl:free` = 21, against the 16-job Oct 4 migration plan. The 3 T3 jobs moved off Ling on 09-15 (`morning-live-crosscheck`, `ai-inbox-claude-triage`, `model-discount-page-review`) are back on it, and all three deliver to your Telegram — the tier policy says T3 never rides Ling. *Why it matters:* that free tier ends 2026-10-04 (15 days). *Next step:* say "go" and I re-pin those 3 to the ZAI lane and reconcile `jobs.json` to the plan (or execute the whole T1/T2 move now rather than on the date).
+
+3. **Claude cost reading is gone.** `ai-cost-dashboard-freshness-check` failed today with `claude/browser_console: usage_not_available_for_session` — day one of the known promo window closing (expires 09-19). *Why it matters:* Claude-lane spend visibility silently degrades and this check will exit 1 every morning. *Next step:* decide retire-the-expectation or replace-the-figure, so it stops being permanent noise.
+
+## What will be handled next
+
+- **Substrate (me):** `apple-signal-scan-daily` — 2nd consecutive `missing SUBSTRATE_CAPTURE block` contract breach, while its sibling `gemini-unified-master-digest-daily` recovered today (8,263 chars). CDP was up, so this is a response-contract issue, not the missing tab. Diagnose and report.
+- **Substrate (me):** profile-vs-source script drift — `substrate-integrity-sweep` now at 158 mismatches and rising for 4 weeks (88 → 100 → 128 → 154 → 158). Classify per-file before any sync.
+- **Claude Code:** MiMOUD packets A/B + Ep04 regeneration review, 12 packets landed 0d old; one real blocking finding to clear — `publish_mimoud.sh` `.htaccess` overwrite risk (#1795).
+- **Sunday 09:30:** `grocery-receipt-staged-fetcher` and `sams-club-receipt-fetcher` fire tomorrow; their error state is from the 09-13 CDP-down runs, so tomorrow is the actual test.
+- **Project rooms:** nightly sweep/autopickup carries the 5 Needs-Action rooms (Canon_Reshape 34d, Clinical_GPT_Development 35d, Substrate_Finance_Planning 31d, Hermes_Operator_Integration 19d, Project_Interface_Workspace_Flow 31d).
+
+## Handled automatically
+
+- Fleet: 398 runs across the two digests, 2 failures (both no-agent scripts), 0 agent failures. Preflight GREEN except a 2-entry dirty Operations tree.
+- All day-guards clean: bridge health (20-min cadence), symlink/home-path sweep, mcp-restart-ledger, drift-deltas, S14 viewer, feed health (0 attention), icon gallery freshness (PASS), role workspace access (7/7 OK), brain ingest (3,637 notes, newest 39h), db snapshot retention, ynab-writeback.
+- Model pricing watchdog logged **7 downward moves** — DeepSeek Flash to $0.0400/$0.0800 per 1M, GLM 5.3 to $0.91/$2.86. Fleet costs moved in our favour.
+- `ai-cost-provider-refresh`: the 20:15 sqlite lock was transient — every later run succeeded.
+- Audit queue: 0 requests processed (nothing pending). Inbox hygiene: 27 files, 0 stale; 3 suspect consumed-stamps flagged for re-check.
+
+## Quiet or archived
+
+- 278 run reports catalogued, 229 silent/clean and folded (hourly `cc_inbound_rollup`, inbox watch, symlink sweep, bridge health, drift-deltas, S14 viewer) — no action.
+- Drift 142 findings vs 140 baseline; the 2 new ones are a report referencing its own broken paths (dispositioned).
+- Stalled work: 20 open, all plans/decisions. Six inbox-triage overflow rows (#1764/#1778/#1782/#1794/#1798/#1803) are duplicate-shaped and merit one dedupe pass.
+- Weekly answer-shoring: no new question gaps. 32 inbox items outstanding (24 unassigned) — 12 are today's MiMOUD packets at 0d, not stale.
+
+## Evidence
+
+- Digest: `Operations/reports/SUBSTRATE_PERIODIC_DIGEST_LATEST.md`
+- Backup gap: `cron/output/03864c32dcf3/2026-09-1{6,7,8,9}_09-*.md`; `profiles/substrate-hermes/scripts/family_backup_watchdog.py`
+- Ling lane: live read of `cron/jobs.json` (21 Ling-pinned enabled jobs, 3 T3 confirmed) + `CHAT.md` 2026-09-18 20:10 audit_preflight; `Operations/reports/Ted_Decisions_LATEST.md` (#1769)
+- Cost/signal: `cron/output/c5cf95fa0d31/2026-09-19_09-00-03.md`, `cron/output/00adafbcd089/2026-09-1{8,9}_06-*.md`, `cron/output/de27d0e81900/2026-09-19_08-21-55.md`
+- Fleet + inventory: `cron/output/e6ad6b2435f5/2026-09-19_07-15-43.md`, `cron/output/5526e1d2c55c/2026-09-19_18-00-52.md`
+- Rooms/work: `Operations/reports/meta_agent_2026-09-19.md`, `Operations/reports/Inbox_Outstanding_LATEST.md`, `Operations/reports/AI_Revisit_LATEST.md`, `cron/output/06357f76fc1e/2026-09-19_08-00-53.md`
+- Preflight: session_state_preflight (YELLOW — Operations tree 2 dirty entries)
+
+To stop or manage this job, send me a new message (e.g. "stop reminder substrate-morning-briefing").

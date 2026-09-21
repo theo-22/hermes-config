@@ -1,137 +1,190 @@
 ---
 name: proposal-packet
-description: Turn an already-formed idea, recommendation, system change, or handoff into a compact proposal packet with clear scope, boundaries, destination, and self-critique. Use when the goal is durable evaluation or handoff, not just noticing proposal territory. Do not use when the job is only to detect that a discussion may have become a proposal candidate; use `proposal-candidate-surfacing` for that threshold call.
+description: Turn an already-formed idea, recommendation, system change, or handoff into a compact durable proposal packet. Preserve the generic evaluation/handoff function; when the intended next transition is independent Projection and Build State has been reached, produce the stricter Build State / Projection launch packet with governing intent, acceptance conditions, projector freedom, concrete stop conditions, and self-critique. Do not use to discover the proposal; use proposal-candidate-surfacing first when meaning/shape are still forming.
 metadata:
   category: database-integrated
   write_mode: file
-  one_line_use: write the actual proposal packet
+  one_line_use: write the Build State / Projection launch packet
   fast_pick: "yes"
 ---
 
 # Proposal Packet
 
-Turn a real proposal into a compact packet that another AI or Ted can evaluate without needing the full chat.
+Turn an already-shaped proposal into a compact durable packet that another AI or Ted can evaluate without the full chat.
 
-Do not use this skill for routine note capture, open-ended brainstorming with no recommendation yet, or deterministic work that should be handled by a script or direct file edit.
+There are two valid dispositions:
+- **Generic proposal packet** — for durable evaluation, human decision, or handoff when independent Projection is not the next transition. Build State is not required.
+- **Build State / Projection launch packet** — for substantial work that is deliberately crossing from shared planning into independent Projection. This compact packet is required before that Projection begins.
 
-If the proposal hasn't been shaped yet — recommendation, enough-for-use version, boundaries, and open questions still ambiguous — use `proposal-candidate-surfacing` first to surface them through conversation. This skill writes the durable packet; it doesn't do the discovery work. Packet authoring should be transcription of what's already clear, not on-the-fly discovery.
+The packet is not the implementation design. In the Projection branch, its job is to preserve governing intent and shape well enough that a capable projector has freedom to infer the realization without Ted continuing to prescribe mechanisms.
 
-## Inputs That Matter
+Do not use for routine notes, open-ended brainstorming, or bounded deterministic work that should simply be done.
 
-- The actual change or recommendation being proposed
-- The observations or evidence that led to it
-- What is still uncertain or disputed
-- Any named owner, destination, or authority boundary
-- Whether the packet is for immediate action, later review, or inbox routing
+If the proposal is still ambiguous for its intended disposition, return to proposal-candidate-surfacing. Packet authoring should primarily transcribe and compress what is already settled.
+
+## Inputs that matter
+
+- Concrete proposal/change under consideration
+- Observations/evidence that led to it
+- Intent and desired outcome
+- Enough-for-use shape
+- Conditions/boundaries and explicit exclusions
+- Acceptance conditions
+- Known genuine human/authority gates
+- Important unresolved assumptions
+- Named owner/destination only when actually settled
 
 ## Workflow
 
-1. Identify the real proposal.
-Strip away surrounding chat and name the concrete recommendation. If there is no actual proposal yet, say so plainly and stop.
+### 1. Determine the packet disposition and readiness
 
-2. Separate observation from recommendation.
-Keep facts, interpretations, and proposed action distinct. Do not let supporting evidence masquerade as the recommendation itself.
+If this is a generic proposal for evaluation/decision/handoff, preserve the already-shaped proposal without inventing Build State.
 
-3. Name the enough-for-use version.
-Prefer the contained change that fully serves the current need and leaves room to grow. Name larger expansions as future possibilities, not part of the current packet.
+If the intended next transition is independent Projection, confirm Build State before writing the launch packet: a capable assistant must be able to project from the settled understanding without Ted reconstructing the conversation or prescribing the mechanism. If not, stop and return the missing Build State element(s).
 
-4. Name boundaries.
-State what is ruled out, what is undecided, and who owns the next decision if known.
+### 2. Separate observation from intent from proposed change
 
-5. Apply the poka-yoke check.
-Name what could go memory-dependent in this proposal:
-- Does it introduce a step someone has to remember to do?
-- Does it create or rely on an accumulating surface without a cleanup path?
-- Does it depend on a convention being followed rather than enforced?
-- Does it leave a deferred decision without a resurfacing rule?
+Keep distinct:
+- what is observed/evidenced;
+- what the system is trying to accomplish;
+- what change/recommendation is being proposed.
 
-If yes to any: either propose the structural mechanism that removes the remembering, or explicitly name the failure mode (use the vocabulary in `~/Skills/poka-yoke/SKILL.md` — drift, stale-surface, forgotten-deferral, reminder-rot, convention-creep, etc.) and accept it as surface-only with a stated rationale.
+Do not let evidence masquerade as the recommendation, or an earlier mechanism suggestion masquerade as a requirement.
 
-A proposal that ships memory-dependent steps without naming them is the same failure mode it is failing to surface. The check is non-optional; the answer "no memory dependence introduced" is fine when true and should be stated.
+### 3. Preserve the enough-for-use shape
 
-6. Add self-critique.
-List assumptions, weak spots, and where another AI or Ted might reasonably disagree. Non-optional, same as the poka-yoke check above (work item #427, 2026-08-19: self-critique/review steps were getting silently dropped from plans with no mechanism catching the omission). A packet with no self-critique section is incomplete, not merely terse — if there is genuinely nothing to critique, state that explicitly rather than omitting the section.
+State the smallest coherent version that serves the current need and leaves room to grow.
 
-7. Suggest a destination.
-If a destination is explicit, use it. If not, suggest one and mark it as a suggestion rather than a settled fact.
+Larger expansions are future possibilities unless they are part of the settled intent.
 
-8. Route inbox intake by intended owner when appropriate.
-When the packet is meant to be picked up in later sessions, route it to the inbox surface of the likely implementing or receiving AI rather than treating Planning as the first home.
+### 4. State acceptance conditions
 
-Default pattern:
-- Codex-owned or Codex-implemented work -> `/Volumes/Extra/Substrate/Codex_Inbox/`
-- Claude Code-owned, Canon-affecting, shared-infrastructure, or cross-system implementation work -> `/Volumes/Extra/Substrate/_AI_Inbox/`
-- If Ted has already authorized immediate implementation on the active surface, a packet may still be written for tracking, but inbox intake is not required first.
+For a Projection launch packet, write conditions that a separate evaluator could use to judge the finished Projection. Prefer outcome/behavior/constraint tests over implementation instructions.
 
-Planning can track the proposal after intake, but inbox is the default pickup surface unless ownership is already settled on the active surface.
+For a generic proposal packet, include acceptance/decision criteria when they materially help evaluation; do not manufacture them merely to imitate the Projection branch.
 
-9. Track in the system database.
-After writing the packet file, create a work item so the proposal is queryable:
+### 5. State projector freedom when Projection is the next transition
 
-```bash
-curl -X POST http://localhost:5555/api/work-items \
-  -H "Content-Type: application/json" \
-  -d '{"title": "...", "type": "proposal", "owner": "...", "source_surface": "~/Codex_Inbox", "actor": "<current_actor>"}'
-```
+For a Build State / Projection launch packet, explicitly name what the projector may decide independently.
 
-Set `<current_actor>` to the runtime using the skill, such as `codex`, `claude_code`, `coordinator_gpt`, or another explicit actor value used by the live telemetry path.
+Default: mechanisms, internal structure, routes, sequencing, tooling, and other ordinary design choices inside the established intent envelope belong to the projector unless they cross a named stop condition.
 
-This ensures proposals are visible via `getWorkItems` regardless of which inbox they land in.
+Do not over-specify a mechanism merely because it was discussed during planning. If a mechanism is genuinely load-bearing, say why it is part of the requirement.
 
-10. Hand authorized execution forward without changing object type.
-If an external authority approves the proposal for consequential asynchronous or
-cross-actor execution, use `compile-work-packet` next. Do not turn this proposal
-skill into the execution contract: proposal formation, authorization, packet
-compilation, validation, cold executability probing, and dispatch remain
-separate gates. Compilation does not create authority.
+For a generic proposal packet, this section is optional unless design freedom itself matters to the evaluation.
 
-## Output Shape
+### 6. State stop / human gates
 
-Use this compact structure unless the user asks for another format:
+For a Projection launch packet, write **work-specific concrete stop conditions** that require re-entry of Ted or another authority. The categories below are prompts for finding those conditions, not acceptable substitutes for naming the actual stop in this work:
+- genuine meaning/value fork;
+- accepted-risk decision;
+- new authority/ownership boundary;
+- materially consequential durable-state change outside standing authority;
+- spend/credential/privacy/clinical or other protected consequence boundary;
+- contradictory evidence that invalidates the governing intent.
 
-- `Topic`
-- `Why now`
-- `Observation`
-- `Recommendation`
-- `Enough-for-use version`
-- `Poka-yoke check` — what memory-dependent step does this introduce, what failure mode would catch it, and what structural prevention is included (or explicit acceptance as surface-only with rationale)
-- `What is ruled out`
-- `Open questions`
-- `Self-critique`
-- `Suggested destination`
-- `Confidence / status`
+Normal design uncertainty is not a human gate. If no concrete human/authority stop condition applies, say `none identified inside the current standing authority envelope` rather than copying a generic category.
 
-Keep the packet terse. The goal is durable evaluation, not transcript preservation.
+### 7. Apply the poka-yoke check
 
-## Never Assume
+Name any new memory-dependent step, accumulating surface, convention-only dependency, or deferred decision without a resurfacing rule.
 
-- **Success** — you treat conversational alignment and consensus as separate things, and check for consensus rather than inferring it from tone. You separate observation from recommendation, and act only on authorization that was actually given, not implied. You name the destination, owner, and deadline only when one was actually stated. You apply a real bar before capturing an idea durably — interesting isn't the same as worth keeping. You name uncertainty as uncertainty rather than dressing it in false precision. You use inbox intake for proposal packets when the system relies on inbox pickup at session start. You send the packet to the intended owner when it's already clear.
-- **Failure** — you assume consensus because the conversation sounded aligned. You assume authorization to execute. You assume a destination, owner, or deadline nobody named. You capture an idea durably just because it's interesting. You inflate uncertainty into false precision. You bypass inbox intake for a proposal packet. You send a packet to the wrong inbox when the intended owner was already clear.
+Either remove the memory dependence structurally or name and explicitly accept the failure mode with rationale.
 
-## Scripts vs. Skill
+### 8. Add self-critique
 
-Use this skill for judgment and packet shaping.
+Name assumptions, weak spots, ambiguous edges, and where a reasonable projector/evaluator could disagree.
 
-Use `compile-work-packet` and its schema/linter when externally authorized work
-requires:
-- deterministic validation
-- repeated packet rendering into a fixed format
-- packet linting or required-field checks
+Do not omit self-critique merely because the packet is short.
 
-Keep automatic destination routing a separate mechanism; packet completeness
-does not itself authorize or activate delivery.
+### 9. Write the durable packet and track it
 
-Do not grow this proposal skill into dispatch doctrine.
+Resolve the current approved file/inbox/work-item path at runtime through the live owner/capability routing surface. Do not hardcode a historical destination. If no destination is settled or discoverable, keep the packet on the current actor’s governed staging/continuity surface and name destination unresolved rather than inventing an owner.
 
-## Update-Surfacing Backstop
+The durable packet should be sufficient for a cold projector to reconstruct the governing intent without the full originating chat.
 
-This skill stays current when `Active_Team_Agreements.md` changes packet expectations, or when active destination inboxes (`_AI_Inbox/`, `Codex_Inbox/`, `GPT_Architect/Inbox/`) adopt new required fields or rejection criteria. `PA_Inbox/` is retired and should be consulted only for historical/archive context, not as an active destination.
+### 10. Enter independent Projection — Projection branch only
 
-If a packet produced from this skill is rejected, rewritten downstream, or fails the expected work-item tracking path:
+A compact Build State packet is required before independent Projection begins. After the packet is complete, the projector re-anchors on it as governing input and independently constructs the realization. Independence is a process boundary, not necessarily a new persistent identity: earlier mechanism suggestions are non-binding unless the packet makes them requirements. A fresh session, model, worker, or context is optional when it materially improves independence or capability fit; continuing the same collaborative momentum without re-anchoring on the packet does not satisfy this boundary.
 
-- check `Canon/AI_Coordination/Active_Team_Agreements.md`
-- check the current inbox ownership conventions in live use
-- check the current work-item API/database path before assuming the tracking step still works as written
-- update the packet shape or routing guidance in the same turn rather than normalizing the workaround
+The projector may:
+- traverse the Concept Graph and current State progressively;
+- activate bounded capabilities;
+- change mechanisms from earlier planning when a better realization satisfies the same intent;
+- solve ordinary design uncertainty without Ted.
 
-Per-use rejection or tracking drift is the main backstop. `skills-review` is the periodic one.
+The projector should stop only at a named human/authority boundary or a newly discovered genuine fork.
+
+### 11. Independent evaluation
+
+Use an evaluator that did not participate in constructing the Projection. To count as independent, invoke it through a fresh evaluator carrier/context when the runtime supports that, give it only the Build State packet, finished Projection, and needed evidence, and record the evaluator run/receipt so non-participation is inspectable. If the evaluator shares construction context or only self-review is available, label it degraded; do not represent it as satisfying the independent-evaluation gate.
+
+Give the evaluator:
+- this Build State packet;
+- the finished Projection;
+- evidence needed to test load-bearing claims.
+
+Ask the evaluator to judge:
+- fidelity to intent/outcome;
+- acceptance conditions;
+- hidden assumptions/omissions;
+- boundary violations;
+- unnecessary machinery/failure modes;
+- whether the projector preserved appropriate freedom and simplicity.
+
+The evaluator should report findings, not replace the Projection with its preferred architecture. Findings return to the projector for revision. A finding goes to Ted only when it exposes a genuine human gate.
+
+### 12. Hand authorized execution forward
+
+For Projection-bound work, only after independent evaluation should execution pass through the existing live owner/capability/authority check. The projector does not self-classify itself as authorized. Work already inside standing authority may proceed through the governed execution path; work outside it or crossing a concrete stop condition requires the relevant external authority first.
+
+Do not turn this proposal skill into execution authority.
+
+## Output shape
+
+Use the smallest shape that fits the disposition.
+
+**Generic proposal packet:**
+- Topic
+- Why now
+- Observation / evidence
+- Proposed change / recommendation
+- Enough-for-use shape
+- Boundaries / what is ruled out
+- Open questions / assumptions
+- Poka-yoke check
+- Self-critique
+- Suggested destination / owner — only when known; otherwise label as suggestion
+- Confidence / status
+
+**Build State / Projection launch additions (required for Projection-bound work):**
+- Intent / desired outcome
+- Acceptance conditions
+- Projector freedom
+- Work-specific concrete human / authority stop conditions
+- Status — Build State / projection-ready
+
+Keep either packet terse. The goal is durable reconstruction for its intended next transition, not transcript preservation.
+
+## Never assume
+
+- Build State is not execution authorization.
+- Alignment is not approval.
+- An implementation idea discussed during planning is not automatically a requirement.
+- Destination, owner, deadline, or authority are not inferred from tone.
+- The projector should not ask Ted to choose ordinary mechanisms inside the envelope.
+- The evaluator should not take over authorship merely because it sees another valid design.
+- A verified landed Projection becomes State; it does not remain a permanent special Projection layer.
+- A generic proposal does not become a Projection merely because it was written with this skill.
+
+## Scripts vs skill
+
+Use this skill for judgment and durable packet shaping.
+
+Use deterministic packet compilation/linting only after external authorization when consequential asynchronous/cross-actor work needs a fixed execution contract.
+
+Keep proposal formation, Build State, independent Projection, evaluation, authorization, execution compilation, dispatch, and verification as distinct gates.
+
+## Update-surfacing backstop
+
+If packets are repeatedly rewritten downstream, projectors cannot reconstruct intent without the originating chat, evaluators cannot judge them cold, or routine design choices keep returning to Ted, treat that as evidence that this skill's Build State contract is incomplete or over-prescriptive and revise the skill rather than normalizing the workaround.

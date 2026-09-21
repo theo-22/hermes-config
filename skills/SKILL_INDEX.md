@@ -233,6 +233,9 @@ If the `/` menu is crowded, scan this card first, then search for the exact skil
 - `poka-yoke`
   Use when the question is how to stop a recurring failure from depending on memory, reminders, or convention.
 
+- `improve-system`
+  Use periodically, after a new-machine setup, or after a plugin/config change, to audit this machine's Claude Code environment (CLAUDE.md, memory, settings, hooks, plugins, shared-skill reachability) against Substrate's own written doctrine and hand back specific fixes.
+
 - `proposal-candidate-surfacing`
   Use when a conversation feels like it is becoming proposal-shaped and the candidate needs to be brought into focus through discussion before `/proposal-packet` writes it. Names the threshold, surfaces what's clear vs. fuzzy, and calls ready-or-not. Stops before writing.
 
@@ -508,6 +511,7 @@ If the main need is deciding whether a role may safely dispatch Hermes workers:
 - `external-artifact-intake`
 - `image-factory-16x9-replacement-workflow`
 - `image-factory-mixed-replacement-batch-generation`
+- `improve-system`
 - `lens-assembly-pass`
 - `live-session-to-skill`
 - `live-surface-verification`

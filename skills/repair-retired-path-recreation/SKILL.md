@@ -94,7 +94,8 @@ Create or extend a verifier that fails when:
 - an enabled job names the retired path;
 - an active script, installed instruction, launcher, hook, or shared/published skill contains an operative retired-path reference;
 - the canonical replacement is missing;
-- the real scheduled script does not resolve to the canonical output.
+- the real scheduled script does not resolve to the canonical output;
+- an installed *instruction surface* still names the retired path — a profile SOUL.md/system prompt read at every session start, or a cron job definition executed verbatim. Report the literal line number. Age-based drift reports cannot see this class at all: they age the files a path points at, never the instruction that points at it, so a session can follow a dead instruction for weeks while every report reads green. Scan job definitions by basename too: a job's `script:` field rarely carries the full path.
 
 Allow only explicit history/tombstone lines using narrow markers such as `retired`, `moved from`, or `was`. Do not globally ignore a file merely because one historical line exists.
 

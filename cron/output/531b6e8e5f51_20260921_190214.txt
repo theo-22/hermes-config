@@ -1,0 +1,57 @@
+Cronjob Response: substrate-morning-briefing
+(job_id: 531b6e8e5f51)
+-------------
+
+# Substrate Monitor — Daily Briefing
+
+**Period:** 2026-09-20 19:00 → 2026-09-21 19:00 EDT (304 runs; 65 substantive, 30 flagged — the raw count is dominated by hourly silent watchers, so the real signal collapses into 3 causes)
+
+**Overall: YELLOW.** 198 cycles in the last 12h with 12 failures, all traced to 3 identified causes — one of them a brand-new job that has never once succeeded. Nothing is degrading unchecked, and the one data-protection scare self-recovered.
+
+---
+
+## What needs Ted
+
+**1. DeepSeek repriced up ~2.4× — the Oct 4 fallback arithmetic just changed.**
+model-pricing-watchdog caught: v4-flash pinned $0.0364/$0.0728 → $0.0886/$0.1772; v4-pro $0.42/$0.84 → $0.96/$1.91; GLM 5.3 +1.6%. Your pre-decided Ling→ZAI migration (Oct 4) names DeepSeek as fallback, so the plan's cost basis is stale. *Next step:* say "note it, re-measure after Oct 4" **or** "refresh the T1/T2 figures now" — ZAI-primary is unaffected either way.
+
+**2. Your decision queue is 22 deep and only 1 is answerable.**
+#1769 (Oct 4 migration) is the sole "ready to answer" — and it isn't due for 2 weeks. The other 21 are reserved to you with no question, recommendation, evidence, or recheck (4 more added today alone: #1839/#1840/#1841). This is the exact behaviour #1409 was opened to stop. *Next step:* authorise tightening the triage contract so a Ted-owned row can't be created without a decision contract.
+
+**3. claude.ai usage tab missing from hermes-browser — 3rd day of the same alert.**
+`ai-cost-dashboard-freshness-check` exits 1 on `claude/browser_console: page_not_open`. Exit-1 is by design; the cause is environmental and only you can open/log in the tab. *Next step:* open `claude.ai/settings/usage` in the always-open hermes-browser window — the alert clears itself on the next run.
+
+---
+
+## What will be handled next
+
+- **flow-lane-tick** (the 10-failure cluster, new job created 07:17 today) — root-caused: script written to `.hermes/scripts/` at 08:05, symlinked into the profile scripts dir at 18:03, and Hermes blocks script paths resolving outside that dir. It's the *only* symlink among 121 profile scripts. Fix = replace with a real copy. Owner: substrate-hermes, next session.
+- **gemini-unified-master-digest-daily** — one fail-closed rejection at 08:28 ("response empty or too short"); needs a look at whether the Gemini session is genuinely returning nothing. Owner: digest lane.
+- **3 Project Rooms still Needs Action** (Clinical_GPT_Development 35d, Project_Interface_Workspace_Flow 33d, Hermes_Operator_Integration 21d) — standing 01:15 autopickup lane, which refreshed 6 rooms yesterday. Will be picked up tonight; no Ted action unless you want them quieted.
+
+## What was handled automatically
+
+- **apple-signal-scan-daily recovered** — 2 items captured today, closing the 09-18/19 fail-closed streak and its preflight candidate.
+- **Reunion family backup 5-day gap self-recovered** — nothing landed 09-14→09-19 (iCloud stall); 09-19, 09-20, 09-21 snapshots all present, newest 16h old. Today's watchdog run silent/healthy; the "error state" flag is stale registry residue.
+- **Inbox hygiene** — 5 flow-lane handoff packets consumed and archived; 0 files ≥21d stale.
+- **Routine maintenance** — CHANGES_LOG rotated (107% → 75% of cap), memory index rebuilt (791 sources / 2,939 chunks), yield rankings refreshed, Fundrise scraper logged in and recorded $127.38, Brain ingest healthy (4,375 notes, 772 in 7d).
+- **Clean checks** — startup doctrine reach, orchestration wrapper reconcile, role workspace access, feed health, coordinator health, Codex cost-offload (0 new move candidates).
+
+## Quiet or archived
+
+- 22 audit findings >7d unresolved out of 428 — standing, unchanged from yesterday.
+- Audit rotation's 393-run pattern review repeats the same structural findings nightly (stale AUDIT_YIELD_REPORT/RUN_LOG, self-check receipt landing, launchd exit-N rows) — already routed to CC/Codex; not new information.
+- Dead-path queue (17 genuinely new refs) is concentrated in two migration documents and is Ted-gated via #1796/#1800/#1839; stray-DB scan found 9 zero-byte files, nearly all in the cleanup archive or decoy paths.
+- Stray root scratch: one 9-day-old `~/CLAUDE.md` — report-only, no action taken.
+
+## Evidence
+
+- `Operations/reports/SUBSTRATE_PERIODIC_DIGEST_LATEST.md` (304-run inventory)
+- `Operations/reports/meta_agent_2026-09-21.md`, `Substrate_Monitor/reports/Substrate_Daily_2026-09-21.md`
+- flow-lane-tick: `~/.hermes/profiles/substrate-hermes/cron/output/035d8dbbe132/` (11 run files) + `scripts/` symlink inspection
+- `Operations/reports/Model_Pricing_Watchdog_LATEST.md`; `Ted_Decisions_LATEST.md`; `Silent_Failure_Detector_LATEST.md`
+- `_AI_Inbox/2026-09-21_khr_recovery_verification_and_test_ping.md`; `Operations/alerts/open/` (3 open)
+- Reunion backup verified live: `~/Library/Mobile Documents/com~apple~CloudDocs/Mom Files/Reunion_Backups/`
+- `Substrate_Monitor/CHAT.md`, `ACTIVE_INDEX.md`, `Substrate_Mgmt/AGENDA.md`, `Inbox_Outstanding_LATEST.md` (43 outstanding; 32 unassigned)
+
+To stop or manage this job, send me a new message (e.g. "stop reminder substrate-morning-briefing").

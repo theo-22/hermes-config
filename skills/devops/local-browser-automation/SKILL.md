@@ -9,7 +9,7 @@ fast_pick: CDP browser launch · Authenticated scraping · Login-wall handling �
 
 # Local Browser Automation
 
-**Purpose:** Drive Ted's always-open CDP Chrome browser (port 9222) to scrape authenticated sites — Harris Teeter receipts, Fundrise balance, Sam's Club orders, AI provider dashboards. **CDP is the default. Playwright is deprecated** — only kept where CDP can't bypass bot detection.
+**Purpose:** Drive Ted's always-open CDP Chrome browser (port 9223, the "Cost Tabs" browser — see Browser Identity Policy below) to scrape authenticated sites — Harris Teeter receipts, Fundrise balance, Sam's Club orders, HT weekly sales, AI provider dashboards. **CDP is the default. Playwright is deprecated** — only kept where CDP can't bypass bot detection.
 
 **When to use:**
 - Site requires login (Ted keeps the CDP browser logged in)
@@ -21,22 +21,22 @@ fast_pick: CDP browser launch · Authenticated scraping · Login-wall handling �
 
 ## Single Approach: CDP Browser (Ted's always-open Chrome)
 
-Ted keeps a Chrome instance running on port 9222 with all his accounts logged in. All scrapers connect to it directly via WebSocket CDP commands. No separate browser profiles, no cookie files to juggle.
+Ted keeps a Chrome instance running on port 9223 with all his accounts logged in. All scrapers connect to it directly via WebSocket CDP commands. No separate browser profiles, no cookie files to juggle.
 
 **Launch the browser (if needed):**
 ```python
-CDP_HTTP = "http://127.0.0.1:9222"
+CDP_HTTP = "http://127.0.0.1:9223"
 CHROME_PATH = "/Volumes/Extra/Apps/Google Chrome.app/Contents/MacOS/Google Chrome"
-PROFILE_DIR = "/Users/ted/Library/Application Support/Browser_Profiles/hermes-browser"
+PROFILE_DIR = "/Users/ted/Library/Application Support/Google/Chrome/Cost Tabs"
 
 def ensure_browser():
     try:
         urlopen(f"{CDP_HTTP}/json/version", timeout=3)
         return  # already running
     except:
-        subprocess.Popen([CHROME_PATH, f"--remote-debugging-port=9222",
+        subprocess.Popen([CHROME_PATH, f"--remote-debugging-port=9223",
                          f"--user-data-dir={PROFILE_DIR}",
-                         "--profile-directory=Profile 1",  # '615' agent identity — ALWAYS pin (Pitfall 8)
+                         "--profile-directory=Default",  # '615' agent identity — ALWAYS pin (Pitfall 8)
                          "--no-first-run",
                          "--new-window", TARGET_URL], ...)
 ```
@@ -136,15 +136,13 @@ This is the inverse of the earlier pattern. Now `result is None` means the auto-
 
 ---
 
-## Browser Identity Policy (Ted, 2026-09-22)
+## Browser Identity Policy (Ted, 2026-09-22, consolidated same day)
 
-**One AI browser profile for all actors.** Chrome profile "Profile 1" ("615", `615l5guest@gmail.com`) in the fleet `hermes-browser` dir is THE agent identity — every actor (Hermes profiles, other models, any AI runtime) uses it for all browser work. Never create per-actor Chrome profiles; never use Ted's personal Default profile or Jackie's profile for agent work.
+**One shared AI automation browser for all actors.** As of 2026-09-22 (Ted-confirmed consolidation) the AI fleet uses a SINGLE browser: the "Cost Tabs" Chrome (`user-data-dir=/Users/ted/Library/Application Support/Google/Chrome/Cost Tabs`, CDP port **9223**, keepalive `com.ted.cost-chrome-keepalive`). Every actor — every Hermes profile, every model, any AI runtime — does browser work there. This supersedes the earlier overnight 9222/hermes-browser/Profile-1 arrangement.
 
-Rationale: browser profiles are cookie jars, not identities — ownership/attribution lives in the account layer (executions.db, actor labels), not the browser. One profile = one login surface, one blast radius, sessions shared across actors via the always-open tabs.
+Never launch or drive agent sessions inside Ted's personal Chrome. Never create per-actor browsers or profiles. Rationale: browser profiles are cookie jars, not identities — ownership/attribution lives in the account layer (executions.db, actor labels), not the browser. New AI-site registrations default to the AI-facing Gmail.
 
-Separation lives at the site-account level *inside* the profile when needed (e.g., guest vs real account on the same site = different logins within 615, not a new Chrome profile). New AI registrations default to `615l5guest@gmail.com`.
-
-**Identity resource inventory (reserve):** Ted holds ~4-5 registered domains with websites + can create more; disposable/guest mailboxes on the AI-facing Gmail family are available. These are a standing reserve for future AI identity needs (sacrificial accounts, site-specific identities) — expected to stay unused; if a future site demands identity separation that money/risk justifies, a second agent profile or a new domain/alias is a five-minute addition, not an architecture change.
+If a site ever demands real identity separation (money/risk justifying it), Ted holds ~4-5 domains/websites plus disposable mailboxes as a reserve — a five-minute addition, not an architecture change. Expected to stay unused.
 
 ---
 
@@ -212,9 +210,9 @@ browser_cdp(method='Runtime.evaluate',
 - **Prices**: Not available on the listing page. Use the dedicated `sams_club_fetcher.py` script (Playwright-based) or `computer_use` to drive the visible browser window.
 - **13-item discrepancy note**: The listing shows 12 images for a 13-item order — the last item may not have a product image.
 
-**Pitfall 8. ALWAYS pin the Chrome profile on fleet relaunches; never rely on last-used.** Every fleet launcher (signal scan, gemini digest, grocery/fundrise fetchers) passes `--profile-directory="Profile 1"` — the "615" agent identity where the always-open sessions live. An un-pinned relaunch lands on whatever profile Chrome last used, so agent tabs and personal tabs silently mix identities and saved sessions appear to vanish. Cookie sessions live in the profile on disk: a graceful quit + pinned relaunch preserves all logins and restores the standing tabs — restart is safe and is the correct fix when the listener is gone.
+**Pitfall 8. Point every launch/consumer at the ONE shared browser explicitly.** All fleet launchers pass `--remote-debugging-port=9223` + `--user-data-dir=.../Google/Chrome/Cost Tabs` (the shared AI browser, Ted-confirmed 2026-09-22; superseded the earlier 9222/hermes-browser setup). Never rely on Chrome's last-used state; an un-pinned relaunch can mix identities and saved sessions appear to vanish. Cookie sessions live in the user-data-dir on disk: graceful quit + correct relaunch preserves logins and restores tabs — restart is safe and is the correct fix when the listener is gone. If the keepalive (`com.ted.cost-chrome-keepalive`) hasn't already restored it, relaunch with the exact flags above.
 
-**Pitfall 9. A running Chrome is not a CDP Chrome.** A manual plain launch (or Ted's own browsing instance) takes the profile lock without the debug port, so the fleet launcher's relaunch becomes a no-op flag drop and 9222 refuses connections. Symptom: "Chrome is running but connection refused." Fix: quit Chrome gracefully, relaunch the fleet instance with the pinned profile (Pitfall 8) — never force-kill the personal browsing instance.
+**Pitfall 9. A running Chrome is not a CDP Chrome.** A manual plain launch (or Ted's own browsing instance) takes the profile lock without the debug port, so the fleet launcher's relaunch becomes a no-op flag drop and 9223 refuses connections. Symptom: "Chrome is running but connection refused." Fix: quit Chrome gracefully, relaunch the fleet instance with the pinned profile (Pitfall 8) — never force-kill the personal browsing instance.
 
 **Pitfall 10. Verify login state by in-page probe, not tab titles.** Titles flip to logged-in-looking strings on both states. Ground truth per site, via the site's own tab: same-origin `fetch('/path', {redirect:'manual', credentials:'include'})` → `type:'opaqueredirect'` = signed out, `status:200` = signed in; for APIs, call the real endpoint (HT purchase-history-search returning orders beats any title check).
 
@@ -224,9 +222,12 @@ browser_cdp(method='Runtime.evaluate',
 
 | Script | Site | Approach | Schedule | Notes |
 |--------|------|----------|----------|-------|
-| `grocery_receipt_fetcher.py` | Harris Teeter | **CDP** (always-open browser) | Sundays 10am | Uses existing HT tab, extracts orders + items |
-| `sams_club_fetcher.py` | Sam's Club | **CDP** (always-open browser) | Sundays | Uses existing Sam's tab, extracts orders |
-| `fundrise_scraper.py` | Fundrise | CDP + saved passwords | 1st, 15th | Credentials auto-populate, just click Log in |
+| `grocery_receipt_fetcher.py` | Harris Teeter | **CDP** (always-open browser) | Sun 09:30 (cron: `grocery-receipt-staged-fetcher`) | Uses existing HT tab, extracts orders + items |
+| `sams_club_fetcher.py` | Sam's Club | **CDP** (always-open browser) | Sun 09:30 (cron: `sams-club-receipt-fetcher`) | Uses existing Sam's tab, extracts orders |
+| `fundrise_scraper.py` | Fundrise | **CDP**, auto-launches browser if not running | Mon 08:00 (cron: `fundrise-balance-scraper`) | Scrapes the already-loaded Fundrise tab; writes to system.db for YNAB writeback |
+| `ht_weekly_sales_fetcher.py` | Harris Teeter Weekly Ad | **CDP** | Not found in the current cron registry (checked `cron/jobs.json` 2026-09-22) | Extracts weekly-ad deal listings. A separate live-agent prompt currently does its own live weekly-ad pull and says it "replaces the retired scraper script" — unclear whether that refers to this script or an earlier one. Don't assume this runs on schedule without checking the live registry first. |
+
+Schedule column verified against `cron/jobs.json` in the `substrate-hermes` Hermes profile, 2026-09-22 — re-check there before relying on it; this table won't self-update.
 
 ---
 

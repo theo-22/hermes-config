@@ -30,6 +30,7 @@ consult them when the table doesn't match; they are the evidence base, not the w
 | Whole cohort of agent jobs skipping with "config drifted ... spend-guard" | Unpinned model crons broke when fleet config moved; pin them | B1 |
 | Pinned cron fails 429 and the fallback chain never engages | Per-job pins bypass `fallback_providers` by design | B2 |
 | Cron runs but output never arrives; `last_status: ok` | `deliver:` target mismatch (esp. `origin` from background context) | B3 |
+| Verification/proof system false-flags a healthy change-only job as failed | Proof design demanded output markers from a job whose silence IS health; also: the output dir writes a header stub even for silent/errored runs, so file-existence ≠ real output | B4 |
 | Silent-when-healthy cron never speaks; can't tell if it ran | No-op watchdog pattern; check `last_run_at` + output dir | B4 |
 | Same report filed twice / duplicate sections in a routing log | Same job registered in two profiles, both enabled | C1 |
 | Job works but is invisible from the owning profile's cron list | Lives in the default (system-level) registry instead | C2 |
@@ -40,6 +41,7 @@ consult them when the table doesn't match; they are the evidence base, not the w
 | Cron task needs login/user state and delivered a useless "please log in" | Interactive-pattern task authored for cron context; use autonomous-extraction pattern | D1 |
 | EINTR `Interrupted system call` kills a sweep mid-run | `iterdir()` over symlinked dir under FS pressure; 3-retry guard | D2 |
 | Scan reports zero forever and the metric looks "healthy" | Profile copy has a stale path constant + `if not exists: return 0` | A1 |
+| `Blocked: script path resolves outside the scripts directory (<profile>/scripts): '<name>'` on every run | Profile-dir file is a SYMLINK; scheduler security rejects it — always, not maybe | A1b |
 
 ## A — Which copy runs? (the #1 recurring failure)
 
@@ -112,8 +114,26 @@ dies silently and the metric reads healthy-zero.
   jumps 0 → N. That's the scan turning on, not a regression — say so in the report.
 - Registration gotchas in the same family: the `script` field is a literal
   filename (no `python3 foo.py --bar` — use a wrapper for args or non-default
-  interpreters); absolute paths are rejected; symlinks out of the dir may be
-  rejected (test first).
+  interpreters); absolute paths are rejected.
+
+### A1b — Symlinks into the profile scripts dir are ALWAYS rejected (2026-09-22)
+
+The older "symlinks out of the dir may be rejected (test first)" hedge is
+settled: they are. A profile-dir file that is a symlink to `~/.hermes/scripts/<n>.py`
+fails scheduler path-security on EVERY run — `Blocked: script path resolves
+outside the scripts directory` — and the job burns consecutive failures until a
+human looks (flow-lane-tick: 14 failed hourly runs after a fix installed a
+symlink; the fixer even wrote "pulse now clean" because a manual invocation
+worked — the scheduler path never did).
+
+**Boundary of the pointer rule:** the shim pattern above needs a tracked
+canonical target under `Operations/scripts/`. Scripts whose canonical home is
+global `~/.hermes/scripts/` (default-profile authored, no Operations source —
+e.g. `flow_lane_tick.py`) have nothing for a shim to point at, so the
+profile-dir file must be a **real copy**: `rm <profile-link>; cp ~/.hermes/scripts/<n>.py
+<profile>/scripts/` then md5-verify both sides. Maintenance cost of the copy is
+one re-copy + md5 after each canonical edit — and the CRON's own next scheduled
+run is the only proof that counts (manual success ≠ scheduler success).
 
 ### A2 — "Authored" is not "registered": the profile execution dir
 
@@ -204,12 +224,24 @@ Both show `last_status: ok` — the script ran, the output went nowhere.
   but the output file at `cron/output/<job-id>/` has content → delivery path,
   not the script.
 
-### B4 — No-op watchdog pattern (silent-when-healthy crons)
+#### B4 — No-op watchdog pattern (silent-when-healthy crons)
 
 With `no_agent: true`: empty stdout → nothing delivered; non-empty stdout →
 delivered verbatim; non-zero exit → alert. Design health checks to exit 0
 silently when healthy, print + exit 1 when not. Verify a silent job ran via
 `last_run_at` and the `cron/output/<job-id>/` dir.
+
+**Proof-system corollary (earned 2026-09-22, verification-ledger watch):** when
+a watcher must *prove* a fix works from cron evidence, distinguish two job
+styles. Stats-printing jobs (e.g. `knowledge-harvest-extract`) support marker
+checks — the run output must contain expected strings. Change-only jobs (e.g.
+`flow-lane-tick`) are silent when healthy: a completed ok dispatcher run after
+the code-land IS the proof; demanding markers false-flags them as failed.
+Gotcha inside the gotcha: `cron/output/<job-id>/` receives a header stub
+(`Status: silent (empty output)`) even for silent AND errored runs, so
+output-file existence proves nothing — read content/`last_status`, or use the
+run-style rule above. Reference implementation: `Operations/scripts/verify_ledger_watch.py`
+(`proof_style: marker | ok_run` in `Operations/state/verification_ledger.json`).
 
 Escalation (only with explicit authorization): the same script can attempt
 bounded repair (launchctl kickstart/reload), re-verify, and exit 0 on success —
@@ -266,6 +298,20 @@ invocation). Not retroactive — one app restart heals a running env-less serve.
 Both shapes coexist on disk. Globbing only the flat `<job-id>_*.txt` pattern
 makes a live job look dead. Always `ls -lt` the output root AND the
 `<job-id>/` directory before declaring a job stopped.
+
+### C7 — Fleet-wide job lookups must read ALL profiles' jobs.json (2026-09-22)
+
+Any script that matches jobs by script name across the fleet (offload checkers,
+duplicate-registration detectors, census tools) and reads only
+`~/.hermes/cron/jobs.json` is blind to the named profiles — where most jobs have
+lived since the 2026-09-05 consolidation. codex_cost_offload_check.py listed
+weekly-answer-shoring-review as `ready_to_move` for weeks though the job was
+live and ok in substrate-hermes's registry. Fix:
+`HOME.glob(".hermes/cron/jobs.json")` + `HOME.glob(".hermes/profiles/*/cron/jobs.json")`,
+extend results; tolerate per-file JSON parse errors. Same class: disabled-Codex
+automation detection must accept suffix variants (`automation.toml.disabled.bak`,
+not just `.disabled`). Run the real script end-to-end after patching — the first
+live run caught a leftover variable reference in this very fix's report footer.
 
 ## D — Cron-context behavior
 

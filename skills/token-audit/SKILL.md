@@ -57,8 +57,11 @@ Check it is alive: `launchctl list | grep token-audit`
   be-concise rule in `~/.claude/CLAUDE.md` is still there.
 - **cache read** is the real bill. It is preload x turns plus accumulated
   context, so it moves when either does.
-- Days bucket by transcript **mtime**, not session start. A day when many old
-  transcripts were touched reads high. Trust the trend, not one row.
+- Days are bucketed by each turn's own message timestamp (UTC), so a day's row
+  is what actually ran that day. (Before 2026-09-21 they were bucketed by
+  transcript mtime, which fabricated spike days whenever old transcripts were
+  batch-touched - 09-11/09-14 2026 read ~20k turns / ~7B cache-read for days
+  that had almost no real usage.)
 
 ## Reading the output
 

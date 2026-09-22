@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-09-22T03:20:16.944902+00:00",
+  "generated_at": "2026-09-22T07:20:56.590908+00:00",
   "files": {
     "2026-09-06_LANE3_STALE_FILE_CLEANUP_UNGATED.md": {
       "size": 1014,
@@ -8,6 +8,18 @@
     "2026-09-12_lane2_rec2_sidecar_reach_unscheduled.md": {
       "size": 2060,
       "mtime_ns": 1789815680949623023
+    },
+    "2026-09-22_ai_cost_staleness_watchdog_deployed.md": {
+      "size": 5917,
+      "mtime_ns": 1790060967923143284
+    },
+    "2026-09-22_cc_reply_sidecar_browser_identity_line_added.md": {
+      "size": 1674,
+      "mtime_ns": 1790061488397378242
+    },
+    "2026-09-22_ted_authorized_signal_scan_cost_refresh_coverage.md": {
+      "size": 993,
+      "mtime_ns": 1790056743787399325
     }
   }
 }

@@ -38,6 +38,9 @@ consult them when the table doesn't match; they are the evidence base, not the w
 | Guard script fires a false duplicate-instance alert | Process counter matched a launcher/wrapper's embedded cmdline | C4 |
 | Cron job runs after reboot with `SubstrateRootNotConfigured` | serve-process env lost the launchctl setenv race; fix is `~/.hermes/.env` | C5 |
 | Cron "stopped running" on an old date but `last_run_at` is recent | Output moved to the `<job-id>/` dated-dir layout; you globbed the legacy flat pattern | C6 |
+| Added `WatchPaths` to a plist, edits don't trigger it | Watch registration is load-time; editing the file is not reloading it | C8 |
+| WatchPaths job fires, but a quick change-then-revert leaves only one state in the record | launchd's ~10s minimum respawn interval coalesced the transitions | C8 |
+| A tracked "source" file and its live twin drift, and the fix looks like a symlink | The tracked dir may be a one-way MIRROR, not a source — check before inverting it | C9 |
 | Cron task needs login/user state and delivered a useless "please log in" | Interactive-pattern task authored for cron context; use autonomous-extraction pattern | D1 |
 | EINTR `Interrupted system call` kills a sweep mid-run | `iterdir()` over symlinked dir under FS pressure; 3-retry guard | D2 |
 | Scan reports zero forever and the metric looks "healthy" | Profile copy has a stale path constant + `if not exists: return 0` | A1 |
@@ -146,6 +149,10 @@ found: /Users/ted/.hermes/profiles/<profile>/scripts/<name>.py`.
 Rule: **registration = source file + shim/copy in the profile dir + one
 successful `cron run`.** Smoke-run immediately after registering; the recorded
 `last_error` only self-clears at the next scheduled fire.
+
+**Verify in the right profile.** `hermes cron create` may write the job
+to the default profile registry even from a named-profile session — check
+the expected profile's `jobs.json` after every creation (see C2).
 
 ### A3 — Attic/orphan sweeps orphan ENABLED jobs' scripts (2026-09-09)
 
@@ -272,6 +279,16 @@ second (zero-gap), same schedule/deliver, shim the script per the pointer rule,
 then REMOVE the paused source job after 1–2 verified cycles — paused-forever
 zombies pile up (39 were swept 2026-09-07).
 
+**`hermes cron create` writes to the default profile registry.** Even
+when the session reports "Active profile: substrate-hermes" and even
+with `HERMES_HOME` set, `hermes cron create` may create the job in
+`~/.hermes/cron/jobs.json` (default), not
+`~/.hermes/profiles/<profile>/cron/jobs.json`. After creating, verify
+in the expected profile's `jobs.json`; if it landed in the wrong
+registry, remove it via `hermes cron remove` and add the entry directly
+via JSON edit. System-level entries cannot be managed by the `cronjob`
+tool (see C3).
+
 ### C3 — The `cronjob` tool is profile-scoped
 
 `cronjob list/remove` only sees the current profile's registry. System-level
@@ -312,6 +329,90 @@ extend results; tolerate per-file JSON parse errors. Same class: disabled-Codex
 automation detection must accept suffix variants (`automation.toml.disabled.bak`,
 not just `.disabled`). Run the real script end-to-end after patching — the first
 live run caught a leftover variable reference in this very fix's report footer.
+
+### C8 — `WatchPaths` has two silent traps: load-time registration AND a 10s throttle (2026-09-22)
+
+Both were measured on `com.ted.mirror-launchd-agents` the day it was converted
+from nightly-only to fire-on-change. They stack, and each one alone makes a
+working trigger look broken.
+
+**Trap 1 — registration is load-time.** Adding `WatchPaths` to a plist does
+nothing until the job is re-bootstrapped. Editing the file in place leaves the
+old, watch-less job loaded, and there is no error anywhere. The Gate 4
+LaunchAgent disposition report flags this for 6 existing WatchPaths rows as a
+reload-REQUIRED silent-failure class. Always:
+
+```bash
+launchctl bootout gui/501/<label>
+launchctl bootstrap gui/501 ~/Library/LaunchAgents/<label>.plist
+launchctl print gui/501/<label> | sed -n '/event triggers/,/^\t}/p'
+```
+
+The print is the proof — look for `stream = com.apple.fsevents.matching`. A
+bootstrap that "succeeds" without that line registered nothing.
+
+Corollary measured the same day: the re-bootstrap does **not** fire the job for
+changes made while it was unloaded, so a plist edited before the reload stays
+unmirrored until the next real event. Keep any pre-existing
+`StartCalendarInterval` as a backstop rather than replacing it.
+
+**Trap 2 — launchd won't respawn a job more than once per ~10s.**
+`launchctl print` shows it as `minimum runtime = 10`. Events arriving inside
+that window are coalesced: the deferred run observes only the *final* state, so
+every intermediate state is lost with no error and no gap in the log.
+
+Proven with a throwaway probe plist run through create → add a key → revert the
+key → remove, twice:
+
+- 4s between steps → **the revert vanished**. Git recorded the create and the
+  removal and nothing in between.
+- 13s between steps → all four transitions landed as four separate commits.
+
+So a WatchPaths-driven recorder is not a continuous log. It samples at ~10s.
+State that flips and flips back faster than that is still invisible — say so explicitly
+when reporting such a mechanism as "fixed", or the next session inherits a
+false "closed" claim.
+
+**Directory watches DO catch in-place content edits.** The man page's wording
+("files added or removed") reads narrower than the behavior; a `touch` of an
+existing file in a watched directory fired the job in under a second. Verify on
+the actual OS version rather than reasoning from the docs, in either direction.
+
+**If the watched dir and the job's own output share a repo**, check for a
+commit-collision partner before raising the fire rate. `com.ted.auto-commit-watcher`
+auto-discovers repos every 30 min; at one fire a night a `git index.lock`
+collision is negligible, at one fire per edit it is not. Pattern used: an
+`flock` to coalesce concurrent fires, plus `add`/`commit` that tolerate a busy
+index and defer to the next event instead of raising.
+
+### C9 — Check whether the "tracked source" is actually a one-way mirror (2026-09-22)
+
+Before applying the pointer rule to a live/tracked pair, establish which
+direction the relationship runs. Two files with the same name in a repo and in
+a live directory can be *either* a forked implementation (A1, fix it) *or* a
+deliberate read-only mirror built for git history (leave it alone).
+
+`Control/launchd_agents/` is the mirror case: written daily from
+`~/Library/LaunchAgents` by `mirror_launchd_agents.py` under work item #1579,
+whose docstring says in terms *"NOT a new source of truth"*, *"NOT a symlink
+target"*, *"Never writes to ~/Library/LaunchAgents"*. A session nonetheless
+logged the pair as "byte-divergent copies, not a shim-and-pointer pair" and
+filed it as a pointer-rule violation. Symlinking live → tracked would have
+inverted the mirror and destroyed the history it exists to keep.
+
+Three checks, cheap, before touching anything:
+
+1. **Does anything execute or read the tracked copy?** `grep -rIl` for the
+   directory name. If the only hit is the writer itself, it is a mirror.
+2. **Read the writer's docstring.** Mirrors built on purpose say so.
+3. **Does the divergence actually exist right now?** `md5`/`diff` the pair and
+   `git log -p` the tracked file for the key in question. In this case all 78
+   pairs were byte-identical and the tracked copy had *never* contained the
+   disputed `Disabled` key — the reported fork had never been committed at all.
+
+The real defect, when it turns out to be a mirror, is usually **sampling
+latency, not a fork**: a change made and reverted inside one mirror interval
+leaves no trace. Fix the interval (C8), not the direction.
 
 ## D — Cron-context behavior
 

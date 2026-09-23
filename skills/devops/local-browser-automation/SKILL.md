@@ -222,12 +222,45 @@ browser_cdp(method='Runtime.evaluate',
 
 | Script | Site | Approach | Schedule | Notes |
 |--------|------|----------|----------|-------|
+| `put_on_tv.py` | Any URL → a named display (TCL 55P605 TV) | **CDP** + JXA NSScreen probe | on-demand (no cron) | Instrumentation capability, fleet-shared 2026-09-22. See section below. |
 | `grocery_receipt_fetcher.py` | Harris Teeter | **CDP** (always-open browser) | Sun 09:30 (cron: `grocery-receipt-staged-fetcher`) | Uses existing HT tab, extracts orders + items |
 | `sams_club_fetcher.py` | Sam's Club | **CDP** (always-open browser) | Sun 09:30 (cron: `sams-club-receipt-fetcher`) | Uses existing Sam's tab, extracts orders |
 | `fundrise_scraper.py` | Fundrise | **CDP**, auto-launches browser if not running | Mon 08:00 (cron: `fundrise-balance-scraper`) | Scrapes the already-loaded Fundrise tab; writes to system.db for YNAB writeback |
 | `ht_weekly_sales_fetcher.py` | Harris Teeter Weekly Ad | **CDP** | Not found in the current cron registry (checked `cron/jobs.json` 2026-09-22) | Extracts weekly-ad deal listings. A separate live-agent prompt currently does its own live weekly-ad pull and says it "replaces the retired scraper script" — unclear whether that refers to this script or an earlier one. Don't assume this runs on schedule without checking the live registry first. |
 
 Schedule column verified against `cron/jobs.json` in the `substrate-hermes` Hermes profile, 2026-09-22 — re-check there before relying on it; this table won't self-update.
+
+---
+
+## Put-on-TV (Instrumentation, fleet-shared 2026-09-22)
+
+Ted's 55" TCL (55P605) is a real third display of the Mac. Any actor can push any URL onto it with `scripts/put_on_tv.py` — live-verified on the TCL by advisor 2026-09-22, promoting CC's 2026-08-01 "Instrumentation" demo to a fleet-shared capability (Ted approved the promotion in the Model Mgmt room).
+
+**Lineage:** CC demo 2026-08-01 ("Instrumentation", then CC-only) → promoted fleet-shared 2026-09-22 in the Model Management room (Ted: "I don't want to reserve any monitor for any particular user. Everybody needs to be able to use it."). Lineage note routed to the Map Curator for node 24 (/Volumes/Extra/Substrate/Concept_Graph/Hermes_To_Map_Curator_Instrumentation_Lineage_Node_24_2026-09-22.md).
+
+**Multi-window layer (2026-09-22, built before the first cron consumer):** pushes are **windowed by default** — a normal movable Chrome window placed on the TV; Ted's spaces principle means arrangement, never hijack. Scheduled pushes open alongside existing output (museum, other actors) instead of replacing it. Fullscreen is an explicit opt-in.
+
+```bash
+python3 put_on_tv.py <url> --screen 55P605                # windowed push (default)
+python3 put_on_tv.py <url> --fullscreen --screen 55P605   # explicit fullscreen takeover
+python3 put_on_tv.py <url> --reuse                        # update existing TV window in place (no stacking)
+python3 put_on_tv.py <url> --slot 30                      # temp slot: auto-restores prior content after 30 min
+python3 put_on_tv.py --list                               # show screens (JXA/NSScreen, y-up)
+python3 put_on_tv.py --restore <windowId>                 # window -> normal state
+```
+
+**Contention rules for scheduled consumers** (substrate-hermes daily briefing = first):
+1. Default windowed — never fullscreen from a cron.
+2. Prefer `--reuse` so a recurring job updates one window instead of stacking.
+3. One-shot content (alerts, briefing turns) takes `--slot N`; expiry is lazy (checked on the next push) and restores prior content.
+4. Live/interactive wins: a scheduled push never removes a window it didn't create.
+
+Hard-won details (all hit live, don't relearn them):
+- **NSScreen is y-UP, CDP is y-DOWN.** Convert: `cdp_top = main_h - (screen_y + screen_h)`. TCL sits at CDP `left=-1295, top=-2160`, 3840×2160.
+- **Sequence matters:** `windowState: normal` → position-only move (never windowState + position in one call — Chrome silently clamps to the main display) → `windowState: fullscreen` (fullscreen follows the display the window sits on). Chrome insets windows 31px for the menu bar; bounds slightly inside the screen is correct.
+- **`suppress_origin=True`** required with `websocket-client` (Chrome 403s Origin-bearing CDP handshakes); the `websockets` library works unmodified.
+- **Slot yield-check must normalize URL encoding.** Chrome percent-encodes `data:` URLs in its tab list — a naive compare of pushed vs current URL silently disables restore entirely (found live 2026-09-22). Normalize encoding on both sides before matching.
+- Verify success from the returned bounds (`on_tv: true`), not by assuming the move took.
 
 ---
 

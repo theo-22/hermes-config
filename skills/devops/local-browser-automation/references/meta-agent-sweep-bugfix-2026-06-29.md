@@ -33,7 +33,7 @@ if (analysis.get("blocked") or "").lower().startswith("yes"):
 
 ## Files Modified
 
-- `/Users/ted/Operations/scripts/meta_agent_sweep.py` (symlink → actual file)
+- `/Volumes/Extra/Substrate/Operations/scripts/meta_agent_sweep.py` (symlink → actual file)
 - `/Users/ted/.hermes/profiles/substrate-hermes/scripts/meta_agent_sweep.py` (cron copy)
 
 ## Verification

@@ -79,5 +79,5 @@ email, password = get_harris_teeter_credentials()
 
 ## Output Target
 
-Stage raw captures to: `/Users/ted/Projects/Substrate_Finance_Planning/Evidence/Grocery_Receipt_Staging/`
+Stage raw captures to: `/Volumes/Extra/Substrate/Commons/Substrate_Finance_Planning/Evidence/Grocery_Receipt_Staging/`
 Format: `grocery_receipt_fetcher_playwright_capture.md` (raw) + JSON (structured)

@@ -56,7 +56,7 @@ If the extension shows "Could not create session (403)":
 ## Load Extension
 
 1. `chrome://extensions` → enable Developer mode
-2. "Load unpacked" → select `/Users/ted/Hermes/hermes-browser-extension/dist`
+2. "Load unpacked" → select `/Volumes/Extra/Substrate/Hermes/hermes-browser-extension/dist`
 3. Pin extension icon → click to open side panel
 4. Enter `http://127.0.0.1:8642` + API key → Test connection
 

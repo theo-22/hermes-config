@@ -53,7 +53,7 @@ savings = re.search(r'\$([\d.]+)\s*Total Savings', html)
 
 ## Finance Room Reconciliation Format
 
-Existing files in `/Users/ted/Projects/Substrate_Finance_Planning/` use this table format:
+Existing files in `/Volumes/Extra/Substrate/Commons/Substrate_Finance_Planning/` use this table format:
 
 ```
 | Store | Receipt / order date | Receipt / order id | Visible line count | Item/subtotal | Discount/promo | Tax | Calculated total | Visible total | Delta | First-pass tags | Sample visible items |

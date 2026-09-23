@@ -46,7 +46,7 @@ end
 
 ## Files Created/Modified
 - `/Users/ted/.hermes/scripts/grocery_receipt_fetcher.py` — working fetcher
-- `/Users/ted/Projects/Substrate_Finance_Planning/20_Grocery_Receipt_Capture_2026-06-27.md`
-- `/Users/ted/Hermes/hermes-browser-extension/` — cloned, built, font-patched
+- `/Volumes/Extra/Substrate/Commons/Substrate_Finance_Planning/20_Grocery_Receipt_Capture_2026-06-27.md`
+- `/Volumes/Extra/Substrate/Hermes/hermes-browser-extension/` — cloned, built, font-patched
 - `~/.hermes/profiles/substrate-hermes/config.yaml` — cdp_url set
 - `~/.hermes/profiles/substrate-hermes/.env` — API_SERVER_ENABLED + CORS

@@ -6,7 +6,7 @@ Cron job to monitor the Hermes Browser Extension repo for updates.
 
 ```bash
 # Check manually
-cd /Users/ted/Hermes/hermes-browser-extension && git fetch origin main && git log HEAD..origin/main --oneline
+cd /Volumes/Extra/Substrate/Hermes/hermes-browser-extension && git fetch origin main && git log HEAD..origin/main --oneline
 ```
 
 ## Cron Configuration
@@ -23,7 +23,7 @@ cd /Users/ted/Hermes/hermes-browser-extension && git fetch origin main && git lo
 cronjob action=create \
   name="browser-extension-update-check" \
   schedule="0 10 * * 1" \
-  prompt="Check for updates to Hermes Browser Extension at /Users/ted/Hermes/hermes-browser-extension/. Run: cd /Users/ted/Hermes/hermes-browser-extension && git fetch origin main. Compare local HEAD with origin/main. Report if there are new commits (with commit messages) or 'No updates available'. Do NOT auto-update or rebuild."
+  prompt="Check for updates to Hermes Browser Extension at /Volumes/Extra/Substrate/Hermes/hermes-browser-extension/. Run: cd /Volumes/Extra/Substrate/Hermes/hermes-browser-extension && git fetch origin main. Compare local HEAD with origin/main. Report if there are new commits (with commit messages) or 'No updates available'. Do NOT auto-update or rebuild."
 ```
 
 ## Why Manual Updates

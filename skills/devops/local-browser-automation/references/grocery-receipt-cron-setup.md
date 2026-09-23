@@ -14,7 +14,7 @@ Both crons:
 1. **Notify Ted first** — send a message asking him to verify browser is logged in
 2. **Navigate to store purchase history** — Harris Teeter at harristeeter.com/mypurchases, Sam's Club at samsclub.com/orders
 3. **Extract new items** — compare against existing ledger, only add new orders
-4. **Append to ledger** — `/Users/ted/Projects/Substrate_Finance_Planning/27_Grocery_Item_Ledger.md`
+4. **Append to ledger** — `/Volumes/Extra/Substrate/Commons/Substrate_Finance_Planning/27_Grocery_Item_Ledger.md`
 5. **Update reconciliation table** — receipt count, item total, receipt total, difference
 6. **Send summary** — what was added or "No new receipts this week"
 

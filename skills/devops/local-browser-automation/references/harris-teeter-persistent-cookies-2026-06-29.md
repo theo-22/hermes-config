@@ -116,6 +116,6 @@ Ted's account (THEODORE, tedhughes@me.com) had 4 orders visible:
 
 ## Data Location
 
-- Staging: `/Users/ted/Projects/Substrate_Finance_Planning/Evidence/Grocery_Receipt_Staging/ht_receipts_latest.json`
+- Staging: `/Volumes/Extra/Substrate/Commons/Substrate_Finance_Planning/Evidence/Grocery_Receipt_Staging/ht_receipts_latest.json`
 - Script: `grocery_receipt_fetcher.py` (in `~/.hermes/scripts/` and `~/.hermes/profiles/substrate-hermes/scripts/`)
 - Cookies: `/tmp/ht_cookies.json` (regenerate with `--login` if expired)

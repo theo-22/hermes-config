@@ -1,0 +1,39 @@
+Cronjob Response: substrate-morning-briefing
+(job_id: 531b6e8e5f51)
+-------------
+
+Period: 2026-09-22 19:00 → 2026-09-23 19:00 EDT · 374 cron reports (72 substantive) reviewed as one evidence packet.
+
+**Overall picture — YELLOW.** The system itself ran clean (0 project rooms needing action, no cron crashes beyond one watchdog, audit/feeds/dead-path surfaces quiet), but two things degraded the surfaces: the cost watchdog is the only erroring job and needs your login, and a 382-file false-positive alert flood hit `_AI_Inbox` at 18:42/18:56, tripling the inbox it feeds.
+
+**What needs Ted (3)**
+1. **Heal the cost watchdog line — it's the only erroring cron.** `ai-cost-staleness-watchdog` has exited 1 on every run since 09-22 22:36: the Anthropic browser-console read is `values_missing` and needs a signed-in `claude.ai/settings/usage` tab; three `dashboard_manual` entries are 34–77d stale (anthropic, deepseek, openrouter); spend sentinel sits at "watch" ($78 tracked / $83.59 bill-proof). *Why it matters:* your cost posture is the one surface running blind and it keeps the fleet pulse yellow. *Next step:* open that page in the cost-tabs Chrome and let `ai_cost_provider_refresh` re-pull — then tell me whether the 3 manual entries get refreshed or retired from the watchdog.
+2. **Approve cleanup of the 382-alert false positive (plus an anti-flood rule).** 382 `SYSTEM_ALERT__memory-file-disappeared-*` files + 382 canonical JSONs landed at 18:42/18:56, taking `_AI_Inbox` from 31 → 413 outstanding. Live check: **800/800 tracked memory files present, 0 missing** — no data loss; the memory dir and the `brain-ingest-memory` job were both rewritten at 18:57, so a transient dir operation during the memory rewrite is the likely trigger. *Why it matters:* every inbox/hygiene/alert surface now reads a mass deletion that didn't happen. *Next step:* one word — approve (a) closing the 382 as provably false, (b) one-alert-collapse + self-clear on mass events in `memory_integrity_watch.py` (detection-guard change, so it's your call per standing boundary).
+3. **#1892 — Role Runtime Digest #200 triage: 9 decisions on you.** Includes Ling-3.0 Oct-4 migration cost, KHR test-ping deletion policy, Kraken triangulation, MiMOUD regeneration Packet B, machine migration, audit doctrine keys. *Why it matters:* freshest concentrated batch; several actors' next moves are parked behind it. *Next step:* `_AI_Inbox/2026-09-23_role_runtime_digest_triage.md` — one pass to answer or delegate.
+
+**What will be handled next**
+- **Substrate-Hermes (me):** confirm what touched the memory dir at 18:56, close the 382 false alerts, send CC the watcher-hardening packet; look at `gemini-unified-master-digest-daily` failing intermittently on empty response (09-18, 09-21, 09-23 — fail-safe works, nothing pushed).
+- **claude_code:** #1891 apply 14 HIGH closure stamps + rule on #1311/#1298 (ninth-run consumption gap now has a packet); #1898 verify the weekly-health-check alert; #1900 DECISIONS.md refresh; #1901 CC MCP connector wiring; #1899 delete test ping.
+- **Audit:** #1765 clinical trust-store triggers (7d unpicked, 165h), #1848 audit doctrine keys two retired paths (needs design).
+- **Housekeeping:** 2 repos unpushed (Clinic 5, RR 14 commits); memory-index coverage 84% (5 unindexed).
+
+**What was handled automatically**
+- Doctrine claim check **repaired and verified**: launchd agent rewritten + live run 18:31 (37 docs / 457 claims) — #1890 acted.
+- #1874 (cost-watchdog path mismatch) and #1840 (weekly health alert) acted; follow-up items opened (#1898, #1900).
+- `flow-lane-tick`'s hourly `/api/inbox-work-items/classify` 400 on the weekly-health packet cleared itself at 08:46 after ~10 failed runs — clean since.
+- Inbox consumed-claim check: 145–146 of 150 clean; 3–4 suspect claude_code stamps flagged (claims files that don't exist).
+- Project rooms: 31 scanned, **0 need action**; drift-deltas +4/+6 new findings, all dispositioned broken refs.
+
+**Quiet or archived**
+- Clean by scheduled proof: icon-gallery PASS, feed_health 0 attention, audit-router 0 requests, apple-signal-scan, role-workspace access, knowledge-harvest, brain ingest health.
+- Most of the 34 "flagged" reports were the same signal repeating: ted-decision-digest 13×, flow-lane-tick 12×, cost watchdog 4× — counted once here.
+- Dead-path scan: 10 actionable refs across 6 docs (9 genuinely new); fleet shows 109 enabled jobs, 0 paused/disabled (74 no-agent, 20 free-tier ling, 7 deepseek-flash, 8 glm) — the 09-22 census row (83 no-agent / 13 free) is stale.
+
+**Evidence**
+- Digest: `/Volumes/Extra/Substrate/Operations/reports/SUBSTRATE_PERIODIC_DIGEST_LATEST.md`
+- Rooms: `.../Operations/reports/meta_agent_2026-09-23.md` · Inbox: `.../Operations/reports/Inbox_Outstanding_LATEST.md`
+- Alert flood: `/Volumes/Extra/Substrate/_AI_Inbox/SYSTEM_ALERT__memory-file-disappeared-*.md` (382), `.../Operations/alerts/open/` (391 JSONs), `.../Operations/state/memory_integrity_state.json`
+- Cron outputs: `~/.hermes/profiles/substrate-hermes/cron/output/{c73a09fae948,de27d0e81900,035d8dbbe132}/`
+- Work items: `/Users/ted/Control/backend/system.db` (#1765, #1792, #1848, #1890–#1901)
+
+To stop or manage this job, send me a new message (e.g. "stop reminder substrate-morning-briefing").

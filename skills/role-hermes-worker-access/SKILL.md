@@ -75,7 +75,7 @@ Do not expose generic `dispatch_worker` to a role unless the role is intentional
    - Write a receipt under `/Volumes/Extra/Substrate/Operations/reports/<Role_or_Domain>/`.
    - If another actor needs to verify, write a targeted `_AI_Inbox` handoff.
    - Archive or update the source inbox packet.
-   - Update CHANGES_LOG/session event only for durable runtime changes.
+   - Write one session event via `Operations/scripts/add_session_event.py` only for durable runtime changes (CHANGES_LOG.md is generated from session_events, never hand-appended).
 
 ## Fence Recipes
 

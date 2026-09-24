@@ -127,7 +127,7 @@ Use this mode only when Ted explicitly wants the current work turned into a chai
 
 The canonical procedure above is runtime-agnostic (generalized 2026-07-12 — it previously hardcoded Codex's startup). Only the session-start read differs by actor:
 
-- **Claude Code / Sonnet:** read `/Volumes/Extra/Substrate/Operations/SESSION_START.md`.
+- **Claude Code / Sonnet:** no startup file — auto-loads `CLAUDE.md` + memory only; `Operations/SESSION_START.md` is legacy Continuity journal (not a loader since 2026-09-23).
 - **Codex:** read `/Volumes/Extra/Substrate/Operations/CODEX_SESSION_START.md`.
 - **Other runtimes:** read that actor's own session-start; if none exists, run the universal `Canon/SESSION_SIDECAR.md` steps.
 

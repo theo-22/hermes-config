@@ -1,9 +1,13 @@
 {
-  "generated_at": "2026-09-24T15:20:32.553237+00:00",
+  "generated_at": "2026-09-24T19:20:09.427759+00:00",
   "files": {
     "2026-09-12_lane2_rec2_sidecar_reach_unscheduled.md": {
       "size": 2803,
       "mtime_ns": 1790161520565699711
+    },
+    "2026-09-24_coordinator_add-plan-limit-meters-to-the-ai-cost-refresh-ted-approved-2026-09-24.md": {
+      "size": 1823,
+      "mtime_ns": 1790265238185160479
     }
   }
 }

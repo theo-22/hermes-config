@@ -1,17 +1,9 @@
 {
-  "generated_at": "2026-09-24T11:20:10.466611+00:00",
+  "generated_at": "2026-09-24T15:20:32.553237+00:00",
   "files": {
     "2026-09-12_lane2_rec2_sidecar_reach_unscheduled.md": {
       "size": 2803,
       "mtime_ns": 1790161520565699711
-    },
-    "2026-09-24_go_hermes_retire_cocm_mcp_tools.md": {
-      "size": 1942,
-      "mtime_ns": 1790228024572712986
-    },
-    "2026-09-24_suggest_hermes_continuity_fossils.md": {
-      "size": 3476,
-      "mtime_ns": 1790242825554725667
     }
   }
 }

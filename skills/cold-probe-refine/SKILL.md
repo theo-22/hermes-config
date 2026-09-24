@@ -61,6 +61,8 @@ Never request private chain of thought. An inspectable evidence path is the proo
 
 Give the cold result, pre-registered rubric, and same source surface to a stronger independent reviewer. Compare semantic recovery, not exact wording or route identity.
 
+If the reviewer is a Claude Code subagent, name its model explicitly (`opus` or `fable`). Subagents default to Sonnet, which may be no stronger than the cold reader.
+
 Return one verdict:
 
 - `pass` — required meaning recovered without an unacceptable distortion;

@@ -17,7 +17,7 @@ Named and requested by Ted, 2026-07-27, after watching the pattern work live: "T
 ## When to use
 
 - A real, structurally significant chunk of work has landed — new durable state (database writes, edited canonical nodes, a committed plan), not just conversation.
-- The session has been running long enough that Sonnet may be defending earlier calls rather than re-examining them.
+- The session has been running long enough that the session's model may be defending earlier calls rather than re-examining them.
 - Before continuing to build further on top of what just landed, or before closing a session out.
 - Ted names the moment directly ("are we good, or should we get a second look"), or the shape matches without him naming it.
 
@@ -42,6 +42,8 @@ Look for the shape, don't wait to be told:
 ### 2. Package a bounded bundle — not the raw transcript
 
 Name the specific files, database queries, and claims the reviewer needs to check. Point at exact paths and give exact SQL/lookup commands so the reviewer verifies live state itself rather than trusting a description of it. A raw session transcript dump is not a package — it's a burden. The bundling is the hard part; do it carefully.
+
+Dispatch with the model named explicitly: `model: "opus"`. Subagents default to Sonnet (`CLAUDE_CODE_SUBAGENT_MODEL`, set 2026-09-24), so an unnamed dispatch silently gets a weaker reviewer. When the session itself ran on Opus and the stakes are high, use `model: "fable"` — stronger, and not the same model re-reading its own work.
 
 ### 3. Instruct the reviewer to find problems, not summarize
 

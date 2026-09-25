@@ -1,13 +1,17 @@
 {
-  "generated_at": "2026-09-25T07:20:09.532236+00:00",
+  "generated_at": "2026-09-25T11:20:09.814689+00:00",
   "files": {
     "2026-09-12_lane2_rec2_sidecar_reach_unscheduled.md": {
       "size": 2803,
       "mtime_ns": 1790161520565699711
     },
-    "2026-09-24_coordinator_add-plan-limit-meters-to-the-ai-cost-refresh-ted-approved-2026-09-24.md": {
-      "size": 1823,
-      "mtime_ns": 1790265238185160479
+    "2026-09-25_coordinator_ai-plan-meters-residual-gaps.md": {
+      "size": 2131,
+      "mtime_ns": 1790334283328916425
+    },
+    "2026-09-25_coordinator_autocommit-alert-root-cause-_archived.md": {
+      "size": 2829,
+      "mtime_ns": 1790334379077722198
     }
   }
 }

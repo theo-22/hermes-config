@@ -63,7 +63,7 @@ If gap-reason produces under-scope but doesn't match a known shape, you have fou
 
 ## Satisfying the artifact-side hook (durable writes)
 
-`check_scope_comparison_surface.py` blocks durable writes (Planning/, _shared/, Canon/, proposals, calibration, briefings, reports) until a valid surface exists. As of 2026-05-30 it reads a **turn-scoped window** (current + previous turn) **or** a **session sentinel** — so stating the surface once in a turn clears every later write that turn. **No "go"-dance:** do not insert filler replies between markers and writes. For a same-message first write with no prior surface that turn, either do the write as your next step (a later message — no user reply needed), or write the surface to `Operations/state/scope_surface_declared.md` first (clears it synchronously, even in one message). Mechanism detail: `_shared/Scope_Comparison_Protocol.md` § "Satisfying the artifact-side check".
+**Not active for Claude Code (2026-09-24):** `check_scope_comparison_surface.py` was unregistered and is retired to `Control/claude/hooks/_retired_2026-09-24/`; nothing enforces this at write time. Historical behaviour: it blocked durable writes (Planning/, _shared/, Canon/, proposals, calibration, briefings, reports) until a valid surface exists. As of 2026-05-30 it reads a **turn-scoped window** (current + previous turn) **or** a **session sentinel** — so stating the surface once in a turn clears every later write that turn. **No "go"-dance:** do not insert filler replies between markers and writes. For a same-message first write with no prior surface that turn, either do the write as your next step (a later message — no user reply needed), or write the surface to `Operations/state/scope_surface_declared.md` first (clears it synchronously, even in one message). Mechanism detail: `_shared/Scope_Comparison_Protocol.md` § "Satisfying the artifact-side check".
 
 ## The Dial
 
@@ -109,11 +109,11 @@ When Ted names a new scope-implying shape (in chat, temp.md, post-mortem):
 ## Connection Notes
 
 - `_shared/Scope_Comparison_Protocol.md` — foundational doctrine (the body this skill points at)
-- `~/.claude/hooks/userprompt_scope_size_recognition.py` — UserPromptSubmit hook that surfaces this skill via catalog match
-- `~/.claude/hooks/scope_recognition_phrases.txt` — trigger catalog
+- `~/.claude/hooks/userprompt_scope_size_recognition.py` — UserPromptSubmit hook that surfaced this skill via catalog match (retired 2026-09-24)
+- `~/.claude/hooks/scope_recognition_phrases.txt` — trigger catalog (retired 2026-09-24)
 - `Operations/Calibration_Scope_Size_Recognition.md` — calibration ledger (promotion gate ≥3 TP + ≤1 FP / 30d)
 - `~/.claude/projects/-Users-ted/memory/feedback_default_to_enough_and_room_to_grow.md` — the dial discipline
 - `~/.claude/projects/-Users-ted/memory/user_engage_at_capacity_not_protective.md` — objective-level recalibration framing
-- `~/.claude/hooks/stop_detect_curtailment_output.py` — downstream backstop (chat-output boundary)
-- `~/.claude/hooks/output_pattern_intercept.py` — downstream backstop (file-write boundary)
-- `CLAUDE.md` Anti-Curtailment Notice — binding doctrine
+- `~/.claude/hooks/stop_detect_curtailment_output.py` — downstream backstop (chat-output boundary; retired 2026-09-24)
+- `~/.claude/hooks/output_pattern_intercept.py` — downstream backstop (file-write boundary; retired 2026-09-24)
+- `CLAUDE.md` Anti-Curtailment Notice — removed from Claude's CLAUDE.md 2026-09-23
